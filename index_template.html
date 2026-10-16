@@ -410,21 +410,30 @@
       </div>
 
       <!-- ACTION BUTTONS -->
-      <div class="flex items-end gap-2">
-        <button onclick="printTransportSchedule()" class="flex-1 py-2 px-3 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold rounded-xl shadow-xs text-xs flex items-center justify-center gap-1.5 transition cursor-pointer">
+      <div class="flex items-end gap-1.5 flex-wrap">
+        <button onclick="printTransportSchedule()" class="flex-1 py-2 px-2.5 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold rounded-xl shadow-xs text-xs flex items-center justify-center gap-1 transition cursor-pointer" title="In phiếu tổng hợp">
           <span>🖨️</span>
-          <span>In Phiếu Điều Xe</span>
+          <span>In Phiếu</span>
         </button>
-        <button onclick="exportTransportCsv()" class="py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs flex items-center justify-center gap-1 transition cursor-pointer" title="Xuất file CSV danh sách VĐV">
+        <button onclick="exportTransportCsv()" class="py-2 px-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs flex items-center justify-center gap-1 transition cursor-pointer" title="Xuất file CSV danh sách VĐV">
           <span>📥</span>
           <span>CSV</span>
+        </button>
+        <button onclick="expandAllTrips()" class="py-2 px-2.5 bg-white hover:bg-indigo-50 border border-slate-200 text-indigo-700 font-bold rounded-xl text-xs flex items-center justify-center gap-1 transition cursor-pointer shadow-2xs" title="Mở rộng tất cả danh sách VĐV của các chuyến">
+          <span>▼ Mở hết</span>
+        </button>
+        <button onclick="collapseAllTrips()" class="py-2 px-2.5 bg-white hover:bg-slate-100 border border-slate-200 text-slate-600 font-bold rounded-xl text-xs flex items-center justify-center gap-1 transition cursor-pointer shadow-2xs" title="Thu gọn tất cả về dạng danh sách chuyến xe">
+          <span>▲ Thu gọn</span>
         </button>
       </div>
     </div>
   </div>
 
   <!-- STATS OVERVIEW CARDS -->
-  <div id="transport-stats-container" class="grid grid-cols-2 md:grid-cols-4 gap-3.5 mb-5"></div>
+  <div id="transport-stats-container" class="grid grid-cols-2 md:grid-cols-4 gap-3.5 mb-4"></div>
+
+  <!-- FLEET & PERSONNEL DISPATCH BANNER (FROM BTC DATA) -->
+  <div id="transport-fleet-personnel-container"></div>
 
   <!-- CROSS-TRANSFER ALERT BANNER (IF ANY) -->
   <div id="transport-cross-alert-container"></div>
@@ -2704,20 +2713,149 @@ function calculatePickupTime(timeStr, minsBefore) {
   return `${String(rh).padStart(2, '0')}:${String(rm).padStart(2, '0')}`;
 }
 
-// Suggest vehicle combination based on headcount
-function suggestVehicles(headCount) {
+// ================================================================
+// FLEET CONFIGURATION & PERSONNEL DISPATCH (THEO DỮ LIỆU BAN TỔ CHỨC)
+// ================================================================
+function getFleetInfoForSession(day, timeStr = '12:00') {
+  if (day === '2026-10-27') {
+    return {
+      sessionKey: '2026-10-27_PM',
+      label: 'Chiều 27/10/2026',
+      fleetSummary: '15 xe 7 chỗ, 1 xe 16 chỗ, 2 xe 29 chỗ',
+      fleetShort: '15 xe 7 · 1 xe 16 · 2 xe 29 chỗ',
+      has29: true,
+      has45: false,
+      max29: 2,
+      max16: 1,
+      max7: 15,
+      totalCapacity: 179,
+      staff: {
+        ks: 'Mr. Tiệp + Ms. Thu Trang & Ms. Dương',
+        teddy: 'Nhung & Quốc Anh',
+        ntd: 'Giang & Phương'
+      },
+      note: 'Ưu tiên VĐV đi trước, CĐV đi sau nếu có xe'
+    };
+  } else if (day === '2026-10-28') {
+    const isMorning = timeStr < '12:00';
+    if (isMorning) {
+      return {
+        sessionKey: '2026-10-28_AM',
+        label: 'Sáng 28/10/2026 (Fun Run Tràng An)',
+        fleetSummary: '8 xe 45 chỗ, 2 xe 16 chỗ, 26 xe 7 chỗ',
+        fleetShort: '8 xe 45 · 2 xe 16 · 26 xe 7 chỗ',
+        has29: false,
+        has45: true,
+        max45: 8,
+        max16: 2,
+        max7: 26,
+        totalCapacity: 450,
+        staff: {
+          ks: 'Tập trung tại Sân Golf Tràng An',
+          teddy: '---',
+          ntd: '---',
+          golf: 'Mr. Tiệp, Thu Trang, Dương, Giang, Phương, Nhung, Quốc Anh'
+        },
+        note: '450 người (Sân Golf Tràng An)'
+      };
+    } else {
+      return {
+        sessionKey: '2026-10-28_PM',
+        label: 'Chiều 28/10/2026 (Bán kết Bóng đá)',
+        fleetSummary: '15 xe 7 chỗ, 1 xe 16 chỗ',
+        fleetShort: '15 xe 7 chỗ · 1 xe 16 chỗ',
+        has29: false,
+        has45: false,
+        max29: 0,
+        max16: 1,
+        max7: 15,
+        totalCapacity: 121,
+        staff: {
+          ks: 'Mr. Tiệp + Ms. Thu Trang & Ms. Dương',
+          teddy: 'Giang & Hải',
+          ntd: 'Nhung & Quốc Anh'
+        },
+        note: 'Ưu tiên VĐV đi trước, CĐV đi sau nếu có xe'
+      };
+    }
+  } else {
+    // 2026-10-29
+    return {
+      sessionKey: '2026-10-29_AM',
+      label: 'Sáng 29/10/2026 (Chung kết các môn)',
+      fleetSummary: '15 xe 7 chỗ, 1 xe 16 chỗ',
+      fleetShort: '15 xe 7 chỗ · 1 xe 16 chỗ',
+      has29: false,
+      has45: false,
+      max29: 0,
+      max16: 1,
+      max7: 15,
+      totalCapacity: 121,
+      staff: {
+        ks: 'Mr. Tiệp + Ms. Thu Trang & Ms. Dương',
+        teddy: 'Giang & Phương',
+        ntd: 'Nhung & Quốc Anh'
+      },
+      note: 'Ưu tiên VĐV đi trước, CĐV đi sau nếu có xe'
+    };
+  }
+}
+
+// Suggest vehicle combination strictly based on the BTC fleet in Image 1
+function suggestVehicles(headCount, day, timeStr = '12:00') {
   if (headCount <= 0) return 'Không cần xe';
+  const fleetInfo = getFleetInfoForSession(day || currentTransportDay, timeStr);
+
+  // Case A: Chiều 27/10 (2 xe 29 chỗ, 1 xe 16 chỗ, 15 xe 7 chỗ)
+  if (fleetInfo.has29) {
+    if (headCount <= 7) return '01 xe 7 chỗ';
+    if (headCount <= 14) return '02 xe 7 chỗ';
+    if (headCount <= 16) return '01 xe 16 chỗ';
+    if (headCount <= 29) return '01 xe 29 chỗ';
+    if (headCount <= 36) return '01 xe 29 chỗ + 01 xe 7 chỗ';
+    if (headCount <= 45) return '01 xe 29 chỗ + 01 xe 16 chỗ';
+    if (headCount <= 58) return '02 xe 29 chỗ';
+    if (headCount <= 65) return '02 xe 29 chỗ + 01 xe 7 chỗ';
+    if (headCount <= 74) return '02 xe 29 chỗ + 01 xe 16 chỗ';
+    const rem = headCount - 74;
+    const xe7 = Math.ceil(rem / 7);
+    return `02 xe 29 chỗ + 01 xe 16 chỗ + ${String(xe7).padStart(2, '0')} xe 7 chỗ`;
+  }
+
+  // Case B: Chiều 28/10 & Sáng 29/10 (1 xe 16 chỗ, 15 xe 7 chỗ)
+  if (!fleetInfo.has29 && !fleetInfo.has45) {
+    if (headCount <= 7) return '01 xe 7 chỗ';
+    if (headCount <= 14) return '02 xe 7 chỗ';
+    if (headCount <= 16) return '01 xe 16 chỗ';
+    if (headCount <= 23) return '01 xe 16 chỗ + 01 xe 7 chỗ';
+    if (headCount <= 30) return '01 xe 16 chỗ + 02 xe 7 chỗ';
+    if (headCount <= 37) return '01 xe 16 chỗ + 03 xe 7 chỗ';
+    if (headCount <= 44) return '01 xe 16 chỗ + 04 xe 7 chỗ';
+    const rem = headCount - 16;
+    const xe7 = Math.ceil(rem / 7);
+    if (xe7 <= 15) {
+      return `01 xe 16 chỗ + ${String(xe7).padStart(2, '0')} xe 7 chỗ`;
+    } else {
+      return `01 xe 16 chỗ + 15 xe 7 chỗ (quay vòng 2 lượt)`;
+    }
+  }
+
+  // Case C: Fun Run Sáng 28/10 (8 xe 45, 2 xe 16, 26 xe 7)
+  if (fleetInfo.has45) {
+    if (headCount <= 7) return '01 xe 7 chỗ';
+    if (headCount <= 16) return '01 xe 16 chỗ';
+    if (headCount <= 45) return '01 xe 45 chỗ';
+    const xe45 = Math.floor(headCount / 45);
+    const rem = headCount % 45;
+    if (rem === 0) return `${xe45} xe 45 chỗ`;
+    if (rem <= 7) return `${xe45} xe 45 chỗ + 01 xe 7 chỗ`;
+    if (rem <= 16) return `${xe45} xe 45 chỗ + 01 xe 16 chỗ`;
+    return `${xe45 + 1} xe 45 chỗ`;
+  }
+
   if (headCount <= 7) return '01 xe 7 chỗ';
   if (headCount <= 16) return '01 xe 16 chỗ';
-  if (headCount <= 29) return '01 xe 29 chỗ';
-  if (headCount <= 45) return '01 xe 45 chỗ';
-  
-  const xe45 = Math.floor(headCount / 45);
-  const rem = headCount % 45;
-  if (rem === 0) return `${xe45} xe 45 chỗ`;
-  if (rem <= 16) return `${xe45} xe 45 chỗ + 01 xe 16 chỗ`;
-  if (rem <= 29) return `${xe45} xe 45 chỗ + 01 xe 29 chỗ`;
-  return `${xe45 + 1} xe 45 chỗ`;
+  return '01 xe 29 chỗ';
 }
 
 // Core computation: Calculate all movements on current day
@@ -2884,10 +3022,10 @@ function renderTransportTab() {
     );
   }
 
-  // 3. Render 4 KPI stat cards
+  // 3. Render 4 KPI stat cards with Fleet info
   const crossMovements = filtered.filter(m => m.isCross);
   const distinctDonVi = new Set(filtered.map(m => m.donVi)).size;
-  const suggestedVehicle = suggestVehicles(filtered.length);
+  const currentFleetInfo = getFleetInfoForSession(day);
 
   const statsHtml = `
     <!-- CARD 1: TỔNG SỐ VĐV CẦN XE -->
@@ -2915,14 +3053,17 @@ function renderTransportTab() {
       </div>
     </div>
 
-    <!-- CARD 3: GỢI Ý BỐ TRÍ XE -->
+    <!-- CARD 3: ĐỘI XE THỰC TẾ (THEO PHƯƠNG ÁN BTC) -->
     <div class="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-xs flex items-center gap-3">
       <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl flex-shrink-0 font-black">
         🚌
       </div>
-      <div class="truncate">
-        <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Gợi ý bố trí xe</span>
-        <strong class="text-xs font-extrabold text-emerald-700 block leading-snug truncate" title="${escHtml(suggestedVehicle)}">${escHtml(suggestedVehicle)}</strong>
+      <div class="min-w-0 flex-1">
+        <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Đội xe phục vụ</span>
+        <strong class="text-xs font-black text-emerald-800 block leading-tight truncate" title="${escHtml(currentFleetInfo.fleetSummary)}">
+          ${escHtml(currentFleetInfo.fleetShort)}
+        </strong>
+        <span class="text-[10px] text-slate-500 block truncate mt-0.5">Sức chứa: ~${currentFleetInfo.totalCapacity} chỗ</span>
       </div>
     </div>
 
@@ -2938,6 +3079,41 @@ function renderTransportTab() {
     </div>
   `;
   document.getElementById('transport-stats-container').innerHTML = statsHtml;
+
+  // Render Personnel & Fleet Dispatch info banner (Image 1)
+  const fleetBannerContainer = document.getElementById('transport-fleet-personnel-container');
+  if (fleetBannerContainer) {
+    fleetBannerContainer.innerHTML = `
+      <div class="mb-4 bg-white rounded-2xl p-3.5 sm:p-4 border border-slate-200 shadow-2xs space-y-2.5">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="w-7 h-7 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold text-xs">📋</span>
+            <strong class="text-slate-900 text-xs uppercase tracking-wider font-extrabold">Phương án Điều xe & Cán bộ Trực điểm (${escHtml(currentFleetInfo.label)})</strong>
+          </div>
+          <span class="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
+            Đội xe trực: ${escHtml(currentFleetInfo.fleetSummary)}
+          </span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+          <div class="p-2.5 rounded-xl bg-slate-50/90 border border-slate-200">
+            <span class="text-[10px] uppercase font-bold text-slate-400 block">🏨 Trực tại KS Ninh Bình:</span>
+            <strong class="text-slate-800 block mt-0.5 font-bold">${escHtml(currentFleetInfo.staff.ks || '---')}</strong>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-50/90 border border-slate-200">
+            <span class="text-[10px] uppercase font-bold text-slate-400 block">⚽ Trực tại Sân Teddy (cách KS 3km):</span>
+            <strong class="text-slate-800 block mt-0.5 font-bold">${escHtml(currentFleetInfo.staff.teddy || '---')}</strong>
+          </div>
+          <div class="p-2.5 rounded-xl bg-slate-50/90 border border-slate-200">
+            <span class="text-[10px] uppercase font-bold text-slate-400 block">🏟️ Trực tại Nhà Thi Đấu (cách KS 2.6km):</span>
+            <strong class="text-slate-800 block mt-0.5 font-bold">${escHtml(currentFleetInfo.staff.ntd || '---')}</strong>
+          </div>
+        </div>
+        <div class="text-[11px] text-slate-600 flex items-center gap-1.5 pt-0.5">
+          <span class="text-amber-500 font-bold">📌 Lưu ý vận hành:</span>
+          <span><strong>${escHtml(currentFleetInfo.note)}</strong>. Các xe 7, 16, 29 chỗ chạy con thoi quay vòng linh hoạt giữa các điểm đón.</span>
+        </div>
+      </div>`;
+  }
 
   // 4. Render Cross-Transfer Alert Banner
   const crossAlertContainer = document.getElementById('transport-cross-alert-container');
@@ -3046,19 +3222,21 @@ function renderTransportTab() {
       icon = '🛬';
     }
 
-    const tripVehicles = suggestVehicles(trip.passengers.length);
+    const tripVehicles = suggestVehicles(trip.passengers.length, day, trip.departTime);
     const tripTitle = `${trip.fromLoc} ➔ ${trip.toLoc}`;
+    const tripJsonSafe = JSON.stringify(trip).replace(/'/g, "&#39;");
 
     return `
-      <div class="bg-white rounded-2xl border ${cardBorder} shadow-xs overflow-hidden transition hover:border-indigo-300">
-        <!-- TRIP HEADER -->
-        <div class="p-3.5 sm:p-4 bg-slate-50/80 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2.5">
+      <div class="bg-white rounded-2xl border ${cardBorder} shadow-xs overflow-hidden transition hover:border-indigo-300" id="trip-card-${tIdx}">
+        <!-- TRIP HEADER: Click to toggle accordion -->
+        <div class="p-3.5 sm:p-4 bg-slate-50/90 hover:bg-slate-100/90 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2.5 transition cursor-pointer select-none"
+             onclick="toggleTripPassengers('${tIdx}')">
           <div class="flex items-center gap-2.5">
-            <span class="w-9 h-9 rounded-xl ${isCross ? 'bg-amber-500 text-white' : 'bg-white border border-slate-200 text-slate-700'} flex items-center justify-center font-black text-base shadow-2xs">
+            <span class="w-9 h-9 rounded-xl ${isCross ? 'bg-amber-500 text-white' : 'bg-white border border-slate-200 text-slate-700'} flex items-center justify-center font-black text-base shadow-2xs flex-shrink-0">
               ${icon}
             </span>
             <div>
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2 flex-wrap">
                 <span class="font-mono font-black text-xs px-2 py-0.5 rounded ${routeBadgeColor} border">CHUYẾN #${tIdx+1}</span>
                 <strong class="text-slate-900 font-extrabold text-sm sm:text-base">${escHtml(tripTitle)}</strong>
               </div>
@@ -3069,25 +3247,33 @@ function renderTransportTab() {
             </div>
           </div>
 
-          <div class="flex items-center gap-2 flex-shrink-0">
+          <div class="flex items-center gap-2 flex-shrink-0 ml-auto sm:ml-0">
             <div class="text-right">
               <span class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-black block">
                 👥 ${trip.passengers.length} VĐV
               </span>
-              <span class="text-[10px] text-slate-500 font-medium block mt-0.5">
-                ${tripVehicles}
+              <span class="text-[11px] text-slate-700 font-bold block mt-0.5">
+                🚍 ${tripVehicles}
               </span>
             </div>
-            <button onclick='printSingleTrip(${JSON.stringify(trip).replace(/'/g,"&#39;")})' 
-              class="p-2 rounded-xl bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 shadow-2xs text-xs font-bold flex items-center gap-1 transition cursor-pointer" title="In phiếu riêng cho chuyến này">
+            
+            <!-- PRINT BUTTON (stopPropagation so click does not toggle collapse) -->
+            <button onclick='event.stopPropagation(); printSingleTrip(${tripJsonSafe})' 
+              class="p-2 px-2.5 rounded-xl bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 shadow-2xs text-xs font-bold flex items-center gap-1 transition cursor-pointer" title="In phiếu riêng cho chuyến này">
               <span>🖨️</span>
               <span class="hidden sm:inline">In phiếu</span>
             </button>
+
+            <!-- ACCORDION CHEVRON / TOGGLE BUTTON -->
+            <div class="flex items-center gap-1 p-2 px-2.5 rounded-xl bg-white border border-slate-200 text-indigo-700 font-extrabold text-xs shadow-2xs hover:bg-indigo-50 transition cursor-pointer">
+              <span id="trip-label-${tIdx}" class="hidden sm:inline">Chi tiết</span>
+              <span id="trip-chevron-${tIdx}">▼</span>
+            </div>
           </div>
         </div>
 
-        <!-- PASSENGERS TABLE -->
-        <div class="overflow-x-auto">
+        <!-- PASSENGERS TABLE (COLLAPSED / HIDDEN BY DEFAULT) -->
+        <div id="trip-passengers-${tIdx}" class="hidden overflow-x-auto bg-white border-t border-slate-100">
           <table class="w-full text-xs text-left">
             <thead class="bg-slate-100/70 text-slate-600 font-bold uppercase text-[10px] tracking-wider border-b border-slate-200">
               <tr>
@@ -3138,9 +3324,40 @@ function renderTransportTab() {
 }
 
 // Print specific trip voucher
+
+// Accordion Toggle for Trip Passengers
+function toggleTripPassengers(tIdx) {
+  const container = document.getElementById(`trip-passengers-${tIdx}`);
+  const chevron = document.getElementById(`trip-chevron-${tIdx}`);
+  const label = document.getElementById(`trip-label-${tIdx}`);
+  if (!container) return;
+  const isHidden = container.classList.contains('hidden');
+  if (isHidden) {
+    container.classList.remove('hidden');
+    if (chevron) chevron.textContent = '▲';
+    if (label) label.textContent = 'Thu gọn';
+  } else {
+    container.classList.add('hidden');
+    if (chevron) chevron.textContent = '▼';
+    if (label) label.textContent = 'Chi tiết';
+  }
+}
+
+function expandAllTrips() {
+  document.querySelectorAll('[id^="trip-passengers-"]').forEach(el => el.classList.remove('hidden'));
+  document.querySelectorAll('[id^="trip-chevron-"]').forEach(el => el.textContent = '▲');
+  document.querySelectorAll('[id^="trip-label-"]').forEach(el => el.textContent = 'Thu gọn');
+}
+
+function collapseAllTrips() {
+  document.querySelectorAll('[id^="trip-passengers-"]').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll('[id^="trip-chevron-"]').forEach(el => el.textContent = '▼');
+  document.querySelectorAll('[id^="trip-label-"]').forEach(el => el.textContent = 'Chi tiết');
+}
+
 function printSingleTrip(trip) {
   const printWindow = window.open('', '_blank');
-  const tripVehicles = suggestVehicles(trip.passengers.length);
+  const tripVehicles = suggestVehicles(trip.passengers.length, currentTransportDay, trip.departTime);
   
   const html = `
     <!DOCTYPE html>

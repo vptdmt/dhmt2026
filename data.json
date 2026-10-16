@@ -1853,7 +1853,7 @@
     },
     {
       "stt": 152,
-      "donVi": "Mường Thanh Grand Hoàng Mai",
+      "donVi": "Siêu thị Mường Thanh Phủ Diễn",
       "hoVaTen": "Ngô Tuấn Anh",
       "gioiTinh": "Nam",
       "monThi": [
@@ -5463,8 +5463,8 @@
       ]
     },
     {
-      "code": "BB.M.06_HMA (Tuấn Anh)",
-      "sub": "HMA (Tuấn Anh)",
+      "code": "BB.M.06_PDI (Tuấn Anh)",
+      "sub": "PDI (Tuấn Anh)",
       "bracketNames": [
         "tuấn anh"
       ],
@@ -5474,7 +5474,7 @@
       "athletes": [
         {
           "hoVaTen": "Ngô Tuấn Anh",
-          "donVi": "Siêu Thị Mường Thanh Hoàng Mai",
+          "donVi": "Siêu thị Mường Thanh Phủ Diễn",
           "chucDanh": "Giám đốc điều hành"
         }
       ]
@@ -10801,9 +10801,9 @@
             },
             {
               "id": "B2",
-              "code": "HMA",
+              "code": "PDI",
               "name": "Ngô Tuấn Anh",
-              "sub": "MT Hà Nam"
+              "sub": "ST MT Phủ Diễn"
             },
             {
               "id": "B3",
@@ -10821,7 +10821,7 @@
           "matches": [
             {
               "id": "BB.M.B1-B2",
-              "name": "PO1 vs HMA (Tuấn Anh)",
+              "name": "PO1 vs PDI (Tuấn Anh)",
               "team1": "B1",
               "team2": "B2",
               "time": "14:00 27/10",
@@ -10845,7 +10845,7 @@
             },
             {
               "id": "BB.M.B2-B4",
-              "name": "HMA (Tuấn Anh) vs ĐNA (Hoàng)",
+              "name": "PDI (Tuấn Anh) vs ĐNA (Hoàng)",
               "team1": "B2",
               "team2": "B4",
               "time": "15:00 27/10",
@@ -10861,7 +10861,7 @@
             },
             {
               "id": "BB.M.B2-B3",
-              "name": "HMA (Tuấn Anh) vs BNI (Toàn)",
+              "name": "PDI (Tuấn Anh) vs BNI (Toàn)",
               "team1": "B2",
               "team2": "B3",
               "time": "15:00 27/10",
@@ -12260,9 +12260,9 @@
       "mon": "Bóng bàn đơn Nam",
       "maMon": "BB.M",
       "hoVaTen": "Ngô Tuấn Anh",
-      "donVi": "Siêu Thị Mường Thanh Hoàng Mai",
+      "donVi": "Siêu thị Mường Thanh Phủ Diễn",
       "chucDanh": "Giám đốc điều hành",
-      "maDoi": "BB.M.06_HMA (Tuấn Anh)"
+      "maDoi": "BB.M.06_PDI (Tuấn Anh)"
     },
     {
       "mon": "Bóng bàn đơn Nam",
@@ -15603,7 +15603,7 @@
       "sanGoc": "Bàn 1",
       "khuVuc": "Nhà thi đấu Ninh Bình",
       "cumDiaDiem": "Nhà thi đấu Ninh Bình",
-      "noiDung": "BB.M.B1-B2 / PO1_HMA (Tuấn Anh)"
+      "noiDung": "BB.M.B1-B2 / PO1_PDI (Tuấn Anh)"
     },
     {
       "ngay": "2026-10-27",
@@ -15811,7 +15811,7 @@
       "sanGoc": "Bàn 2",
       "khuVuc": "Nhà thi đấu Ninh Bình",
       "cumDiaDiem": "Nhà thi đấu Ninh Bình",
-      "noiDung": "BB.M.B2-B4 / HMA (Tuấn Anh)_ĐNA (Hoàng)"
+      "noiDung": "BB.M.B2-B4 / PDI (Tuấn Anh)_ĐNA (Hoàng)"
     },
     {
       "ngay": "2026-10-27",
@@ -15993,7 +15993,7 @@
       "sanGoc": "Bàn 2",
       "khuVuc": "Nhà thi đấu Ninh Bình",
       "cumDiaDiem": "Nhà thi đấu Ninh Bình",
-      "noiDung": "BB.M.B2-B3 / HMA (Tuấn Anh)_BNI (Toàn)"
+      "noiDung": "BB.M.B2-B3 / PDI (Tuấn Anh)_BNI (Toàn)"
     },
     {
       "ngay": "2026-10-27",

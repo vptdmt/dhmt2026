@@ -1263,17 +1263,17 @@ tournaments = [
                 'name': 'Bảng B',
                 'teams': [
                     {'id': 'B1', 'code': 'PO1', 'name': 'Thắng PO1 (Hùng / Phú)', 'isFromPO': True, 'poId': 'BB.M.PO1'},
-                    {'id': 'B2', 'code': 'HMA', 'name': 'Ngô Tuấn Anh', 'sub': 'MT Hà Nam'},
+                    {'id': 'B2', 'code': 'PDI', 'name': 'Ngô Tuấn Anh', 'sub': 'ST MT Phủ Diễn'},
                     {'id': 'B3', 'code': 'BNI', 'name': 'Trịnh Quang Toàn', 'sub': 'MT Bắc Ninh'},
                     {'id': 'B4', 'code': 'ĐNA', 'name': 'Nguyễn Lương Hoàng', 'sub': 'MT Đà Nẵng'}
                 ],
                 'matches': [
-                    {'id': 'BB.M.B1-B2', 'name': 'PO1 vs HMA (Tuấn Anh)', 'team1': 'B1', 'team2': 'B2', 'time': '14:00 27/10', 'venue': 'BB.Bàn 01'},
+                    {'id': 'BB.M.B1-B2', 'name': 'PO1 vs PDI (Tuấn Anh)', 'team1': 'B1', 'team2': 'B2', 'time': '14:00 27/10', 'venue': 'BB.Bàn 01'},
                     {'id': 'BB.M.B3-B4', 'name': 'BNI (Toàn) vs ĐNA (Hoàng)', 'team1': 'B3', 'team2': 'B4', 'time': '14:00 27/10', 'venue': 'BB.Bàn 02'},
                     {'id': 'BB.M.B1-B3', 'name': 'PO1 vs BNI (Toàn)', 'team1': 'B1', 'team2': 'B3', 'time': '15:00 27/10', 'venue': 'BB.Bàn 01'},
-                    {'id': 'BB.M.B2-B4', 'name': 'HMA (Tuấn Anh) vs ĐNA (Hoàng)', 'team1': 'B2', 'team2': 'B4', 'time': '15:00 27/10', 'venue': 'BB.Bàn 02'},
+                    {'id': 'BB.M.B2-B4', 'name': 'PDI (Tuấn Anh) vs ĐNA (Hoàng)', 'team1': 'B2', 'team2': 'B4', 'time': '15:00 27/10', 'venue': 'BB.Bàn 02'},
                     {'id': 'BB.M.B1-B4', 'name': 'PO1 vs ĐNA (Hoàng)', 'team1': 'B1', 'team2': 'B4', 'time': '15:00 27/10', 'venue': 'BB.Bàn 01'},
-                    {'id': 'BB.M.B2-B3', 'name': 'HMA (Tuấn Anh) vs BNI (Toàn)', 'team1': 'B2', 'team2': 'B3', 'time': '15:00 27/10', 'venue': 'BB.Bàn 02'}
+                    {'id': 'BB.M.B2-B3', 'name': 'PDI (Tuấn Anh) vs BNI (Toàn)', 'team1': 'B2', 'team2': 'B3', 'time': '15:00 27/10', 'venue': 'BB.Bàn 02'}
                 ]
             }
         ],

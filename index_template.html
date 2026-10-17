@@ -177,6 +177,10 @@
             <div class="text-[10px] uppercase tracking-wider text-slate-300 font-semibold">Đơn vị</div>
             <div class="font-bold gold-text text-sm sm:text-base" id="hdr-donvi">56</div>
           </div>
+          <div class="bg-white/10 px-2.5 py-1.5 rounded-lg text-center backdrop-blur border border-emerald-400/30 cursor-pointer" onclick="switchTab('runners')" title="Nhấn xem 434 VĐV Giải chạy Fun Run">
+            <div class="text-[10px] uppercase tracking-wider text-emerald-300 font-semibold flex items-center justify-center gap-1"><span>🏃</span><span>Fun Run</span></div>
+            <div class="font-bold text-emerald-400 text-sm sm:text-base">434</div>
+          </div>
         </div>
 
         <!-- CLOUD REALTIME SYNC BADGE -->
@@ -202,6 +206,7 @@
       <button class="tab-btn active px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="agenda" onclick="switchTab('agenda',this)">📅 Agenda</button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="schedule" onclick="switchTab('schedule',this)">🏆 Lịch thi đấu</button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="athletes" onclick="switchTab('athletes',this)">👤 Vận động viên</button>
+      <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg flex items-center gap-1.5" data-tab="runners" onclick="switchTab('runners',this)"><span>🏃</span><span>VĐV Chạy</span><span class="px-1.5 py-0.2 rounded-full bg-emerald-400 text-slate-900 text-[10px] font-black shadow-xs">434</span></button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="venues" onclick="switchTab('venues',this)">📍 Địa điểm & Sân/Bàn</button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg flex items-center gap-1.5" data-tab="transport" onclick="switchTab('transport',this)"><span>🚌</span><span>Lịch di chuyển</span><span class="px-1.5 py-0.2 rounded-full bg-amber-400 text-slate-900 text-[10px] font-black">Mới</span></button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="results" onclick="switchTab('results',this)">🥇 Kết quả thi đấu</button>
@@ -321,6 +326,217 @@
       <tbody id="athletes-tbody"></tbody>
     </table>
     <div id="athletes-count" class="px-4 py-2.5 bg-slate-50 text-xs text-slate-500 border-t border-slate-200 font-medium"></div>
+  </div>
+</div>
+
+<!-- ======================== TAB: RUNNERS (VẬN ĐỘNG VIÊN GIẢI CHẠY FUN RUN) ======================== -->
+<div id="tab-runners" class="tab-content hidden slide-in">
+  <!-- FUN RUN HERO BANNER -->
+  <div class="rounded-2xl p-5 mb-5 text-white shadow-lg relative overflow-hidden" style="background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #0f172a 100%);">
+    <div class="relative z-10">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-400 text-slate-900 font-black text-xs uppercase tracking-wider">Đại hội Mường Thanh 2026</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-bold text-xs">Sáng 28/10/2026</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-black tracking-tight flex items-center gap-2">
+            <span>🏃 GIẢI CHẠY MƯỜNG THANH FUN RUN 2026</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-emerald-100 mt-1 max-w-3xl leading-relaxed">
+            📍 <strong>Tràng An Golf & Resort</strong> (Hồ Đồng Chương - 5 km/vòng) · Quy mô: <strong>434 Vận động viên</strong> tranh tài tại 3 cự ly (5km, 10km, 15km) · Khởi hành <strong>05:00</strong> từ KS Mường Thanh Ninh Bình (32 km).
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="switchRunnersSubView('list')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-white text-slate-900 shadow-sm" data-sub="list">📋 Danh sách VĐV</button>
+          <button onclick="switchRunnersSubView('fleet')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-white/15 text-white hover:bg-white/25" data-sub="fleet">🚌 Xếp xe (26 Xe)</button>
+          <button onclick="switchRunnersSubView('route')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-white/15 text-white hover:bg-white/25" data-sub="route">🗺️ Cung đường & 9 Trạm</button>
+          <button onclick="switchRunnersSubView('timeline')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-white/15 text-white hover:bg-white/25" data-sub="timeline">⏱️ Lịch trình (17 Mốc)</button>
+          <button onclick="switchRunnersSubView('btc')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-white/15 text-white hover:bg-white/25" data-sub="btc">👥 Ban Tổ Chức (39)</button>
+        </div>
+      </div>
+
+      <!-- 4 KPI CARDS -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 pt-4 border-t border-white/15">
+        <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('all')">
+          <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Tổng số VĐV Chạy</span>
+          <strong class="text-xl sm:text-2xl font-black text-white block mt-0.5">434 <span class="text-xs font-normal text-emerald-200">người</span></strong>
+          <span class="text-[11px] text-emerald-200/80 block mt-0.5">Toàn tập đoàn & đơn vị</span>
+        </div>
+        <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('5km')">
+          <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 5km (1 vòng)</span>
+          <strong class="text-xl sm:text-2xl font-black text-amber-300 block mt-0.5">380 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
+          <span class="text-[11px] text-emerald-200/80 block mt-0.5">174 Nam · 206 Nữ</span>
+        </div>
+        <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('10km')">
+          <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 10km (2 vòng)</span>
+          <strong class="text-xl sm:text-2xl font-black text-orange-300 block mt-0.5">32 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
+          <span class="text-[11px] text-emerald-200/80 block mt-0.5">24 Nam · 8 Nữ · 1 vòng tay</span>
+        </div>
+        <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('15km')">
+          <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 15km (3 vòng)</span>
+          <strong class="text-xl sm:text-2xl font-black text-indigo-300 block mt-0.5">22 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
+          <span class="text-[11px] text-emerald-200/80 block mt-0.5">15 Nam · 7 Nữ · 2 vòng tay</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUB-VIEW 1: DANH SÁCH VĐV CHẠY (MẶC ĐỊNH) -->
+  <div id="runners-view-list" class="runners-subview space-y-4">
+    <!-- FILTERS BAR -->
+    <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200/80 space-y-3 no-print">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div class="flex-1 min-w-[240px]">
+          <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">🔍</span>
+            <input type="text" id="runner-search" oninput="renderRunnersList()" placeholder="Tìm theo tên VĐV, số BIB, đơn vị, chức danh, SĐT..." class="w-full pl-9 pr-4 py-2 text-xs border border-slate-200 rounded-xl bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-400">
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- CỰ LY -->
+          <select id="runner-filter-dist" onchange="renderRunnersList()" class="px-3 py-2 text-xs border border-slate-200 rounded-xl bg-slate-50 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-400">
+            <option value="all">-- Tất cả cự ly --</option>
+            <option value="5km">5km (380 VĐV)</option>
+            <option value="10km">10km (32 VĐV)</option>
+            <option value="15km">15km (22 VĐV)</option>
+          </select>
+
+          <!-- NHÓM NỘI DUNG -->
+          <select id="runner-filter-cat" onchange="renderRunnersList()" class="px-3 py-2 text-xs border border-slate-200 rounded-xl bg-slate-50 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 max-w-[220px]">
+            <option value="all">-- Tất cả nhóm giải --</option>
+            <option value="5km Nam dưới 35 tuổi">5km Nam dưới 35 tuổi (82)</option>
+            <option value="5km Nam trên 35 tuổi">5km Nam trên 35 tuổi (92)</option>
+            <option value="5km Nữ dưới 35 tuổi">5km Nữ dưới 35 tuổi (102)</option>
+            <option value="5km Nữ trên 35 tuổi">5km Nữ trên 35 tuổi (104)</option>
+            <option value="10km Nam">10km Nam (24)</option>
+            <option value="10km Nữ">10km Nữ (8)</option>
+            <option value="15km Nam">15km Nam (15)</option>
+            <option value="15km Nữ">15km Nữ (7)</option>
+          </select>
+
+          <!-- ĐƠN VỊ -->
+          <select id="runner-filter-unit" onchange="renderRunnersList()" class="px-3 py-2 text-xs border border-slate-200 rounded-xl bg-slate-50 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 max-w-[200px]">
+            <option value="all">-- Tất cả đơn vị --</option>
+          </select>
+
+          <!-- XE SỐ -->
+          <select id="runner-filter-vehicle" onchange="renderRunnersList()" class="px-3 py-2 text-xs border border-slate-200 rounded-xl bg-slate-50 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 max-w-[180px]">
+            <option value="all">-- Tất cả xe --</option>
+          </select>
+
+          <button onclick="window.print()" class="px-3.5 py-2 bg-slate-800 text-white rounded-xl text-xs font-bold hover:bg-slate-900 transition flex items-center gap-1.5 shadow-xs">
+            <span>🖨️</span><span>In danh sách</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- QUICK STATS PILLS -->
+      <div class="flex flex-wrap items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-100">
+        <div id="runner-count-badge" class="font-bold text-slate-700">Đang hiển thị: 434 VĐV</div>
+        <div class="flex items-center gap-2 text-[11px]">
+          <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>5km Nam</span>
+          <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-pink-500"></span>5km Nữ</span>
+          <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span>10km</span>
+          <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-blue-700"></span>15km</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RUNNERS TABLE -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs text-left min-w-[900px]">
+          <thead class="bg-slate-900 text-white uppercase text-[11px] font-bold tracking-wider">
+            <tr>
+              <th class="px-3.5 py-3 w-12 text-center">STT</th>
+              <th class="px-3.5 py-3 w-24 text-center cursor-pointer select-none" onclick="sortRunners('bib')">Số BIB <span id="sort-runner-bib">↕</span></th>
+              <th class="px-4 py-3 cursor-pointer select-none" onclick="sortRunners('name')">Họ và Tên <span id="sort-runner-name">↕</span></th>
+              <th class="px-3.5 py-3">Cự ly & Nhóm giải</th>
+              <th class="px-4 py-3">Đơn vị / Khách sạn</th>
+              <th class="px-3 py-3">Chức danh</th>
+              <th class="px-2.5 py-3 text-center">Size</th>
+              <th class="px-3 py-3">Số điện thoại</th>
+              <th class="px-3.5 py-3">Xe di chuyển</th>
+              <th class="px-3 py-3 text-center">Thao tác</th>
+            </tr>
+          </thead>
+          <tbody id="runners-tbody" class="divide-y divide-slate-100"></tbody>
+        </table>
+      </div>
+      <div id="runners-empty" class="hidden p-12 text-center text-slate-400">
+        <span class="text-3xl block mb-2">🏃💨</span>
+        <p class="font-bold text-slate-600 text-sm">Không tìm thấy VĐV chạy nào phù hợp</p>
+        <p class="text-xs text-slate-400 mt-1">Vui lòng thử tìm kiếm với từ khóa khác hoặc xóa bớt bộ lọc</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUB-VIEW 2: SƠ ĐỒ XẾP XE (26 XE) -->
+  <div id="runners-view-fleet" class="runners-subview hidden space-y-4">
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <div>
+          <h3 class="font-black text-slate-900 text-base flex items-center gap-2">
+            <span>🚌 PHƯƠNG ÁN XẾP XE GIẢI CHẠY FUN RUN TRÀNG AN GOLF</span>
+          </h3>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Xe xếp liên tục theo số BIB để quản lý tập trung. Mỗi xe có <strong>01 Trưởng xe</strong> là cán bộ Văn phòng Tập đoàn hoặc Ban Tổ chức (có số điện thoại liên lạc).
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="toggleAllVehicleAccordions(true)" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200">Mở tất cả xe</button>
+          <button onclick="toggleAllVehicleAccordions(false)" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200">Thu gọn</button>
+        </div>
+      </div>
+
+      <!-- FLEET CARDS CONTAINER -->
+      <div id="runners-fleet-container" class="space-y-3.5"></div>
+    </div>
+  </div>
+
+  <!-- SUB-VIEW 3: CUNG ĐƯỜNG & 9 TRẠM -->
+  <div id="runners-view-route" class="runners-subview hidden space-y-4">
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+      <h3 class="font-black text-slate-900 text-base mb-1 flex items-center gap-2">
+        <span>🗺️ SƠ ĐỒ CUNG ĐƯỜNG CHẠY HỒ ĐỒNG CHƯƠNG & 9 VỊ TRÍ CHỐT TRẠM</span>
+      </h3>
+      <p class="text-xs text-slate-500 mb-4">
+        Đường chạy quanh hồ Đồng Chương với chiều dài <strong>05 km / vòng</strong>. Mặt đường nhựa và bê tông nội bộ tuyệt đẹp, đi qua các cảnh quan rừng thông, hồ nước và khu nghỉ dưỡng.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="runners-stations-container"></div>
+    </div>
+  </div>
+
+  <!-- SUB-VIEW 4: TIMELINE (17 MỐC VẬN HÀNH) -->
+  <div id="runners-view-timeline" class="runners-subview hidden space-y-4">
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+      <h3 class="font-black text-slate-900 text-base mb-1 flex items-center gap-2">
+        <span>⏱️ KỊCH BẢN VẬN HÀNH CHI TIẾT NGÀY SỰ KIỆN (28/10/2026)</span>
+      </h3>
+      <p class="text-xs text-slate-500 mb-4">
+        Lịch trình chính xác từ công tác setup hiện trường 04h30, xuất phát từng cự ly 06h30 đến khi kết thúc và di chuyển đoàn về khách sạn lúc 11h45.
+      </p>
+
+      <div class="space-y-2.5" id="runners-timeline-container"></div>
+    </div>
+  </div>
+
+  <!-- SUB-VIEW 5: BAN TỔ CHỨC (39 THÀNH VIÊN) -->
+  <div id="runners-view-btc" class="runners-subview hidden space-y-4">
+    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+      <h3 class="font-black text-slate-900 text-base mb-1 flex items-center gap-2">
+        <span>👥 DANH SÁCH THÀNH VIÊN BAN TỔ CHỨC GIẢI CHẠY MƯỜNG THANH FUN RUN 2026</span>
+      </h3>
+      <p class="text-xs text-slate-500 mb-4">
+        Tổng số 39 cán bộ nhân sự phân công nhiệm vụ cụ thể tại các ban chuyên môn, các trạm thực địa và điều phối giao thông.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5" id="runners-btc-container"></div>
+    </div>
   </div>
 </div>
 
@@ -1374,6 +1590,8 @@ function switchTab(name, btn) {
   if (name === 'agenda') renderAgenda();
   else if (name === 'schedule') renderSchedule();
   else if (name === 'athletes') filterAthletes();
+  else if (name === 'runners') renderRunnersTab();
+  else if (name === 'runners') renderRunnersTab();
   else if (name === 'venues') renderVenuesTab();
   else if (name === 'transport') renderTransportTab();
   else if (name === 'results') renderResults();
@@ -2212,7 +2430,13 @@ function showCourtDetail(courtId) {
   matches.sort((a,b) => (a.ngay + a.batdau).localeCompare(b.ngay + b.batdau));
 
   // If outside events (Fun run / tour)
-  if (courtId === 'golf_funrun' || courtId === 'trangan_tour') {
+    // ĐẶC BIỆT: GIAO DIỆN CHI TIẾT SÂN GOLF TRÀNG AN (FUN RUN)
+  if (courtId === 'golf_funrun') {
+    showFunRunVenueModal(courtInfo, hubInfo);
+    return;
+  }
+
+  if (courtId === 'trangan_tour') {
     const evts = DATA.agenda.filter(a => courtId === 'golf_funrun' ? a.hoatdong.includes('Fun Run') : a.hoatdong.includes('Tham quan'));
     matches = evts.map(e => ({
       ngay: e.ngay,
@@ -2976,6 +3200,167 @@ function computeTransportDayData(day) {
   return movements;
 }
 
+
+// ================================================================
+// FUN RUN TRANSPORT SECTION IN TAB LỊCH DI CHUYỂN
+// ================================================================
+function renderFunRunTransportSection(query = '') {
+  if (!DATA.funrun) return '';
+  const fr = DATA.funrun;
+  const vehicles = fr.vehicles || [];
+
+  let filteredVehicles = vehicles;
+  if (query) {
+    const q = query.toLowerCase();
+    filteredVehicles = vehicles.filter(v => {
+      const matchLabel = v.label.toLowerCase().includes(q);
+      const matchCaptain = v.captain && (v.captain.name.toLowerCase().includes(q) || v.captain.phone.includes(q));
+      const matchRunner = v.runners && v.runners.some(r => r.name.toLowerCase().includes(q) || String(r.bib).includes(q) || r.unit.toLowerCase().includes(q));
+      return matchLabel || matchCaptain || matchRunner;
+    });
+  }
+
+  return `
+    <div class="mb-6 bg-gradient-to-br from-emerald-950 via-slate-900 to-slate-950 rounded-3xl p-5 sm:p-6 text-white shadow-xl border border-emerald-500/30">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-4">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-400 text-slate-950 font-black text-xs uppercase tracking-wider">Đại hội Mường Thanh 2026</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-bold text-xs">Sáng 28/10/2026 (04:30 – 11:45)</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-black text-white flex items-center gap-2">
+            <span>🚌 KẾ HOẠCH ĐIỀU XE GIẢI CHẠY FUN RUN - TRÀNG AN GOLF</span>
+          </h3>
+          <p class="text-xs text-emerald-200/90 mt-1">
+            Lộ trình: <strong>Khách sạn Mường Thanh Luxury Ninh Bình ⇄ Sân Golf Tràng An & Resort</strong> (Cự ly: <strong>32 km</strong>)
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="switchTab('runners')" class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+            <span>🏃</span><span>Xem 434 VĐV Chạy & Số BIB</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 4 OVERVIEW STATS -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+        <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10">
+          <span class="text-[10px] uppercase font-bold text-emerald-300 block">Tổng đoàn di chuyển</span>
+          <strong class="text-xl sm:text-2xl font-black text-white block mt-0.5">450+ <span class="text-xs font-normal text-emerald-300">người</span></strong>
+          <span class="text-[10px] text-white/70 block">434 VĐV + Ban Tổ Chức</span>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10">
+          <span class="text-[10px] uppercase font-bold text-emerald-300 block">Đội xe huy động BTC</span>
+          <strong class="text-xl sm:text-2xl font-black text-amber-300 block mt-0.5">36 <span class="text-xs font-normal text-emerald-300">xe</span></strong>
+          <span class="text-[10px] text-white/70 block">8 xe 45 · 2 xe 16 · 26 xe 7</span>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10">
+          <span class="text-[10px] uppercase font-bold text-emerald-300 block">Quy cách xếp xe</span>
+          <strong class="text-sm sm:text-base font-black text-white block mt-0.5">Theo số BIB</strong>
+          <span class="text-[10px] text-white/70 block">Dải BIB liên tục, dễ quản lý</span>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10">
+          <span class="text-[10px] uppercase font-bold text-emerald-300 block">Trưởng xe phụ trách</span>
+          <strong class="text-sm sm:text-base font-black text-emerald-300 block mt-0.5">01 Trưởng xe / Xe</strong>
+          <span class="text-[10px] text-white/70 block">Cán bộ VPTD / BTC có SĐT</span>
+        </div>
+      </div>
+
+      <!-- FLEET BREAKDOWN LIST -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between text-xs text-emerald-200">
+          <span class="font-bold">Danh sách phân bổ 26 xe phục vụ giải chạy:</span>
+          <span class="text-[11px] text-white/70">Nhấn vào từng xe để xem danh sách chi tiết VĐV ngồi trên xe</span>
+        </div>
+
+        ${filteredVehicles.map((v, idx) => {
+          const isVIP = v.isVIP;
+          const isEarly = v.isEarly;
+          const cardHeaderBg = isVIP 
+            ? 'bg-gradient-to-r from-amber-600 to-amber-700 text-white' 
+            : (isEarly ? 'bg-gradient-to-r from-rose-700 to-red-800 text-white' : 'bg-slate-800 hover:bg-slate-750 text-white');
+
+          const runnersListHtml = v.runners && v.runners.length > 0 ? `
+            <div class="p-4 bg-slate-900 border-t border-white/10">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                  Danh sách ${v.runners.length} Vận động viên trên xe:
+                </span>
+                <span class="text-[11px] text-slate-400">
+                  Xuất phát: <strong>${v.departTime}</strong> tại Sảnh KS
+                </span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                ${v.runners.map(r => {
+                  const bibCfg = getBibColorConfig(r.category, r.distance);
+                  return `
+                    <div class="bg-slate-800 p-2.5 rounded-xl border border-white/10 flex items-center justify-between cursor-pointer hover:border-emerald-400 transition" onclick="openRunnerModal(${r.bib})">
+                      <div class="flex items-center gap-2 min-w-0">
+                        <span class="px-2 py-0.5 rounded text-[11px] font-black text-white flex-shrink-0" style="background:${bibCfg.bg}">
+                          ${r.bib}
+                        </span>
+                        <div class="min-w-0">
+                          <strong class="text-xs text-white block truncate">${escHtml(r.name)}</strong>
+                          <span class="text-[10px] text-slate-400 block truncate">${escHtml(r.unit)}</span>
+                        </div>
+                      </div>
+                      <span class="text-[10px] font-bold text-slate-400 ml-1">Size ${r.size || 'M'}</span>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          ` : (v.members ? `
+            <div class="p-4 bg-slate-900 border-t border-white/10 text-xs text-slate-300">
+              <strong class="text-emerald-400 block uppercase tracking-wider mb-2">Thành viên Ban Tổ Chức trên xe:</strong>
+              <ul class="space-y-1 list-disc pl-5">
+                ${v.members.map(m => `<li>${escHtml(m)}</li>`).join('')}
+              </ul>
+            </div>
+          ` : '');
+
+          return `
+            <div class="rounded-2xl border border-white/10 overflow-hidden shadow-xs">
+              <div class="p-3.5 sm:p-4 ${cardHeaderBg} flex flex-wrap items-center justify-between gap-3 cursor-pointer select-none transition" onclick="toggleVehicleAccordion('trans-${v.id}')">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl">${isVIP ? '⭐' : (isEarly ? '🚨' : '🚌')}</span>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <h4 class="font-extrabold text-sm sm:text-base leading-tight">${escHtml(v.label)}</h4>
+                      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider">${v.type}</span>
+                    </div>
+                    <p class="text-xs text-white/80 mt-0.5">
+                      Dải BIB: <strong>${v.bibRange}</strong> · Cự ly: <strong>${v.distance}</strong>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <div class="text-right text-xs">
+                    <div class="font-bold text-amber-300">Trưởng xe: ${escHtml(v.captain.name)}</div>
+                    <div class="text-[11px] text-white/80">${v.captain.phone ? `📞 ${v.captain.phone}` : v.captain.title}</div>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-1 rounded-lg bg-white/20 text-white text-xs font-black">
+                      ${v.paxCount} / ${v.capacity} chỗ
+                    </span>
+                    <span class="text-sm transform transition-transform" id="arrow-trans-${v.id}">▼</span>
+                  </div>
+                </div>
+              </div>
+
+              <div id="body-trans-${v.id}" class="hidden vehicle-accordion-body">
+                ${runnersListHtml}
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
 function renderTransportTab() {
   const day = currentTransportDay;
   const allMovements = computeTransportDayData(day);
@@ -3201,7 +3586,12 @@ function renderTransportTab() {
     return;
   }
 
-  tripsContainer.innerHTML = quotaBannerHtml + trips.map((trip, tIdx) => {
+  // NẾU LÀ NGÀY 28/10: HIỂN THỊ PHƯƠNG ÁN ĐIỀU XE GIẢI CHẠY FUN RUN TRÀNG AN
+    const funRunSectionHtml = (day === '2026-10-28' && (selectedTime === 'all' || selectedTime <= '11:00')) 
+      ? renderFunRunTransportSection(query) 
+      : '';
+
+    tripsContainer.innerHTML = funRunSectionHtml + quotaBannerHtml + trips.map((trip, tIdx) => {
     const isCross = trip.isCross;
     const isOutbound = trip.fromLoc === TRANSPORT_LOCS.HOTEL;
     const isInbound = trip.toLoc === TRANSPORT_LOCS.HOTEL;
@@ -4993,6 +5383,711 @@ window.addEventListener('DOMContentLoaded', () => {
   // Initial render
   renderAgenda();
 });
+
+// ================================================================
+// MODULE: VẬN ĐỘNG VIÊN & VẬN HÀNH GIẢI CHẠY MƯỜNG THANH FUN RUN 2026
+// ================================================================
+
+let currentRunnersSubView = 'list';
+let runnerSortCol = 'bib';
+let runnerSortAsc = true;
+let runnersFilteredData = [];
+
+function switchRunnersSubView(view) {
+  currentRunnersSubView = view;
+  document.querySelectorAll('.runners-subtab-btn').forEach(b => {
+    if (b.getAttribute('data-sub') === view) {
+      b.className = 'runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-white text-slate-900 shadow-sm';
+    } else {
+      b.className = 'runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-white/15 text-white hover:bg-white/25';
+    }
+  });
+
+  document.querySelectorAll('.runners-subview').forEach(v => v.classList.add('hidden'));
+  const target = document.getElementById('runners-view-' + view);
+  if (target) {
+    target.classList.remove('hidden');
+    target.classList.add('slide-in');
+  }
+
+  if (view === 'list') renderRunnersList();
+  else if (view === 'fleet') renderRunnersFleetView();
+  else if (view === 'route') renderRunnersRouteView();
+  else if (view === 'timeline') renderRunnersTimelineView();
+  else if (view === 'btc') renderRunnersBtcView();
+}
+
+function renderRunnersTab() {
+  initRunnersFilters();
+  switchRunnersSubView(currentRunnersSubView || 'list');
+}
+
+function initRunnersFilters() {
+  if (!DATA.funrun) return;
+  const unitSel = document.getElementById('runner-filter-unit');
+  const vehicleSel = document.getElementById('runner-filter-vehicle');
+
+  if (unitSel && unitSel.options.length <= 1) {
+    const units = [...new Set(DATA.funrun.runners.map(r => r.unit))].sort();
+    unitSel.innerHTML = '<option value="all">-- Tất cả đơn vị (' + units.length + ') --</option>';
+    units.forEach(u => {
+      const opt = document.createElement('option');
+      opt.value = u;
+      opt.textContent = u;
+      unitSel.appendChild(opt);
+    });
+  }
+
+  if (vehicleSel && vehicleSel.options.length <= 1) {
+    const vehicles = DATA.funrun.vehicles || [];
+    vehicleSel.innerHTML = '<option value="all">-- Tất cả xe di chuyển (' + vehicles.length + ') --</option>';
+    vehicles.forEach(v => {
+      const opt = document.createElement('option');
+      opt.value = v.id;
+      opt.textContent = `${v.label} · ${v.bibRange}`;
+      vehicleSel.appendChild(opt);
+    });
+  }
+}
+
+function filterRunnersByDistance(dist) {
+  const distSel = document.getElementById('runner-filter-dist');
+  if (distSel) {
+    distSel.value = dist;
+    renderRunnersList();
+    if (currentRunnersSubView !== 'list') switchRunnersSubView('list');
+  }
+}
+
+function getBibColorConfig(category, distance) {
+  if (!category) category = '';
+  if (category.includes('5km Nam dưới 35')) return { bg: '#16a34a', text: '#ffffff', label: '5km Nam <35', pillClass: 'bg-emerald-100 text-emerald-800' };
+  if (category.includes('5km Nam trên 35')) return { bg: '#ca8a04', text: '#ffffff', label: '5km Nam ≥35', pillClass: 'bg-yellow-100 text-yellow-800' };
+  if (category.includes('5km Nữ dưới 35')) return { bg: '#0284c7', text: '#ffffff', label: '5km Nữ <35', pillClass: 'bg-sky-100 text-sky-800' };
+  if (category.includes('5km Nữ trên 35')) return { bg: '#db2777', text: '#ffffff', label: '5km Nữ ≥35', pillClass: 'bg-pink-100 text-pink-800' };
+  if (category.includes('10km Nam')) return { bg: '#ea580c', text: '#ffffff', label: '10km Nam', pillClass: 'bg-orange-100 text-orange-800' };
+  if (category.includes('10km Nữ')) return { bg: '#d97706', text: '#ffffff', label: '10km Nữ', pillClass: 'bg-amber-100 text-amber-800' };
+  if (category.includes('15km Nam')) return { bg: '#1e3a8a', text: '#ffffff', label: '15km Nam', pillClass: 'bg-blue-100 text-blue-900' };
+  if (category.includes('15km Nữ')) return { bg: '#4338ca', text: '#ffffff', label: '15km Nữ', pillClass: 'bg-indigo-100 text-indigo-900' };
+  return { bg: '#475569', text: '#ffffff', label: distance || 'Chạy', pillClass: 'bg-slate-100 text-slate-800' };
+}
+
+function renderRunnersList() {
+  if (!DATA.funrun) return;
+  const searchInput = document.getElementById('runner-search');
+  const distSel = document.getElementById('runner-filter-dist');
+  const catSel = document.getElementById('runner-filter-cat');
+  const unitSel = document.getElementById('runner-filter-unit');
+  const vehicleSel = document.getElementById('runner-filter-vehicle');
+
+  const q = (searchInput ? searchInput.value : '').trim().toLowerCase();
+  const dist = distSel ? distSel.value : 'all';
+  const cat = catSel ? catSel.value : 'all';
+  const unit = unitSel ? unitSel.value : 'all';
+  const vehicle = vehicleSel ? vehicleSel.value : 'all';
+
+  let list = [...DATA.funrun.runners];
+
+  if (q) {
+    list = list.filter(r => 
+      String(r.bib).includes(q) ||
+      r.name.toLowerCase().includes(q) ||
+      r.unit.toLowerCase().includes(q) ||
+      r.title.toLowerCase().includes(q) ||
+      r.phone.includes(q)
+    );
+  }
+
+  if (dist !== 'all') {
+    list = list.filter(r => r.distance === dist || (dist === '5km' && r.bib < 10000) || (dist === '10km' && r.bib >= 10000 && r.bib < 15000) || (dist === '15km' && r.bib >= 15000));
+  }
+
+  if (cat !== 'all') {
+    list = list.filter(r => r.category === cat);
+  }
+
+  if (unit !== 'all') {
+    list = list.filter(r => r.unit === unit);
+  }
+
+  if (vehicle !== 'all') {
+    list = list.filter(r => r.vehicleId === vehicle);
+  }
+
+  // Sorting
+  list.sort((a, b) => {
+    let valA = a[runnerSortCol];
+    let valB = b[runnerSortCol];
+    if (typeof valA === 'string') valA = valA.toLowerCase();
+    if (typeof valB === 'string') valB = valB.toLowerCase();
+    if (valA < valB) return runnerSortAsc ? -1 : 1;
+    if (valA > valB) return runnerSortAsc ? 1 : -1;
+    return 0;
+  });
+
+  runnersFilteredData = list;
+
+  const countBadge = document.getElementById('runner-count-badge');
+  if (countBadge) countBadge.textContent = `Đang hiển thị: ${list.length} / ${DATA.funrun.runners.length} VĐV Chạy`;
+
+  const tbody = document.getElementById('runners-tbody');
+  const emptyDiv = document.getElementById('runners-empty');
+
+  if (list.length === 0) {
+    if (tbody) tbody.innerHTML = '';
+    if (emptyDiv) emptyDiv.classList.remove('hidden');
+    return;
+  }
+
+  if (emptyDiv) emptyDiv.classList.add('hidden');
+
+  tbody.innerHTML = list.map((r, idx) => {
+    const bibCfg = getBibColorConfig(r.category, r.distance);
+    const isVIP = (r.bib === 5001 || r.bib === 5002 || r.bib === 5003 || r.bib === 5306);
+    return `
+      <tr class="hover:bg-slate-50 transition cursor-pointer" onclick="openRunnerModal(${r.bib})">
+        <td class="px-3.5 py-3 text-center text-slate-400 font-medium">${idx + 1}</td>
+        <td class="px-3.5 py-3 text-center">
+          <span class="inline-block px-2.5 py-1 rounded-lg font-black text-xs text-white shadow-xs tracking-wider" style="background:${bibCfg.bg}">
+            ${r.bib}
+          </span>
+        </td>
+        <td class="px-4 py-3">
+          <div class="font-extrabold text-slate-900 text-xs flex items-center gap-1.5">
+            <span>${escHtml(r.name)}</span>
+            ${isVIP ? '<span class="px-1.5 py-0.2 rounded bg-amber-400 text-slate-900 text-[9px] font-black">Lãnh đạo</span>' : ''}
+            ${r.btc ? '<span class="px-1.5 py-0.2 rounded bg-indigo-100 text-indigo-800 text-[9px] font-bold">BTC</span>' : ''}
+          </div>
+          <div class="text-[11px] text-slate-400 mt-0.5">${escHtml(r.gender)} · Size: <strong>${escHtml(r.size || 'M')}</strong></div>
+        </td>
+        <td class="px-3.5 py-3">
+          <span class="inline-block px-2 py-0.5 rounded-full text-[11px] font-bold ${bibCfg.pillClass}">
+            ${escHtml(r.category || r.distance)}
+          </span>
+        </td>
+        <td class="px-4 py-3 font-medium text-slate-700">
+          <span class="text-slate-800 font-semibold">${escHtml(r.unit)}</span>
+        </td>
+        <td class="px-3 py-3 text-slate-500 text-[11px]">
+          ${escHtml(r.title || '---')}
+        </td>
+        <td class="px-2.5 py-3 text-center font-bold text-slate-700">
+          ${escHtml(r.size || 'M')}
+        </td>
+        <td class="px-3 py-3 text-slate-600 font-mono text-[11px]">
+          ${r.phone ? `<a href="tel:${r.phone.replace(/\s+/g,'')}" onclick="event.stopPropagation()" class="text-indigo-600 hover:underline">📞 ${escHtml(r.phone)}</a>` : '<span class="text-slate-300">---</span>'}
+        </td>
+        <td class="px-3.5 py-3">
+          <span class="inline-block px-2 py-0.5 rounded-md bg-slate-100 text-slate-800 font-bold text-[11px]">
+            ${escHtml(r.vehicleLabel || 'Xe BTC')}
+          </span>
+          <div class="text-[10px] text-slate-400 mt-0.5 truncate max-w-[130px]" title="Trưởng xe: ${escHtml(r.captainName || '')}">
+            TX: ${escHtml(r.captainName || '---')}
+          </div>
+        </td>
+        <td class="px-3 py-3 text-center" onclick="event.stopPropagation()">
+          <button onclick="openRunnerModal(${r.bib})" class="px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-700 hover:bg-indigo-100 font-bold text-[11px] transition">
+            Chi tiết ➔
+          </button>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function sortRunners(col) {
+  if (runnerSortCol === col) {
+    runnerSortAsc = !runnerSortAsc;
+  } else {
+    runnerSortCol = col;
+    runnerSortAsc = true;
+  }
+  const bibIndicator = document.getElementById('sort-runner-bib');
+  const nameIndicator = document.getElementById('sort-runner-name');
+  if (bibIndicator) bibIndicator.textContent = runnerSortCol === 'bib' ? (runnerSortAsc ? '↑' : '↓') : '↕';
+  if (nameIndicator) nameIndicator.textContent = runnerSortCol === 'name' ? (runnerSortAsc ? '↑' : '↓') : '↕';
+  renderRunnersList();
+}
+
+// ================================================================
+// SUB-VIEW 2: SƠ ĐỒ XẾP XE (26 XE) & ACCORDION
+// ================================================================
+function renderRunnersFleetView() {
+  if (!DATA.funrun) return;
+  const container = document.getElementById('runners-fleet-container');
+  if (!container) return;
+
+  const vehicles = DATA.funrun.vehicles || [];
+
+  container.innerHTML = vehicles.map((v, idx) => {
+    const isEarly = v.isEarly;
+    const isVIP = v.isVIP;
+    const headerBg = isVIP 
+      ? 'bg-gradient-to-r from-amber-500 to-amber-700 text-white' 
+      : (isEarly ? 'bg-gradient-to-r from-red-600 to-rose-700 text-white' : 'bg-slate-900 text-white');
+
+    const runnersHtml = v.runners && v.runners.length > 0 ? `
+      <div class="p-4 bg-slate-50 border-t border-slate-200">
+        <h5 class="text-xs font-bold uppercase tracking-wider text-slate-600 mb-2.5 flex items-center justify-between">
+          <span>Danh sách ${v.runners.length} Vận động viên trên xe:</span>
+          <span class="text-[11px] font-semibold text-slate-500">Giờ xuất phát: ${v.departTime} sáng tại Sảnh KS</span>
+        </h5>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+          ${v.runners.map((r, rIdx) => {
+            const bibCfg = getBibColorConfig(r.category, r.distance);
+            return `
+              <div class="bg-white p-2.5 rounded-xl border border-slate-200 shadow-xs flex items-center justify-between cursor-pointer hover:border-indigo-400 transition" onclick="openRunnerModal(${r.bib})">
+                <div class="flex items-center gap-2 min-w-0">
+                  <span class="px-2 py-0.5 rounded text-[11px] font-black text-white flex-shrink-0" style="background:${bibCfg.bg}">${r.bib}</span>
+                  <div class="min-w-0">
+                    <strong class="text-xs text-slate-900 block truncate">${escHtml(r.name)}</strong>
+                    <span class="text-[10px] text-slate-500 block truncate">${escHtml(r.unit)}</span>
+                  </div>
+                </div>
+                <span class="text-[10px] font-bold text-slate-400 ml-1">Size ${r.size || 'M'}</span>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    ` : (v.members ? `
+      <div class="p-4 bg-slate-50 border-t border-slate-200 text-xs text-slate-700">
+        <h5 class="font-bold uppercase tracking-wider text-slate-600 mb-2">Thành viên Ban Tổ Chức trên xe:</h5>
+        <ul class="space-y-1.5 list-disc pl-5">
+          ${v.members.map(m => `<li>${escHtml(m)}</li>`).join('')}
+        </ul>
+      </div>
+    ` : '');
+
+    return `
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden vehicle-accordion-card" id="card-${v.id}">
+        <!-- ACCORDION HEADER -->
+        <div class="p-4 ${headerBg} flex flex-wrap items-center justify-between gap-3 cursor-pointer select-none" onclick="toggleVehicleAccordion('${v.id}')">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">${isVIP ? '⭐' : (isEarly ? '🚨' : '🚌')}</span>
+            <div>
+              <div class="flex items-center gap-2">
+                <h4 class="font-black text-base leading-tight">${escHtml(v.label)}</h4>
+                <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider">${v.type}</span>
+              </div>
+              <p class="text-xs text-white/80 mt-0.5">
+                🎯 Dải số: <strong>${v.bibRange}</strong> · Cự ly: <strong>${v.distance}</strong>
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="text-right text-xs">
+              <div class="font-extrabold text-amber-300">👤 Trưởng xe: ${escHtml(v.captain.name)}</div>
+              <div class="text-[11px] text-white/80">${v.captain.phone ? `📞 ${v.captain.phone}` : v.captain.title}</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-1 rounded-lg bg-white/20 text-white text-xs font-black">
+                ${v.paxCount} / ${v.capacity} chỗ
+              </span>
+              <span class="text-lg accordion-arrow transform transition-transform" id="arrow-${v.id}">▼</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACCORDION BODY -->
+        <div id="body-${v.id}" class="vehicle-accordion-body">
+          ${runnersHtml}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function toggleVehicleAccordion(id) {
+  const body = document.getElementById('body-' + id);
+  const arrow = document.getElementById('arrow-' + id);
+  if (!body) return;
+  if (body.classList.contains('hidden')) {
+    body.classList.remove('hidden');
+    if (arrow) arrow.style.transform = 'rotate(0deg)';
+  } else {
+    body.classList.add('hidden');
+    if (arrow) arrow.style.transform = 'rotate(-90deg)';
+  }
+}
+
+function toggleAllVehicleAccordions(open) {
+  document.querySelectorAll('.vehicle-accordion-body').forEach(b => {
+    if (open) b.classList.remove('hidden');
+    else b.classList.add('hidden');
+  });
+  document.querySelectorAll('.accordion-arrow').forEach(a => {
+    a.style.transform = open ? 'rotate(0deg)' : 'rotate(-90deg)';
+  });
+}
+
+// ================================================================
+// SUB-VIEW 3: CUNG ĐƯỜNG & 9 VỊ TRÍ CHỐT TRẠM
+// ================================================================
+function renderRunnersRouteView() {
+  if (!DATA.funrun) return;
+  const container = document.getElementById('runners-stations-container');
+  if (!container) return;
+
+  const stations = DATA.funrun.stations || [];
+
+  container.innerHTML = stations.map(s => {
+    return `
+      <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-600 text-white font-black text-xs">
+              ${s.code} · ${s.km}
+            </span>
+            <span class="text-xs font-semibold text-slate-500">📍 ${escHtml(s.location)}</span>
+          </div>
+          <h4 class="font-extrabold text-sm text-slate-900 leading-snug">${escHtml(s.name)}</h4>
+          <p class="text-xs text-slate-600 mt-2 leading-relaxed">${escHtml(s.desc)}</p>
+        </div>
+
+        <div class="mt-3 pt-3 border-t border-slate-200/60 flex items-center gap-2 text-xs">
+          <span class="font-bold text-slate-700">👮 Phụ trách:</span>
+          <span class="text-indigo-700 font-semibold">${escHtml(s.staff)}</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ================================================================
+// SUB-VIEW 4: TIMELINE 17 MỐC VẬN HÀNH
+// ================================================================
+function renderRunnersTimelineView() {
+  if (!DATA.funrun) return;
+  const container = document.getElementById('runners-timeline-container');
+  if (!container) return;
+
+  const timeline = DATA.funrun.timeline || [];
+
+  container.innerHTML = timeline.map(item => {
+    const isStart = item.title.includes('Xuất phát');
+    const isAward = item.title.includes('Trao giải');
+    const isMove = item.title.includes('Di chuyển');
+    
+    let badgeColor = 'bg-slate-100 text-slate-800 border-slate-200';
+    if (isStart) badgeColor = 'bg-emerald-50 text-emerald-800 border-emerald-300';
+    if (isAward) badgeColor = 'bg-amber-50 text-amber-800 border-amber-300';
+    if (isMove) badgeColor = 'bg-blue-50 text-blue-800 border-blue-300';
+
+    return `
+      <div class="p-3.5 rounded-xl border ${badgeColor} shadow-xs flex flex-wrap items-start justify-between gap-3 bg-white">
+        <div class="flex items-start gap-3">
+          <span class="px-2.5 py-1 rounded-lg bg-slate-900 text-white font-mono font-black text-xs flex-shrink-0">
+            ${item.time}
+          </span>
+          <div>
+            <h5 class="font-extrabold text-slate-900 text-sm flex items-center gap-2">
+              <span>${escHtml(item.title)}</span>
+              ${isStart ? '<span class="px-1.5 py-0.2 rounded bg-emerald-500 text-white text-[9px] font-black uppercase">Xuất phát</span>' : ''}
+              ${isAward ? '<span class="px-1.5 py-0.2 rounded bg-amber-500 text-white text-[9px] font-black uppercase">Trao giải</span>' : ''}
+            </h5>
+            <p class="text-xs text-slate-600 mt-1 leading-relaxed">${escHtml(item.desc)}</p>
+            <div class="flex flex-wrap items-center gap-3 mt-2 text-[11px] text-slate-500">
+              <span>📍 <strong>${escHtml(item.location || 'Sân khấu chính')}</strong></span>
+              <span>👤 Phụ trách: <strong>${escHtml(item.dept || 'BTC')}</strong></span>
+              ${item.pax ? `<span>👥 Lực lượng: <strong>${item.pax} người</strong></span>` : ''}
+            </div>
+          </div>
+        </div>
+        ${item.note ? `<div class="text-[11px] font-medium text-slate-400 italic max-w-[220px] text-right">${escHtml(item.note)}</div>` : ''}
+      </div>
+    `;
+  }).join('');
+}
+
+// ================================================================
+// SUB-VIEW 5: BAN TỔ CHỨC (39 THÀNH VIÊN)
+// ================================================================
+function renderRunnersBtcView() {
+  if (!DATA.funrun) return;
+  const container = document.getElementById('runners-btc-container');
+  if (!container) return;
+
+  const staff = DATA.funrun.btcStaff || [];
+
+  container.innerHTML = staff.map(m => {
+    return `
+      <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80 shadow-xs flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-200 text-slate-800 uppercase tracking-wider">${escHtml(m.dept)}</span>
+            ${m.early ? '<span class="px-2 py-0.5 rounded-full bg-red-100 text-red-700 text-[10px] font-black animate-pulse">Đi sớm 04h30</span>' : ''}
+          </div>
+          <h5 class="font-black text-slate-900 text-sm mt-1">${escHtml(m.name)}</h5>
+          <p class="text-xs text-slate-500 mt-0.5">${escHtml(m.title)}</p>
+        </div>
+
+        <div class="mt-3 pt-2.5 border-t border-slate-200 text-xs">
+          <div class="font-bold text-indigo-700">${escHtml(m.duty || 'Nhiệm vụ theo phân công')}</div>
+          ${m.note ? `<div class="text-[11px] text-slate-500 mt-0.5 italic">📍 ${escHtml(m.note)}</div>` : ''}
+          ${m.radio ? `<div class="text-[10px] font-bold text-amber-600 mt-0.5">📻 Có bộ đàm</div>` : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ================================================================
+// MODAL CHI TIẾT VĐV CHẠY & THẺ BIB ĐỒ HỌA
+// ================================================================
+function openRunnerModal(bib) {
+  if (!DATA.funrun) return;
+  const r = DATA.funrun.runners.find(x => x.bib === Number(bib));
+  if (!r) return;
+
+  const bibCfg = getBibColorConfig(r.category, r.distance);
+  const v = (DATA.funrun.vehicles || []).find(x => x.id === r.vehicleId) || {};
+
+  let startTime = '06:30';
+  let laps = 1;
+  let cutoff = '75 phút (08:00)';
+  let bracelet = 'Không yêu cầu vòng tay';
+
+  if (r.distance === '15km') {
+    startTime = '06:30 (Đợt 1)';
+    laps = 3;
+    cutoff = '150 phút (09:00)';
+    bracelet = 'Bắt buộc 02 vòng đeo tay (vòng 2 & vòng 3 tại Trạm homestay 5 km 1.1)';
+  } else if (r.distance === '10km') {
+    startTime = '06:35 (Đợt 2)';
+    laps = 2;
+    cutoff = '120 phút (08:35)';
+    bracelet = 'Bắt buộc 01 vòng đeo tay (vòng 2 tại Trạm homestay 5 km 1.1)';
+  } else if (r.gender === 'Nam') {
+    startTime = '06:40 (Đợt 3)';
+    laps = 1;
+    cutoff = '75 phút (07:55)';
+    bracelet = 'Chạy 1 vòng về đích trực tiếp';
+  } else {
+    startTime = '06:45 (Đợt 4)';
+    laps = 1;
+    cutoff = '75 phút (08:00)';
+    bracelet = 'Chạy 1 vòng về đích trực tiếp';
+  }
+
+  const modalHtml = `
+    <div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-xs" id="runner-modal-backdrop" onclick="closeRunnerModal(event)">
+      <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-200 slide-in" onclick="event.stopPropagation()">
+        
+        <!-- GRAPHIC BIB CARD MOCKUP -->
+        <div class="p-6 text-white relative overflow-hidden" style="background: linear-gradient(135deg, ${bibCfg.bg} 0%, #0f172a 100%);">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-white/20 flex items-center justify-center font-black text-xs text-white">MT</span>
+              <span class="text-xs uppercase tracking-widest font-black text-white/90">MƯỜNG THANH FUN RUN 2026</span>
+            </div>
+            <button onclick="closeRunnerModal()" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center font-bold text-sm transition">✕</button>
+          </div>
+
+          <!-- BIB NUMBER LARGE -->
+          <div class="text-center my-3">
+            <div class="text-5xl sm:text-6xl font-black tracking-tight font-mono drop-shadow">${r.bib}</div>
+            <div class="text-base sm:text-lg font-black uppercase tracking-wider text-amber-300 mt-1">${escHtml(r.name)}</div>
+            <div class="text-xs text-white/80 font-medium mt-0.5">${escHtml(r.unit)}</div>
+          </div>
+
+          <!-- FOOTER OF BIB -->
+          <div class="flex items-center justify-between pt-3 border-t border-white/20 text-xs">
+            <span class="px-2.5 py-0.5 rounded-full bg-white text-slate-900 font-black uppercase text-[10px]">${bibCfg.label}</span>
+            <span class="font-mono text-[11px] text-white/80">Tràng An Golf · 28/10/2026</span>
+          </div>
+        </div>
+
+        <!-- DETAILS BODY -->
+        <div class="p-6 space-y-4 max-h-[70vh] overflow-y-auto">
+          <!-- THÔNG TIN CÁ NHÂN -->
+          <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-xs space-y-2">
+            <h5 class="font-black text-slate-800 uppercase tracking-wider text-[11px]">👤 Thông tin cá nhân:</h5>
+            <div class="grid grid-cols-2 gap-2 text-slate-600">
+              <div>Đơn vị: <strong class="text-slate-900">${escHtml(r.unit)}</strong></div>
+              <div>Chức danh: <strong class="text-slate-900">${escHtml(r.title || '---')}</strong></div>
+              <div>Giới tính: <strong class="text-slate-900">${escHtml(r.gender)}</strong></div>
+              <div>Size áo thi đấu: <strong class="text-slate-900">${escHtml(r.size || 'M')}</strong></div>
+              <div class="col-span-2">Số điện thoại: <strong>${r.phone ? `<a href="tel:${r.phone.replace(/\s+/g,'')}" class="text-indigo-600 hover:underline">📞 ${escHtml(r.phone)}</a>` : '---'}</strong></div>
+            </div>
+          </div>
+
+          <!-- THÔNG TIN THI ĐẤU -->
+          <div class="bg-emerald-50/60 p-3.5 rounded-2xl border border-emerald-200 text-xs space-y-2">
+            <h5 class="font-black text-emerald-900 uppercase tracking-wider text-[11px]">🏃 Thông số thi đấu:</h5>
+            <div class="space-y-1.5 text-slate-700">
+              <div class="flex justify-between"><span>Cự ly & Nhóm tuổi:</span><strong class="text-emerald-800">${escHtml(r.category || r.distance)}</strong></div>
+              <div class="flex justify-between"><span>Giờ xuất phát:</span><strong class="text-slate-900">${startTime}</strong></div>
+              <div class="flex justify-between"><span>Số vòng hồ Đồng Chương:</span><strong class="text-slate-900">${laps} vòng (${laps * 5} km)</strong></div>
+              <div class="flex justify-between"><span>Thời gian tối đa (Cut-off):</span><strong class="text-slate-900">${cutoff}</strong></div>
+              <div class="pt-1 text-[11px] text-emerald-800">📌 <strong>Xác nhận vòng chạy:</strong> ${bracelet}</div>
+            </div>
+          </div>
+
+          <!-- THÔNG TIN ĐIỀU XE -->
+          <div class="bg-indigo-50/60 p-3.5 rounded-2xl border border-indigo-200 text-xs space-y-2">
+            <h5 class="font-black text-indigo-900 uppercase tracking-wider text-[11px]">🚌 Phương án xe di chuyển:</h5>
+            <div class="space-y-1.5 text-slate-700">
+              <div class="flex justify-between"><span>Phương tiện bố trí:</span><strong class="text-indigo-800">${escHtml(r.vehicleLabel || 'Xe BTC')}</strong></div>
+              <div class="flex justify-between"><span>Giờ xuất phát tại KS:</span><strong class="text-slate-900">05:00 sáng (Thứ 4, 28/10)</strong></div>
+              <div class="flex justify-between"><span>Địa điểm đón:</span><strong class="text-slate-900">Sảnh Khách sạn Mường Thanh Ninh Bình</strong></div>
+              <div class="flex justify-between"><span>Trưởng xe phụ trách:</span><strong class="text-slate-900">${escHtml(r.captainName || 'Cán bộ VPTD')}</strong></div>
+              ${r.captainPhone ? `<div class="flex justify-between"><span>SĐT Trưởng xe:</span><a href="tel:${r.captainPhone.replace(/\s+/g,'')}" class="text-indigo-600 font-bold hover:underline">📞 ${escHtml(r.captainPhone)}</a></div>` : ''}
+            </div>
+          </div>
+        </div>
+
+        <!-- FOOTER ACTIONS -->
+        <div class="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
+          <button onclick="window.print()" class="px-4 py-2 rounded-xl bg-slate-200 text-slate-800 font-bold text-xs hover:bg-slate-300 transition flex items-center gap-1.5">
+            <span>🖨️</span><span>In thông tin VĐV</span>
+          </button>
+          <button onclick="closeRunnerModal()" class="px-5 py-2 rounded-xl bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition">
+            Đóng
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Remove existing modal if any
+  const existing = document.getElementById('runner-modal-backdrop');
+  if (existing) existing.remove();
+
+  document.body.insertAdjacentHTML('beforeend', modalHtml);
+}
+
+function closeRunnerModal(e) {
+  if (e && e.target && e.target.id !== 'runner-modal-backdrop' && e.type !== 'click') return;
+  const modal = document.getElementById('runner-modal-backdrop');
+  if (modal) modal.remove();
+}
+
+// ================================================================
+// RICH VENUE MODAL: SÂN GOLF TRÀNG AN (FUN RUN)
+// ================================================================
+function showFunRunVenueModal(courtInfo, hubInfo) {
+  if (!DATA.funrun) return;
+  const fr = DATA.funrun;
+
+  const modalHtml = `
+    <div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-xs" id="funrun-venue-modal-backdrop" onclick="closeFunRunVenueModal(event)">
+      <div class="bg-white rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl border border-slate-200 slide-in flex flex-col max-h-[88vh]" onclick="event.stopPropagation()">
+        
+        <!-- HEADER -->
+        <div class="px-6 py-4 text-white flex items-center justify-between" style="background: linear-gradient(135deg, #064e3b 0%, #047857 100%);">
+          <div class="flex items-center gap-3">
+            <span class="text-3xl">⛳</span>
+            <div>
+              <h3 class="font-black text-lg">${escHtml(courtInfo.name)}</h3>
+              <p class="text-xs text-emerald-100">📍 ${escHtml(hubInfo.name)} · Hồ Đồng Chương (5 km/vòng)</p>
+            </div>
+          </div>
+          <button onclick="closeFunRunVenueModal()" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center font-bold text-sm transition">✕</button>
+        </div>
+
+        <!-- BODY WITH SCROLL -->
+        <div class="p-6 space-y-5 overflow-y-auto flex-1">
+          <!-- QUICK STATS SUMMARY -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200 text-center">
+              <span class="text-[10px] font-bold text-emerald-800 uppercase">Quy mô</span>
+              <strong class="text-xl font-black text-emerald-950 block">434 VĐV</strong>
+            </div>
+            <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-center">
+              <span class="text-[10px] font-bold text-amber-800 uppercase">Cự ly 5km</span>
+              <strong class="text-xl font-black text-amber-950 block">380 VĐV</strong>
+            </div>
+            <div class="bg-orange-50 p-3 rounded-xl border border-orange-200 text-center">
+              <span class="text-[10px] font-bold text-orange-800 uppercase">Cự ly 10km</span>
+              <strong class="text-xl font-black text-orange-950 block">32 VĐV</strong>
+            </div>
+            <div class="bg-indigo-50 p-3 rounded-xl border border-indigo-200 text-center">
+              <span class="text-[10px] font-bold text-indigo-800 uppercase">Cự ly 15km</span>
+              <strong class="text-xl font-black text-indigo-950 block">22 VĐV</strong>
+            </div>
+          </div>
+
+          <!-- SECTION 1: TIMELINE 17 MỐC VẬN HÀNH -->
+          <div>
+            <h4 class="font-extrabold text-xs uppercase tracking-wider text-slate-700 mb-3 flex items-center gap-2">
+              <span>⏱️</span> KỊCH BẢN VẬN HÀNH CHI TIẾT NGÀY SỰ KIỆN (17 MỐC THỜI GIAN):
+            </h4>
+            <div class="space-y-2">
+              ${fr.timeline.map((item, idx) => {
+                const isStart = item.title.includes('Xuất phát');
+                const isAward = item.title.includes('Trao giải');
+                return `
+                  <div class="p-2.5 rounded-xl border border-slate-200/80 bg-slate-50 text-xs flex items-start gap-3">
+                    <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0">${idx + 1}</span>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex flex-wrap items-center justify-between gap-1">
+                        <strong class="text-slate-900 font-bold ${isStart ? 'text-emerald-700' : (isAward ? 'text-amber-700' : '')}">${escHtml(item.title)}</strong>
+                        <span class="font-mono font-bold text-slate-500">${item.time}</span>
+                      </div>
+                      <p class="text-slate-600 text-[11px] mt-0.5">${escHtml(item.desc)}</p>
+                      <div class="flex items-center gap-3 mt-1 text-[10px] text-slate-400">
+                        <span>📍 ${escHtml(item.location)}</span>
+                        <span>👤 ${escHtml(item.dept)}</span>
+                      </div>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+
+          <!-- SECTION 2: 9 CHỐT TRẠM TRÊN CUNG ĐƯỜNG CHẠY -->
+          <div>
+            <h4 class="font-extrabold text-xs uppercase tracking-wider text-slate-700 mb-3 flex items-center gap-2">
+              <span>🗺️</span> SƠ ĐỒ 9 VỊ TRÍ CHỐT TRẠM & PHỤ TRÁCH THỰC ĐỊA:
+            </h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              ${fr.stations.map(s => `
+                <div class="p-2.5 rounded-xl border border-slate-200 bg-white text-xs">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-[10px]">${s.code} · ${s.km}</span>
+                    <span class="text-[10px] text-slate-400 truncate max-w-[150px]">📍 ${escHtml(s.location)}</span>
+                  </div>
+                  <strong class="text-slate-900 block text-xs">${escHtml(s.name)}</strong>
+                  <div class="text-[10px] text-indigo-700 font-medium mt-1">Phụ trách: ${escHtml(s.staff)}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+
+        <!-- FOOTER ACTIONS -->
+        <div class="p-4 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <button onclick="closeFunRunVenueModal(); switchTab('runners');" class="px-3.5 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition flex items-center gap-1.5 shadow-xs">
+              <span>🏃</span><span>Xem 434 VĐV Chạy & Số BIB ➔</span>
+            </button>
+            <button onclick="closeFunRunVenueModal(); switchTab('transport');" class="px-3.5 py-2 rounded-xl bg-indigo-600 text-white font-bold text-xs hover:bg-indigo-700 transition flex items-center gap-1.5 shadow-xs">
+              <span>🚌</span><span>Xem Kế hoạch Điều xe Sáng 28/10 ➔</span>
+            </button>
+          </div>
+          <button onclick="closeFunRunVenueModal()" class="px-5 py-2 rounded-xl bg-slate-800 text-white font-bold text-xs hover:bg-slate-900 transition">
+            Đóng
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const existing = document.getElementById('funrun-venue-modal-backdrop');
+  if (existing) existing.remove();
+
+  document.body.insertAdjacentHTML('beforeend', modalHtml);
+}
+
+function closeFunRunVenueModal(e) {
+  if (e && e.target && e.target.id !== 'funrun-venue-modal-backdrop' && e.type !== 'click') return;
+  const modal = document.getElementById('funrun-venue-modal-backdrop');
+  if (modal) modal.remove();
+}
+
 </script>
 </body>
 </html>

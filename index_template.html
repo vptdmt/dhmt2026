@@ -3214,9 +3214,10 @@ function renderFunRunTransportSection(query = '') {
     const q = query.toLowerCase();
     filteredVehicles = vehicles.filter(v => {
       const matchLabel = v.label.toLowerCase().includes(q);
-      const matchCaptain = v.captain && (v.captain.name.toLowerCase().includes(q) || v.captain.phone.includes(q));
+      const matchCaptain = v.captain && (v.captain.name.toLowerCase().includes(q) || (v.captain.phone && v.captain.phone.includes(q)));
       const matchRunner = v.runners && v.runners.some(r => r.name.toLowerCase().includes(q) || String(r.bib).includes(q) || r.unit.toLowerCase().includes(q));
-      return matchLabel || matchCaptain || matchRunner;
+      const matchBtc = v.btcStaff && v.btcStaff.some(b => b.name.toLowerCase().includes(q) || (b.phone && b.phone.includes(q)));
+      return matchLabel || matchCaptain || matchRunner || matchBtc;
     });
   }
 
@@ -3246,69 +3247,39 @@ function renderFunRunTransportSection(query = '') {
       <!-- 4 OVERVIEW STATS -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
         <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10">
-          <span class="text-[10px] uppercase font-bold text-emerald-300 block">Tổng đoàn di chuyển</span>
+          <span class="text-[10px] uppercase font-bold text-emerald-300 block">Tổng đoàn tham gia</span>
           <strong class="text-xl sm:text-2xl font-black text-white block mt-0.5">450+ <span class="text-xs font-normal text-emerald-300">người</span></strong>
           <span class="text-[10px] text-white/70 block">434 VĐV + Ban Tổ Chức</span>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10">
-          <span class="text-[10px] uppercase font-bold text-emerald-300 block">Đội xe huy động BTC</span>
-          <strong class="text-xl sm:text-2xl font-black text-amber-300 block mt-0.5">36 <span class="text-xs font-normal text-emerald-300">xe</span></strong>
-          <span class="text-[10px] text-white/70 block">8 xe 45 · 2 xe 16 · 26 xe 7</span>
+          <span class="text-[10px] uppercase font-bold text-emerald-300 block">Đội xe phục vụ BTC</span>
+          <strong class="text-xl sm:text-2xl font-black text-amber-300 block mt-0.5">8 xe 45 · 2 xe 16</strong>
+          <span class="text-[10px] text-white/70 block">+ 26 xe 7 chỗ (Đủ chỗ 450+)</span>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10">
           <span class="text-[10px] uppercase font-bold text-emerald-300 block">Quy cách xếp xe</span>
           <strong class="text-sm sm:text-base font-black text-white block mt-0.5">Theo số BIB</strong>
-          <span class="text-[10px] text-white/70 block">Dải BIB liên tục, dễ quản lý</span>
+          <span class="text-[10px] text-white/70 block">Dải số liên tục, dễ quản lý</span>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10">
           <span class="text-[10px] uppercase font-bold text-emerald-300 block">Trưởng xe phụ trách</span>
           <strong class="text-sm sm:text-base font-black text-emerald-300 block mt-0.5">01 Trưởng xe / Xe</strong>
-          <span class="text-[10px] text-white/70 block">Cán bộ VPTD / BTC có SĐT</span>
+          <span class="text-[10px] text-white/70 block">Trưởng xe trực tiếp đi trên xe đó</span>
         </div>
       </div>
 
-      <!-- FLEET BREAKDOWN LIST -->
+      <!-- VEHICLE LIST -->
       <div class="space-y-3">
         <div class="flex items-center justify-between text-xs text-emerald-200">
-          <span class="font-bold">Danh sách phân bổ 26 xe phục vụ giải chạy:</span>
-          <span class="text-[11px] text-white/70">Nhấn vào từng xe để xem danh sách chi tiết VĐV ngồi trên xe</span>
+          <span class="font-bold">Danh sách phân bổ các xe phục vụ đoàn (Click để mở chi tiết):</span>
+          <span class="text-[11px] text-white/70">Đang hiển thị ${filteredVehicles.length} / ${vehicles.length} xe</span>
         </div>
 
-        ${filteredVehicles.map((v, idx) => {
-          const isVIP = v.isVIP;
-          const isEarly = v.isEarly;
-          const cardHeaderBg = isVIP 
-            ? 'bg-gradient-to-r from-amber-600 to-amber-700 text-white' 
-            : (isEarly ? 'bg-gradient-to-r from-rose-700 to-red-800 text-white' : 'bg-slate-800 hover:bg-slate-750 text-white');
-
-          const runnersListHtml = v.runners && v.runners.length > 0 ? `
-            <div class="p-4 bg-slate-900 border-t border-white/10">
-              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">
-                  Danh sách ${v.runners.length} Vận động viên trên xe:
-                </span>
-                <span class="text-[11px] text-slate-400">
-                  Xuất phát: <strong>${v.departTime}</strong> tại Sảnh KS
-                </span>
-              </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-                ${v.runners.map(r => {
-                  const bibCfg = getBibColorConfig(r.category, r.distance);
-                  return `
-                    <div class="bg-slate-800 p-2.5 rounded-xl border border-white/10 flex items-center justify-between cursor-pointer hover:border-emerald-400 transition" onclick="openRunnerModal(${r.bib})">
-                      <div class="flex items-center gap-2 min-w-0">
-                        <span class="px-2 py-0.5 rounded text-[11px] font-black text-white flex-shrink-0" style="background:${bibCfg.bg}">
-                          ${r.bib}
-                        </span>
-                        <div class="min-w-0">
-                          <strong class="text-xs text-white block truncate">${escHtml(r.name)}</strong>
-                          <span class="text-[10px] text-slate-400 block truncate">${escHtml(r.unit)}</span>
-                        </div>
-                      </div>
-                      <span class="text-[10px] font-bold text-slate-400 ml-1">Size ${r.size || 'M'}</span>
-                    </div>
-                  `;
-                }).join('')}
+        ${filteredVehicles.map(v => renderVehicleCardHtml(v, 'trans')).join('')}
+      </div>
+    </div>
+  `;
+}).join('')}
               </div>
             </div>
           ` : (v.members ? `
@@ -5612,92 +5583,139 @@ function sortRunners(col) {
 // ================================================================
 // SUB-VIEW 2: SƠ ĐỒ XẾP XE (26 XE) & ACCORDION
 // ================================================================
+function renderVehicleCardHtml(v, prefix = '') {
+  const isEarly = v.isEarly;
+  const isVIP = v.isVIP;
+  const isSelf = v.isSelfTransport;
+  const isCoord = v.isCoordination;
+
+  let headerBg = 'bg-slate-900 text-white';
+  let icon = '🚌';
+  if (isVIP) {
+    headerBg = 'bg-gradient-to-r from-amber-600 via-amber-700 to-yellow-800 text-white';
+    icon = '⭐';
+  } else if (isEarly) {
+    headerBg = 'bg-gradient-to-r from-red-700 via-rose-700 to-pink-800 text-white';
+    icon = '🚨';
+  } else if (isCoord) {
+    headerBg = 'bg-gradient-to-r from-blue-700 via-indigo-700 to-slate-900 text-white';
+    icon = '🚗';
+  } else if (isSelf) {
+    headerBg = 'bg-gradient-to-r from-teal-700 to-slate-800 text-white';
+    icon = '🚙';
+  }
+
 function renderRunnersFleetView() {
   if (!DATA.funrun) return;
   const container = document.getElementById('runners-fleet-container');
   if (!container) return;
 
   const vehicles = DATA.funrun.vehicles || [];
-
-  container.innerHTML = vehicles.map((v, idx) => {
-    const isEarly = v.isEarly;
-    const isVIP = v.isVIP;
-    const headerBg = isVIP 
-      ? 'bg-gradient-to-r from-amber-500 to-amber-700 text-white' 
-      : (isEarly ? 'bg-gradient-to-r from-red-600 to-rose-700 text-white' : 'bg-slate-900 text-white');
-
-    const runnersHtml = v.runners && v.runners.length > 0 ? `
-      <div class="p-4 bg-slate-50 border-t border-slate-200">
-        <h5 class="text-xs font-bold uppercase tracking-wider text-slate-600 mb-2.5 flex items-center justify-between">
-          <span>Danh sách ${v.runners.length} Vận động viên trên xe:</span>
-          <span class="text-[11px] font-semibold text-slate-500">Giờ xuất phát: ${v.departTime} sáng tại Sảnh KS</span>
-        </h5>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-          ${v.runners.map((r, rIdx) => {
-            const bibCfg = getBibColorConfig(r.category, r.distance);
-            return `
-              <div class="bg-white p-2.5 rounded-xl border border-slate-200 shadow-xs flex items-center justify-between cursor-pointer hover:border-indigo-400 transition" onclick="openRunnerModal(${r.bib})">
-                <div class="flex items-center gap-2 min-w-0">
-                  <span class="px-2 py-0.5 rounded text-[11px] font-black text-white flex-shrink-0" style="background:${bibCfg.bg}">${r.bib}</span>
-                  <div class="min-w-0">
-                    <strong class="text-xs text-slate-900 block truncate">${escHtml(r.name)}</strong>
-                    <span class="text-[10px] text-slate-500 block truncate">${escHtml(r.unit)}</span>
-                  </div>
-                </div>
-                <span class="text-[10px] font-bold text-slate-400 ml-1">Size ${r.size || 'M'}</span>
-              </div>
-            `;
-          }).join('')}
-        </div>
-      </div>
-    ` : (v.members ? `
-      <div class="p-4 bg-slate-50 border-t border-slate-200 text-xs text-slate-700">
-        <h5 class="font-bold uppercase tracking-wider text-slate-600 mb-2">Thành viên Ban Tổ Chức trên xe:</h5>
-        <ul class="space-y-1.5 list-disc pl-5">
-          ${v.members.map(m => `<li>${escHtml(m)}</li>`).join('')}
-        </ul>
-      </div>
-    ` : '');
-
-    return `
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden vehicle-accordion-card" id="card-${v.id}">
-        <!-- ACCORDION HEADER -->
-        <div class="p-4 ${headerBg} flex flex-wrap items-center justify-between gap-3 cursor-pointer select-none" onclick="toggleVehicleAccordion('${v.id}')">
-          <div class="flex items-center gap-3">
-            <span class="text-2xl">${isVIP ? '⭐' : (isEarly ? '🚨' : '🚌')}</span>
-            <div>
-              <div class="flex items-center gap-2">
-                <h4 class="font-black text-base leading-tight">${escHtml(v.label)}</h4>
-                <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider">${v.type}</span>
-              </div>
-              <p class="text-xs text-white/80 mt-0.5">
-                🎯 Dải số: <strong>${v.bibRange}</strong> · Cự ly: <strong>${v.distance}</strong>
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-4">
-            <div class="text-right text-xs">
-              <div class="font-extrabold text-amber-300">👤 Trưởng xe: ${escHtml(v.captain.name)}</div>
-              <div class="text-[11px] text-white/80">${v.captain.phone ? `📞 ${v.captain.phone}` : v.captain.title}</div>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="px-2.5 py-1 rounded-lg bg-white/20 text-white text-xs font-black">
-                ${v.paxCount} / ${v.capacity} chỗ
-              </span>
-              <span class="text-lg accordion-arrow transform transition-transform" id="arrow-${v.id}">▼</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- ACCORDION BODY -->
-        <div id="body-${v.id}" class="vehicle-accordion-body">
-          ${runnersHtml}
-        </div>
-      </div>
-    `;
-  }).join('');
+  container.innerHTML = vehicles.map(v => renderVehicleCardHtml(v, 'fleet')).join('');
 }
+
+  const btcHtml = (v.btcStaff && v.btcStaff.length > 0) ? `
+    <div class="p-3 bg-amber-50/80 border-b border-amber-200/60 text-xs">
+      <div class="text-[11px] font-bold text-amber-900 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+        <span>👑</span> Cán bộ Ban Tổ Chức / Trực tiếp điều hành trên xe này:
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        ${v.btcStaff.map(b => `
+          <div class="bg-white p-2.5 rounded-xl border border-amber-200 shadow-2xs flex items-center justify-between">
+            <div>
+              <strong class="text-xs text-slate-900 block">${escHtml(b.name)}</strong>
+              <span class="text-[10px] text-amber-800 block">${escHtml(b.title)} (${escHtml(b.dept)})</span>
+              <span class="text-[10px] text-slate-500 block italic">Nhiệm vụ: ${escHtml(b.duty)}</span>
+            </div>
+            ${b.phone ? `<a href="tel:${b.phone.replace(/\s+/g,'')}" class="text-[11px] font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded-lg hover:underline flex-shrink-0">📞 ${escHtml(b.phone)}</a>` : ''}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  ` : '';
+
+  const runnersHtml = (v.runners && v.runners.length > 0) ? `
+    <div class="p-4 bg-slate-50">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+        <h5 class="text-xs font-bold uppercase tracking-wider text-slate-700">
+          Danh sách ${v.runners.length} Vận động viên ngồi trên xe này:
+        </h5>
+        <span class="text-[11px] font-medium text-slate-500">
+          ${isSelf ? 'Tự túc giờ di chuyển' : `Giờ xuất phát: <strong>${v.departTime}</strong>`}
+        </span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+        ${v.runners.map(r => {
+          const bibCfg = getBibColorConfig(r.category, r.dist || r.distance);
+          const isCapt = (v.captain && v.captain.name === r.name);
+          return `
+            <div class="bg-white p-2.5 rounded-xl border ${isCapt ? 'border-amber-400 ring-2 ring-amber-300' : 'border-slate-200'} shadow-xs flex items-center justify-between cursor-pointer hover:border-indigo-400 transition" onclick="openRunnerModal(${r.bib})">
+              <div class="flex items-center gap-2 min-w-0">
+                <span class="px-2 py-0.5 rounded text-[11px] font-black text-white flex-shrink-0" style="background:${bibCfg.bg}">
+                  ${r.bib}
+                </span>
+                <div class="min-w-0">
+                  <div class="flex items-center gap-1">
+                    <strong class="text-xs text-slate-900 truncate">${escHtml(r.name)}</strong>
+                    ${isCapt ? '<span class="px-1 py-0.2 rounded bg-amber-500 text-white text-[8px] font-black">TRƯỞNG XE</span>' : ''}
+                  </div>
+                  <span class="text-[10px] text-slate-500 block truncate">${escHtml(r.unit)}</span>
+                </div>
+              </div>
+              <span class="text-[10px] font-bold text-slate-400 ml-1">Size ${r.size || 'M'}</span>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  ` : '';
+
+  const cardId = prefix ? `${prefix}-${v.id}` : v.id;
+
+  return `
+    <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden vehicle-accordion-card mb-3" id="card-${cardId}">
+      <!-- ACCORDION HEADER -->
+      <div class="p-4 ${headerBg} flex flex-wrap items-center justify-between gap-3 cursor-pointer select-none transition" onclick="toggleVehicleAccordion('${cardId}')">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">${icon}</span>
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="font-black text-sm sm:text-base leading-tight">${escHtml(v.label)}</h4>
+              <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider">${v.type}</span>
+              ${isSelf ? '<span class="px-2 py-0.5 rounded-full bg-teal-400 text-slate-900 text-[10px] font-black uppercase">Tự di chuyển</span>' : ''}
+            </div>
+            <p class="text-xs text-white/80 mt-0.5">
+              ${isSelf ? `Đoàn tự túc phương tiện (${v.paxCount} người)` : `Dải số: <strong>${v.bibRange}</strong> · Cự ly: <strong>${v.distance}</strong>`}
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <div class="text-right text-xs">
+            <div class="font-extrabold text-amber-300">👤 Trưởng xe: ${escHtml(v.captain.name)}</div>
+            <div class="text-[11px] text-white/80">${v.captain.phone ? `📞 ${v.captain.phone}` : v.captain.title}</div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded-lg bg-white/20 text-white text-xs font-black">
+              ${v.paxCount} / ${v.capacity} chỗ
+            </span>
+            <span class="text-lg accordion-arrow transform transition-transform" id="arrow-${cardId}">▼</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCORDION BODY -->
+      <div id="body-${cardId}" class="vehicle-accordion-body">
+        ${btcHtml}
+        ${runnersHtml}
+        ${v.note ? `<div class="px-4 py-2 bg-slate-100 text-[11px] text-slate-600 border-t border-slate-200 italic">💡 Ghi chú: ${escHtml(v.note)}</div>` : ''}
+      </div>
+    </div>
+  `;
+}
+
+
+
 
 function toggleVehicleAccordion(id) {
   const body = document.getElementById('body-' + id);
@@ -5926,14 +5944,34 @@ function openRunnerModal(bib) {
           </div>
 
           <!-- THÔNG TIN ĐIỀU XE -->
-          <div class="bg-indigo-50/60 p-3.5 rounded-2xl border border-indigo-200 text-xs space-y-2">
-            <h5 class="font-black text-indigo-900 uppercase tracking-wider text-[11px]">🚌 Phương án xe di chuyển:</h5>
+          <div class="p-3.5 rounded-2xl border text-xs space-y-2 ${v.isSelfTransport ? 'bg-teal-50/70 border-teal-200' : 'bg-indigo-50/60 border-indigo-200'}">
+            <h5 class="font-black uppercase tracking-wider text-[11px] ${v.isSelfTransport ? 'text-teal-900' : 'text-indigo-900'}">
+              ${v.isSelfTransport ? '🚗 Phương án di chuyển tự túc:' : '🚌 Phương án xe Ban Tổ Chức bố trí:'}
+            </h5>
             <div class="space-y-1.5 text-slate-700">
-              <div class="flex justify-between"><span>Phương tiện bố trí:</span><strong class="text-indigo-800">${escHtml(r.vehicleLabel || 'Xe BTC')}</strong></div>
-              <div class="flex justify-between"><span>Giờ xuất phát tại KS:</span><strong class="text-slate-900">05:00 sáng (Thứ 4, 28/10)</strong></div>
-              <div class="flex justify-between"><span>Địa điểm đón:</span><strong class="text-slate-900">Sảnh Khách sạn Mường Thanh Ninh Bình</strong></div>
-              <div class="flex justify-between"><span>Trưởng xe phụ trách:</span><strong class="text-slate-900">${escHtml(r.captainName || 'Cán bộ VPTD')}</strong></div>
-              ${r.captainPhone ? `<div class="flex justify-between"><span>SĐT Trưởng xe:</span><a href="tel:${r.captainPhone.replace(/\s+/g,'')}" class="text-indigo-600 font-bold hover:underline">📞 ${escHtml(r.captainPhone)}</a></div>` : ''}
+              <div class="flex justify-between">
+                <span>Phương tiện:</span>
+                <strong class="${v.isSelfTransport ? 'text-teal-800' : 'text-indigo-800'}">${escHtml(v.label || r.vehicleLabel || 'Xe BTC')}</strong>
+              </div>
+              <div class="flex justify-between">
+                <span>Giờ xuất phát:</span>
+                <strong class="text-slate-900">${escHtml(v.departTime || '05:00 sáng')}</strong>
+              </div>
+              <div class="flex justify-between">
+                <span>Địa điểm đón:</span>
+                <strong class="text-slate-900">${escHtml(v.pickupLoc || 'Sảnh KS Mường Thanh Luxury Ninh Bình')}</strong>
+              </div>
+              <div class="flex justify-between">
+                <span>${v.isSelfTransport ? 'Trưởng đoàn đơn vị:' : 'Trưởng xe phụ trách:'}</span>
+                <strong class="text-slate-900">${escHtml(v.captain ? v.captain.name : (r.captainName || '---'))}</strong>
+              </div>
+              ${(v.captain && v.captain.phone) ? `
+                <div class="flex justify-between">
+                  <span>Số điện thoại liên hệ:</span>
+                  <a href="tel:${v.captain.phone.replace(/\s+/g,'')}" class="text-indigo-600 font-bold hover:underline">📞 ${escHtml(v.captain.phone)}</a>
+                </div>
+              ` : ''}
+              ${v.note ? `<div class="pt-1 text-[11px] text-slate-500 italic border-t border-slate-200/60">💡 ${escHtml(v.note)}</div>` : ''}
             </div>
           </div>
         </div>

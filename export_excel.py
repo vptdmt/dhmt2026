@@ -397,8 +397,14 @@ def build_excel():
 
     # Save to disk
     out_filename = "Danh_sach_xep_xe_Fun_Run_DHMT_2026.xlsx"
-    wb.save(out_filename)
-    print(f"Successfully generated Excel file: {out_filename}")
+    try:
+        wb.save(out_filename)
+        print(f"Successfully generated Excel file: {out_filename}")
+    except PermissionError:
+        backup_filename = "Danh_sach_xep_xe_Fun_Run_DHMT_2026_MoiNhat.xlsx"
+        wb.save(backup_filename)
+        print(f"[THÔNG BÁO]: File '{out_filename}' đang được mở trong Microsoft Excel nên bị khóa ghi.")
+        print(f"Đã lưu bản cập nhật chuẩn 100% ra file: '{backup_filename}'. Vui lòng đóng Excel và chạy lại nếu muốn ghi đè vào file gốc.")
 
 if __name__ == '__main__':
     build_excel()

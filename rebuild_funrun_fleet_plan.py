@@ -249,7 +249,7 @@ def rebuild_funrun():
         'label': 'Xe Chốt Đoàn - Team Điều Phối Xe Di Chuyển (7 chỗ)',
         'type': 'Xe 7 chỗ',
         'capacity': 7,
-        'paxCount': len(r_coord), # 3 cán bộ điều phối (chừa 1 ghế cho lái xe thuê ngoài)
+        'paxCount': len(r_coord) + 1, # 3 cán bộ điều phối kiêm VĐV + 1 cán bộ BTC Lương Tú Anh = 4 người (chừa 1 ghế cho lái xe thuê ngoài: 4/7)
         'departTime': '05:15 (Xuất phát cuối cùng)',
         'pickupLoc': 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình',
         'destLoc': 'Sân Golf Tràng An & Resort',
@@ -260,14 +260,15 @@ def rebuild_funrun():
             'unit': 'Văn phòng Tập đoàn Mường Thanh',
             'phone': get_phone('Lưu Quốc Việt', '0948 154 816')
         },
-        'bibRange': 'BIB 5004, 5005, 10001',
+        'bibRange': 'BIB 5004, 5005, 10001 & BTC Khóa Đuôi',
         'distance': 'Điều phối xe & Chốt đoàn (5km & 10km)',
-        'note': 'Xe 7 chỗ phục vụ Team điều phối xe ở lại sảnh KS điều phối đoàn lên xe, soát quân số và di chuyển khóa đuôi lúc 05:15. Có lái xe thuê ngoài phục vụ.',
+        'note': 'Xe 7 chỗ phục vụ Team điều phối xe ở lại sảnh KS điều phối đoàn lên xe, soát quân số và di chuyển khóa đuôi lúc 05:15. Thành viên gồm: Lưu Quốc Việt (GĐ CNTT), Đỗ Thị Thanh Huyền (Chánh VP), Hoàng Thị Huyền Trang (GS Hành chính) và Lương Tú Anh (GS KSCP cấp cao - phụ trách giám sát hợp đồng và nghiệm thu). Có lái xe thuê ngoài phục vụ.',
         'isCoordination': True,
         'runners': r_coord,
         'btcStaff': [
-            {'name': 'Đỗ Thị Thanh Huyền', 'title': 'Chánh Văn phòng', 'duty': 'Điều phối xe & Quân số sảnh KS', 'dept': 'Hành chính - VPTD', 'phone': get_phone('Đỗ Thị Thanh Huyền')},
-            {'name': 'Hoàng Thị Huyền Trang', 'title': 'GS Hành chính', 'duty': 'Điều phối xe & Khóa đuôi', 'dept': 'Hành chính - VPTD', 'phone': get_phone('Hoàng Thị Huyền Trang')}
+            {'name': 'Đỗ Thị Thanh Huyền', 'title': 'Chánh Văn phòng', 'duty': 'Điều phối xe & Quân số sảnh KS', 'dept': 'Hành chính - VPTD', 'phone': get_phone('Đỗ Thị Thanh Huyền', '0982 999 158')},
+            {'name': 'Hoàng Thị Huyền Trang', 'title': 'GS Hành chính', 'duty': 'Điều phối xe & Khóa đuôi', 'dept': 'Hành chính - VPTD', 'phone': get_phone('Hoàng Thị Huyền Trang', '0974 669 283')},
+            {'name': 'Lương Tú Anh', 'title': 'GS Kiểm soát chi phí cấp cao', 'duty': 'Giám sát hợp đồng, chốt số lượng vào cửa, nghiệm thu hợp đồng', 'dept': 'Tài chính - VPTD', 'phone': get_phone('Lương Tú Anh', '0974 951 992')}
         ]
     }
     vehicles.append(v_coord)

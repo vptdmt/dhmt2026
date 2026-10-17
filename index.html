@@ -3279,58 +3279,8 @@ function renderFunRunTransportSection(query = '') {
       </div>
     </div>
   `;
-}).join('')}
-              </div>
-            </div>
-          ` : (v.members ? `
-            <div class="p-4 bg-slate-900 border-t border-white/10 text-xs text-slate-300">
-              <strong class="text-emerald-400 block uppercase tracking-wider mb-2">Thành viên Ban Tổ Chức trên xe:</strong>
-              <ul class="space-y-1 list-disc pl-5">
-                ${v.members.map(m => `<li>${escHtml(m)}</li>`).join('')}
-              </ul>
-            </div>
-          ` : '');
-
-          return `
-            <div class="rounded-2xl border border-white/10 overflow-hidden shadow-xs">
-              <div class="p-3.5 sm:p-4 ${cardHeaderBg} flex flex-wrap items-center justify-between gap-3 cursor-pointer select-none transition" onclick="toggleVehicleAccordion('trans-${v.id}')">
-                <div class="flex items-center gap-3">
-                  <span class="text-2xl">${isVIP ? '⭐' : (isEarly ? '🚨' : '🚌')}</span>
-                  <div>
-                    <div class="flex items-center gap-2">
-                      <h4 class="font-extrabold text-sm sm:text-base leading-tight">${escHtml(v.label)}</h4>
-                      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider">${v.type}</span>
-                    </div>
-                    <p class="text-xs text-white/80 mt-0.5">
-                      Dải BIB: <strong>${v.bibRange}</strong> · Cự ly: <strong>${v.distance}</strong>
-                    </p>
-                  </div>
-                </div>
-
-                <div class="flex items-center gap-4">
-                  <div class="text-right text-xs">
-                    <div class="font-bold text-amber-300">Trưởng xe: ${escHtml(v.captain.name)}</div>
-                    <div class="text-[11px] text-white/80">${v.captain.phone ? `📞 ${v.captain.phone}` : v.captain.title}</div>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <span class="px-2.5 py-1 rounded-lg bg-white/20 text-white text-xs font-black">
-                      ${v.paxCount} / ${v.capacity} chỗ
-                    </span>
-                    <span class="text-sm transform transition-transform" id="arrow-trans-${v.id}">▼</span>
-                  </div>
-                </div>
-              </div>
-
-              <div id="body-trans-${v.id}" class="hidden vehicle-accordion-body">
-                ${runnersListHtml}
-              </div>
-            </div>
-          `;
-        }).join('')}
-      </div>
-    </div>
-  `;
 }
+
 
 function renderTransportTab() {
   const day = currentTransportDay;

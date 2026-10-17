@@ -921,17 +921,57 @@ def rebuild_funrun():
         missing = set(runners_dict.keys()) - assigned_runners
         print(f"WARNING: Missing BIBs: {missing}")
 
-    # 5. Save to data.json
+    # 5. Parse and update BTC Staff (including Lương Tú Anh)
+    s_btc = wb['BTC Chạy']
+    btc_staff_list = []
+    for r in s_btc.iter_rows(min_row=6, values_only=True):
+        if r[2] is None:
+            continue
+        name = str(r[2] or '').strip()
+        stt = r[0]
+        dept = str(r[1] or '').strip()
+        title = str(r[3] or '').strip()
+        reg = str(r[4] or '').strip()
+        duty = str(r[5] or '').strip()
+        note = str(r[6] or '').strip()
+        
+        # If duty is empty (like row 41), use note
+        if not duty and note:
+            duty = note
+
+        early = (len(r) > 7 and r[7] == 'x')
+        radio = str(r[8] or '').strip() if len(r) > 8 and r[8] is not None else ''
+
+        phone = get_phone(name, '')
+        if name == 'Lê Thị Hoàng Yến':
+            phone = ''
+
+        btc_staff_list.append({
+            'stt': stt,
+            'dept': dept,
+            'name': name,
+            'title': title,
+            'reg': reg,
+            'duty': duty,
+            'note': note,
+            'phone': phone,
+            'early': early,
+            'radio': radio
+        })
+    print(f"Total BTC staff loaded (gồm Lương Tú Anh): {len(btc_staff_list)}")
+
+    # 6. Save to data.json
     with open('data.json', 'r', encoding='utf-8') as f:
         full_data = json.load(f)
 
     full_data['funrun']['vehicles'] = vehicles
     full_data['funrun']['runners'] = list(runners_dict.values())
+    full_data['funrun']['btcStaff'] = btc_staff_list
 
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(full_data, f, ensure_ascii=False, indent=2)
 
-    print("Successfully updated data.json with 23 vehicles and exact constraints!")
+    print("Successfully updated data.json with 23 vehicles and 40 BTC staff!")
 
 if __name__ == '__main__':
     rebuild_funrun()

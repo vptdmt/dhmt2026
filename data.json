@@ -18035,6 +18035,7 @@
         "reg": "Đăng ký chạy",
         "duty": "Trưởng BTC",
         "note": "Lãnh đạo - trao giải",
+        "phone": "",
         "early": false,
         "radio": ""
       },
@@ -18046,6 +18047,7 @@
         "reg": "Đăng ký chạy",
         "duty": "Phó BTC",
         "note": "Lãnh đạo - trao giải",
+        "phone": "0913 029 376",
         "early": false,
         "radio": ""
       },
@@ -18057,6 +18059,7 @@
         "reg": "Đăng ký chạy",
         "duty": "Phó BTC",
         "note": "Lãnh đạo - trao giải",
+        "phone": "0904 138 828",
         "early": false,
         "radio": ""
       },
@@ -18068,6 +18071,7 @@
         "reg": "Đăng ký chạy",
         "duty": "Phó BTC",
         "note": "Lãnh đạo - trao giải",
+        "phone": "0989 152 399",
         "early": false,
         "radio": ""
       },
@@ -18079,6 +18083,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Hỗ trợ trao giải Finisher",
         "note": "",
+        "phone": "0968 449 690",
         "early": false,
         "radio": ""
       },
@@ -18090,6 +18095,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Điều phối chung & Trao giải",
         "note": "",
+        "phone": "0983 263 668",
         "early": false,
         "radio": ""
       },
@@ -18101,6 +18107,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Hỗ trợ trao giải Finisher",
         "note": "",
+        "phone": "0985 434 292",
         "early": false,
         "radio": "1"
       },
@@ -18112,6 +18119,7 @@
         "reg": "Đăng ký chạy",
         "duty": "Theo phân công của ban SK",
         "note": "",
+        "phone": "0983 671 281",
         "early": false,
         "radio": ""
       },
@@ -18123,6 +18131,7 @@
         "reg": "Đăng ký chạy",
         "duty": "Theo phân công của ban SK",
         "note": "",
+        "phone": "0989 414 580",
         "early": false,
         "radio": ""
       },
@@ -18134,6 +18143,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Theo phân công của ban SK",
         "note": "",
+        "phone": "0983 666 509",
         "early": false,
         "radio": ""
       },
@@ -18145,6 +18155,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Theo phân công của ban SK",
         "note": "",
+        "phone": "0986 888 399",
         "early": false,
         "radio": ""
       },
@@ -18156,6 +18167,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Theo phân công của ban SK",
         "note": "",
+        "phone": "0966 780 298",
         "early": false,
         "radio": ""
       },
@@ -18167,6 +18179,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Theo phân công của ban SK",
         "note": "",
+        "phone": "0975 272 831",
         "early": false,
         "radio": ""
       },
@@ -18178,6 +18191,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Theo phân công của ban SK",
         "note": "",
+        "phone": "0376 138 129",
         "early": false,
         "radio": ""
       },
@@ -18189,6 +18203,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Theo phân công của ban SK",
         "note": "",
+        "phone": "0342 793 688",
         "early": false,
         "radio": ""
       },
@@ -18200,6 +18215,7 @@
         "reg": "Đăng ký chạy",
         "duty": "PT hướng dẫn khởi động",
         "note": "",
+        "phone": "",
         "early": false,
         "radio": ""
       },
@@ -18211,6 +18227,7 @@
         "reg": "Đăng ký chạy",
         "duty": "Hậu cần di chuyển",
         "note": "Điiều phối VĐV di chuyển từ KS tới Tràng An và ngược lại",
+        "phone": "0948 154 816",
         "early": false,
         "radio": ""
       },
@@ -18222,6 +18239,7 @@
         "reg": "Đăng ký chạy",
         "duty": "Hậu cần di chuyển",
         "note": "Điiều phối VĐV di chuyển từ KS tới Tràng An và ngược lại",
+        "phone": "0376 327 988",
         "early": false,
         "radio": ""
       },
@@ -18233,6 +18251,7 @@
         "reg": "Đăng ký chạy",
         "duty": "Hậu cần di chuyển",
         "note": "Điiều phối VĐV di chuyển từ KS tới Tràng An và ngược lại",
+        "phone": "0977 752 089",
         "early": false,
         "radio": ""
       },
@@ -18244,6 +18263,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Trạm tiếp nước",
         "note": "Điểm số 4 - Trạm 2,3km (chung với Y tế 1)",
+        "phone": "0982 054 788",
         "early": false,
         "radio": "1"
       },
@@ -18255,6 +18275,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Trạm tiếp nước",
         "note": "Điểm số 7 - Trạm 4,2km (chung với Y tế 2)",
+        "phone": "0982 821 654",
         "early": false,
         "radio": ""
       },
@@ -18266,6 +18287,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Điều phối chung & Trao giải",
         "note": "Điểm số 0 - XP trạm 0km",
+        "phone": "0934 269 369",
         "early": true,
         "radio": "1"
       },
@@ -18277,6 +18299,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Điều phối xuất phát & về đích",
         "note": "Điểm số 0 - XP trạm 0km",
+        "phone": "0986 620 880",
         "early": true,
         "radio": "1"
       },
@@ -18288,6 +18311,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Kiểm soát/đóng dấu vòng chạy",
         "note": "Điểm số 1 - 1 điểm Checkpoint, trạm 1,1km - nhà homestay 5 trên sơ đồ",
+        "phone": "0975 498 885",
         "early": true,
         "radio": "1"
       },
@@ -18299,6 +18323,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Kiểm soát/đóng dấu vòng chạy",
         "note": "Điểm số 1 - 1 điểm Checkpoint, trạm 1,1km - nhà homestay 5 trên sơ đồ",
+        "phone": "0366 700 935",
         "early": false,
         "radio": ""
       },
@@ -18310,6 +18335,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Kiểm soát/đóng dấu vòng chạy",
         "note": "Điểm số 1 - 1 điểm Checkpoint, trạm 1,1km - nhà homestay 5 trên sơ đồ",
+        "phone": "0918 816 891",
         "early": false,
         "radio": ""
       },
@@ -18321,6 +18347,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Kiểm soát/đóng dấu vòng chạy",
         "note": "Điểm số 1 - 1 điểm Checkpoint, trạm 1,1km - nhà homestay 5 trên sơ đồ",
+        "phone": "0362 109 907",
         "early": false,
         "radio": ""
       },
@@ -18332,6 +18359,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Điều hướng, giám sát trên đường chạy",
         "note": "Điểm số 2 - Điều hướng 1 - bus stop A trên sơ đồ",
+        "phone": "0915 037 979",
         "early": true,
         "radio": "1"
       },
@@ -18343,6 +18371,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Điều hướng, giám sát trên đường chạy",
         "note": "Điểm số 3 - Điều hướng 2 - Góc điểm C trên sơ đồ",
+        "phone": "0916 464 029",
         "early": false,
         "radio": "1"
       },
@@ -18354,6 +18383,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Điều hướng, giám sát trên đường chạy",
         "note": "Điểm số 6 - Điều hướng 3 - ngã ba rộng giữa điểm chụp ảnh D và khu V trên sơ đồ",
+        "phone": "0979 140 391",
         "early": false,
         "radio": "1"
       },
@@ -18365,6 +18395,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Điều hướng, giám sát trên đường chạy",
         "note": "Điểm số 8 - Điều hướng 4 - điểm xuống hồ H trên sơ đồ",
+        "phone": "0912 177 998",
         "early": false,
         "radio": "1"
       },
@@ -18376,6 +18407,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Kiểm soát về đích cự ly 5km (nữ)",
         "note": "Điểm số 0 - Đích trạm 5km",
+        "phone": "0913 334 345",
         "early": true,
         "radio": "1"
       },
@@ -18387,6 +18419,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Kiểm soát về đích cự ly 5km (nam)",
         "note": "Điểm số 0 - Đích trạm 5km",
+        "phone": "0974 899 868",
         "early": false,
         "radio": ""
       },
@@ -18398,6 +18431,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Kiểm soát về đích cự ly 10km & 15km",
         "note": "Điểm số 0 - Đích trạm 5km",
+        "phone": "0974 669 283",
         "early": true,
         "radio": ""
       },
@@ -18409,6 +18443,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Thư ký tổng hợp kết quả, xác nhận Finisher",
         "note": "Điểm số 0 - Đích trạm 5km",
+        "phone": "0973 554 996",
         "early": false,
         "radio": ""
       },
@@ -18420,6 +18455,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "An ninh",
         "note": "Quản lý An ninh chung, hỗ trợ thu gom vận động viên",
+        "phone": "0912 211 929",
         "early": false,
         "radio": "1"
       },
@@ -18431,6 +18467,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Trạm y tế 0",
         "note": "Điểm số 0 - XP trạm 0km = Đích trạm 5km",
+        "phone": "",
         "early": false,
         "radio": "1"
       },
@@ -18442,6 +18479,7 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Trạm y tế 1",
         "note": "Điểm số 4 - Trạm 2,3km - bus stop 8 trên sơ đồ",
+        "phone": "",
         "early": false,
         "radio": "1"
       },
@@ -18453,8 +18491,21 @@
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Trạm y tế 2",
         "note": "Điểm số 7 - Trạm 4.2km - bus stop VII trên sơ đồ",
+        "phone": "",
         "early": false,
         "radio": "1"
+      },
+      {
+        "stt": 41,
+        "dept": "Tài chính",
+        "name": "Lương Tú Anh",
+        "title": "Giám sát Kiểm soát chi phí cấp cao",
+        "reg": "BTC giải chạy (không chạy)",
+        "duty": "Giám sát hợp đồng, chốt số lượng vào cửa, nghiệm thu hợp đồng",
+        "note": "Giám sát hợp đồng, chốt số lượng vào cửa, nghiệm thu hợp đồng",
+        "phone": "0974 951 992",
+        "early": false,
+        "radio": ""
       }
     ],
     "vehicles": [

@@ -5533,6 +5533,15 @@ function sortRunners(col) {
 // ================================================================
 // SUB-VIEW 2: SƠ ĐỒ XẾP XE (26 XE) & ACCORDION
 // ================================================================
+function renderRunnersFleetView() {
+  if (!DATA.funrun) return;
+  const container = document.getElementById('runners-fleet-container');
+  if (!container) return;
+
+  const vehicles = DATA.funrun.vehicles || [];
+  container.innerHTML = vehicles.map(v => renderVehicleCardHtml(v, 'fleet')).join('');
+}
+
 function renderVehicleCardHtml(v, prefix = '') {
   const isEarly = v.isEarly;
   const isVIP = v.isVIP;
@@ -5554,15 +5563,6 @@ function renderVehicleCardHtml(v, prefix = '') {
     headerBg = 'bg-gradient-to-r from-teal-700 to-slate-800 text-white';
     icon = '🚙';
   }
-
-function renderRunnersFleetView() {
-  if (!DATA.funrun) return;
-  const container = document.getElementById('runners-fleet-container');
-  if (!container) return;
-
-  const vehicles = DATA.funrun.vehicles || [];
-  container.innerHTML = vehicles.map(v => renderVehicleCardHtml(v, 'fleet')).join('');
-}
 
   const btcHtml = (v.btcStaff && v.btcStaff.length > 0) ? `
     <div class="p-3 bg-amber-50/80 border-b border-amber-200/60 text-xs">

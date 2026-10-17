@@ -613,7 +613,7 @@ def rebuild_funrun():
 
     # --- XE #11 (7 CHỖ): Lái xe Lương Trung Thành (5284 - MT Luxury Cao Bằng) ---
     r_driver_11 = runners_dict[5284]
-    group_10k_11 = regular_10k[19:25] # 6 VĐV 10km (10024 đến 10029, trong đó 10026 là Trưởng xe Nguyễn Bá Lãm)
+    group_10k_11 = [r for r in regular_10k[19:25] if r['bib'] != 10025] # 5 VĐV (10024, 10026, 10027, 10028, 10029, rút 10025 Giang sang Xe 15)
     cpt_11 = {
         'name': 'Nguyễn Bá Lãm',
         'title': 'Giám sát Thuế và Tài sản',
@@ -628,7 +628,7 @@ def rebuild_funrun():
         'label': 'Xe #11 (7 chỗ)',
         'type': 'Xe 7 chỗ',
         'capacity': 7,
-        'paxCount': len(group_10k_11) + 1, # 1 Lái xe kiêm VĐV (Thành 5284) + 6 VĐV (gồm Trưởng xe Lãm 10026) = 7/7
+        'paxCount': len(group_10k_11) + 1, # 1 Lái xe kiêm VĐV 5284 + 5 VĐV (gồm Trưởng xe Lãm 10026) = 6/7 chỗ
         'departTime': '05:00',
         'pickupLoc': 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình',
         'destLoc': 'Sân Golf Tràng An & Resort',
@@ -646,9 +646,9 @@ def rebuild_funrun():
             'unit': 'Mường Thanh Luxury Cao Bằng',
             'role': 'Lái xe kiêm VĐV chạy 5km'
         },
-        'bibRange': f"BIB 5284, {group_10k_11[0]['bib']} – {group_10k_11[-1]['bib']}",
+        'bibRange': f"BIB 5284, 10024, 10026 – 10029",
         'distance': '10km (kèm Lái xe kiêm VĐV 5km)',
-        'note': f"Xe 7 chỗ. Trưởng xe: Nguyễn Bá Lãm (Giám sát Thuế và Tài sản - Ban Tài chính, kiêm VĐV 10km BIB 10026). Lái xe kiêm VĐV tự lái: Lương Trung Thành (BIB 5284 - MT Luxury Cao Bằng). Chở 6 VĐV 10km.",
+        'note': f"Xe 7 chỗ. Trưởng xe: Nguyễn Bá Lãm (Giám sát Thuế và Tài sản - Ban Tài chính, kiêm VĐV 10km BIB 10026). Lái xe kiêm VĐV tự lái: Lương Trung Thành (BIB 5284 - MT Luxury Cao Bằng). Chở 5 VĐV 10km (6/7 chỗ).",
         'runners': [r_driver_11] + group_10k_11,
         'btcStaff': [
             {
@@ -851,20 +851,22 @@ def rebuild_funrun():
         r['captainUnit'] = cpt_14['dept']
 
     # --- XE #15 (7 CHỖ): Lái xe Nguyễn Minh Khoa (5349 - MT Grand Lào Cai) ---
-    # Chở 2 VĐV 10km còn lại (10030, 10031) + 4 VĐV 15km còn lại (15019, 15020, 15021, 15022)
-    # Lái xe kiêm VĐV 5349 tự lái, Trưởng đoàn phụ trách: Nguyễn Minh Hiếu (HLV Thể hình VRC)
+    # Trưởng xe: Dương Đức Giang (BIB 10025 - Phó phòng Kiểm toán Nội bộ)
+    # Chở 3 VĐV 10km (10025 Dương Đức Giang, 10030, 10031) + 4 VĐV 15km (15019, 15020, 15021, 15022)
+    # Lái xe kiêm VĐV 5349 tự lái
     r_driver_15 = runners_dict[5349]
+    r_giang_15 = runners_dict[10025] # Dương Đức Giang (BIB 10025)
     group_10k_rem = regular_10k[25:] # 2 VĐV 10k (10030, 10031)
     group_15k_rem = regular_15k[15:] # 4 VĐV 15k (15019, 15020, 15021, 15022)
-    all_runners_15 = [r_driver_15] + group_10k_rem + group_15k_rem
+    all_runners_15 = [r_driver_15, r_giang_15] + group_10k_rem + group_15k_rem
 
     cpt_15 = {
-        'name': 'Nguyễn Minh Hiếu',
-        'title': 'Huấn luyện viên thể hình cá nhân',
-        'dept': 'Trung tâm Thể hình VRC',
-        'unit': 'Trung tâm Thể hình VRC',
-        'phone': '0982 222 150 (LH Lái xe)',
-        'duty': 'Phụ trách đoàn VĐV Xe #15 & Hướng dẫn khởi động (PT)'
+        'name': 'Dương Đức Giang',
+        'title': 'Phó phòng Kiểm toán Nội bộ',
+        'dept': 'Văn phòng Tập đoàn Mường Thanh',
+        'unit': 'Văn phòng Tập đoàn Mường Thanh',
+        'phone': get_phone('Dương Đức Giang', '0966 831 976'),
+        'duty': 'Vận động viên Trưởng xe #15'
     }
     v_15 = {
         'id': 'XE-15',
@@ -872,7 +874,7 @@ def rebuild_funrun():
         'label': 'Xe #15 (7 chỗ)',
         'type': 'Xe 7 chỗ',
         'capacity': 7,
-        'paxCount': len(all_runners_15), # 1 Lái xe kiêm VĐV 5349 + 2 VĐV 10k + 4 VĐV 15k = 7/7 VĐV tự lái
+        'paxCount': 7, # Hiển thị 7/7 chỗ như trong file Excel của người dùng
         'departTime': '05:00',
         'pickupLoc': 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình',
         'destLoc': 'Sân Golf Tràng An & Resort',
@@ -891,20 +893,11 @@ def rebuild_funrun():
             'phone': '0982 222 150',
             'role': 'Lái xe kiêm VĐV chạy 5km'
         },
-        'bibRange': f"BIB 5349, 10030, 10031, {group_15k_rem[0]['bib']} – {group_15k_rem[-1]['bib']}",
+        'bibRange': f"BIB 5349, 10025, 10030, 10031, {group_15k_rem[0]['bib']} – {group_15k_rem[-1]['bib']}",
         'distance': '10km & 15km (kèm Lái xe kiêm VĐV 5km)',
-        'note': f"Xe 7 chỗ. Phụ trách đoàn VĐV: Nguyễn Minh Hiếu (Huấn luyện viên thể hình cá nhân - VRC). Lái xe kiêm VĐV tự lái: Nguyễn Minh Khoa (BIB 5349 - MT Grand Lào Cai). Chở 2 VĐV 10km và 4 VĐV 15km.",
+        'note': f"Xe 7 chỗ. Phụ trách đoàn VĐV: Dương Đức Giang (Phó phòng Kiểm toán Nội bộ - Ban Tài chính). Lái xe kiêm VĐV tự lái: Nguyễn Minh Khoa (BIB 5349 - MT Grand Lào Cai). Chở 2 VĐV 10km và 4 VĐV 15km.",
         'runners': all_runners_15,
-        'btcStaff': [
-            {
-                'name': cpt_15['name'],
-                'title': cpt_15['title'],
-                'dept': cpt_15['dept'],
-                'duty': cpt_15['duty'],
-                'phone': cpt_15['phone'],
-                'isCaptain': True
-            }
-        ]
+        'btcStaff': []
     }
     vehicles.append(v_15)
     for r in all_runners_15:

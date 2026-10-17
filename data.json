@@ -27164,7 +27164,7 @@
         "label": "Xe #11 (7 chỗ)",
         "type": "Xe 7 chỗ",
         "capacity": 7,
-        "paxCount": 7,
+        "paxCount": 6,
         "departTime": "05:00",
         "pickupLoc": "Sảnh Khách sạn Mường Thanh Luxury Ninh Bình",
         "destLoc": "Sân Golf Tràng An & Resort",
@@ -27182,9 +27182,9 @@
           "unit": "Mường Thanh Luxury Cao Bằng",
           "role": "Lái xe kiêm VĐV chạy 5km"
         },
-        "bibRange": "BIB 5284, 10024 – 10029",
+        "bibRange": "BIB 5284, 10024, 10026 – 10029",
         "distance": "10km (kèm Lái xe kiêm VĐV 5km)",
-        "note": "Xe 7 chỗ. Trưởng xe: Nguyễn Bá Lãm (Giám sát Thuế và Tài sản - Ban Tài chính, kiêm VĐV 10km BIB 10026). Lái xe kiêm VĐV tự lái: Lương Trung Thành (BIB 5284 - MT Luxury Cao Bằng). Chở 6 VĐV 10km.",
+        "note": "Xe 7 chỗ. Trưởng xe: Nguyễn Bá Lãm (Giám sát Thuế và Tài sản - Ban Tài chính, kiêm VĐV 10km BIB 10026). Lái xe kiêm VĐV tự lái: Lương Trung Thành (BIB 5284 - MT Luxury Cao Bằng). Chở 5 VĐV 10km (6/7 chỗ).",
         "runners": [
           {
             "stt": 284,
@@ -27215,26 +27215,6 @@
             "phone": "0348 334 476",
             "gender": "Nam",
             "size": "XXL",
-            "dist": "Chạy 10km",
-            "category": "10km Nam",
-            "btc": "",
-            "note": "",
-            "vehicleId": "XE-11",
-            "vehicleLabel": "Xe #11 (7 chỗ)",
-            "captainName": "Nguyễn Bá Lãm",
-            "captainPhone": "0986 670 418",
-            "captainTitle": "Giám sát Thuế và Tài sản",
-            "captainUnit": "Ban Tài chính"
-          },
-          {
-            "stt": 405,
-            "bib": 10025,
-            "name": "Dương Đức Giang",
-            "title": "Phó phòng Kiểm toán Nội bộ",
-            "unit": "Văn phòng Tập đoàn Mường Thanh",
-            "phone": "0966 831 976",
-            "gender": "Nam",
-            "size": "M",
             "dist": "Chạy 10km",
             "category": "10km Nam",
             "btc": "",
@@ -27833,11 +27813,11 @@
         "destLoc": "Sân Golf Tràng An & Resort",
         "returnTime": "11:00",
         "captain": {
-          "name": "Nguyễn Minh Hiếu",
-          "title": "Huấn luyện viên thể hình cá nhân",
-          "unit": "Trung tâm Thể hình VRC",
-          "dept": "Trung tâm Thể hình VRC",
-          "phone": "0982 222 150 (LH Lái xe)"
+          "name": "Dương Đức Giang",
+          "title": "Phó phòng Kiểm toán Nội bộ",
+          "unit": "Văn phòng Tập đoàn Mường Thanh",
+          "dept": "Văn phòng Tập đoàn Mường Thanh",
+          "phone": "0966 831 976"
         },
         "driver": {
           "name": "Nguyễn Minh Khoa",
@@ -27846,9 +27826,9 @@
           "phone": "0982 222 150",
           "role": "Lái xe kiêm VĐV chạy 5km"
         },
-        "bibRange": "BIB 5349, 10030, 10031, 15019 – 15022",
+        "bibRange": "BIB 5349, 10025, 10030, 10031, 15019 – 15022",
         "distance": "10km & 15km (kèm Lái xe kiêm VĐV 5km)",
-        "note": "Xe 7 chỗ. Phụ trách đoàn VĐV: Nguyễn Minh Hiếu (Huấn luyện viên thể hình cá nhân - VRC). Lái xe kiêm VĐV tự lái: Nguyễn Minh Khoa (BIB 5349 - MT Grand Lào Cai). Chở 2 VĐV 10km và 4 VĐV 15km.",
+        "note": "Xe 7 chỗ. Phụ trách đoàn VĐV: Dương Đức Giang (Phó phòng Kiểm toán Nội bộ - Ban Tài chính). Lái xe kiêm VĐV tự lái: Nguyễn Minh Khoa (BIB 5349 - MT Grand Lào Cai). Chở 2 VĐV 10km và 4 VĐV 15km.",
         "runners": [
           {
             "stt": 349,
@@ -27865,10 +27845,30 @@
             "note": "",
             "vehicleId": "XE-15",
             "vehicleLabel": "Xe #15 (7 chỗ)",
-            "captainName": "Nguyễn Minh Hiếu",
-            "captainPhone": "0982 222 150 (LH Lái xe)",
-            "captainTitle": "Huấn luyện viên thể hình cá nhân",
-            "captainUnit": "Trung tâm Thể hình VRC"
+            "captainName": "Dương Đức Giang",
+            "captainPhone": "0966 831 976",
+            "captainTitle": "Phó phòng Kiểm toán Nội bộ",
+            "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
+          },
+          {
+            "stt": 405,
+            "bib": 10025,
+            "name": "Dương Đức Giang",
+            "title": "Phó phòng Kiểm toán Nội bộ",
+            "unit": "Văn phòng Tập đoàn Mường Thanh",
+            "phone": "0966 831 976",
+            "gender": "Nam",
+            "size": "M",
+            "dist": "Chạy 10km",
+            "category": "10km Nam",
+            "btc": "",
+            "note": "",
+            "vehicleId": "XE-15",
+            "vehicleLabel": "Xe #15 (7 chỗ)",
+            "captainName": "Dương Đức Giang",
+            "captainPhone": "0966 831 976",
+            "captainTitle": "Phó phòng Kiểm toán Nội bộ",
+            "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
           },
           {
             "stt": 410,
@@ -27885,10 +27885,10 @@
             "note": "",
             "vehicleId": "XE-15",
             "vehicleLabel": "Xe #15 (7 chỗ)",
-            "captainName": "Nguyễn Minh Hiếu",
-            "captainPhone": "0982 222 150 (LH Lái xe)",
-            "captainTitle": "Huấn luyện viên thể hình cá nhân",
-            "captainUnit": "Trung tâm Thể hình VRC"
+            "captainName": "Dương Đức Giang",
+            "captainPhone": "0966 831 976",
+            "captainTitle": "Phó phòng Kiểm toán Nội bộ",
+            "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
           },
           {
             "stt": 411,
@@ -27905,10 +27905,10 @@
             "note": "",
             "vehicleId": "XE-15",
             "vehicleLabel": "Xe #15 (7 chỗ)",
-            "captainName": "Nguyễn Minh Hiếu",
-            "captainPhone": "0982 222 150 (LH Lái xe)",
-            "captainTitle": "Huấn luyện viên thể hình cá nhân",
-            "captainUnit": "Trung tâm Thể hình VRC"
+            "captainName": "Dương Đức Giang",
+            "captainPhone": "0966 831 976",
+            "captainTitle": "Phó phòng Kiểm toán Nội bộ",
+            "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
           },
           {
             "stt": 431,
@@ -27925,10 +27925,10 @@
             "note": "",
             "vehicleId": "XE-15",
             "vehicleLabel": "Xe #15 (7 chỗ)",
-            "captainName": "Nguyễn Minh Hiếu",
-            "captainPhone": "0982 222 150 (LH Lái xe)",
-            "captainTitle": "Huấn luyện viên thể hình cá nhân",
-            "captainUnit": "Trung tâm Thể hình VRC"
+            "captainName": "Dương Đức Giang",
+            "captainPhone": "0966 831 976",
+            "captainTitle": "Phó phòng Kiểm toán Nội bộ",
+            "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
           },
           {
             "stt": 432,
@@ -27945,10 +27945,10 @@
             "note": "",
             "vehicleId": "XE-15",
             "vehicleLabel": "Xe #15 (7 chỗ)",
-            "captainName": "Nguyễn Minh Hiếu",
-            "captainPhone": "0982 222 150 (LH Lái xe)",
-            "captainTitle": "Huấn luyện viên thể hình cá nhân",
-            "captainUnit": "Trung tâm Thể hình VRC"
+            "captainName": "Dương Đức Giang",
+            "captainPhone": "0966 831 976",
+            "captainTitle": "Phó phòng Kiểm toán Nội bộ",
+            "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
           },
           {
             "stt": 433,
@@ -27965,10 +27965,10 @@
             "note": "",
             "vehicleId": "XE-15",
             "vehicleLabel": "Xe #15 (7 chỗ)",
-            "captainName": "Nguyễn Minh Hiếu",
-            "captainPhone": "0982 222 150 (LH Lái xe)",
-            "captainTitle": "Huấn luyện viên thể hình cá nhân",
-            "captainUnit": "Trung tâm Thể hình VRC"
+            "captainName": "Dương Đức Giang",
+            "captainPhone": "0966 831 976",
+            "captainTitle": "Phó phòng Kiểm toán Nội bộ",
+            "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
           },
           {
             "stt": 434,
@@ -27985,22 +27985,13 @@
             "note": "",
             "vehicleId": "XE-15",
             "vehicleLabel": "Xe #15 (7 chỗ)",
-            "captainName": "Nguyễn Minh Hiếu",
-            "captainPhone": "0982 222 150 (LH Lái xe)",
-            "captainTitle": "Huấn luyện viên thể hình cá nhân",
-            "captainUnit": "Trung tâm Thể hình VRC"
+            "captainName": "Dương Đức Giang",
+            "captainPhone": "0966 831 976",
+            "captainTitle": "Phó phòng Kiểm toán Nội bộ",
+            "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
           }
         ],
-        "btcStaff": [
-          {
-            "name": "Nguyễn Minh Hiếu",
-            "title": "Huấn luyện viên thể hình cá nhân",
-            "dept": "Trung tâm Thể hình VRC",
-            "duty": "Phụ trách đoàn VĐV Xe #15 & Hướng dẫn khởi động (PT)",
-            "phone": "0982 222 150 (LH Lái xe)",
-            "isCaptain": true
-          }
-        ]
+        "btcStaff": []
       },
       {
         "id": "XE-16-YTE",
@@ -34989,10 +34980,10 @@
         "note": "",
         "vehicleId": "XE-15",
         "vehicleLabel": "Xe #15 (7 chỗ)",
-        "captainName": "Nguyễn Minh Hiếu",
-        "captainPhone": "0982 222 150 (LH Lái xe)",
-        "captainTitle": "Huấn luyện viên thể hình cá nhân",
-        "captainUnit": "Trung tâm Thể hình VRC"
+        "captainName": "Dương Đức Giang",
+        "captainPhone": "0966 831 976",
+        "captainTitle": "Phó phòng Kiểm toán Nội bộ",
+        "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
       },
       {
         "stt": 350,
@@ -36099,12 +36090,12 @@
         "category": "10km Nam",
         "btc": "",
         "note": "",
-        "vehicleId": "XE-11",
-        "vehicleLabel": "Xe #11 (7 chỗ)",
-        "captainName": "Nguyễn Bá Lãm",
-        "captainPhone": "0986 670 418",
-        "captainTitle": "Giám sát Thuế và Tài sản",
-        "captainUnit": "Ban Tài chính"
+        "vehicleId": "XE-15",
+        "vehicleLabel": "Xe #15 (7 chỗ)",
+        "captainName": "Dương Đức Giang",
+        "captainPhone": "0966 831 976",
+        "captainTitle": "Phó phòng Kiểm toán Nội bộ",
+        "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
       },
       {
         "stt": 406,
@@ -36201,10 +36192,10 @@
         "note": "",
         "vehicleId": "XE-15",
         "vehicleLabel": "Xe #15 (7 chỗ)",
-        "captainName": "Nguyễn Minh Hiếu",
-        "captainPhone": "0982 222 150 (LH Lái xe)",
-        "captainTitle": "Huấn luyện viên thể hình cá nhân",
-        "captainUnit": "Trung tâm Thể hình VRC"
+        "captainName": "Dương Đức Giang",
+        "captainPhone": "0966 831 976",
+        "captainTitle": "Phó phòng Kiểm toán Nội bộ",
+        "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
       },
       {
         "stt": 411,
@@ -36221,10 +36212,10 @@
         "note": "",
         "vehicleId": "XE-15",
         "vehicleLabel": "Xe #15 (7 chỗ)",
-        "captainName": "Nguyễn Minh Hiếu",
-        "captainPhone": "0982 222 150 (LH Lái xe)",
-        "captainTitle": "Huấn luyện viên thể hình cá nhân",
-        "captainUnit": "Trung tâm Thể hình VRC"
+        "captainName": "Dương Đức Giang",
+        "captainPhone": "0966 831 976",
+        "captainTitle": "Phó phòng Kiểm toán Nội bộ",
+        "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
       },
       {
         "stt": 412,
@@ -36615,10 +36606,10 @@
         "note": "",
         "vehicleId": "XE-15",
         "vehicleLabel": "Xe #15 (7 chỗ)",
-        "captainName": "Nguyễn Minh Hiếu",
-        "captainPhone": "0982 222 150 (LH Lái xe)",
-        "captainTitle": "Huấn luyện viên thể hình cá nhân",
-        "captainUnit": "Trung tâm Thể hình VRC"
+        "captainName": "Dương Đức Giang",
+        "captainPhone": "0966 831 976",
+        "captainTitle": "Phó phòng Kiểm toán Nội bộ",
+        "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
       },
       {
         "stt": 432,
@@ -36635,10 +36626,10 @@
         "note": "",
         "vehicleId": "XE-15",
         "vehicleLabel": "Xe #15 (7 chỗ)",
-        "captainName": "Nguyễn Minh Hiếu",
-        "captainPhone": "0982 222 150 (LH Lái xe)",
-        "captainTitle": "Huấn luyện viên thể hình cá nhân",
-        "captainUnit": "Trung tâm Thể hình VRC"
+        "captainName": "Dương Đức Giang",
+        "captainPhone": "0966 831 976",
+        "captainTitle": "Phó phòng Kiểm toán Nội bộ",
+        "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
       },
       {
         "stt": 433,
@@ -36655,10 +36646,10 @@
         "note": "",
         "vehicleId": "XE-15",
         "vehicleLabel": "Xe #15 (7 chỗ)",
-        "captainName": "Nguyễn Minh Hiếu",
-        "captainPhone": "0982 222 150 (LH Lái xe)",
-        "captainTitle": "Huấn luyện viên thể hình cá nhân",
-        "captainUnit": "Trung tâm Thể hình VRC"
+        "captainName": "Dương Đức Giang",
+        "captainPhone": "0966 831 976",
+        "captainTitle": "Phó phòng Kiểm toán Nội bộ",
+        "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
       },
       {
         "stt": 434,
@@ -36675,10 +36666,10 @@
         "note": "",
         "vehicleId": "XE-15",
         "vehicleLabel": "Xe #15 (7 chỗ)",
-        "captainName": "Nguyễn Minh Hiếu",
-        "captainPhone": "0982 222 150 (LH Lái xe)",
-        "captainTitle": "Huấn luyện viên thể hình cá nhân",
-        "captainUnit": "Trung tâm Thể hình VRC"
+        "captainName": "Dương Đức Giang",
+        "captainPhone": "0966 831 976",
+        "captainTitle": "Phó phòng Kiểm toán Nội bộ",
+        "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
       }
     ]
   }

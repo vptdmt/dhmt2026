@@ -303,7 +303,10 @@ def build_excel():
                 role = "Lái xe kiêm VĐV"
             # Check if this runner is captain
             elif r['name'] == cpt_name:
-                role = f"Trưởng xe #{v_id.replace('XE-', '')} & VĐV"
+                if v_id == 'XE-15':
+                    role = "Vận động viên Trưởng xe #15"
+                else:
+                    role = f"Trưởng xe #{v_id.replace('XE-', '')} & VĐV"
             # Check if special role
             elif r['name'] == 'Lê Thị Hoàng Yến':
                 role = "Tổng Giám Đốc (Trưởng BTC)"

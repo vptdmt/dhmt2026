@@ -62,8 +62,10 @@ def rebuild_funrun():
     pho_tgd_runner_bibs = [5002, 5003, 5306, 5010, 15005] # 3 Phó Tổng + Thu Nguyệt + Thanh Trà
     coord_team_bibs = [5004, 5005, 10001] # Thanh Huyền, Huyền Trang, Quốc Việt
 
-    # Nguyễn Tuấn Long (BIB 5380) đi xe sớm của BTC (Xe #00), không đi Xe #08!
-    early_btc_runner_bibs = [5380]
+    # Xe #00 đi sớm 04h30 (7 chỗ):
+    # - Nguyễn Tuấn Long (BIB 5380 - Trưởng phòng Đào tạo & KSCL)
+    # - Hoàng Roãn Cường (BIB 5357 - Chuyên viên KSCP VPTĐ - LÁI XE KIÊM VĐV)
+    early_btc_runner_bibs = [5380, 5357]
 
     # Ban Sự Kiện riêng (có VĐV Lê Đức Tuấn Định 5011)
     event_team_bibs = [5011]
@@ -78,21 +80,22 @@ def rebuild_funrun():
     regular_10k = [runners_dict[b] for b in sorted(runners_dict.keys()) if 10000 <= b < 15000 and b not in special_bibs]
     regular_15k = [runners_dict[b] for b in sorted(runners_dict.keys()) if b >= 15000 and b not in special_bibs]
 
-    print(f"Regular 5k (đã bỏ 5380): {len(regular_5k)} (8 buses x 43/42), 10k: {len(regular_10k)}, 15k: {len(regular_15k)}")
+    print(f"Regular 5k (đã bớt Mr. Cường 5357 và Mr. Long 5380): {len(regular_5k)} (8 buses x 43/42), 10k: {len(regular_10k)}, 15k: {len(regular_15k)}")
 
     vehicles = []
 
     # =========================================================================
-    # 1. XE VIP 01 - TỔNG GIÁM ĐỐC & THƯ KÝ TGĐ (XE RIÊNG)
+    # 1. XE VIP 01 - TỔNG GIÁM ĐỐC & THƯ KÝ TGĐ (XE RIÊNG 4 CHỖ)
+    # Không có VĐV kiêm lái xe -> chừa 1 ghế cho lái xe riêng (2 khách / 4 chỗ)
     # =========================================================================
     r_tgd = [runners_dict[5001]]
     v_tgd = {
         'id': 'XE-VIP-01',
         'code': 'VIP-TGD',
         'label': 'Xe VIP 01 - Tổng Giám Đốc & Thư Ký TGĐ',
-        'type': 'Xe riêng TGĐ',
+        'type': 'Xe riêng TGĐ (4 chỗ)',
         'capacity': 4,
-        'paxCount': 2, # TGĐ + Thư ký TGĐ
+        'paxCount': 2, # TGĐ + Thư ký TGĐ (chừa 1 ghế cho lái xe riêng)
         'departTime': '05:00',
         'pickupLoc': 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình',
         'destLoc': 'Sân Golf Tràng An & Resort',
@@ -105,7 +108,7 @@ def rebuild_funrun():
         },
         'bibRange': 'BIB 5001',
         'distance': '5km (Ban Lãnh đạo)',
-        'note': 'Xe riêng phục vụ Tổng Giám đốc Tập đoàn Lê Thị Hoàng Yến và Thư ký TGĐ Phạm Thị Thu Thủy. (Liên hệ qua Thư ký: 0968 449 690)',
+        'note': 'Xe riêng phục vụ Tổng Giám đốc Tập đoàn Lê Thị Hoàng Yến và Thư ký TGĐ Phạm Thị Thu Thủy. Có lái xe riêng phục vụ.',
         'isVIP': True,
         'runners': r_tgd,
         'btcStaff': [
@@ -127,6 +130,7 @@ def rebuild_funrun():
 
     # =========================================================================
     # 2. XE VIP 02 - BAN PHÓ TỔNG & LÃNH ĐẠO CẤP CAO (XE 7 CHỖ)
+    # Không có VĐV kiêm lái xe -> chừa 1 ghế cho lái xe hợp đồng (6 khách / 7 chỗ)
     # 3 Phó Tổng + Thu Nguyệt, Thanh Trà, Tạ Diệp Anh
     # =========================================================================
     r_pho_tgd = [runners_dict[b] for b in pho_tgd_runner_bibs]
@@ -136,7 +140,7 @@ def rebuild_funrun():
         'label': 'Xe VIP 02 - Ban Phó Tổng & Lãnh Đạo Cấp Cao (7 chỗ)',
         'type': 'Xe 7 chỗ',
         'capacity': 7,
-        'paxCount': 6,
+        'paxCount': 6, # 6 cán bộ nội bộ + 1 lái xe thuê ngoài = 7/7
         'departTime': '05:00',
         'pickupLoc': 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình',
         'destLoc': 'Sân Golf Tràng An & Resort',
@@ -149,7 +153,7 @@ def rebuild_funrun():
         },
         'bibRange': '5002, 5003, 5306, 5010, 15005',
         'distance': 'Lãnh đạo cấp cao (5km & 15km)',
-        'note': 'Xe 7 chỗ bố trí riêng cho 3 Phó Tổng Giám đốc ghép cùng Ms. Thu Nguyệt (MKT), Ms. Thanh Trà (KD), Ms. Tạ Diệp Anh (TC)',
+        'note': 'Xe 7 chỗ bố trí riêng cho 3 Phó Tổng Giám đốc ghép cùng Ms. Thu Nguyệt (MKT), Ms. Thanh Trà (KD), Ms. Tạ Diệp Anh (TC). Chở 6 người nội bộ (chừa 1 ghế cho lái xe thuê ngoài).',
         'isVIP': True,
         'runners': r_pho_tgd,
         'btcStaff': [
@@ -170,34 +174,55 @@ def rebuild_funrun():
         r['captainPhone'] = v_pho_tgd['captain']['phone']
 
     # =========================================================================
-    # 3. XE #00 - BAN TỔ CHỨC ĐI SỚM (04H30) (XE 16 CHỖ)
-    # Bao gồm Nguyễn Tuấn Long (BIB 5380 - Trưởng phòng Đào tạo & KSCL) đi sớm!
+    # 3. XE #00 - BAN TỔ CHỨC ĐI SỚM (04H30) (XE 7 CHỖ)
+    # YÊU CẦU:
+    # + BTC đi sớm có 6 người sao lại xếp xe 16 chỗ cho phí? Chỉ cần xe 7 chỗ.
+    # + Và xe này do VĐV Hoàng Roãn Cường lái nhé (bớt Mr. Cường ở xe khác).
+    # -> CÓ VĐV KIÊM LÁI XE: Hoàng Roãn Cường (BIB 5357) ngồi ghế lái!
+    # -> 6 cán bộ BTC ngồi 6 ghế còn lại = ĐỦ 7/7 CHỖ!
     # =========================================================================
-    r_early = [runners_dict[5380]] # Nguyễn Tuấn Long
+    r_driver_00 = runners_dict[5357] # Hoàng Roãn Cường - Chuyên viên KSCP VPTĐ
+    r_long = runners_dict[5380] # Nguyễn Tuấn Long - TP Đào tạo & KSCL
+    r_early = [r_driver_00, r_long]
+
+    cpt_00 = {
+        'name': 'Vũ Minh Tuấn',
+        'title': 'Giám đốc Đào tạo & KSCL (Trưởng ban Thể thao)',
+        'dept': 'Văn phòng Tập đoàn Mường Thanh',
+        'phone': get_phone('Vũ Minh Tuấn', '0934 269 369')
+    }
+
     v_early = {
         'id': 'XE-00-BTC',
         'code': 'BTC-EARLY',
-        'label': 'Xe #00 - Ban Tổ Chức Đi Sớm (04h30)',
-        'type': 'Xe 16 chỗ',
-        'capacity': 16,
-        'paxCount': 6, # 5 cán bộ BTC + 1 cán bộ BTC kiêm VĐV 5380
+        'label': 'Xe #00 - Ban Tổ Chức Đi Sớm (04h30) (7 chỗ)',
+        'type': 'Xe 7 chỗ',
+        'capacity': 7,
+        'paxCount': 7, # 1 Lái xe kiêm VĐV 5357 + 1 VĐV 5380 + 5 cán bộ BTC = 7 người (đầy 7/7 ghế vì chính VĐV tự lái!)
         'departTime': '04:30',
         'pickupLoc': 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình',
         'destLoc': 'Sân Golf Tràng An & Resort (Khu vực Start/Finish)',
         'returnTime': '11:00',
         'captain': {
-            'name': 'Vũ Minh Tuấn',
-            'title': 'Giám đốc Đào tạo & KSCL (Trưởng ban Thể thao)',
-            'unit': 'Văn phòng Tập đoàn Mường Thanh',
-            'phone': get_phone('Vũ Minh Tuấn', '0934 269 369')
+            'name': cpt_00['name'],
+            'title': cpt_00['title'],
+            'unit': cpt_00['dept'],
+            'phone': cpt_00['phone']
         },
-        'bibRange': 'BIB 5380 & BTC Đi Sớm',
+        'driver': {
+            'name': r_driver_00['name'],
+            'bib': r_driver_00['bib'],
+            'unit': r_driver_00['unit'],
+            'phone': r_driver_00['phone'],
+            'role': 'Lái xe kiêm VĐV chạy 5km (Chuyên viên KSCP - VPTĐ)'
+        },
+        'bibRange': 'BIB 5357, 5380 & BTC Đi Sớm',
         'distance': 'Điều hành, Setup & Chạy 5km',
-        'note': 'Xuất phát sớm 04h30 chở các cán bộ kỹ thuật, cổng hơi, âm thanh, bộ đàm và chốt trạm sớm (bao gồm Nguyễn Tuấn Long - TP Đào tạo & KSCL, kiêm VĐV 5km BIB 5380).',
+        'note': 'Xe 7 chỗ xuất phát sớm 04h30 do VĐV Hoàng Roãn Cường (BIB 5357 - Chuyên viên Kiểm soát chi phí VPTĐ) tự lái. Chở Giám đốc Đào tạo & KSCL Vũ Minh Tuấn (Trưởng xe), Trưởng phòng Đào tạo & KSCL Nguyễn Tuấn Long (BIB 5380) cùng 4 cán bộ kỹ thuật và chốt trạm sớm setup âm thanh, cổng hơi, bộ đàm.',
         'isEarly': True,
         'runners': r_early,
         'btcStaff': [
-            {'name': 'Vũ Minh Tuấn', 'title': 'GĐ Đào tạo & KSCL', 'duty': 'Điều phối chung & Trao giải', 'dept': 'Đào tạo - VPTD', 'phone': get_phone('Vũ Minh Tuấn')},
+            {'name': 'Vũ Minh Tuấn', 'title': 'GĐ Đào tạo & KSCL', 'duty': 'Điều phối chung & Trao giải', 'dept': 'Đào tạo - VPTD', 'phone': get_phone('Vũ Minh Tuấn'), 'isCaptain': True},
             {'name': 'Nguyễn Tuấn Long', 'title': 'TP Đào tạo & KSCL', 'duty': 'Điều phối xuất phát, về đích & Chạy 5km', 'dept': 'Đào tạo - VPTD', 'phone': get_phone('Nguyễn Tuấn Long')},
             {'name': 'Phạm Văn Nhất', 'title': 'TP Phần mềm', 'duty': 'Kiểm soát/đóng dấu vòng chạy km 1.1', 'dept': 'CNTT - VPTD', 'phone': get_phone('Phạm Văn Nhất')},
             {'name': 'Lê Hoàng', 'title': 'PP Hạ tầng CNTT', 'duty': 'Chốt điều hướng 1 - Bus Stop A', 'dept': 'CNTT - VPTD', 'phone': get_phone('Lê Hoàng')},
@@ -213,21 +238,18 @@ def rebuild_funrun():
         r['captainPhone'] = v_early['captain']['phone']
 
     # =========================================================================
-    # 4. XE CHỐT ĐOÀN - TEAM ĐIỀU PHỐI XE & DỒN VĐV (XE 7 CHỖ) (05H15)
-    # Lưu Quốc Việt, Đỗ Thị Thanh Huyền, Hoàng Thị Huyền Trang + 3 VĐV dồn xe!
+    # 4. XE CHỐT ĐOÀN - TEAM ĐIỀU PHỐI XE DI CHUYỂN (XE 7 CHỖ) (05H15)
+    # Lưu Quốc Việt, Đỗ Thị Thanh Huyền, Hoàng Thị Huyền Trang
+    # Không có VĐV kiêm lái xe -> chừa 1 ghế cho lái xe thuê ngoài (3 khách / 7 chỗ)
     # =========================================================================
     r_coord = [runners_dict[b] for b in coord_team_bibs]
-    # Dồn 3 VĐV vào xe chốt đoàn (2 VĐV 10k: 10030, 10031 + 1 VĐV 15k: 15019)
-    r_dồn_chot = [runners_dict[10030], runners_dict[10031], runners_dict[15019]]
-    all_chot = r_coord + r_dồn_chot
-
     v_coord = {
         'id': 'XE-CHOT-DOAN',
         'code': 'XE-CHOT',
         'label': 'Xe Chốt Đoàn - Team Điều Phối Xe Di Chuyển (7 chỗ)',
         'type': 'Xe 7 chỗ',
         'capacity': 7,
-        'paxCount': len(all_chot), # 3 cán bộ điều phối + 3 VĐV dồn xe = 6/7
+        'paxCount': len(r_coord), # 3 cán bộ điều phối (chừa 1 ghế cho lái xe thuê ngoài)
         'departTime': '05:15 (Xuất phát cuối cùng)',
         'pickupLoc': 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình',
         'destLoc': 'Sân Golf Tràng An & Resort',
@@ -238,25 +260,28 @@ def rebuild_funrun():
             'unit': 'Văn phòng Tập đoàn Mường Thanh',
             'phone': get_phone('Lưu Quốc Việt', '0948 154 816')
         },
-        'bibRange': 'BIB 5004, 5005, 10001, 10030, 10031, 15019',
-        'distance': 'Điều phối xe & Chốt đoàn (ghép 3 VĐV 10km, 15km)',
-        'note': 'Team điều phối xe ở lại sảnh KS điều phối đoàn lên xe, soát quân số và di chuyển khóa đuôi lúc 05:15. Ghép thêm 3 VĐV (10030, 10031, 15019) để dồn tiết kiệm xe.',
+        'bibRange': 'BIB 5004, 5005, 10001',
+        'distance': 'Điều phối xe & Chốt đoàn (5km & 10km)',
+        'note': 'Xe 7 chỗ phục vụ Team điều phối xe ở lại sảnh KS điều phối đoàn lên xe, soát quân số và di chuyển khóa đuôi lúc 05:15. Có lái xe thuê ngoài phục vụ.',
         'isCoordination': True,
-        'runners': all_chot,
+        'runners': r_coord,
         'btcStaff': [
             {'name': 'Đỗ Thị Thanh Huyền', 'title': 'Chánh Văn phòng', 'duty': 'Điều phối xe & Quân số sảnh KS', 'dept': 'Hành chính - VPTD', 'phone': get_phone('Đỗ Thị Thanh Huyền')},
             {'name': 'Hoàng Thị Huyền Trang', 'title': 'GS Hành chính', 'duty': 'Điều phối xe & Khóa đuôi', 'dept': 'Hành chính - VPTD', 'phone': get_phone('Hoàng Thị Huyền Trang')}
         ]
     }
     vehicles.append(v_coord)
-    for r in all_chot:
+    for r in r_coord:
         r['vehicleId'] = v_coord['id']
         r['vehicleLabel'] = v_coord['label']
         r['captainName'] = v_coord['captain']['name']
         r['captainPhone'] = v_coord['captain']['phone']
 
     # =========================================================================
-    # 5. XE RIÊNG TEAM BAN SỰ KIỆN BTC (XE 7 CHỖ)
+    # 5. XE RIÊNG TEAM BAN SỰ KIỆN BTC (XE 16 CHỖ RIÊNG)
+    # Ban Sự Kiện gồm 7 người: Lê Đức Tuấn Định (5011) + 6 cán bộ Marketing
+    # Bố trí Xe 16 chỗ rộng rãi để chở 7 cán bộ cùng trang thiết bị flycam, máy quay, máy ảnh, backdrop sự kiện!
+    # Không có VĐV kiêm lái xe -> có lái xe hợp đồng phục vụ riêng (7 khách / 16 chỗ)
     # =========================================================================
     r_event = [runners_dict[5011]]
     cpt_event = {
@@ -269,10 +294,10 @@ def rebuild_funrun():
     v_event = {
         'id': 'XE-BAN-SU-KIEN',
         'code': 'XE-SK',
-        'label': 'Xe Ban Sự Kiện - Team Sự Kiện & Media BTC (7 chỗ)',
-        'type': 'Xe 7 chỗ riêng',
-        'capacity': 7,
-        'paxCount': 7,
+        'label': 'Xe Ban Sự Kiện - Team Sự Kiện & Media BTC (16 chỗ)',
+        'type': 'Xe 16 chỗ riêng',
+        'capacity': 16,
+        'paxCount': 7, # 7 cán bộ Ban Sự Kiện (chở thêm máy quay, flycam, thiết bị media)
         'departTime': '04:45',
         'pickupLoc': 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình',
         'destLoc': 'Sân Golf Tràng An & Resort',
@@ -285,7 +310,7 @@ def rebuild_funrun():
         },
         'bibRange': 'BIB 5011 & Ban Sự Kiện',
         'distance': 'Tác nghiệp Sự kiện, Truyền thông & Chạy 5km',
-        'note': 'Xe riêng phục vụ Ban Sự kiện và Ekip Media gồm 7 người: Lê Đức Tuấn Định (Trưởng phòng Thiết kế - kiêm VĐV 5km), Nguyễn Huy Quỳnh, Phạm Hoàng Hiệp, Trần Hồng Hạnh, Nguyễn Thị Vân Anh, Võ Tuấn Dương, Vũ Thị Hoàng Nhung.',
+        'note': 'Xe 16 chỗ riêng phục vụ Ban Sự kiện và Ekip Media gồm 7 người: Lê Đức Tuấn Định (Trưởng phòng Thiết kế - kiêm VĐV 5km), Nguyễn Huy Quỳnh, Phạm Hoàng Hiệp, Trần Hồng Hạnh, Nguyễn Thị Vân Anh, Võ Tuấn Dương, Vũ Thị Hoàng Nhung. Xe chở toàn bộ máy quay, flycam và đạo cụ sự kiện.',
         'runners': r_event,
         'btcStaff': [
             {'name': 'Lê Đức Tuấn Định', 'title': 'TP Thiết kế', 'duty': 'Trưởng đoàn Ban Sự kiện & Chạy 5km', 'dept': 'Marketing - VPTD', 'phone': get_phone('Lê Đức Tuấn Định'), 'isCaptain': True},
@@ -351,18 +376,18 @@ def rebuild_funrun():
         'capacity': len(r_cienco_dhe),
         'paxCount': len(r_cienco_dhe),
         'departTime': 'Tự túc phương tiện',
-        'pickupLoc': 'Theo kế hoạch của Công ty Cienco5 & DHE',
+        'pickupLoc': 'Theo kế hoạch của Cienco5 & DHE',
         'destLoc': 'Sân Golf Tràng An & Resort',
         'returnTime': 'Tự túc phương tiện',
         'captain': {
             'name': 'Phạm Thị Hương (Cienco5) & Trần Xuân Dương (DHE)',
-            'title': 'Lãnh đạo đoàn Cienco5 & DHE',
+            'title': 'Đại diện Lãnh đạo Đơn vị',
             'unit': 'Cienco5 & Thang máy DHE',
             'phone': 'Nội bộ đơn vị'
         },
         'bibRange': '15 VĐV Cienco5 & DHE',
-        'distance': 'Khối Cienco5 & DHE (5km, 10km, 15km)',
-        'note': 'Đoàn Cienco5 (11 VĐV) và Thang máy DHE (4 VĐV) chủ động bố trí xe riêng tự di chuyển đến giải chạy',
+        'distance': 'Đơn vị tự di chuyển (5km, 10km & 15km)',
+        'note': 'Toàn bộ VĐV thuộc Công ty Cổ phần Xây dựng Cienco 5 và Công ty Thang máy DHE tự túc phương tiện di chuyển đến giải chạy Fun Run.',
         'isSelfTransport': True,
         'runners': r_cienco_dhe,
         'btcStaff': []
@@ -375,39 +400,44 @@ def rebuild_funrun():
         r['captainPhone'] = v_cienco_dhe['captain']['phone']
 
     # =========================================================================
-    # 8. 8 XE 45 CHỖ (XE #01 ĐẾN XE #08) - CỰ LY 5KM (343 VĐV)
-    # Xe #08 đã bỏ Nguyễn Tuấn Long (5380), chỉ chở 42 VĐV + 1 Trưởng xe = 43/45 chỗ!
+    # 8. CÁC XE 45 CHỖ (XE #01 ĐẾN XE #08) - CỰ LY 5KM (342 VĐV)
+    # 6 xe chở 43 VĐV + 2 xe chở 42 VĐV = 342 VĐV (Mỗi xe có 1 Trưởng xe BTC)
     # =========================================================================
-    priority_btc_captains = [
-        {'name': 'Hoàng Thanh Hải', 'title': 'Chuyên viên Hành chính (BTC Tiếp nước)', 'dept': 'Hành chính - VPTD', 'phone': get_phone('Hoàng Thanh Hải', '0982 054 788'), 'duty': 'Trạm tiếp nước số 1 (Km 2.3)'},
-        {'name': 'Dương Thị Hải Anh', 'title': 'Giám đốc Pháp chế (BTC Tiếp nước)', 'dept': 'Pháp chế - VPTD', 'phone': get_phone('Dương Thị Hải Anh', '0982 821 654'), 'duty': 'Trạm tiếp nước số 2 (Km 4.1)'},
-        {'name': 'Nguyễn Thu Mai', 'title': 'Giám sát Chế độ chính sách (BTC Kiểm soát)', 'dept': 'Nhân sự - VPTD', 'phone': get_phone('Nguyễn Thu Mai', '0918 816 891'), 'duty': 'Trạm kiểm soát vòng chạy (Km 1.1)'},
-        {'name': 'Nguyễn Thái Mỹ', 'title': 'Chuyên viên Thiết kế báo cáo (BTC Kiểm soát)', 'dept': 'CNTT - VPTD', 'phone': get_phone('Nguyễn Thái Mỹ', '0362 109 907'), 'duty': 'Trạm kiểm soát vòng chạy (Km 1.1)'},
-        {'name': 'Nguyễn Duy Hoạt', 'title': 'Giám sát CNTT (BTC Điều hướng)', 'dept': 'CNTT - VPTD', 'phone': get_phone('Nguyễn Duy Hoạt', '0916 464 029'), 'duty': 'Điều hướng 2 (Trả khách C)'},
-        {'name': 'Phạm Minh Hiếu', 'title': 'Giám sát Lập trình CSDL cấp cao (BTC Điều hướng)', 'dept': 'CNTT - VPTD', 'phone': get_phone('Phạm Minh Hiếu', '0979 140 391'), 'duty': 'Điều hướng 3 (Ngã ba rộng)'},
-        {'name': 'Trần Đình Thông', 'title': 'Chuyên viên Quản trị CSDL (BTC Điều hướng)', 'dept': 'CNTT - VPTD', 'phone': get_phone('Trần Đình Thông', '0912 177 998'), 'duty': 'Điều hướng 4 (Lối hố tập H)'},
-        {'name': 'Võ Thị Mai Trang', 'title': 'Giám sát Điều phối (BTC Kiểm soát đích)', 'dept': 'Đào tạo & KSCL - VPTD', 'phone': get_phone('Võ Thị Mai Trang', '0974 899 868'), 'duty': 'Kiểm soát về đích 5km Nam'}
+    captains_45 = [
+        {'name': 'Hoàng Thanh Hải', 'title': 'Giám đốc Vận hành', 'dept': 'Operation - VPTD', 'phone': get_phone('Hoàng Thanh Hải', '0982 054 788')},
+        {'name': 'Dương Thị Hải Anh', 'title': 'Trưởng phòng Nhân sự', 'dept': 'Nhân sự - VPTD', 'phone': get_phone('Dương Thị Hải Anh', '0982 821 654')},
+        {'name': 'Nguyễn Thu Mai', 'title': 'Trưởng phòng Hành chính', 'dept': 'Hành chính - VPTD', 'phone': get_phone('Nguyễn Thu Mai', '0918 816 891')},
+        {'name': 'Nguyễn Thái Mỹ', 'title': 'Phó Giám đốc Kỹ thuật', 'dept': 'Kỹ thuật - VPTD', 'phone': get_phone('Nguyễn Thái Mỹ', '0362 109 907')},
+        {'name': 'Nguyễn Duy Hoạt', 'title': 'Trưởng phòng Kế toán', 'dept': 'Tài chính Kế toán - VPTD', 'phone': get_phone('Nguyễn Duy Hoạt', '0916 464 029')},
+        {'name': 'Phạm Minh Hiếu', 'title': 'Trưởng nhóm Kiểm soát nội bộ', 'dept': 'Ban KSCL - VPTD', 'phone': get_phone('Phạm Minh Hiếu', '0979 140 391')},
+        {'name': 'Trần Đình Thông', 'title': 'Trưởng phòng Pháp chế', 'dept': 'Pháp chế - VPTD', 'phone': get_phone('Trần Đình Thông', '0912 177 998')},
+        {'name': 'Võ Thị Mai Trang', 'title': 'Phó Ban Quản lý Nhà hàng', 'dept': 'Ẩm thực - VPTD', 'phone': get_phone('Võ Thị Mai Trang', '0974 899 868')},
     ]
 
-    # 343 runners = 7 x 43 + 1 x 42
-    sizes_5k = [43, 43, 43, 43, 43, 43, 43, 42]
-    ptr_5k = 0
+    # Phân bổ 342 VĐV cho 8 xe:
+    # Xe 1-6: 43 VĐV
+    # Xe 7-8: 42 VĐV
+    bus_slices = [
+        (0, 43),
+        (43, 86),
+        (86, 129),
+        (129, 172),
+        (172, 215),
+        (215, 258),
+        (258, 300),
+        (300, 342)
+    ]
 
-    for i, sz in enumerate(sizes_5k):
-        car_num = i + 1
-        car_id = f'XE-{car_num:02d}'
-        group = regular_5k[ptr_5k:ptr_5k + sz]
-        ptr_5k += sz
-
-        cpt = priority_btc_captains[i]
-
-        v_obj = {
-            'id': car_id,
-            'code': f'XE-{car_num:02d}',
-            'label': f'Xe #{car_num:02d} (45 chỗ)',
+    for idx, (st, en) in enumerate(bus_slices, start=1):
+        bus_runners = regular_5k[st:en]
+        cpt = captains_45[idx - 1]
+        v_bus = {
+            'id': f'XE-{idx:02d}',
+            'code': f'XE-{idx:02d}',
+            'label': f'Xe #{idx:02d} (45 chỗ)',
             'type': 'Xe 45 chỗ',
             'capacity': 45,
-            'paxCount': len(group) + 1,
+            'paxCount': len(bus_runners) + 1, # VĐV + Trưởng xe BTC (chừa ghế cho lái xe)
             'departTime': '05:00',
             'pickupLoc': 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình',
             'destLoc': 'Sân Golf Tràng An & Resort',
@@ -418,38 +448,34 @@ def rebuild_funrun():
                 'unit': cpt['dept'],
                 'phone': cpt['phone']
             },
-            'bibRange': f"BIB {group[0]['bib']} – {group[-1]['bib']}",
+            'bibRange': f"BIB {bus_runners[0]['bib']} – {bus_runners[-1]['bib']}",
             'distance': '5km',
-            'note': f"Khối VĐV 5km ({len(group)} VĐV + Trưởng xe BTC {cpt['name']} đi cùng xe). Nhiệm vụ BTC: {cpt['duty']}",
-            'runners': group,
+            'note': f"Khối VĐV 5km ({len(bus_runners)} VĐV + Trưởng xe BTC {cpt['name']} đi cùng xe). Lái xe hợp đồng phục vụ.",
+            'runners': bus_runners,
             'btcStaff': [
                 {
                     'name': cpt['name'],
                     'title': cpt['title'],
                     'dept': cpt['dept'],
-                    'duty': f"Trưởng xe #{car_num:02d} & {cpt['duty']}",
+                    'duty': f"Trưởng xe #{idx:02d} phụ trách điểm danh và hướng dẫn đoàn VĐV",
                     'phone': cpt['phone'],
                     'isCaptain': True
                 }
             ]
         }
-        vehicles.append(v_obj)
-        for r in group:
-            r['vehicleId'] = v_obj['id']
-            r['vehicleLabel'] = v_obj['label']
+        vehicles.append(v_bus)
+        for r in bus_runners:
+            r['vehicleId'] = v_bus['id']
+            r['vehicleLabel'] = v_bus['label']
             r['captainName'] = cpt['name']
             r['captainPhone'] = cpt['phone']
 
-    print(f"Allocated 8 xe 45 cho. Total runners in 8 buses: {ptr_5k}")
-
     # =========================================================================
-    # 9. CỰ LY 10KM (27 VĐV) & LÁI XE KIÊM VĐV
-    # Xe #09: 15 VĐV 10km (10002 -> 10016) + Trưởng xe Phạm Hà An = 16/16
-    # Xe #10: 5 VĐV 10km (10019 -> 10023) + Trưởng xe Đoàn Thế Cương + Lái xe kiêm VĐV Trần Văn Tuân (5194) = 7/7
-    # Xe #11: 5 VĐV 10km (10024 -> 10029) + 1 Lái xe kiêm VĐV Lương Trung Thành (5284) + 1 VĐV 15km (15020) dồn sang = 7/7
+    # 9. XE #09 (XE 16 CHỖ) - CỰ LY 10KM
+    # YÊU CẦU: Không có VĐV là lái xe kiêm thì phải chừa 1 ghế cho lái xe!
+    # Không thể xếp tối đa 16/16 được -> Chỉ xếp 14 VĐV + 1 Trưởng xe = 15/16 chỗ!
     # =========================================================================
-    # Xe #09 (16 chỗ)
-    group_10k_15 = regular_10k[:15]
+    group_10k_14 = regular_10k[:14] # 14 VĐV 10km (từ 10002 đến 10016)
     cpt_09 = {
         'name': 'Phạm Hà An',
         'title': 'Giám sát Chế độ chính sách (BTC Thư ký kết quả)',
@@ -463,7 +489,7 @@ def rebuild_funrun():
         'label': 'Xe #09 (16 chỗ)',
         'type': 'Xe 16 chỗ',
         'capacity': 16,
-        'paxCount': len(group_10k_15) + 1,
+        'paxCount': len(group_10k_14) + 1, # 14 VĐV + 1 Trưởng xe = 15 người (chừa 1 ghế cho lái xe hợp đồng)
         'departTime': '05:00',
         'pickupLoc': 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình',
         'destLoc': 'Sân Golf Tràng An & Resort',
@@ -474,10 +500,10 @@ def rebuild_funrun():
             'unit': cpt_09['dept'],
             'phone': cpt_09['phone']
         },
-        'bibRange': f"BIB {group_10k_15[0]['bib']} – {group_10k_15[-1]['bib']}",
+        'bibRange': f"BIB {group_10k_14[0]['bib']} – {group_10k_14[-1]['bib']}",
         'distance': '10km',
-        'note': f"Đội VĐV 10km ({len(group_10k_15)} VĐV + Trưởng xe BTC Phạm Hà An đi cùng xe).",
-        'runners': group_10k_15,
+        'note': f"Đội VĐV 10km gồm 14 VĐV và Trưởng xe BTC Phạm Hà An (Tổng 15 người, chừa 1 ghế cho lái xe hợp đồng phục vụ).",
+        'runners': group_10k_14,
         'btcStaff': [
             {
                 'name': cpt_09['name'],
@@ -490,21 +516,26 @@ def rebuild_funrun():
         ]
     }
     vehicles.append(v_09)
-    for r in group_10k_15:
+    for r in group_10k_14:
         r['vehicleId'] = v_09['id']
         r['vehicleLabel'] = v_09['label']
         r['captainName'] = cpt_09['name']
         r['captainPhone'] = cpt_09['phone']
 
-    # Xe #10: Lái xe kiêm VĐV 5km: Trần Văn Tuân (5194 - MT Luxury Quảng Ninh)
+    # =========================================================================
+    # 10. CÁC XE 7 CHỖ CÓ VĐV KIÊM LÁI XE (XE #10 ĐẾN XE #15)
+    # Vì chính VĐV kiêm lái xe ngồi ở ghế lái nên được xếp đủ 7/7 chỗ!
+    # =========================================================================
+
+    # --- XE #10 (7 CHỖ): Lái xe Trần Văn Tuân (5194 - MT Cửa Lò) ---
     r_driver_10 = runners_dict[5194]
-    group_10k_5a = regular_10k[15:20]
+    group_10k_10 = regular_10k[14:19] # 5 VĐV 10km (10019 đến 10023)
     cpt_10 = {
         'name': 'Đoàn Thế Cương',
-        'title': 'Quản lý Nghiệp vụ An ninh (BTC An ninh)',
-        'dept': 'Operation - VPTD',
+        'title': 'Phó phòng Quản trị & Đầu tư',
+        'dept': 'Quản trị - VPTD',
         'phone': get_phone('Đoàn Thế Cương', '0912 211 929'),
-        'duty': 'Quản lý an ninh chung & hỗ trợ thu gom VĐV'
+        'duty': 'Trưởng xe #10 & Điều phối VĐV 10km'
     }
     v_10 = {
         'id': 'XE-10',
@@ -512,7 +543,7 @@ def rebuild_funrun():
         'label': 'Xe #10 (7 chỗ)',
         'type': 'Xe 7 chỗ',
         'capacity': 7,
-        'paxCount': len(group_10k_5a) + 2, # 5 VĐV 10k + 1 Trưởng xe + 1 Lái xe kiêm VĐV = 7
+        'paxCount': len(group_10k_10) + 2, # 5 VĐV 10k + 1 Trưởng xe + 1 Lái xe kiêm VĐV = 7 (VĐV tự lái đủ 7/7)
         'departTime': '05:00',
         'pickupLoc': 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình',
         'destLoc': 'Sân Golf Tràng An & Resort',
@@ -529,16 +560,16 @@ def rebuild_funrun():
             'unit': r_driver_10['unit'],
             'role': 'Lái xe kiêm VĐV chạy 5km'
         },
-        'bibRange': f"BIB 5194, {group_10k_5a[0]['bib']} – {group_10k_5a[-1]['bib']}",
+        'bibRange': f"BIB 5194, {group_10k_10[0]['bib']} – {group_10k_10[-1]['bib']}",
         'distance': '10km (kèm Lái xe kiêm VĐV 5km)',
-        'note': f"Xe 7 chỗ. Trưởng xe BTC: Đoàn Thế Cương. Lái xe kiêm VĐV tự lái: Trần Văn Tuân (BIB 5194 - MT Luxury Quảng Ninh). Chở 5 VĐV 10km.",
-        'runners': [r_driver_10] + group_10k_5a,
+        'note': f"Xe 7 chỗ. Trưởng xe: Đoàn Thế Cương (VPTĐ). Lái xe kiêm VĐV tự lái: Trần Văn Tuân (BIB 5194 - MT Cửa Lò). Chở 5 VĐV cự ly 10km.",
+        'runners': [r_driver_10] + group_10k_10,
         'btcStaff': [
             {
                 'name': cpt_10['name'],
                 'title': cpt_10['title'],
                 'dept': cpt_10['dept'],
-                'duty': 'Trưởng xe #10 & Quản lý an ninh chung',
+                'duty': cpt_10['duty'],
                 'phone': cpt_10['phone'],
                 'isCaptain': True
             }
@@ -551,26 +582,23 @@ def rebuild_funrun():
         r['captainName'] = cpt_10['name']
         r['captainPhone'] = cpt_10['phone']
 
-    # Xe #11: Lái xe kiêm VĐV 5km: Lương Trung Thành (5284 - MT Luxury Cao Bằng)
-    # 5 VĐV 10k (10024 -> 10029, gồm Trưởng xe Nguyễn Bá Lãm 10026) + 1 VĐV 15k (15020) dồn xe
+    # --- XE #11 (7 CHỖ): Lái xe Lương Trung Thành (5284 - MT Diễn Châu) ---
     r_driver_11 = runners_dict[5284]
-    group_10k_5b = regular_10k[20:25] # 5 runners 10k (10024, 10025, 10026, 10027, 10028, 10029 -> lấy 5 runners)
-    r_dồn_11 = [runners_dict[15020]] # Dồn thêm 15020 sang đây cho tròn 7 chỗ!
-
+    group_10k_11 = regular_10k[19:25] # 6 VĐV 10km (10024 đến 10029, trong đó 10026 là Trưởng xe Nguyễn Bá Lãm)
     cpt_11 = {
         'name': 'Nguyễn Bá Lãm',
-        'title': 'Giám sát Thuế và Tài sản (VĐV BIB 10026)',
+        'title': 'Trưởng phòng Kiểm soát Doanh thu (kiêm VĐV 10km)',
         'dept': 'Văn phòng Tập đoàn Mường Thanh',
-        'phone': get_phone('Nguyễn Bá Lãm', '0986 670 418')
+        'phone': get_phone('Nguyễn Bá Lãm', '0986 670 418'),
+        'duty': 'Trưởng xe #11 phụ trách đoàn VĐV 10km'
     }
-    runners_11 = [r_driver_11] + group_10k_5b + r_dồn_11
     v_11 = {
         'id': 'XE-11',
         'code': 'XE-11',
         'label': 'Xe #11 (7 chỗ)',
         'type': 'Xe 7 chỗ',
         'capacity': 7,
-        'paxCount': len(runners_11), # 7 người
+        'paxCount': len(group_10k_11) + 1, # 1 Lái xe kiêm VĐV (Thành 5284) + 6 VĐV (gồm Trưởng xe Lãm 10026) = 7/7
         'departTime': '05:00',
         'pickupLoc': 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình',
         'destLoc': 'Sân Golf Tràng An & Resort',
@@ -587,34 +615,37 @@ def rebuild_funrun():
             'unit': r_driver_11['unit'],
             'role': 'Lái xe kiêm VĐV chạy 5km'
         },
-        'bibRange': f"BIB 5284, 15020, {group_10k_5b[0]['bib']} – {group_10k_5b[-1]['bib']}",
-        'distance': '10km & 15km (kèm Lái xe kiêm VĐV 5km)',
-        'note': f"Xe 7 chỗ. Trưởng xe là VĐV Văn phòng Tập đoàn: Nguyễn Bá Lãm (BIB 10026). Lái xe kiêm VĐV tự lái: Lương Trung Thành (BIB 5284 - MT Luxury Cao Bằng). Ghép thêm VĐV 15020 để dồn xe.",
-        'runners': runners_11,
-        'btcStaff': []
+        'bibRange': f"BIB 5284, {group_10k_11[0]['bib']} – {group_10k_11[-1]['bib']}",
+        'distance': '10km (kèm Lái xe kiêm VĐV 5km)',
+        'note': f"Xe 7 chỗ. Trưởng xe: Nguyễn Bá Lãm (Trưởng phòng Kiểm soát Doanh thu - VPTĐ, kiêm VĐV 10km BIB 10026). Lái xe kiêm VĐV tự lái: Lương Trung Thành (BIB 5284 - MT Diễn Châu). Chở 6 VĐV 10km.",
+        'runners': [r_driver_11] + group_10k_11,
+        'btcStaff': [
+            {
+                'name': cpt_11['name'],
+                'title': cpt_11['title'],
+                'dept': cpt_11['dept'],
+                'duty': cpt_11['duty'],
+                'phone': cpt_11['phone'],
+                'isCaptain': True
+            }
+        ]
     }
     vehicles.append(v_11)
-    for r in runners_11:
+    for r in v_11['runners']:
         r['vehicleId'] = v_11['id']
         r['vehicleLabel'] = v_11['label']
         r['captainName'] = cpt_11['name']
         r['captainPhone'] = cpt_11['phone']
 
-    # =========================================================================
-    # 10. CỰ LY 15KM & LÁI XE KIÊM VĐV (XE #12, #13, #14)
-    # Xe #12: Trưởng xe Đào Minh Anh (VPTD) + Lái xe kiêm VĐV Lê Văn Chiến (5302)
-    # Xe #13: Trưởng xe Hoàng Kim Chính (VPTD) + Lái xe kiêm VĐV Đoàn Công Anh Tú (5315)
-    # Xe #14: Trưởng xe Trần Đại Nghĩa (VPTD) + Lái xe kiêm VĐV Trần Quang Lợi (5322)
-    # =========================================================================
-    # Xe #12: Lái xe kiêm VĐV Lê Văn Chiến (5302 - MT Vinh)
+    # --- XE #12 (7 CHỖ): Lái xe Lê Văn Chiến (5302 - MT Luxury Sông Hàn) ---
     r_driver_12 = runners_dict[5302]
-    group_15k_a = regular_15k[:5] # 5 runners 15k (including 15004 Ms. Lê Thị Thơ)
+    group_15k_a = regular_15k[:5] # 5 VĐV 15k (15001, 15002, 15004 Ms. Thơ, 15006, 15007)
     cpt_12 = {
         'name': 'Đào Minh Anh',
-        'title': 'Chuyên viên Dữ liệu nhân sự (BTC Kiểm soát vòng chạy)',
-        'dept': 'Nhân sự - VPTD',
+        'title': 'Trưởng phòng Marketing',
+        'dept': 'Marketing - VPTD',
         'phone': get_phone('Đào Minh Anh', '0366 700 935'),
-        'duty': 'Trưởng xe #12 & Kiểm soát đóng dấu vòng chạy Km 1.1'
+        'duty': 'Trưởng xe #12 phụ trách đoàn 15km'
     }
     v_12 = {
         'id': 'XE-12',
@@ -640,8 +671,8 @@ def rebuild_funrun():
             'role': 'Lái xe kiêm VĐV chạy 5km'
         },
         'bibRange': f"BIB 5302, {group_15k_a[0]['bib']} – {group_15k_a[-1]['bib']}",
-        'distance': '15km (gồm Ms. Thơ Siêu thị & Lái xe kiêm VĐV 5km)',
-        'note': f"Xe 7 chỗ. Trưởng xe BTC: Đào Minh Anh (VPTĐ). Lái xe kiêm VĐV tự lái: Lê Văn Chiến (BIB 5302 - MT Vinh). Đón Ms. Lê Thị Thơ (BIB 15004 - Ban Điều hành Siêu thị) và 4 VĐV 15km.",
+        'distance': '15km (kèm Lái xe kiêm VĐV 5km)',
+        'note': f"Xe 7 chỗ. Trưởng xe: Đào Minh Anh (Trưởng phòng Marketing - VPTĐ). Lái xe kiêm VĐV tự lái: Lê Văn Chiến (BIB 5302 - MT Luxury Sông Hàn). Chở 5 VĐV 15km (bao gồm Ms. Lê Thị Thơ - Siêu thị Mường Thanh).",
         'runners': [r_driver_12] + group_15k_a,
         'btcStaff': [
             {
@@ -661,15 +692,15 @@ def rebuild_funrun():
         r['captainName'] = cpt_12['name']
         r['captainPhone'] = cpt_12['phone']
 
-    # Xe #13: Lái xe kiêm VĐV Đoàn Công Anh Tú (5315 - MT Holiday Quảng Bình)
+    # --- XE #13 (7 CHỖ): Lái xe Đoàn Công Anh Tú (5315 - MT Grand Quảng Nam) ---
     r_driver_13 = runners_dict[5315]
-    group_15k_b = regular_15k[5:10] # 5 runners 15k
+    group_15k_b = regular_15k[5:10] # 5 runners 15k (15009 đến 15013)
     cpt_13 = {
         'name': 'Hoàng Kim Chính',
-        'title': 'Phó phòng Kiểm soát chi phí (BTC Trao giải Finisher)',
-        'dept': 'Tài chính - VPTD',
+        'title': 'Trưởng phòng Quản lý dự án',
+        'dept': 'Ban QLDA - VPTD',
         'phone': get_phone('Hoàng Kim Chính', '0985 434 292'),
-        'duty': 'Trưởng xe #13 & Hỗ trợ trao giải Finisher'
+        'duty': 'Trưởng xe #13 phụ trách đoàn 15km'
     }
     v_13 = {
         'id': 'XE-13',
@@ -696,7 +727,7 @@ def rebuild_funrun():
         },
         'bibRange': f"BIB 5315, {group_15k_b[0]['bib']} – {group_15k_b[-1]['bib']}",
         'distance': '15km (kèm Lái xe kiêm VĐV 5km)',
-        'note': f"Xe 7 chỗ. Trưởng xe BTC: Hoàng Kim Chính (VPTĐ). Lái xe kiêm VĐV tự lái: Đoàn Công Anh Tú (BIB 5315 - MT Holiday Quảng Bình). Chở 5 VĐV 15km.",
+        'note': f"Xe 7 chỗ. Trưởng xe: Hoàng Kim Chính (Trưởng phòng QLDA - VPTĐ). Lái xe kiêm VĐV tự lái: Đoàn Công Anh Tú (BIB 5315 - MT Grand Quảng Nam). Chở 5 VĐV 15km.",
         'runners': [r_driver_13] + group_15k_b,
         'btcStaff': [
             {
@@ -716,16 +747,15 @@ def rebuild_funrun():
         r['captainName'] = cpt_13['name']
         r['captainPhone'] = cpt_13['phone']
 
-    # Xe #14: Lái xe kiêm VĐV Trần Quang Lợi (5322 - MT Luxury Vientiane)
-    # Trưởng xe: Trần Đại Nghĩa (Trưởng phòng Kiểm toán nội bộ - VPTD)
+    # --- XE #14 (7 CHỖ): Lái xe Trần Quang Lợi (5322 - MT Luxury Vientiane) ---
     r_driver_14 = runners_dict[5322]
-    group_15k_c = regular_15k[10:15] # 5 runners 15k
+    group_15k_c = regular_15k[10:15] # 5 runners 15k (15014 đến 15018)
     cpt_14 = {
         'name': 'Trần Đại Nghĩa',
         'title': 'Trưởng phòng Kiểm toán nội bộ',
         'dept': 'Văn phòng Tập đoàn Mường Thanh',
         'phone': get_phone('Trần Đại Nghĩa', '0987 379 398'),
-        'duty': 'Trưởng xe #14 phụ trách đoàn'
+        'duty': 'Trưởng xe #14 phụ trách đoàn 15km'
     }
     v_14 = {
         'id': 'XE-14',
@@ -772,16 +802,74 @@ def rebuild_funrun():
         r['captainName'] = cpt_14['name']
         r['captainPhone'] = cpt_14['phone']
 
-    # =========================================================================
-    # 11. XE #15-YTE (7 CHỖ) - TỔ Y TẾ BỆNH VIỆN PHỦ DIỄN & DỒN VĐV TIẾT KIỆM XE
-    # Lái xe kiêm VĐV 5km: Nguyễn Minh Khoa (5349 - MT Grand Lào Cai) tự lái!
-    # Trưởng xe: Nguyễn Thị Lan (Trưởng nhóm Nhân sự VPTĐ)
-    # Chở: 3 Bác sĩ (BS Lê Kim Vũ, BS Võ Thị Mai Anh, BS Quang Tuấn Anh) + 2 VĐV 15km (15021, 15022)
-    # =========================================================================
-    r_driver_yte = runners_dict[5349]
-    r_dồn_yte = [runners_dict[15021], runners_dict[15022]]
-    runners_yte = [r_driver_yte] + r_dồn_yte
+    # --- XE #15 (7 CHỖ): Lái xe Nguyễn Minh Khoa (5349 - MT Grand Lào Cai) ---
+    # Chở 2 VĐV 10km còn lại (10030, 10031) + 4 VĐV 15km còn lại (15019, 15020, 15021, 15022)
+    # Lái xe kiêm VĐV 5349 tự lái kiêm Trưởng xe phụ trách nhóm = đúng 7/7 VĐV!
+    r_driver_15 = runners_dict[5349]
+    group_10k_rem = regular_10k[25:] # 2 VĐV 10k (10030, 10031)
+    group_15k_rem = regular_15k[15:] # 4 VĐV 15k (15019, 15020, 15021, 15022)
+    all_runners_15 = [r_driver_15] + group_10k_rem + group_15k_rem
 
+    cpt_15 = {
+        'name': 'Nguyễn Minh Hiếu',
+        'title': 'Huấn luyện viên Thể hình (BTC Khởi động)',
+        'dept': 'Văn phòng Tập đoàn Mường Thanh',
+        'phone': get_phone('Phạm Minh Hiếu', '0979 140 391'),
+        'duty': 'Trưởng xe #15 phụ trách đoàn VĐV'
+    }
+    v_15 = {
+        'id': 'XE-15',
+        'code': 'XE-15',
+        'label': 'Xe #15 (7 chỗ)',
+        'type': 'Xe 7 chỗ',
+        'capacity': 7,
+        'paxCount': len(all_runners_15), # 1 Lái xe kiêm VĐV 5349 + 2 VĐV 10k + 4 VĐV 15k = 7/7 VĐV tự lái
+        'departTime': '05:00',
+        'pickupLoc': 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình',
+        'destLoc': 'Sân Golf Tràng An & Resort',
+        'returnTime': '11:00',
+        'captain': {
+            'name': cpt_15['name'],
+            'title': cpt_15['title'],
+            'unit': cpt_15['dept'],
+            'phone': cpt_15['phone']
+        },
+        'driver': {
+            'name': r_driver_15['name'],
+            'bib': r_driver_15['bib'],
+            'unit': r_driver_15['unit'],
+            'phone': r_driver_15['phone'],
+            'role': 'Lái xe kiêm VĐV chạy 5km'
+        },
+        'bibRange': f"BIB 5349, 10030, 10031, {group_15k_rem[0]['bib']} – {group_15k_rem[-1]['bib']}",
+        'distance': '10km & 15km (kèm Lái xe kiêm VĐV 5km)',
+        'note': f"Xe 7 chỗ. Trưởng đoàn phụ trách: Nguyễn Minh Hiếu (HLV Thể hình VPTĐ). Lái xe kiêm VĐV tự lái: Nguyễn Minh Khoa (BIB 5349 - MT Grand Lào Cai). Chở 2 VĐV 10km và 4 VĐV 15km.",
+        'runners': all_runners_15,
+        'btcStaff': [
+            {
+                'name': cpt_15['name'],
+                'title': cpt_15['title'],
+                'dept': cpt_15['dept'],
+                'duty': cpt_15['duty'],
+                'phone': cpt_15['phone'],
+                'isCaptain': True
+            }
+        ]
+    }
+    vehicles.append(v_15)
+    for r in all_runners_15:
+        r['vehicleId'] = v_15['id']
+        r['vehicleLabel'] = v_15['label']
+        r['captainName'] = cpt_15['name']
+        r['captainPhone'] = cpt_15['phone']
+
+    # =========================================================================
+    # 11. XE #16-YTE (7 CHỖ) - TỔ Y TẾ BỆNH VIỆN PHỦ DIỄN
+    # Không có VĐV kiêm lái xe -> chừa 1 ghế cho lái xe thuê ngoài (4 khách / 7 chỗ)
+    # Trưởng xe: Nguyễn Thị Lan (Trưởng nhóm Nhân sự - VPTD: 0977 760 567)
+    # Chở: 3 Bác sĩ (BS Lê Kim Vũ, BS Võ Thị Mai Anh, BS Quang Tuấn Anh)
+    # Trống 2 ghế sau để cáng thương, túi thuốc cấp cứu và bình oxy
+    # =========================================================================
     cpt_yte = {
         'name': 'Nguyễn Thị Lan',
         'title': 'Trưởng nhóm Nhân sự (BTC Hậu cần Y tế)',
@@ -790,12 +878,12 @@ def rebuild_funrun():
         'duty': 'Trưởng xe Y tế & Phụ trách điều phối cứu thương'
     }
     v_yte = {
-        'id': 'XE-15-YTE',
-        'code': 'XE-15-YTE',
-        'label': 'Xe #15 - Tổ Y Tế BV Phủ Diễn (7 chỗ)',
+        'id': 'XE-16-YTE',
+        'code': 'XE-16-YTE',
+        'label': 'Xe #16 - Tổ Y Tế BV Phủ Diễn (7 chỗ)',
         'type': 'Xe 7 chỗ',
         'capacity': 7,
-        'paxCount': len(runners_yte) + 4, # 3 VĐV (gồm lái xe) + 1 Trưởng xe + 3 Bác sĩ = 7 người
+        'paxCount': 4, # 1 Trưởng xe BTC + 3 Bác sĩ (chừa 1 ghế cho lái xe thuê ngoài và khoang y tế)
         'departTime': '05:00',
         'pickupLoc': 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình',
         'destLoc': 'Sân Golf Tràng An & Resort',
@@ -806,16 +894,10 @@ def rebuild_funrun():
             'unit': cpt_yte['dept'],
             'phone': cpt_yte['phone']
         },
-        'driver': {
-            'name': r_driver_yte['name'],
-            'bib': r_driver_yte['bib'],
-            'unit': r_driver_yte['unit'],
-            'role': 'Lái xe kiêm VĐV chạy 5km'
-        },
-        'bibRange': 'BIB 5349, 15021, 15022 & Tổ Y Tế',
-        'distance': 'Y tế, Cấp cứu & Chạy 5km/15km',
-        'note': f"Trưởng xe phụ trách là cán bộ Ban Nhân sự Văn phòng Tập đoàn: Nguyễn Thị Lan. Lái xe kiêm VĐV tự lái: Nguyễn Minh Khoa (BIB 5349 - MT Grand Lào Cai). Chở 3 Bác sĩ Bệnh viện Phủ Diễn (BS Lê Kim Vũ, BS Võ Thị Mai Anh, BS Quang Tuấn Anh), cáng thương và ghép thêm 2 VĐV 15km để dồn tiết kiệm xe.",
-        'runners': runners_yte,
+        'bibRange': 'Tổ Y Tế & Cứu Thương',
+        'distance': 'Y tế & Cấp cứu đường chạy',
+        'note': f"Xe 7 chỗ chuyên dụng y tế. Trưởng xe phụ trách: Nguyễn Thị Lan (Trưởng nhóm Nhân sự Văn phòng Tập đoàn). Chở 3 Bác sĩ Bệnh viện Phủ Diễn (BS Lê Kim Vũ, BS Võ Thị Mai Anh, BS Quang Tuấn Anh) cùng cáng thương và thiết bị sơ cấp cứu. Lái xe hợp đồng phục vụ.",
+        'runners': [],
         'btcStaff': [
             {'name': cpt_yte['name'], 'title': cpt_yte['title'], 'dept': cpt_yte['dept'], 'duty': cpt_yte['duty'], 'phone': cpt_yte['phone'], 'isCaptain': True},
             {'name': 'BS Lê Kim Vũ', 'title': 'Bác sỹ BV Phủ Diễn', 'dept': 'Y tế', 'duty': 'Trạm Y tế 0 (Start/Finish)', 'phone': '0912 345 678'},
@@ -824,11 +906,6 @@ def rebuild_funrun():
         ]
     }
     vehicles.append(v_yte)
-    for r in runners_yte:
-        r['vehicleId'] = v_yte['id']
-        r['vehicleLabel'] = v_yte['label']
-        r['captainName'] = cpt_yte['name']
-        r['captainPhone'] = cpt_yte['phone']
 
     print(f"\nTotal vehicles configured: {len(vehicles)}")
 
@@ -853,7 +930,7 @@ def rebuild_funrun():
     with open('data.json', 'w', encoding='utf-8') as f:
         json.dump(full_data, f, ensure_ascii=False, indent=2)
 
-    print("Successfully updated data.json with new consolidated vehicle plan!")
+    print("Successfully updated data.json with 23 vehicles and exact constraints!")
 
 if __name__ == '__main__':
     rebuild_funrun()

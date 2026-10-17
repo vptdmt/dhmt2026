@@ -18462,7 +18462,7 @@
         "id": "XE-VIP-01",
         "code": "VIP-TGD",
         "label": "Xe VIP 01 - Tổng Giám Đốc & Thư Ký TGĐ",
-        "type": "Xe riêng TGĐ",
+        "type": "Xe riêng TGĐ (4 chỗ)",
         "capacity": 4,
         "paxCount": 2,
         "departTime": "05:00",
@@ -18477,7 +18477,7 @@
         },
         "bibRange": "BIB 5001",
         "distance": "5km (Ban Lãnh đạo)",
-        "note": "Xe riêng phục vụ Tổng Giám đốc Tập đoàn Lê Thị Hoàng Yến và Thư ký TGĐ Phạm Thị Thu Thủy. (Liên hệ qua Thư ký: 0968 449 690)",
+        "note": "Xe riêng phục vụ Tổng Giám đốc Tập đoàn Lê Thị Hoàng Yến và Thư ký TGĐ Phạm Thị Thu Thủy. Có lái xe riêng phục vụ.",
         "isVIP": true,
         "runners": [
           {
@@ -18528,7 +18528,7 @@
         },
         "bibRange": "5002, 5003, 5306, 5010, 15005",
         "distance": "Lãnh đạo cấp cao (5km & 15km)",
-        "note": "Xe 7 chỗ bố trí riêng cho 3 Phó Tổng Giám đốc ghép cùng Ms. Thu Nguyệt (MKT), Ms. Thanh Trà (KD), Ms. Tạ Diệp Anh (TC)",
+        "note": "Xe 7 chỗ bố trí riêng cho 3 Phó Tổng Giám đốc ghép cùng Ms. Thu Nguyệt (MKT), Ms. Thanh Trà (KD), Ms. Tạ Diệp Anh (TC). Chở 6 người nội bộ (chừa 1 ghế cho lái xe thuê ngoài).",
         "isVIP": true,
         "runners": [
           {
@@ -18635,10 +18635,10 @@
       {
         "id": "XE-00-BTC",
         "code": "BTC-EARLY",
-        "label": "Xe #00 - Ban Tổ Chức Đi Sớm (04h30)",
-        "type": "Xe 16 chỗ",
-        "capacity": 16,
-        "paxCount": 6,
+        "label": "Xe #00 - Ban Tổ Chức Đi Sớm (04h30) (7 chỗ)",
+        "type": "Xe 7 chỗ",
+        "capacity": 7,
+        "paxCount": 7,
         "departTime": "04:30",
         "pickupLoc": "Sảnh Khách sạn Mường Thanh Luxury Ninh Bình",
         "destLoc": "Sân Golf Tràng An & Resort (Khu vực Start/Finish)",
@@ -18649,11 +18649,36 @@
           "unit": "Văn phòng Tập đoàn Mường Thanh",
           "phone": "0934 269 369"
         },
-        "bibRange": "BIB 5380 & BTC Đi Sớm",
+        "driver": {
+          "name": "Hoàng Roãn Cường",
+          "bib": 5357,
+          "unit": "Văn phòng Tập đoàn Mường Thanh",
+          "phone": "0904 340 911",
+          "role": "Lái xe kiêm VĐV chạy 5km (Chuyên viên KSCP - VPTĐ)"
+        },
+        "bibRange": "BIB 5357, 5380 & BTC Đi Sớm",
         "distance": "Điều hành, Setup & Chạy 5km",
-        "note": "Xuất phát sớm 04h30 chở các cán bộ kỹ thuật, cổng hơi, âm thanh, bộ đàm và chốt trạm sớm (bao gồm Nguyễn Tuấn Long - TP Đào tạo & KSCL, kiêm VĐV 5km BIB 5380).",
+        "note": "Xe 7 chỗ xuất phát sớm 04h30 do VĐV Hoàng Roãn Cường (BIB 5357 - Chuyên viên Kiểm soát chi phí VPTĐ) tự lái. Chở Giám đốc Đào tạo & KSCL Vũ Minh Tuấn (Trưởng xe), Trưởng phòng Đào tạo & KSCL Nguyễn Tuấn Long (BIB 5380) cùng 4 cán bộ kỹ thuật và chốt trạm sớm setup âm thanh, cổng hơi, bộ đàm.",
         "isEarly": true,
         "runners": [
+          {
+            "stt": 357,
+            "bib": 5357,
+            "name": "Hoàng Roãn Cường",
+            "title": "Chuyên viên Kiểm soát chi phí",
+            "unit": "Văn phòng Tập đoàn Mường Thanh",
+            "phone": "0904 340 911",
+            "gender": "Nam",
+            "size": "M",
+            "dist": "Chạy 5km",
+            "category": "5km Nam trên 35 tuổi",
+            "btc": "",
+            "note": "",
+            "vehicleId": "XE-00-BTC",
+            "vehicleLabel": "Xe #00 - Ban Tổ Chức Đi Sớm (04h30) (7 chỗ)",
+            "captainName": "Vũ Minh Tuấn",
+            "captainPhone": "0934 269 369"
+          },
           {
             "stt": 380,
             "bib": 5380,
@@ -18668,7 +18693,7 @@
             "btc": "Điều phối xuất phát & về đích",
             "note": "",
             "vehicleId": "XE-00-BTC",
-            "vehicleLabel": "Xe #00 - Ban Tổ Chức Đi Sớm (04h30)",
+            "vehicleLabel": "Xe #00 - Ban Tổ Chức Đi Sớm (04h30) (7 chỗ)",
             "captainName": "Vũ Minh Tuấn",
             "captainPhone": "0934 269 369"
           }
@@ -18679,7 +18704,8 @@
             "title": "GĐ Đào tạo & KSCL",
             "duty": "Điều phối chung & Trao giải",
             "dept": "Đào tạo - VPTD",
-            "phone": "0934 269 369"
+            "phone": "0934 269 369",
+            "isCaptain": true
           },
           {
             "name": "Nguyễn Tuấn Long",
@@ -18724,7 +18750,7 @@
         "label": "Xe Chốt Đoàn - Team Điều Phối Xe Di Chuyển (7 chỗ)",
         "type": "Xe 7 chỗ",
         "capacity": 7,
-        "paxCount": 6,
+        "paxCount": 3,
         "departTime": "05:15 (Xuất phát cuối cùng)",
         "pickupLoc": "Sảnh Khách sạn Mường Thanh Luxury Ninh Bình",
         "destLoc": "Sân Golf Tràng An & Resort",
@@ -18735,9 +18761,9 @@
           "unit": "Văn phòng Tập đoàn Mường Thanh",
           "phone": "0948 154 816"
         },
-        "bibRange": "BIB 5004, 5005, 10001, 10030, 10031, 15019",
-        "distance": "Điều phối xe & Chốt đoàn (ghép 3 VĐV 10km, 15km)",
-        "note": "Team điều phối xe ở lại sảnh KS điều phối đoàn lên xe, soát quân số và di chuyển khóa đuôi lúc 05:15. Ghép thêm 3 VĐV (10030, 10031, 15019) để dồn tiết kiệm xe.",
+        "bibRange": "BIB 5004, 5005, 10001",
+        "distance": "Điều phối xe & Chốt đoàn (5km & 10km)",
+        "note": "Xe 7 chỗ phục vụ Team điều phối xe ở lại sảnh KS điều phối đoàn lên xe, soát quân số và di chuyển khóa đuôi lúc 05:15. Có lái xe thuê ngoài phục vụ.",
         "isCoordination": true,
         "runners": [
           {
@@ -18793,60 +18819,6 @@
             "vehicleLabel": "Xe Chốt Đoàn - Team Điều Phối Xe Di Chuyển (7 chỗ)",
             "captainName": "Lưu Quốc Việt",
             "captainPhone": "0948 154 816"
-          },
-          {
-            "stt": 410,
-            "bib": 10030,
-            "name": "Đinh Thế Hào",
-            "title": "Nv Lễ tân",
-            "unit": "Mường Thanh Luxury Ninh Bình",
-            "phone": "0962.986.454",
-            "gender": "Nam",
-            "size": "L",
-            "dist": "Chạy 10km",
-            "category": "10km Nam",
-            "btc": "",
-            "note": "",
-            "vehicleId": "XE-CHOT-DOAN",
-            "vehicleLabel": "Xe Chốt Đoàn - Team Điều Phối Xe Di Chuyển (7 chỗ)",
-            "captainName": "Lưu Quốc Việt",
-            "captainPhone": "0948 154 816"
-          },
-          {
-            "stt": 411,
-            "bib": 10031,
-            "name": "Tòng Đức Việt",
-            "title": "Nhân viên Kỹ thuật",
-            "unit": "Mường Thanh Luxury Điện Biên",
-            "phone": "",
-            "gender": "Nam",
-            "size": "L",
-            "dist": "Chạy 10km",
-            "category": "10km Nam",
-            "btc": "",
-            "note": "",
-            "vehicleId": "XE-CHOT-DOAN",
-            "vehicleLabel": "Xe Chốt Đoàn - Team Điều Phối Xe Di Chuyển (7 chỗ)",
-            "captainName": "Lưu Quốc Việt",
-            "captainPhone": "0948 154 816"
-          },
-          {
-            "stt": 431,
-            "bib": 15019,
-            "name": "Nguyễn Trọng Khang",
-            "title": "Giám sát dịch vụ ẩm thực",
-            "unit": "Mường Thanh Luxury Khánh Hòa",
-            "phone": "814491806",
-            "gender": "Nam",
-            "size": "L",
-            "dist": "Chạy 15km",
-            "category": "15km Nam",
-            "btc": "",
-            "note": "",
-            "vehicleId": "XE-CHOT-DOAN",
-            "vehicleLabel": "Xe Chốt Đoàn - Team Điều Phối Xe Di Chuyển (7 chỗ)",
-            "captainName": "Lưu Quốc Việt",
-            "captainPhone": "0948 154 816"
           }
         ],
         "btcStaff": [
@@ -18869,9 +18841,9 @@
       {
         "id": "XE-BAN-SU-KIEN",
         "code": "XE-SK",
-        "label": "Xe Ban Sự Kiện - Team Sự Kiện & Media BTC (7 chỗ)",
-        "type": "Xe 7 chỗ riêng",
-        "capacity": 7,
+        "label": "Xe Ban Sự Kiện - Team Sự Kiện & Media BTC (16 chỗ)",
+        "type": "Xe 16 chỗ riêng",
+        "capacity": 16,
         "paxCount": 7,
         "departTime": "04:45",
         "pickupLoc": "Sảnh Khách sạn Mường Thanh Luxury Ninh Bình",
@@ -18885,7 +18857,7 @@
         },
         "bibRange": "BIB 5011 & Ban Sự Kiện",
         "distance": "Tác nghiệp Sự kiện, Truyền thông & Chạy 5km",
-        "note": "Xe riêng phục vụ Ban Sự kiện và Ekip Media gồm 7 người: Lê Đức Tuấn Định (Trưởng phòng Thiết kế - kiêm VĐV 5km), Nguyễn Huy Quỳnh, Phạm Hoàng Hiệp, Trần Hồng Hạnh, Nguyễn Thị Vân Anh, Võ Tuấn Dương, Vũ Thị Hoàng Nhung.",
+        "note": "Xe 16 chỗ riêng phục vụ Ban Sự kiện và Ekip Media gồm 7 người: Lê Đức Tuấn Định (Trưởng phòng Thiết kế - kiêm VĐV 5km), Nguyễn Huy Quỳnh, Phạm Hoàng Hiệp, Trần Hồng Hạnh, Nguyễn Thị Vân Anh, Võ Tuấn Dương, Vũ Thị Hoàng Nhung. Xe chở toàn bộ máy quay, flycam và đạo cụ sự kiện.",
         "runners": [
           {
             "stt": 11,
@@ -18901,7 +18873,7 @@
             "btc": "Theo phân công của ban SK",
             "note": "",
             "vehicleId": "XE-BAN-SU-KIEN",
-            "vehicleLabel": "Xe Ban Sự Kiện - Team Sự Kiện & Media BTC (7 chỗ)",
+            "vehicleLabel": "Xe Ban Sự Kiện - Team Sự Kiện & Media BTC (16 chỗ)",
             "captainName": "Lê Đức Tuấn Định",
             "captainPhone": "0989 414 580"
           }
@@ -19226,18 +19198,18 @@
         "capacity": 15,
         "paxCount": 15,
         "departTime": "Tự túc phương tiện",
-        "pickupLoc": "Theo kế hoạch của Công ty Cienco5 & DHE",
+        "pickupLoc": "Theo kế hoạch của Cienco5 & DHE",
         "destLoc": "Sân Golf Tràng An & Resort",
         "returnTime": "Tự túc phương tiện",
         "captain": {
           "name": "Phạm Thị Hương (Cienco5) & Trần Xuân Dương (DHE)",
-          "title": "Lãnh đạo đoàn Cienco5 & DHE",
+          "title": "Đại diện Lãnh đạo Đơn vị",
           "unit": "Cienco5 & Thang máy DHE",
           "phone": "Nội bộ đơn vị"
         },
         "bibRange": "15 VĐV Cienco5 & DHE",
-        "distance": "Khối Cienco5 & DHE (5km, 10km, 15km)",
-        "note": "Đoàn Cienco5 (11 VĐV) và Thang máy DHE (4 VĐV) chủ động bố trí xe riêng tự di chuyển đến giải chạy",
+        "distance": "Đơn vị tự di chuyển (5km, 10km & 15km)",
+        "note": "Toàn bộ VĐV thuộc Công ty Cổ phần Xây dựng Cienco 5 và Công ty Thang máy DHE tự túc phương tiện di chuyển đến giải chạy Fun Run.",
         "isSelfTransport": true,
         "runners": [
           {
@@ -19526,13 +19498,13 @@
         "returnTime": "11:00",
         "captain": {
           "name": "Hoàng Thanh Hải",
-          "title": "Chuyên viên Hành chính (BTC Tiếp nước)",
-          "unit": "Hành chính - VPTD",
+          "title": "Giám đốc Vận hành",
+          "unit": "Operation - VPTD",
           "phone": "0982 054 788"
         },
         "bibRange": "BIB 5006 – 5053",
         "distance": "5km",
-        "note": "Khối VĐV 5km (43 VĐV + Trưởng xe BTC Hoàng Thanh Hải đi cùng xe). Nhiệm vụ BTC: Trạm tiếp nước số 1 (Km 2.3)",
+        "note": "Khối VĐV 5km (43 VĐV + Trưởng xe BTC Hoàng Thanh Hải đi cùng xe). Lái xe hợp đồng phục vụ.",
         "runners": [
           {
             "stt": 6,
@@ -20312,9 +20284,9 @@
         "btcStaff": [
           {
             "name": "Hoàng Thanh Hải",
-            "title": "Chuyên viên Hành chính (BTC Tiếp nước)",
-            "dept": "Hành chính - VPTD",
-            "duty": "Trưởng xe #01 & Trạm tiếp nước số 1 (Km 2.3)",
+            "title": "Giám đốc Vận hành",
+            "dept": "Operation - VPTD",
+            "duty": "Trưởng xe #01 phụ trách điểm danh và hướng dẫn đoàn VĐV",
             "phone": "0982 054 788",
             "isCaptain": true
           }
@@ -20333,13 +20305,13 @@
         "returnTime": "11:00",
         "captain": {
           "name": "Dương Thị Hải Anh",
-          "title": "Giám đốc Pháp chế (BTC Tiếp nước)",
-          "unit": "Pháp chế - VPTD",
+          "title": "Trưởng phòng Nhân sự",
+          "unit": "Nhân sự - VPTD",
           "phone": "0982 821 654"
         },
         "bibRange": "BIB 5054 – 5098",
         "distance": "5km",
-        "note": "Khối VĐV 5km (43 VĐV + Trưởng xe BTC Dương Thị Hải Anh đi cùng xe). Nhiệm vụ BTC: Trạm tiếp nước số 2 (Km 4.1)",
+        "note": "Khối VĐV 5km (43 VĐV + Trưởng xe BTC Dương Thị Hải Anh đi cùng xe). Lái xe hợp đồng phục vụ.",
         "runners": [
           {
             "stt": 54,
@@ -21119,9 +21091,9 @@
         "btcStaff": [
           {
             "name": "Dương Thị Hải Anh",
-            "title": "Giám đốc Pháp chế (BTC Tiếp nước)",
-            "dept": "Pháp chế - VPTD",
-            "duty": "Trưởng xe #02 & Trạm tiếp nước số 2 (Km 4.1)",
+            "title": "Trưởng phòng Nhân sự",
+            "dept": "Nhân sự - VPTD",
+            "duty": "Trưởng xe #02 phụ trách điểm danh và hướng dẫn đoàn VĐV",
             "phone": "0982 821 654",
             "isCaptain": true
           }
@@ -21140,13 +21112,13 @@
         "returnTime": "11:00",
         "captain": {
           "name": "Nguyễn Thu Mai",
-          "title": "Giám sát Chế độ chính sách (BTC Kiểm soát)",
-          "unit": "Nhân sự - VPTD",
+          "title": "Trưởng phòng Hành chính",
+          "unit": "Hành chính - VPTD",
           "phone": "0918 816 891"
         },
         "bibRange": "BIB 5099 – 5144",
         "distance": "5km",
-        "note": "Khối VĐV 5km (43 VĐV + Trưởng xe BTC Nguyễn Thu Mai đi cùng xe). Nhiệm vụ BTC: Trạm kiểm soát vòng chạy (Km 1.1)",
+        "note": "Khối VĐV 5km (43 VĐV + Trưởng xe BTC Nguyễn Thu Mai đi cùng xe). Lái xe hợp đồng phục vụ.",
         "runners": [
           {
             "stt": 99,
@@ -21926,9 +21898,9 @@
         "btcStaff": [
           {
             "name": "Nguyễn Thu Mai",
-            "title": "Giám sát Chế độ chính sách (BTC Kiểm soát)",
-            "dept": "Nhân sự - VPTD",
-            "duty": "Trưởng xe #03 & Trạm kiểm soát vòng chạy (Km 1.1)",
+            "title": "Trưởng phòng Hành chính",
+            "dept": "Hành chính - VPTD",
+            "duty": "Trưởng xe #03 phụ trách điểm danh và hướng dẫn đoàn VĐV",
             "phone": "0918 816 891",
             "isCaptain": true
           }
@@ -21947,13 +21919,13 @@
         "returnTime": "11:00",
         "captain": {
           "name": "Nguyễn Thái Mỹ",
-          "title": "Chuyên viên Thiết kế báo cáo (BTC Kiểm soát)",
-          "unit": "CNTT - VPTD",
+          "title": "Phó Giám đốc Kỹ thuật",
+          "unit": "Kỹ thuật - VPTD",
           "phone": "0362 109 907"
         },
         "bibRange": "BIB 5145 – 5187",
         "distance": "5km",
-        "note": "Khối VĐV 5km (43 VĐV + Trưởng xe BTC Nguyễn Thái Mỹ đi cùng xe). Nhiệm vụ BTC: Trạm kiểm soát vòng chạy (Km 1.1)",
+        "note": "Khối VĐV 5km (43 VĐV + Trưởng xe BTC Nguyễn Thái Mỹ đi cùng xe). Lái xe hợp đồng phục vụ.",
         "runners": [
           {
             "stt": 145,
@@ -22733,9 +22705,9 @@
         "btcStaff": [
           {
             "name": "Nguyễn Thái Mỹ",
-            "title": "Chuyên viên Thiết kế báo cáo (BTC Kiểm soát)",
-            "dept": "CNTT - VPTD",
-            "duty": "Trưởng xe #04 & Trạm kiểm soát vòng chạy (Km 1.1)",
+            "title": "Phó Giám đốc Kỹ thuật",
+            "dept": "Kỹ thuật - VPTD",
+            "duty": "Trưởng xe #04 phụ trách điểm danh và hướng dẫn đoàn VĐV",
             "phone": "0362 109 907",
             "isCaptain": true
           }
@@ -22754,13 +22726,13 @@
         "returnTime": "11:00",
         "captain": {
           "name": "Nguyễn Duy Hoạt",
-          "title": "Giám sát CNTT (BTC Điều hướng)",
-          "unit": "CNTT - VPTD",
+          "title": "Trưởng phòng Kế toán",
+          "unit": "Tài chính Kế toán - VPTD",
           "phone": "0916 464 029"
         },
         "bibRange": "BIB 5188 – 5239",
         "distance": "5km",
-        "note": "Khối VĐV 5km (43 VĐV + Trưởng xe BTC Nguyễn Duy Hoạt đi cùng xe). Nhiệm vụ BTC: Điều hướng 2 (Trả khách C)",
+        "note": "Khối VĐV 5km (43 VĐV + Trưởng xe BTC Nguyễn Duy Hoạt đi cùng xe). Lái xe hợp đồng phục vụ.",
         "runners": [
           {
             "stt": 188,
@@ -23540,9 +23512,9 @@
         "btcStaff": [
           {
             "name": "Nguyễn Duy Hoạt",
-            "title": "Giám sát CNTT (BTC Điều hướng)",
-            "dept": "CNTT - VPTD",
-            "duty": "Trưởng xe #05 & Điều hướng 2 (Trả khách C)",
+            "title": "Trưởng phòng Kế toán",
+            "dept": "Tài chính Kế toán - VPTD",
+            "duty": "Trưởng xe #05 phụ trách điểm danh và hướng dẫn đoàn VĐV",
             "phone": "0916 464 029",
             "isCaptain": true
           }
@@ -23561,13 +23533,13 @@
         "returnTime": "11:00",
         "captain": {
           "name": "Phạm Minh Hiếu",
-          "title": "Giám sát Lập trình CSDL cấp cao (BTC Điều hướng)",
-          "unit": "CNTT - VPTD",
+          "title": "Trưởng nhóm Kiểm soát nội bộ",
+          "unit": "Ban KSCL - VPTD",
           "phone": "0979 140 391"
         },
         "bibRange": "BIB 5240 – 5282",
         "distance": "5km",
-        "note": "Khối VĐV 5km (43 VĐV + Trưởng xe BTC Phạm Minh Hiếu đi cùng xe). Nhiệm vụ BTC: Điều hướng 3 (Ngã ba rộng)",
+        "note": "Khối VĐV 5km (43 VĐV + Trưởng xe BTC Phạm Minh Hiếu đi cùng xe). Lái xe hợp đồng phục vụ.",
         "runners": [
           {
             "stt": 240,
@@ -24347,9 +24319,9 @@
         "btcStaff": [
           {
             "name": "Phạm Minh Hiếu",
-            "title": "Giám sát Lập trình CSDL cấp cao (BTC Điều hướng)",
-            "dept": "CNTT - VPTD",
-            "duty": "Trưởng xe #06 & Điều hướng 3 (Ngã ba rộng)",
+            "title": "Trưởng nhóm Kiểm soát nội bộ",
+            "dept": "Ban KSCL - VPTD",
+            "duty": "Trưởng xe #06 phụ trách điểm danh và hướng dẫn đoàn VĐV",
             "phone": "0979 140 391",
             "isCaptain": true
           }
@@ -24361,20 +24333,20 @@
         "label": "Xe #07 (45 chỗ)",
         "type": "Xe 45 chỗ",
         "capacity": 45,
-        "paxCount": 44,
+        "paxCount": 43,
         "departTime": "05:00",
         "pickupLoc": "Sảnh Khách sạn Mường Thanh Luxury Ninh Bình",
         "destLoc": "Sân Golf Tràng An & Resort",
         "returnTime": "11:00",
         "captain": {
           "name": "Trần Đình Thông",
-          "title": "Chuyên viên Quản trị CSDL (BTC Điều hướng)",
-          "unit": "CNTT - VPTD",
+          "title": "Trưởng phòng Pháp chế",
+          "unit": "Pháp chế - VPTD",
           "phone": "0912 177 998"
         },
-        "bibRange": "BIB 5283 – 5332",
+        "bibRange": "BIB 5283 – 5331",
         "distance": "5km",
-        "note": "Khối VĐV 5km (43 VĐV + Trưởng xe BTC Trần Đình Thông đi cùng xe). Nhiệm vụ BTC: Điều hướng 4 (Lối hố tập H)",
+        "note": "Khối VĐV 5km (42 VĐV + Trưởng xe BTC Trần Đình Thông đi cùng xe). Lái xe hợp đồng phục vụ.",
         "runners": [
           {
             "stt": 283,
@@ -25131,32 +25103,14 @@
             "vehicleLabel": "Xe #07 (45 chỗ)",
             "captainName": "Trần Đình Thông",
             "captainPhone": "0912 177 998"
-          },
-          {
-            "stt": 332,
-            "bib": 5332,
-            "name": "Trần Thị Hoa",
-            "title": "Giám sát Bar",
-            "unit": "Mường Thanh Grand Hoàng Mai",
-            "phone": "967502663",
-            "gender": "Nữ",
-            "size": "S",
-            "dist": "Chạy 5km",
-            "category": "5km Nữ dưới 35 tuổi",
-            "btc": "",
-            "note": "",
-            "vehicleId": "XE-07",
-            "vehicleLabel": "Xe #07 (45 chỗ)",
-            "captainName": "Trần Đình Thông",
-            "captainPhone": "0912 177 998"
           }
         ],
         "btcStaff": [
           {
             "name": "Trần Đình Thông",
-            "title": "Chuyên viên Quản trị CSDL (BTC Điều hướng)",
-            "dept": "CNTT - VPTD",
-            "duty": "Trưởng xe #07 & Điều hướng 4 (Lối hố tập H)",
+            "title": "Trưởng phòng Pháp chế",
+            "dept": "Pháp chế - VPTD",
+            "duty": "Trưởng xe #07 phụ trách điểm danh và hướng dẫn đoàn VĐV",
             "phone": "0912 177 998",
             "isCaptain": true
           }
@@ -25175,14 +25129,32 @@
         "returnTime": "11:00",
         "captain": {
           "name": "Võ Thị Mai Trang",
-          "title": "Giám sát Điều phối (BTC Kiểm soát đích)",
-          "unit": "Đào tạo & KSCL - VPTD",
+          "title": "Phó Ban Quản lý Nhà hàng",
+          "unit": "Ẩm thực - VPTD",
           "phone": "0974 899 868"
         },
-        "bibRange": "BIB 5333 – 5379",
+        "bibRange": "BIB 5332 – 5379",
         "distance": "5km",
-        "note": "Khối VĐV 5km (42 VĐV + Trưởng xe BTC Võ Thị Mai Trang đi cùng xe). Nhiệm vụ BTC: Kiểm soát về đích 5km Nam",
+        "note": "Khối VĐV 5km (42 VĐV + Trưởng xe BTC Võ Thị Mai Trang đi cùng xe). Lái xe hợp đồng phục vụ.",
         "runners": [
+          {
+            "stt": 332,
+            "bib": 5332,
+            "name": "Trần Thị Hoa",
+            "title": "Giám sát Bar",
+            "unit": "Mường Thanh Grand Hoàng Mai",
+            "phone": "967502663",
+            "gender": "Nữ",
+            "size": "S",
+            "dist": "Chạy 5km",
+            "category": "5km Nữ dưới 35 tuổi",
+            "btc": "",
+            "note": "",
+            "vehicleId": "XE-08",
+            "vehicleLabel": "Xe #08 (45 chỗ)",
+            "captainName": "Võ Thị Mai Trang",
+            "captainPhone": "0974 899 868"
+          },
           {
             "stt": 333,
             "bib": 5333,
@@ -25536,24 +25508,6 @@
             "size": "XS",
             "dist": "Chạy 5km",
             "category": "5km Nữ dưới 35 tuổi",
-            "btc": "",
-            "note": "",
-            "vehicleId": "XE-08",
-            "vehicleLabel": "Xe #08 (45 chỗ)",
-            "captainName": "Võ Thị Mai Trang",
-            "captainPhone": "0974 899 868"
-          },
-          {
-            "stt": 357,
-            "bib": 5357,
-            "name": "Hoàng Roãn Cường",
-            "title": "Chuyên viên Kiểm soát chi phí",
-            "unit": "Văn phòng Tập đoàn Mường Thanh",
-            "phone": "0904 340 911",
-            "gender": "Nam",
-            "size": "M",
-            "dist": "Chạy 5km",
-            "category": "5km Nam trên 35 tuổi",
             "btc": "",
             "note": "",
             "vehicleId": "XE-08",
@@ -25943,9 +25897,9 @@
         "btcStaff": [
           {
             "name": "Võ Thị Mai Trang",
-            "title": "Giám sát Điều phối (BTC Kiểm soát đích)",
-            "dept": "Đào tạo & KSCL - VPTD",
-            "duty": "Trưởng xe #08 & Kiểm soát về đích 5km Nam",
+            "title": "Phó Ban Quản lý Nhà hàng",
+            "dept": "Ẩm thực - VPTD",
+            "duty": "Trưởng xe #08 phụ trách điểm danh và hướng dẫn đoàn VĐV",
             "phone": "0974 899 868",
             "isCaptain": true
           }
@@ -25957,7 +25911,7 @@
         "label": "Xe #09 (16 chỗ)",
         "type": "Xe 16 chỗ",
         "capacity": 16,
-        "paxCount": 16,
+        "paxCount": 15,
         "departTime": "05:00",
         "pickupLoc": "Sảnh Khách sạn Mường Thanh Luxury Ninh Bình",
         "destLoc": "Sân Golf Tràng An & Resort",
@@ -25968,9 +25922,9 @@
           "unit": "Nhân sự - VPTD",
           "phone": "0973 554 996"
         },
-        "bibRange": "BIB 10002 – 10019",
+        "bibRange": "BIB 10002 – 10016",
         "distance": "10km",
-        "note": "Đội VĐV 10km (15 VĐV + Trưởng xe BTC Phạm Hà An đi cùng xe).",
+        "note": "Đội VĐV 10km gồm 14 VĐV và Trưởng xe BTC Phạm Hà An (Tổng 15 người, chừa 1 ghế cho lái xe hợp đồng phục vụ).",
         "runners": [
           {
             "stt": 382,
@@ -26223,24 +26177,6 @@
             "vehicleLabel": "Xe #09 (16 chỗ)",
             "captainName": "Phạm Hà An",
             "captainPhone": "0973 554 996"
-          },
-          {
-            "stt": 399,
-            "bib": 10019,
-            "name": "Hồ Trí Khải",
-            "title": "Giám sát Dịch vụ ẩm thực",
-            "unit": "Mường Thanh Luxury Viễn Triều",
-            "phone": "706034535",
-            "gender": "Nam",
-            "size": "XL",
-            "dist": "Chạy 10km",
-            "category": "10km Nam",
-            "btc": "",
-            "note": "",
-            "vehicleId": "XE-09",
-            "vehicleLabel": "Xe #09 (16 chỗ)",
-            "captainName": "Phạm Hà An",
-            "captainPhone": "0973 554 996"
           }
         ],
         "btcStaff": [
@@ -26267,8 +26203,8 @@
         "returnTime": "11:00",
         "captain": {
           "name": "Đoàn Thế Cương",
-          "title": "Quản lý Nghiệp vụ An ninh (BTC An ninh)",
-          "unit": "Operation - VPTD",
+          "title": "Phó phòng Quản trị & Đầu tư",
+          "unit": "Quản trị - VPTD",
           "phone": "0912 211 929"
         },
         "driver": {
@@ -26277,9 +26213,9 @@
           "unit": "Mường Thanh Luxury Quảng Ninh",
           "role": "Lái xe kiêm VĐV chạy 5km"
         },
-        "bibRange": "BIB 5194, 10020 – 10024",
+        "bibRange": "BIB 5194, 10019 – 10023",
         "distance": "10km (kèm Lái xe kiêm VĐV 5km)",
-        "note": "Xe 7 chỗ. Trưởng xe BTC: Đoàn Thế Cương. Lái xe kiêm VĐV tự lái: Trần Văn Tuân (BIB 5194 - MT Luxury Quảng Ninh). Chở 5 VĐV 10km.",
+        "note": "Xe 7 chỗ. Trưởng xe: Đoàn Thế Cương (VPTĐ). Lái xe kiêm VĐV tự lái: Trần Văn Tuân (BIB 5194 - MT Cửa Lò). Chở 5 VĐV cự ly 10km.",
         "runners": [
           {
             "stt": 194,
@@ -26292,6 +26228,24 @@
             "size": "L",
             "dist": "Chạy 5km",
             "category": "5km Nam trên 35 tuổi",
+            "btc": "",
+            "note": "",
+            "vehicleId": "XE-10",
+            "vehicleLabel": "Xe #10 (7 chỗ)",
+            "captainName": "Đoàn Thế Cương",
+            "captainPhone": "0912 211 929"
+          },
+          {
+            "stt": 399,
+            "bib": 10019,
+            "name": "Hồ Trí Khải",
+            "title": "Giám sát Dịch vụ ẩm thực",
+            "unit": "Mường Thanh Luxury Viễn Triều",
+            "phone": "706034535",
+            "gender": "Nam",
+            "size": "XL",
+            "dist": "Chạy 10km",
+            "category": "10km Nam",
             "btc": "",
             "note": "",
             "vehicleId": "XE-10",
@@ -26370,32 +26324,14 @@
             "vehicleLabel": "Xe #10 (7 chỗ)",
             "captainName": "Đoàn Thế Cương",
             "captainPhone": "0912 211 929"
-          },
-          {
-            "stt": 404,
-            "bib": 10024,
-            "name": "Ngô Quang Anh",
-            "title": "Giám sát Thiết kế",
-            "unit": "Văn phòng Tập đoàn Mường Thanh",
-            "phone": "0348 334 476",
-            "gender": "Nam",
-            "size": "XXL",
-            "dist": "Chạy 10km",
-            "category": "10km Nam",
-            "btc": "",
-            "note": "",
-            "vehicleId": "XE-10",
-            "vehicleLabel": "Xe #10 (7 chỗ)",
-            "captainName": "Đoàn Thế Cương",
-            "captainPhone": "0912 211 929"
           }
         ],
         "btcStaff": [
           {
             "name": "Đoàn Thế Cương",
-            "title": "Quản lý Nghiệp vụ An ninh (BTC An ninh)",
-            "dept": "Operation - VPTD",
-            "duty": "Trưởng xe #10 & Quản lý an ninh chung",
+            "title": "Phó phòng Quản trị & Đầu tư",
+            "dept": "Quản trị - VPTD",
+            "duty": "Trưởng xe #10 & Điều phối VĐV 10km",
             "phone": "0912 211 929",
             "isCaptain": true
           }
@@ -26414,7 +26350,7 @@
         "returnTime": "11:00",
         "captain": {
           "name": "Nguyễn Bá Lãm",
-          "title": "Giám sát Thuế và Tài sản (VĐV BIB 10026)",
+          "title": "Trưởng phòng Kiểm soát Doanh thu (kiêm VĐV 10km)",
           "unit": "Văn phòng Tập đoàn Mường Thanh",
           "phone": "0986 670 418"
         },
@@ -26424,9 +26360,9 @@
           "unit": "Mường Thanh Luxury Cao Bằng",
           "role": "Lái xe kiêm VĐV chạy 5km"
         },
-        "bibRange": "BIB 5284, 15020, 10025 – 10029",
-        "distance": "10km & 15km (kèm Lái xe kiêm VĐV 5km)",
-        "note": "Xe 7 chỗ. Trưởng xe là VĐV Văn phòng Tập đoàn: Nguyễn Bá Lãm (BIB 10026). Lái xe kiêm VĐV tự lái: Lương Trung Thành (BIB 5284 - MT Luxury Cao Bằng). Ghép thêm VĐV 15020 để dồn xe.",
+        "bibRange": "BIB 5284, 10024 – 10029",
+        "distance": "10km (kèm Lái xe kiêm VĐV 5km)",
+        "note": "Xe 7 chỗ. Trưởng xe: Nguyễn Bá Lãm (Trưởng phòng Kiểm soát Doanh thu - VPTĐ, kiêm VĐV 10km BIB 10026). Lái xe kiêm VĐV tự lái: Lương Trung Thành (BIB 5284 - MT Diễn Châu). Chở 6 VĐV 10km.",
         "runners": [
           {
             "stt": 284,
@@ -26439,6 +26375,24 @@
             "size": "L",
             "dist": "Chạy 5km",
             "category": "5km Nam trên 35 tuổi",
+            "btc": "",
+            "note": "",
+            "vehicleId": "XE-11",
+            "vehicleLabel": "Xe #11 (7 chỗ)",
+            "captainName": "Nguyễn Bá Lãm",
+            "captainPhone": "0986 670 418"
+          },
+          {
+            "stt": 404,
+            "bib": 10024,
+            "name": "Ngô Quang Anh",
+            "title": "Giám sát Thiết kế",
+            "unit": "Văn phòng Tập đoàn Mường Thanh",
+            "phone": "0348 334 476",
+            "gender": "Nam",
+            "size": "XXL",
+            "dist": "Chạy 10km",
+            "category": "10km Nam",
             "btc": "",
             "note": "",
             "vehicleId": "XE-11",
@@ -26535,27 +26489,18 @@
             "vehicleLabel": "Xe #11 (7 chỗ)",
             "captainName": "Nguyễn Bá Lãm",
             "captainPhone": "0986 670 418"
-          },
-          {
-            "stt": 432,
-            "bib": 15020,
-            "name": "Võ Vương Thành",
-            "title": "Giám sát bếp",
-            "unit": "Mường Thanh Grand Quảng Trị",
-            "phone": "379882459",
-            "gender": "Nam",
-            "size": "M",
-            "dist": "Chạy 15km",
-            "category": "15km Nam",
-            "btc": "",
-            "note": "",
-            "vehicleId": "XE-11",
-            "vehicleLabel": "Xe #11 (7 chỗ)",
-            "captainName": "Nguyễn Bá Lãm",
-            "captainPhone": "0986 670 418"
           }
         ],
-        "btcStaff": []
+        "btcStaff": [
+          {
+            "name": "Nguyễn Bá Lãm",
+            "title": "Trưởng phòng Kiểm soát Doanh thu (kiêm VĐV 10km)",
+            "dept": "Văn phòng Tập đoàn Mường Thanh",
+            "duty": "Trưởng xe #11 phụ trách đoàn VĐV 10km",
+            "phone": "0986 670 418",
+            "isCaptain": true
+          }
+        ]
       },
       {
         "id": "XE-12",
@@ -26570,8 +26515,8 @@
         "returnTime": "11:00",
         "captain": {
           "name": "Đào Minh Anh",
-          "title": "Chuyên viên Dữ liệu nhân sự (BTC Kiểm soát vòng chạy)",
-          "unit": "Nhân sự - VPTD",
+          "title": "Trưởng phòng Marketing",
+          "unit": "Marketing - VPTD",
           "phone": "0366 700 935"
         },
         "driver": {
@@ -26581,8 +26526,8 @@
           "role": "Lái xe kiêm VĐV chạy 5km"
         },
         "bibRange": "BIB 5302, 15001 – 15007",
-        "distance": "15km (gồm Ms. Thơ Siêu thị & Lái xe kiêm VĐV 5km)",
-        "note": "Xe 7 chỗ. Trưởng xe BTC: Đào Minh Anh (VPTĐ). Lái xe kiêm VĐV tự lái: Lê Văn Chiến (BIB 5302 - MT Vinh). Đón Ms. Lê Thị Thơ (BIB 15004 - Ban Điều hành Siêu thị) và 4 VĐV 15km.",
+        "distance": "15km (kèm Lái xe kiêm VĐV 5km)",
+        "note": "Xe 7 chỗ. Trưởng xe: Đào Minh Anh (Trưởng phòng Marketing - VPTĐ). Lái xe kiêm VĐV tự lái: Lê Văn Chiến (BIB 5302 - MT Luxury Sông Hàn). Chở 5 VĐV 15km (bao gồm Ms. Lê Thị Thơ - Siêu thị Mường Thanh).",
         "runners": [
           {
             "stt": 302,
@@ -26696,9 +26641,9 @@
         "btcStaff": [
           {
             "name": "Đào Minh Anh",
-            "title": "Chuyên viên Dữ liệu nhân sự (BTC Kiểm soát vòng chạy)",
-            "dept": "Nhân sự - VPTD",
-            "duty": "Trưởng xe #12 & Kiểm soát đóng dấu vòng chạy Km 1.1",
+            "title": "Trưởng phòng Marketing",
+            "dept": "Marketing - VPTD",
+            "duty": "Trưởng xe #12 phụ trách đoàn 15km",
             "phone": "0366 700 935",
             "isCaptain": true
           }
@@ -26717,8 +26662,8 @@
         "returnTime": "11:00",
         "captain": {
           "name": "Hoàng Kim Chính",
-          "title": "Phó phòng Kiểm soát chi phí (BTC Trao giải Finisher)",
-          "unit": "Tài chính - VPTD",
+          "title": "Trưởng phòng Quản lý dự án",
+          "unit": "Ban QLDA - VPTD",
           "phone": "0985 434 292"
         },
         "driver": {
@@ -26729,7 +26674,7 @@
         },
         "bibRange": "BIB 5315, 15009 – 15013",
         "distance": "15km (kèm Lái xe kiêm VĐV 5km)",
-        "note": "Xe 7 chỗ. Trưởng xe BTC: Hoàng Kim Chính (VPTĐ). Lái xe kiêm VĐV tự lái: Đoàn Công Anh Tú (BIB 5315 - MT Holiday Quảng Bình). Chở 5 VĐV 15km.",
+        "note": "Xe 7 chỗ. Trưởng xe: Hoàng Kim Chính (Trưởng phòng QLDA - VPTĐ). Lái xe kiêm VĐV tự lái: Đoàn Công Anh Tú (BIB 5315 - MT Grand Quảng Nam). Chở 5 VĐV 15km.",
         "runners": [
           {
             "stt": 315,
@@ -26843,9 +26788,9 @@
         "btcStaff": [
           {
             "name": "Hoàng Kim Chính",
-            "title": "Phó phòng Kiểm soát chi phí (BTC Trao giải Finisher)",
-            "dept": "Tài chính - VPTD",
-            "duty": "Trưởng xe #13 & Hỗ trợ trao giải Finisher",
+            "title": "Trưởng phòng Quản lý dự án",
+            "dept": "Ban QLDA - VPTD",
+            "duty": "Trưởng xe #13 phụ trách đoàn 15km",
             "phone": "0985 434 292",
             "isCaptain": true
           }
@@ -26992,16 +26937,16 @@
             "name": "Trần Đại Nghĩa",
             "title": "Trưởng phòng Kiểm toán nội bộ",
             "dept": "Văn phòng Tập đoàn Mường Thanh",
-            "duty": "Trưởng xe #14 phụ trách đoàn",
+            "duty": "Trưởng xe #14 phụ trách đoàn 15km",
             "phone": "0987 379 398",
             "isCaptain": true
           }
         ]
       },
       {
-        "id": "XE-15-YTE",
-        "code": "XE-15-YTE",
-        "label": "Xe #15 - Tổ Y Tế BV Phủ Diễn (7 chỗ)",
+        "id": "XE-15",
+        "code": "XE-15",
+        "label": "Xe #15 (7 chỗ)",
         "type": "Xe 7 chỗ",
         "capacity": 7,
         "paxCount": 7,
@@ -27010,20 +26955,21 @@
         "destLoc": "Sân Golf Tràng An & Resort",
         "returnTime": "11:00",
         "captain": {
-          "name": "Nguyễn Thị Lan",
-          "title": "Trưởng nhóm Nhân sự (BTC Hậu cần Y tế)",
-          "unit": "Nhân sự - VPTD",
-          "phone": "0977 760 567"
+          "name": "Nguyễn Minh Hiếu",
+          "title": "Huấn luyện viên Thể hình (BTC Khởi động)",
+          "unit": "Văn phòng Tập đoàn Mường Thanh",
+          "phone": "0979 140 391"
         },
         "driver": {
           "name": "Nguyễn Minh Khoa",
           "bib": 5349,
           "unit": "Mường Thanh Grand Lào Cai",
+          "phone": "982222150",
           "role": "Lái xe kiêm VĐV chạy 5km"
         },
-        "bibRange": "BIB 5349, 15021, 15022 & Tổ Y Tế",
-        "distance": "Y tế, Cấp cứu & Chạy 5km/15km",
-        "note": "Trưởng xe phụ trách là cán bộ Ban Nhân sự Văn phòng Tập đoàn: Nguyễn Thị Lan. Lái xe kiêm VĐV tự lái: Nguyễn Minh Khoa (BIB 5349 - MT Grand Lào Cai). Chở 3 Bác sĩ Bệnh viện Phủ Diễn (BS Lê Kim Vũ, BS Võ Thị Mai Anh, BS Quang Tuấn Anh), cáng thương và ghép thêm 2 VĐV 15km để dồn tiết kiệm xe.",
+        "bibRange": "BIB 5349, 10030, 10031, 15019 – 15022",
+        "distance": "10km & 15km (kèm Lái xe kiêm VĐV 5km)",
+        "note": "Xe 7 chỗ. Trưởng đoàn phụ trách: Nguyễn Minh Hiếu (HLV Thể hình VPTĐ). Lái xe kiêm VĐV tự lái: Nguyễn Minh Khoa (BIB 5349 - MT Grand Lào Cai). Chở 2 VĐV 10km và 4 VĐV 15km.",
         "runners": [
           {
             "stt": 349,
@@ -27038,10 +26984,82 @@
             "category": "5km Nam trên 35 tuổi",
             "btc": "",
             "note": "",
-            "vehicleId": "XE-15-YTE",
-            "vehicleLabel": "Xe #15 - Tổ Y Tế BV Phủ Diễn (7 chỗ)",
-            "captainName": "Nguyễn Thị Lan",
-            "captainPhone": "0977 760 567"
+            "vehicleId": "XE-15",
+            "vehicleLabel": "Xe #15 (7 chỗ)",
+            "captainName": "Nguyễn Minh Hiếu",
+            "captainPhone": "0979 140 391"
+          },
+          {
+            "stt": 410,
+            "bib": 10030,
+            "name": "Đinh Thế Hào",
+            "title": "Nv Lễ tân",
+            "unit": "Mường Thanh Luxury Ninh Bình",
+            "phone": "0962.986.454",
+            "gender": "Nam",
+            "size": "L",
+            "dist": "Chạy 10km",
+            "category": "10km Nam",
+            "btc": "",
+            "note": "",
+            "vehicleId": "XE-15",
+            "vehicleLabel": "Xe #15 (7 chỗ)",
+            "captainName": "Nguyễn Minh Hiếu",
+            "captainPhone": "0979 140 391"
+          },
+          {
+            "stt": 411,
+            "bib": 10031,
+            "name": "Tòng Đức Việt",
+            "title": "Nhân viên Kỹ thuật",
+            "unit": "Mường Thanh Luxury Điện Biên",
+            "phone": "",
+            "gender": "Nam",
+            "size": "L",
+            "dist": "Chạy 10km",
+            "category": "10km Nam",
+            "btc": "",
+            "note": "",
+            "vehicleId": "XE-15",
+            "vehicleLabel": "Xe #15 (7 chỗ)",
+            "captainName": "Nguyễn Minh Hiếu",
+            "captainPhone": "0979 140 391"
+          },
+          {
+            "stt": 431,
+            "bib": 15019,
+            "name": "Nguyễn Trọng Khang",
+            "title": "Giám sát dịch vụ ẩm thực",
+            "unit": "Mường Thanh Luxury Khánh Hòa",
+            "phone": "814491806",
+            "gender": "Nam",
+            "size": "L",
+            "dist": "Chạy 15km",
+            "category": "15km Nam",
+            "btc": "",
+            "note": "",
+            "vehicleId": "XE-15",
+            "vehicleLabel": "Xe #15 (7 chỗ)",
+            "captainName": "Nguyễn Minh Hiếu",
+            "captainPhone": "0979 140 391"
+          },
+          {
+            "stt": 432,
+            "bib": 15020,
+            "name": "Võ Vương Thành",
+            "title": "Giám sát bếp",
+            "unit": "Mường Thanh Grand Quảng Trị",
+            "phone": "379882459",
+            "gender": "Nam",
+            "size": "M",
+            "dist": "Chạy 15km",
+            "category": "15km Nam",
+            "btc": "",
+            "note": "",
+            "vehicleId": "XE-15",
+            "vehicleLabel": "Xe #15 (7 chỗ)",
+            "captainName": "Nguyễn Minh Hiếu",
+            "captainPhone": "0979 140 391"
           },
           {
             "stt": 433,
@@ -27056,10 +27074,10 @@
             "category": "15km Nam",
             "btc": "",
             "note": "",
-            "vehicleId": "XE-15-YTE",
-            "vehicleLabel": "Xe #15 - Tổ Y Tế BV Phủ Diễn (7 chỗ)",
-            "captainName": "Nguyễn Thị Lan",
-            "captainPhone": "0977 760 567"
+            "vehicleId": "XE-15",
+            "vehicleLabel": "Xe #15 (7 chỗ)",
+            "captainName": "Nguyễn Minh Hiếu",
+            "captainPhone": "0979 140 391"
           },
           {
             "stt": 434,
@@ -27074,12 +27092,44 @@
             "category": "15km Nữ",
             "btc": "",
             "note": "",
-            "vehicleId": "XE-15-YTE",
-            "vehicleLabel": "Xe #15 - Tổ Y Tế BV Phủ Diễn (7 chỗ)",
-            "captainName": "Nguyễn Thị Lan",
-            "captainPhone": "0977 760 567"
+            "vehicleId": "XE-15",
+            "vehicleLabel": "Xe #15 (7 chỗ)",
+            "captainName": "Nguyễn Minh Hiếu",
+            "captainPhone": "0979 140 391"
           }
         ],
+        "btcStaff": [
+          {
+            "name": "Nguyễn Minh Hiếu",
+            "title": "Huấn luyện viên Thể hình (BTC Khởi động)",
+            "dept": "Văn phòng Tập đoàn Mường Thanh",
+            "duty": "Trưởng xe #15 phụ trách đoàn VĐV",
+            "phone": "0979 140 391",
+            "isCaptain": true
+          }
+        ]
+      },
+      {
+        "id": "XE-16-YTE",
+        "code": "XE-16-YTE",
+        "label": "Xe #16 - Tổ Y Tế BV Phủ Diễn (7 chỗ)",
+        "type": "Xe 7 chỗ",
+        "capacity": 7,
+        "paxCount": 4,
+        "departTime": "05:00",
+        "pickupLoc": "Sảnh Khách sạn Mường Thanh Luxury Ninh Bình",
+        "destLoc": "Sân Golf Tràng An & Resort",
+        "returnTime": "11:00",
+        "captain": {
+          "name": "Nguyễn Thị Lan",
+          "title": "Trưởng nhóm Nhân sự (BTC Hậu cần Y tế)",
+          "unit": "Nhân sự - VPTD",
+          "phone": "0977 760 567"
+        },
+        "bibRange": "Tổ Y Tế & Cứu Thương",
+        "distance": "Y tế & Cấp cứu đường chạy",
+        "note": "Xe 7 chỗ chuyên dụng y tế. Trưởng xe phụ trách: Nguyễn Thị Lan (Trưởng nhóm Nhân sự Văn phòng Tập đoàn). Chở 3 Bác sĩ Bệnh viện Phủ Diễn (BS Lê Kim Vũ, BS Võ Thị Mai Anh, BS Quang Tuấn Anh) cùng cáng thương và thiết bị sơ cấp cứu. Lái xe hợp đồng phục vụ.",
+        "runners": [],
         "btcStaff": [
           {
             "name": "Nguyễn Thị Lan",
@@ -27306,7 +27356,7 @@
         "btc": "Theo phân công của ban SK",
         "note": "",
         "vehicleId": "XE-BAN-SU-KIEN",
-        "vehicleLabel": "Xe Ban Sự Kiện - Team Sự Kiện & Media BTC (7 chỗ)",
+        "vehicleLabel": "Xe Ban Sự Kiện - Team Sự Kiện & Media BTC (16 chỗ)",
         "captainName": "Lê Đức Tuấn Định",
         "captainPhone": "0989 414 580"
       },
@@ -33083,10 +33133,10 @@
         "category": "5km Nữ dưới 35 tuổi",
         "btc": "",
         "note": "",
-        "vehicleId": "XE-07",
-        "vehicleLabel": "Xe #07 (45 chỗ)",
-        "captainName": "Trần Đình Thông",
-        "captainPhone": "0912 177 998"
+        "vehicleId": "XE-08",
+        "vehicleLabel": "Xe #08 (45 chỗ)",
+        "captainName": "Võ Thị Mai Trang",
+        "captainPhone": "0974 899 868"
       },
       {
         "stt": 333,
@@ -33389,10 +33439,10 @@
         "category": "5km Nam trên 35 tuổi",
         "btc": "",
         "note": "",
-        "vehicleId": "XE-15-YTE",
-        "vehicleLabel": "Xe #15 - Tổ Y Tế BV Phủ Diễn (7 chỗ)",
-        "captainName": "Nguyễn Thị Lan",
-        "captainPhone": "0977 760 567"
+        "vehicleId": "XE-15",
+        "vehicleLabel": "Xe #15 (7 chỗ)",
+        "captainName": "Nguyễn Minh Hiếu",
+        "captainPhone": "0979 140 391"
       },
       {
         "stt": 350,
@@ -33533,10 +33583,10 @@
         "category": "5km Nam trên 35 tuổi",
         "btc": "",
         "note": "",
-        "vehicleId": "XE-08",
-        "vehicleLabel": "Xe #08 (45 chỗ)",
-        "captainName": "Võ Thị Mai Trang",
-        "captainPhone": "0974 899 868"
+        "vehicleId": "XE-00-BTC",
+        "vehicleLabel": "Xe #00 - Ban Tổ Chức Đi Sớm (04h30) (7 chỗ)",
+        "captainName": "Vũ Minh Tuấn",
+        "captainPhone": "0934 269 369"
       },
       {
         "stt": 358,
@@ -33948,7 +33998,7 @@
         "btc": "Điều phối xuất phát & về đích",
         "note": "",
         "vehicleId": "XE-00-BTC",
-        "vehicleLabel": "Xe #00 - Ban Tổ Chức Đi Sớm (04h30)",
+        "vehicleLabel": "Xe #00 - Ban Tổ Chức Đi Sớm (04h30) (7 chỗ)",
         "captainName": "Vũ Minh Tuấn",
         "captainPhone": "0934 269 369"
       },
@@ -34289,10 +34339,10 @@
         "category": "10km Nam",
         "btc": "",
         "note": "",
-        "vehicleId": "XE-09",
-        "vehicleLabel": "Xe #09 (16 chỗ)",
-        "captainName": "Phạm Hà An",
-        "captainPhone": "0973 554 996"
+        "vehicleId": "XE-10",
+        "vehicleLabel": "Xe #10 (7 chỗ)",
+        "captainName": "Đoàn Thế Cương",
+        "captainPhone": "0912 211 929"
       },
       {
         "stt": 400,
@@ -34379,10 +34429,10 @@
         "category": "10km Nam",
         "btc": "",
         "note": "",
-        "vehicleId": "XE-10",
-        "vehicleLabel": "Xe #10 (7 chỗ)",
-        "captainName": "Đoàn Thế Cương",
-        "captainPhone": "0912 211 929"
+        "vehicleId": "XE-11",
+        "vehicleLabel": "Xe #11 (7 chỗ)",
+        "captainName": "Nguyễn Bá Lãm",
+        "captainPhone": "0986 670 418"
       },
       {
         "stt": 405,
@@ -34487,10 +34537,10 @@
         "category": "10km Nam",
         "btc": "",
         "note": "",
-        "vehicleId": "XE-CHOT-DOAN",
-        "vehicleLabel": "Xe Chốt Đoàn - Team Điều Phối Xe Di Chuyển (7 chỗ)",
-        "captainName": "Lưu Quốc Việt",
-        "captainPhone": "0948 154 816"
+        "vehicleId": "XE-15",
+        "vehicleLabel": "Xe #15 (7 chỗ)",
+        "captainName": "Nguyễn Minh Hiếu",
+        "captainPhone": "0979 140 391"
       },
       {
         "stt": 411,
@@ -34505,10 +34555,10 @@
         "category": "10km Nam",
         "btc": "",
         "note": "",
-        "vehicleId": "XE-CHOT-DOAN",
-        "vehicleLabel": "Xe Chốt Đoàn - Team Điều Phối Xe Di Chuyển (7 chỗ)",
-        "captainName": "Lưu Quốc Việt",
-        "captainPhone": "0948 154 816"
+        "vehicleId": "XE-15",
+        "vehicleLabel": "Xe #15 (7 chỗ)",
+        "captainName": "Nguyễn Minh Hiếu",
+        "captainPhone": "0979 140 391"
       },
       {
         "stt": 412,
@@ -34865,10 +34915,10 @@
         "category": "15km Nam",
         "btc": "",
         "note": "",
-        "vehicleId": "XE-CHOT-DOAN",
-        "vehicleLabel": "Xe Chốt Đoàn - Team Điều Phối Xe Di Chuyển (7 chỗ)",
-        "captainName": "Lưu Quốc Việt",
-        "captainPhone": "0948 154 816"
+        "vehicleId": "XE-15",
+        "vehicleLabel": "Xe #15 (7 chỗ)",
+        "captainName": "Nguyễn Minh Hiếu",
+        "captainPhone": "0979 140 391"
       },
       {
         "stt": 432,
@@ -34883,10 +34933,10 @@
         "category": "15km Nam",
         "btc": "",
         "note": "",
-        "vehicleId": "XE-11",
-        "vehicleLabel": "Xe #11 (7 chỗ)",
-        "captainName": "Nguyễn Bá Lãm",
-        "captainPhone": "0986 670 418"
+        "vehicleId": "XE-15",
+        "vehicleLabel": "Xe #15 (7 chỗ)",
+        "captainName": "Nguyễn Minh Hiếu",
+        "captainPhone": "0979 140 391"
       },
       {
         "stt": 433,
@@ -34901,10 +34951,10 @@
         "category": "15km Nam",
         "btc": "",
         "note": "",
-        "vehicleId": "XE-15-YTE",
-        "vehicleLabel": "Xe #15 - Tổ Y Tế BV Phủ Diễn (7 chỗ)",
-        "captainName": "Nguyễn Thị Lan",
-        "captainPhone": "0977 760 567"
+        "vehicleId": "XE-15",
+        "vehicleLabel": "Xe #15 (7 chỗ)",
+        "captainName": "Nguyễn Minh Hiếu",
+        "captainPhone": "0979 140 391"
       },
       {
         "stt": 434,
@@ -34919,10 +34969,10 @@
         "category": "15km Nữ",
         "btc": "",
         "note": "",
-        "vehicleId": "XE-15-YTE",
-        "vehicleLabel": "Xe #15 - Tổ Y Tế BV Phủ Diễn (7 chỗ)",
-        "captainName": "Nguyễn Thị Lan",
-        "captainPhone": "0977 760 567"
+        "vehicleId": "XE-15",
+        "vehicleLabel": "Xe #15 (7 chỗ)",
+        "captainName": "Nguyễn Minh Hiếu",
+        "captainPhone": "0979 140 391"
       }
     ]
   }

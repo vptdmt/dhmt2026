@@ -18496,13 +18496,13 @@
         "radio": "1"
       },
       {
-        "stt": 41,
-        "dept": "Tài chính",
+        "stt": 40,
+        "dept": "Ban Tài chính",
         "name": "Lương Tú Anh",
         "title": "Giám sát Kiểm soát chi phí cấp cao",
-        "reg": "BTC giải chạy (không chạy)",
-        "duty": "Giám sát hợp đồng, chốt số lượng vào cửa, nghiệm thu hợp đồng",
-        "note": "Giám sát hợp đồng, chốt số lượng vào cửa, nghiệm thu hợp đồng",
+        "reg": "BTC",
+        "duty": "Giám sát hợp đồng, chốt số lượng vào cửa, nghiệm thu hợp đồng (Xe chốt đoàn)",
+        "note": "Xe chốt đoàn",
         "phone": "0974 951 992",
         "early": false,
         "radio": ""
@@ -19578,7 +19578,7 @@
         "label": "Xe #01 (45 chỗ)",
         "type": "Xe 45 chỗ",
         "capacity": 45,
-        "paxCount": 44,
+        "paxCount": 43,
         "departTime": "05:00",
         "pickupLoc": "Sảnh Khách sạn Mường Thanh Luxury Ninh Bình",
         "destLoc": "Sân Golf Tràng An & Resort",
@@ -19592,7 +19592,7 @@
         },
         "bibRange": "BIB 5006 – 5053",
         "distance": "5km",
-        "note": "Khối VĐV 5km (43 VĐV + Trưởng xe BTC Hoàng Thanh Hải đi cùng xe). Lái xe hợp đồng phục vụ.",
+        "note": "Khối VĐV 5km (42 VĐV + Trưởng xe BTC Hoàng Thanh Hải đi cùng xe). Lái xe hợp đồng phục vụ.",
         "runners": [
           {
             "stt": 6,
@@ -19865,26 +19865,6 @@
             "size": "L",
             "dist": "Chạy 5km",
             "category": "5km Nam dưới 35 tuổi",
-            "btc": "",
-            "note": "",
-            "vehicleId": "XE-01",
-            "vehicleLabel": "Xe #01 (45 chỗ)",
-            "captainName": "Hoàng Thanh Hải",
-            "captainPhone": "0982 054 788",
-            "captainTitle": "Chuyên viên Hành chính",
-            "captainUnit": "Ban Hành chính"
-          },
-          {
-            "stt": 22,
-            "bib": 5022,
-            "name": "Trần Đại Nghĩa",
-            "title": "Trưởng phòng Kiểm toán nội bộ",
-            "unit": "Văn phòng Tập đoàn Mường Thanh",
-            "phone": "0987 379 398",
-            "gender": "Nam",
-            "size": "L",
-            "dist": "Chạy 5km",
-            "category": "5km Nam trên 35 tuổi",
             "btc": "",
             "note": "",
             "vehicleId": "XE-01",
@@ -27654,8 +27634,8 @@
         "captain": {
           "name": "Trần Đại Nghĩa",
           "title": "Trưởng phòng Kiểm toán nội bộ",
-          "unit": "Ban Kiểm toán nội bộ",
-          "dept": "Ban Kiểm toán nội bộ",
+          "unit": "Văn phòng Tập đoàn Mường Thanh",
+          "dept": "Văn phòng Tập đoàn Mường Thanh",
           "phone": "0987 379 398"
         },
         "driver": {
@@ -27665,9 +27645,9 @@
           "phone": "0979 084 851",
           "role": "Lái xe kiêm VĐV chạy 5km"
         },
-        "bibRange": "BIB 5322, 15014 – 15018",
-        "distance": "15km (kèm Lái xe kiêm VĐV 5km)",
-        "note": "Xe 7 chỗ. Trưởng xe: Trần Đại Nghĩa (Trưởng phòng Kiểm toán nội bộ - Ban Kiểm toán nội bộ). Lái xe kiêm VĐV tự lái: Trần Quang Lợi (BIB 5322 - MT Luxury Vientiane). Chở 5 VĐV 15km.",
+        "bibRange": "BIB 5022, 5322, 15014 – 15018",
+        "distance": "15km (kèm Trưởng xe & Lái xe kiêm VĐV 5km)",
+        "note": "Xe 7 chỗ. Trưởng xe: Trần Đại Nghĩa (Trưởng phòng Kiểm toán nội bộ - Ban Kiểm toán nội bộ, kiêm VĐV 5km BIB 5022). Lái xe kiêm VĐV tự lái: Trần Quang Lợi (BIB 5322 - MT Luxury Vientiane). Chở 5 VĐV 15km.",
         "runners": [
           {
             "stt": 322,
@@ -27687,7 +27667,27 @@
             "captainName": "Trần Đại Nghĩa",
             "captainPhone": "0987 379 398",
             "captainTitle": "Trưởng phòng Kiểm toán nội bộ",
-            "captainUnit": "Ban Kiểm toán nội bộ"
+            "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
+          },
+          {
+            "stt": 22,
+            "bib": 5022,
+            "name": "Trần Đại Nghĩa",
+            "title": "Trưởng phòng Kiểm toán nội bộ",
+            "unit": "Văn phòng Tập đoàn Mường Thanh",
+            "phone": "0987 379 398",
+            "gender": "Nam",
+            "size": "L",
+            "dist": "Chạy 5km",
+            "category": "5km Nam trên 35 tuổi",
+            "btc": "",
+            "note": "",
+            "vehicleId": "XE-14",
+            "vehicleLabel": "Xe #14 (7 chỗ)",
+            "captainName": "Trần Đại Nghĩa",
+            "captainPhone": "0987 379 398",
+            "captainTitle": "Trưởng phòng Kiểm toán nội bộ",
+            "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
           },
           {
             "stt": 426,
@@ -27707,7 +27707,7 @@
             "captainName": "Trần Đại Nghĩa",
             "captainPhone": "0987 379 398",
             "captainTitle": "Trưởng phòng Kiểm toán nội bộ",
-            "captainUnit": "Ban Kiểm toán nội bộ"
+            "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
           },
           {
             "stt": 427,
@@ -27727,7 +27727,7 @@
             "captainName": "Trần Đại Nghĩa",
             "captainPhone": "0987 379 398",
             "captainTitle": "Trưởng phòng Kiểm toán nội bộ",
-            "captainUnit": "Ban Kiểm toán nội bộ"
+            "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
           },
           {
             "stt": 428,
@@ -27747,7 +27747,7 @@
             "captainName": "Trần Đại Nghĩa",
             "captainPhone": "0987 379 398",
             "captainTitle": "Trưởng phòng Kiểm toán nội bộ",
-            "captainUnit": "Ban Kiểm toán nội bộ"
+            "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
           },
           {
             "stt": 429,
@@ -27767,7 +27767,7 @@
             "captainName": "Trần Đại Nghĩa",
             "captainPhone": "0987 379 398",
             "captainTitle": "Trưởng phòng Kiểm toán nội bộ",
-            "captainUnit": "Ban Kiểm toán nội bộ"
+            "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
           },
           {
             "stt": 430,
@@ -27787,19 +27787,10 @@
             "captainName": "Trần Đại Nghĩa",
             "captainPhone": "0987 379 398",
             "captainTitle": "Trưởng phòng Kiểm toán nội bộ",
-            "captainUnit": "Ban Kiểm toán nội bộ"
+            "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
           }
         ],
-        "btcStaff": [
-          {
-            "name": "Trần Đại Nghĩa",
-            "title": "Trưởng phòng Kiểm toán nội bộ",
-            "dept": "Ban Kiểm toán nội bộ",
-            "duty": "Trưởng xe #14 phụ trách đoàn 15km",
-            "phone": "0987 379 398",
-            "isCaptain": true
-          }
-        ]
+        "btcStaff": []
       },
       {
         "id": "XE-15",
@@ -28480,12 +28471,12 @@
         "category": "5km Nam trên 35 tuổi",
         "btc": "",
         "note": "",
-        "vehicleId": "XE-01",
-        "vehicleLabel": "Xe #01 (45 chỗ)",
-        "captainName": "Hoàng Thanh Hải",
-        "captainPhone": "0982 054 788",
-        "captainTitle": "Chuyên viên Hành chính",
-        "captainUnit": "Ban Hành chính"
+        "vehicleId": "XE-14",
+        "vehicleLabel": "Xe #14 (7 chỗ)",
+        "captainName": "Trần Đại Nghĩa",
+        "captainPhone": "0987 379 398",
+        "captainTitle": "Trưởng phòng Kiểm toán nội bộ",
+        "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
       },
       {
         "stt": 23,
@@ -34449,7 +34440,7 @@
         "captainName": "Trần Đại Nghĩa",
         "captainPhone": "0987 379 398",
         "captainTitle": "Trưởng phòng Kiểm toán nội bộ",
-        "captainUnit": "Ban Kiểm toán nội bộ"
+        "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
       },
       {
         "stt": 323,
@@ -36509,7 +36500,7 @@
         "captainName": "Trần Đại Nghĩa",
         "captainPhone": "0987 379 398",
         "captainTitle": "Trưởng phòng Kiểm toán nội bộ",
-        "captainUnit": "Ban Kiểm toán nội bộ"
+        "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
       },
       {
         "stt": 427,
@@ -36529,7 +36520,7 @@
         "captainName": "Trần Đại Nghĩa",
         "captainPhone": "0987 379 398",
         "captainTitle": "Trưởng phòng Kiểm toán nội bộ",
-        "captainUnit": "Ban Kiểm toán nội bộ"
+        "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
       },
       {
         "stt": 428,
@@ -36549,7 +36540,7 @@
         "captainName": "Trần Đại Nghĩa",
         "captainPhone": "0987 379 398",
         "captainTitle": "Trưởng phòng Kiểm toán nội bộ",
-        "captainUnit": "Ban Kiểm toán nội bộ"
+        "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
       },
       {
         "stt": 429,
@@ -36569,7 +36560,7 @@
         "captainName": "Trần Đại Nghĩa",
         "captainPhone": "0987 379 398",
         "captainTitle": "Trưởng phòng Kiểm toán nội bộ",
-        "captainUnit": "Ban Kiểm toán nội bộ"
+        "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
       },
       {
         "stt": 430,
@@ -36589,7 +36580,7 @@
         "captainName": "Trần Đại Nghĩa",
         "captainPhone": "0987 379 398",
         "captainTitle": "Trưởng phòng Kiểm toán nội bộ",
-        "captainUnit": "Ban Kiểm toán nội bộ"
+        "captainUnit": "Văn phòng Tập đoàn Mường Thanh"
       },
       {
         "stt": 431,

@@ -305,6 +305,8 @@ def build_excel():
             elif r['name'] == cpt_name:
                 if v_id == 'XE-15':
                     role = "Vận động viên Trưởng xe #15"
+                elif v_id == 'XE-14':
+                    role = "Vận động viên Trưởng xe #14"
                 else:
                     role = f"Trưởng xe #{v_id.replace('XE-', '')} & VĐV"
             # Check if special role

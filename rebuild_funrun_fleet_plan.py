@@ -9,9 +9,12 @@ def get_phone(name, fallback=''):
     if name in DIRECTORY and DIRECTORY[name].get('phone'):
         return DIRECTORY[name]['phone']
     return fallback
-
 def rebuild_funrun():
-    wb = openpyxl.load_workbook('DS VĐV & BTC CHẠY_FINAL 16.10.xlsx', data_only=True)
+    import os
+    fn = 'DS VĐV & BTC CHẠY_FINAL 16.10.xlsx'
+    if not os.path.exists(fn):
+        fn = r'C:\Users\ntlon\.gemini\antigravity\brain\b9654916-0579-44e3-8075-101fb8d0dcc0\.user_uploaded\media_1792201090961_721baaa2.xlsx'
+    wb = openpyxl.load_workbook(fn, data_only=True)
     s_runners = wb['Dang ky chay']
 
     # 1. Load all runners
@@ -73,7 +76,10 @@ def rebuild_funrun():
     # 6 Lái xe kiêm VĐV chạy 5km (tách riêng sang các xe 7 chỗ)
     driver_runner_bibs = [5194, 5284, 5302, 5315, 5322, 5349]
 
-    special_bibs = set(self_cienco_dhe_bibs + self_sieuthi_bibs + tgd_bib + pho_tgd_runner_bibs + coord_team_bibs + early_btc_runner_bibs + event_team_bibs + driver_runner_bibs)
+    # VĐV Trưởng xe #14: Trần Đại Nghĩa (BIB 5022 - Trưởng phòng Kiểm toán nội bộ)
+    cpt_14_bib = [5022]
+
+    special_bibs = set(self_cienco_dhe_bibs + self_sieuthi_bibs + tgd_bib + pho_tgd_runner_bibs + coord_team_bibs + early_btc_runner_bibs + event_team_bibs + driver_runner_bibs + cpt_14_bib)
 
     # Regular runners by distance
     regular_5k = [runners_dict[b] for b in sorted(runners_dict.keys()) if b < 10000 and b not in special_bibs]
@@ -432,18 +438,19 @@ def rebuild_funrun():
         {'name': 'Võ Thị Mai Trang', 'title': 'Giám sát Điều phối', 'dept': 'Ban Đào tạo & KSCL', 'unit': 'Ban Đào tạo & KSCL', 'phone': get_phone('Võ Thị Mai Trang', '0974 899 868')},
     ]
 
-    # Phân bổ 342 VĐV cho 8 xe:
-    # Xe 1-6: 43 VĐV
+    # Phân bổ 341 VĐV cho 8 xe (đã chuyển BIB 5022 Trần Đại Nghĩa sang làm Trưởng xe 14):
+    # Xe 1: 42 VĐV
+    # Xe 2-6: 43 VĐV
     # Xe 7-8: 42 VĐV
     bus_slices = [
-        (0, 43),
-        (43, 86),
-        (86, 129),
-        (129, 172),
-        (172, 215),
-        (215, 258),
-        (258, 300),
-        (300, 342)
+        (0, 42),
+        (42, 85),
+        (85, 128),
+        (128, 171),
+        (171, 214),
+        (214, 257),
+        (257, 299),
+        (299, 341)
     ]
 
     for idx, (st, en) in enumerate(bus_slices, start=1):
@@ -792,14 +799,15 @@ def rebuild_funrun():
 
     # --- XE #14 (7 CHỖ): Lái xe Trần Quang Lợi (5322 - MT Luxury Vientiane) ---
     r_driver_14 = runners_dict[5322]
+    r_nghia_14 = runners_dict[5022]
     group_15k_c = regular_15k[10:15] # 5 runners 15k (15014 đến 15018)
     cpt_14 = {
         'name': 'Trần Đại Nghĩa',
         'title': 'Trưởng phòng Kiểm toán nội bộ',
-        'dept': 'Ban Kiểm toán nội bộ',
-        'unit': 'Ban Kiểm toán nội bộ',
+        'dept': 'Văn phòng Tập đoàn Mường Thanh',
+        'unit': 'Văn phòng Tập đoàn Mường Thanh',
         'phone': get_phone('Trần Đại Nghĩa', '0987 379 398'),
-        'duty': 'Trưởng xe #14 phụ trách đoàn 15km'
+        'duty': 'Vận động viên Trưởng xe #14'
     }
     v_14 = {
         'id': 'XE-14',
@@ -807,7 +815,7 @@ def rebuild_funrun():
         'label': 'Xe #14 (7 chỗ)',
         'type': 'Xe 7 chỗ',
         'capacity': 7,
-        'paxCount': len(group_15k_c) + 2, # 5 VĐV 15k + 1 Trưởng xe BTC + 1 Lái xe kiêm VĐV = 7
+        'paxCount': 7, # 5 VĐV 15k + 1 VĐV Trưởng xe Nghĩa (5022) + 1 Lái xe kiêm VĐV Lợi (5322) = 7/7 chỗ
         'departTime': '05:00',
         'pickupLoc': 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình',
         'destLoc': 'Sân Golf Tràng An & Resort',
@@ -826,20 +834,11 @@ def rebuild_funrun():
             'phone': '0979 084 851',
             'role': 'Lái xe kiêm VĐV chạy 5km'
         },
-        'bibRange': f"BIB 5322, {group_15k_c[0]['bib']} – {group_15k_c[-1]['bib']}",
-        'distance': '15km (kèm Lái xe kiêm VĐV 5km)',
-        'note': f"Xe 7 chỗ. Trưởng xe: Trần Đại Nghĩa (Trưởng phòng Kiểm toán nội bộ - Ban Kiểm toán nội bộ). Lái xe kiêm VĐV tự lái: Trần Quang Lợi (BIB 5322 - MT Luxury Vientiane). Chở 5 VĐV 15km.",
-        'runners': [r_driver_14] + group_15k_c,
-        'btcStaff': [
-            {
-                'name': cpt_14['name'],
-                'title': cpt_14['title'],
-                'dept': cpt_14['dept'],
-                'duty': cpt_14['duty'],
-                'phone': cpt_14['phone'],
-                'isCaptain': True
-            }
-        ]
+        'bibRange': f"BIB 5022, 5322, {group_15k_c[0]['bib']} – {group_15k_c[-1]['bib']}",
+        'distance': '15km (kèm Trưởng xe & Lái xe kiêm VĐV 5km)',
+        'note': f"Xe 7 chỗ. Trưởng xe: Trần Đại Nghĩa (Trưởng phòng Kiểm toán nội bộ - Ban Kiểm toán nội bộ, kiêm VĐV 5km BIB 5022). Lái xe kiêm VĐV tự lái: Trần Quang Lợi (BIB 5322 - MT Luxury Vientiane). Chở 5 VĐV 15km.",
+        'runners': [r_driver_14, r_nghia_14] + group_15k_c,
+        'btcStaff': []
     }
     vehicles.append(v_14)
     for r in v_14['runners']:
@@ -1003,6 +1002,19 @@ def rebuild_funrun():
             'phone': phone,
             'early': early,
             'radio': radio
+        })
+    if not any(b['name'] == 'Lương Tú Anh' for b in btc_staff_list):
+        btc_staff_list.append({
+            'stt': len(btc_staff_list) + 1,
+            'dept': 'Ban Tài chính',
+            'name': 'Lương Tú Anh',
+            'title': 'Giám sát Kiểm soát chi phí cấp cao',
+            'reg': 'BTC',
+            'duty': 'Giám sát hợp đồng, chốt số lượng vào cửa, nghiệm thu hợp đồng (Xe chốt đoàn)',
+            'note': 'Xe chốt đoàn',
+            'phone': get_phone('Lương Tú Anh', '0974 951 992'),
+            'early': False,
+            'radio': ''
         })
     print(f"Total BTC staff loaded (gồm Lương Tú Anh): {len(btc_staff_list)}")
 

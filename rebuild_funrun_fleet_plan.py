@@ -79,7 +79,10 @@ def rebuild_funrun():
     # VĐV Trưởng xe #14: Trần Đại Nghĩa (BIB 5022 - Trưởng phòng Kiểm toán nội bộ)
     cpt_14_bib = [5022]
 
-    special_bibs = set(self_cienco_dhe_bibs + self_sieuthi_bibs + tgd_bib + pho_tgd_runner_bibs + coord_team_bibs + early_btc_runner_bibs + event_team_bibs + driver_runner_bibs + cpt_14_bib)
+    # VĐV Trưởng xe #16 Y Tế: Nguyễn Thị Lan (BIB 5018 - Trưởng nhóm Nhân sự)
+    cpt_yte_bib = [5018]
+
+    special_bibs = set(self_cienco_dhe_bibs + self_sieuthi_bibs + tgd_bib + pho_tgd_runner_bibs + coord_team_bibs + early_btc_runner_bibs + event_team_bibs + driver_runner_bibs + cpt_14_bib + cpt_yte_bib)
 
     # Regular runners by distance
     regular_5k = [runners_dict[b] for b in sorted(runners_dict.keys()) if b < 10000 and b not in special_bibs]
@@ -438,19 +441,19 @@ def rebuild_funrun():
         {'name': 'Võ Thị Mai Trang', 'title': 'Giám sát Điều phối', 'dept': 'Ban Đào tạo & KSCL', 'unit': 'Ban Đào tạo & KSCL', 'phone': get_phone('Võ Thị Mai Trang', '0974 899 868')},
     ]
 
-    # Phân bổ 341 VĐV cho 8 xe (đã chuyển BIB 5022 Trần Đại Nghĩa sang làm Trưởng xe 14):
-    # Xe 1: 42 VĐV
+    # Phân bổ 340 VĐV cho 8 xe (đã chuyển BIB 5022 Trần Đại Nghĩa sang Xe 14 và BIB 5018 Nguyễn Thị Lan sang Xe 16 Y Tế):
+    # Xe 1: 41 VĐV
     # Xe 2-6: 43 VĐV
     # Xe 7-8: 42 VĐV
     bus_slices = [
-        (0, 42),
-        (42, 85),
-        (85, 128),
-        (128, 171),
-        (171, 214),
-        (214, 257),
-        (257, 299),
-        (299, 341)
+        (0, 41),
+        (41, 84),
+        (84, 127),
+        (127, 170),
+        (170, 213),
+        (213, 256),
+        (256, 298),
+        (298, 340)
     ]
 
     for idx, (st, en) in enumerate(bus_slices, start=1):
@@ -910,17 +913,18 @@ def rebuild_funrun():
     # =========================================================================
     # 11. XE #16-YTE (7 CHỖ) - TỔ Y TẾ BỆNH VIỆN PHỦ DIỄN
     # Không có VĐV kiêm lái xe -> chừa 1 ghế cho lái xe thuê ngoài (4 khách / 7 chỗ)
-    # Trưởng xe: Nguyễn Thị Lan (Trưởng nhóm Nhân sự - Ban Nhân sự: 0977 760 567)
+    # Trưởng xe: Nguyễn Thị Lan (Trưởng nhóm Nhân sự - Ban Nhân sự, kiêm VĐV 5km BIB 5018: 0977 760 567)
     # Chở: 3 Bác sĩ (BS Lê Kim Vũ, BS Võ Thị Mai Anh, BS Quang Tuấn Anh)
     # Trống 2 ghế sau để cáng thương, túi thuốc cấp cứu và bình oxy
     # =========================================================================
+    r_lan_yte = runners_dict[5018]
     cpt_yte = {
         'name': 'Nguyễn Thị Lan',
         'title': 'Trưởng nhóm Nhân sự',
         'dept': 'Ban Nhân sự',
         'unit': 'Ban Nhân sự',
         'phone': get_phone('Nguyễn Thị Lan', '0977 760 567'),
-        'duty': 'Trưởng xe Y tế & Hậu cần cứu thương'
+        'duty': 'Vận động viên - Trưởng xe Y tế & Hậu cần cứu thương'
     }
     v_yte = {
         'id': 'XE-16-YTE',
@@ -928,7 +932,7 @@ def rebuild_funrun():
         'label': 'Xe #16 - Tổ Y Tế BV Phủ Diễn (7 chỗ)',
         'type': 'Xe 7 chỗ',
         'capacity': 7,
-        'paxCount': 4, # 1 Trưởng xe BTC + 3 Bác sĩ (chừa 1 ghế cho lái xe thuê ngoài và khoang y tế)
+        'paxCount': 4, # 1 VĐV Trưởng xe Lan (5018) + 3 Bác sĩ = 4 khách / 7 chỗ
         'departTime': '05:00',
         'pickupLoc': 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình',
         'destLoc': 'Sân Golf Tràng An & Resort',
@@ -940,18 +944,24 @@ def rebuild_funrun():
             'dept': cpt_yte['dept'],
             'phone': cpt_yte['phone']
         },
-        'bibRange': 'Tổ Y Tế & Cứu Thương',
-        'distance': 'Y tế & Cấp cứu đường chạy',
-        'note': f"Xe 7 chỗ chuyên dụng y tế. Trưởng xe phụ trách: Nguyễn Thị Lan (Trưởng nhóm Nhân sự - Ban Nhân sự). Chở 3 Bác sĩ Bệnh viện Phủ Diễn (BS Lê Kim Vũ, BS Võ Thị Mai Anh, BS Quang Tuấn Anh) cùng cáng thương và thiết bị sơ cấp cứu. Lái xe hợp đồng phục vụ.",
-        'runners': [],
+        'bibRange': 'BIB 5018 & Tổ Y Tế',
+        'distance': 'Y tế & Cấp cứu đường chạy (Trưởng xe chạy 5km)',
+        'note': f"Xe 7 chỗ chuyên dụng y tế. Trưởng xe phụ trách: Nguyễn Thị Lan (Trưởng nhóm Nhân sự - Ban Nhân sự, kiêm VĐV 5km BIB 5018). Chở 3 Bác sĩ Bệnh viện Phủ Diễn (BS Lê Kim Vũ, BS Võ Thị Mai Anh, BS Quang Tuấn Anh) cùng cáng thương và thiết bị sơ cấp cứu. Lái xe hợp đồng phục vụ.",
+        'runners': [r_lan_yte],
         'btcStaff': [
-            {'name': cpt_yte['name'], 'title': cpt_yte['title'], 'dept': cpt_yte['dept'], 'duty': cpt_yte['duty'], 'phone': cpt_yte['phone'], 'isCaptain': True},
             {'name': 'BS Lê Kim Vũ', 'title': 'Bác sỹ Bệnh viện Phủ Diễn', 'dept': 'Bệnh viện Phủ Diễn', 'duty': 'Trạm Y tế 0 (Start/Finish)', 'phone': '0912 345 678'},
             {'name': 'BS Võ Thị Mai Anh', 'title': 'Bác sỹ Bệnh viện Phủ Diễn', 'dept': 'Bệnh viện Phủ Diễn', 'duty': 'Trạm Y tế 1 (Km 2.3)'},
             {'name': 'BS Quang Tuấn Anh', 'title': 'Bác sỹ Bệnh viện Phủ Diễn', 'dept': 'Bệnh viện Phủ Diễn', 'duty': 'Trạm Y tế 2 (Km 4.2)'}
         ]
     }
     vehicles.append(v_yte)
+    for r in v_yte['runners']:
+        r['vehicleId'] = v_yte['id']
+        r['vehicleLabel'] = v_yte['label']
+        r['captainName'] = cpt_yte['name']
+        r['captainPhone'] = cpt_yte['phone']
+        r['captainTitle'] = cpt_yte['title']
+        r['captainUnit'] = cpt_yte['dept']
 
     print(f"\nTotal vehicles configured: {len(vehicles)}")
 

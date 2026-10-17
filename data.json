@@ -19578,7 +19578,7 @@
         "label": "Xe #01 (45 chỗ)",
         "type": "Xe 45 chỗ",
         "capacity": 45,
-        "paxCount": 43,
+        "paxCount": 42,
         "departTime": "05:00",
         "pickupLoc": "Sảnh Khách sạn Mường Thanh Luxury Ninh Bình",
         "destLoc": "Sân Golf Tràng An & Resort",
@@ -19592,7 +19592,7 @@
         },
         "bibRange": "BIB 5006 – 5053",
         "distance": "5km",
-        "note": "Khối VĐV 5km (42 VĐV + Trưởng xe BTC Hoàng Thanh Hải đi cùng xe). Lái xe hợp đồng phục vụ.",
+        "note": "Khối VĐV 5km (41 VĐV + Trưởng xe BTC Hoàng Thanh Hải đi cùng xe). Lái xe hợp đồng phục vụ.",
         "runners": [
           {
             "stt": 6,
@@ -19785,26 +19785,6 @@
             "size": "M",
             "dist": "Chạy 5km",
             "category": "5km Nam trên 35 tuổi",
-            "btc": "",
-            "note": "",
-            "vehicleId": "XE-01",
-            "vehicleLabel": "Xe #01 (45 chỗ)",
-            "captainName": "Hoàng Thanh Hải",
-            "captainPhone": "0982 054 788",
-            "captainTitle": "Chuyên viên Hành chính",
-            "captainUnit": "Ban Hành chính"
-          },
-          {
-            "stt": 18,
-            "bib": 5018,
-            "name": "Nguyễn Thị Lan",
-            "title": "Trưởng nhóm Nhân sự",
-            "unit": "Văn Phòng Tập Đoàn Mường Thanh",
-            "phone": "0977 760 567",
-            "gender": "Nữ",
-            "size": "XS",
-            "dist": "Chạy 5km",
-            "category": "5km Nữ trên 35 tuổi",
             "btc": "",
             "note": "",
             "vehicleId": "XE-01",
@@ -28002,19 +27982,32 @@
           "dept": "Ban Nhân sự",
           "phone": "0977 760 567"
         },
-        "bibRange": "Tổ Y Tế & Cứu Thương",
-        "distance": "Y tế & Cấp cứu đường chạy",
-        "note": "Xe 7 chỗ chuyên dụng y tế. Trưởng xe phụ trách: Nguyễn Thị Lan (Trưởng nhóm Nhân sự - Ban Nhân sự). Chở 3 Bác sĩ Bệnh viện Phủ Diễn (BS Lê Kim Vũ, BS Võ Thị Mai Anh, BS Quang Tuấn Anh) cùng cáng thương và thiết bị sơ cấp cứu. Lái xe hợp đồng phục vụ.",
-        "runners": [],
-        "btcStaff": [
+        "bibRange": "BIB 5018 & Tổ Y Tế",
+        "distance": "Y tế & Cấp cứu đường chạy (Trưởng xe chạy 5km)",
+        "note": "Xe 7 chỗ chuyên dụng y tế. Trưởng xe phụ trách: Nguyễn Thị Lan (Trưởng nhóm Nhân sự - Ban Nhân sự, kiêm VĐV 5km BIB 5018). Chở 3 Bác sĩ Bệnh viện Phủ Diễn (BS Lê Kim Vũ, BS Võ Thị Mai Anh, BS Quang Tuấn Anh) cùng cáng thương và thiết bị sơ cấp cứu. Lái xe hợp đồng phục vụ.",
+        "runners": [
           {
+            "stt": 18,
+            "bib": 5018,
             "name": "Nguyễn Thị Lan",
             "title": "Trưởng nhóm Nhân sự",
-            "dept": "Ban Nhân sự",
-            "duty": "Trưởng xe Y tế & Hậu cần cứu thương",
+            "unit": "Văn Phòng Tập Đoàn Mường Thanh",
             "phone": "0977 760 567",
-            "isCaptain": true
-          },
+            "gender": "Nữ",
+            "size": "XS",
+            "dist": "Chạy 5km",
+            "category": "5km Nữ trên 35 tuổi",
+            "btc": "",
+            "note": "",
+            "vehicleId": "XE-16-YTE",
+            "vehicleLabel": "Xe #16 - Tổ Y Tế BV Phủ Diễn (7 chỗ)",
+            "captainName": "Nguyễn Thị Lan",
+            "captainPhone": "0977 760 567",
+            "captainTitle": "Trưởng nhóm Nhân sự",
+            "captainUnit": "Ban Nhân sự"
+          }
+        ],
+        "btcStaff": [
           {
             "name": "BS Lê Kim Vũ",
             "title": "Bác sỹ Bệnh viện Phủ Diễn",
@@ -28391,12 +28384,12 @@
         "category": "5km Nữ trên 35 tuổi",
         "btc": "",
         "note": "",
-        "vehicleId": "XE-01",
-        "vehicleLabel": "Xe #01 (45 chỗ)",
-        "captainName": "Hoàng Thanh Hải",
-        "captainPhone": "0982 054 788",
-        "captainTitle": "Chuyên viên Hành chính",
-        "captainUnit": "Ban Hành chính"
+        "vehicleId": "XE-16-YTE",
+        "vehicleLabel": "Xe #16 - Tổ Y Tế BV Phủ Diễn (7 chỗ)",
+        "captainName": "Nguyễn Thị Lan",
+        "captainPhone": "0977 760 567",
+        "captainTitle": "Trưởng nhóm Nhân sự",
+        "captainUnit": "Ban Nhân sự"
       },
       {
         "stt": 19,

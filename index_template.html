@@ -41,11 +41,89 @@
     .print-section { break-inside: avoid; }
   }
   .tag-badge { display: inline-block; padding: 3px 9px; border-radius: 9999px; font-size: 11px; font-weight: 600; }
-  .sticky-th { position: sticky; top: 0; z-index: 20; }
   .slide-in { animation: slideIn 0.25s ease-out; }
   @keyframes slideIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
   .court-card { transition: all 0.2s; }
   .court-card:hover { border-color: #6366f1; transform: translateY(-1px); }
+
+  /* DYNAMIC STICKY SUB-NAV & COMPACT HEADER */
+  :root {
+    --header-height: 104px;
+    --subnav-height: 110px;
+    --subnav-bottom: 214px;
+  }
+
+  #main-header {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  #main-header.header-compact #header-inner {
+    padding-top: 0.35rem !important;
+    padding-bottom: 0.25rem !important;
+  }
+  #main-header.header-compact .header-subtitle,
+  #main-header.header-compact .header-stats {
+    display: none !important;
+  }
+  #main-header.header-compact #header-nav {
+    margin-top: 0.25rem !important;
+    padding-top: 0.25rem !important;
+  }
+
+  /* STICKY SUBNAV BAR (DEFAULT: STICKY TOP) */
+  .tab-subnav-panel {
+    position: sticky;
+    top: var(--header-height, 104px);
+    z-index: 40;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+    transition: top 0.2s ease, all 0.2s ease;
+  }
+
+  /* COLLAPSIBLE DETAILS IN SUBNAV */
+  .subnav-collapsed .subnav-collapsible {
+    display: none !important;
+  }
+
+  /* TABLE HEADERS STICKINESS */
+  .sticky-th {
+    position: sticky;
+    top: var(--subnav-bottom, 160px);
+    z-index: 25;
+    background: #0f172a;
+  }
+
+  /* LEFT SIDEBAR LAYOUT MODE (DESKTOP) */
+  @media (min-width: 1024px) {
+    body.layout-sidebar-mode .tab-layout-container {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: flex-start !important;
+      gap: 1.5rem !important;
+    }
+
+    body.layout-sidebar-mode .tab-subnav-panel {
+      width: 300px !important;
+      flex-shrink: 0 !important;
+      position: sticky !important;
+      top: calc(var(--header-height, 104px) + 12px) !important;
+      max-height: calc(100vh - var(--header-height, 104px) - 24px) !important;
+      overflow-y: auto !important;
+      margin-bottom: 0 !important;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.1) !important;
+    }
+
+    body.layout-sidebar-mode .tab-main-content {
+      flex: 1 1 0% !important;
+      min-width: 0 !important;
+    }
+
+    body.layout-sidebar-mode .sticky-th {
+      top: var(--header-height, 104px) !important;
+    }
+  }
 
   /* TOURNAMENT BRACKET STYLES (LEFT-TO-RIGHT) */
   .bracket-wrapper {
@@ -147,8 +225,8 @@
 <body class="min-h-screen flex flex-col">
 
 <!-- HEADER -->
-<header class="header-gradient text-white shadow-lg sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 pt-3 pb-2">
+<header id="main-header" class="header-gradient text-white shadow-lg sticky top-0 z-50">
+  <div id="header-inner" class="max-w-7xl mx-auto px-4 pt-3 pb-2 transition-all">
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center font-black text-slate-900 text-lg shadow">
@@ -158,13 +236,13 @@
           <h1 class="text-lg md:text-xl font-extrabold tracking-tight">
             ĐẠI HỘI MƯỜNG THANH 2026
           </h1>
-          <p class="text-xs text-slate-300 font-medium">Ninh Bình · 27–29/10/2026 · Quản lý lịch thi đấu & tra cứu lịch trình</p>
+          <p class="header-subtitle text-xs text-slate-300 font-medium">Ninh Bình · 27–29/10/2026 · Quản lý lịch thi đấu & tra cứu lịch trình</p>
         </div>
       </div>
       
       <!-- STATS BADGES & AUTH -->
       <div class="flex items-center gap-2.5">
-        <div class="hidden md:flex items-center gap-2 text-sm">
+        <div class="header-stats hidden md:flex items-center gap-2 text-sm">
           <div class="bg-white/10 px-2.5 py-1.5 rounded-lg text-center backdrop-blur cursor-pointer" onclick="switchTab('athletes', document.querySelector('[data-tab=athletes]'))" title="Xem danh sách VĐV và Thí sinh">
             <div class="text-[10px] uppercase tracking-wider text-slate-300 font-semibold">VĐV & Thí sinh</div>
             <div class="font-bold gold-text text-sm sm:text-base" id="hdr-athletes">407</div>
@@ -202,7 +280,7 @@
     </div>
     
     <!-- TABS NAVIGATION -->
-    <nav class="flex gap-1 mt-3 border-t border-white/10 pt-2 overflow-x-auto pb-1 text-sm">
+    <nav id="header-nav" class="flex gap-1 mt-3 border-t border-white/10 pt-2 overflow-x-auto pb-1 text-sm transition-all">
       <button class="tab-btn active px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="agenda" onclick="switchTab('agenda',this)">📅 Agenda</button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="schedule" onclick="switchTab('schedule',this)">🏆 Lịch thi đấu</button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="athletes" onclick="switchTab('athletes',this)">👤 VĐV và Thí sinh/Nội dung thi</button>
@@ -217,30 +295,46 @@
 <main class="max-w-7xl mx-auto px-4 py-5 flex-1 w-full">
 
 <!-- ======================== TAB 1: AGENDA ======================== -->
-<div id="tab-agenda" class="tab-content slide-in">
-  <div class="flex flex-wrap gap-2 mb-4 items-center no-print bg-white rounded-xl p-3 shadow-sm border border-slate-200/60">
-    <span class="font-semibold text-slate-600 text-xs uppercase tracking-wider mr-1">Bộ lọc hoạt động:</span>
-    <button class="filter-agenda-btn tag-badge bg-slate-800 text-white shadow-sm" data-filter="all" onclick="filterAgenda('all',this)">Tất cả</button>
-    <button class="filter-agenda-btn tag-badge bg-green-100 text-green-800 hover:bg-green-200" data-filter="the_thao" onclick="filterAgenda('the_thao',this)">🏃 Thể thao</button>
-    <button class="filter-agenda-btn tag-badge bg-purple-100 text-purple-800 hover:bg-purple-200" data-filter="nghiep_vu" onclick="filterAgenda('nghiep_vu',this)">📋 Thi nghiệp vụ</button>
-    <button class="filter-agenda-btn tag-badge bg-blue-100 text-blue-800 hover:bg-blue-200" data-filter="su_kien" onclick="filterAgenda('su_kien',this)">🎉 Sự kiện / Gala</button>
-    <button class="filter-agenda-btn tag-badge bg-amber-100 text-amber-800 hover:bg-amber-200" data-filter="an_uong" onclick="filterAgenda('an_uong',this)">🍽️ Ăn uống</button>
-    <button class="filter-agenda-btn tag-badge bg-slate-100 text-slate-700 hover:bg-slate-200" data-filter="tham_quan" onclick="filterAgenda('tham_quan',this)">🗺️ Tham quan</button>
+<div id="tab-agenda" class="tab-content slide-in tab-layout-container">
+  <aside id="agenda-subnav" class="tab-subnav-panel flex flex-wrap gap-2.5 mb-4 items-center justify-between no-print rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-200/80 transition-all">
+    <div class="flex flex-wrap gap-1.5 items-center">
+      <span class="font-bold text-slate-700 text-xs uppercase tracking-wider mr-1">Bộ lọc hoạt động:</span>
+      <button class="filter-agenda-btn tag-badge bg-slate-800 text-white shadow-sm" data-filter="all" onclick="filterAgenda('all',this)">Tất cả</button>
+      <button class="filter-agenda-btn tag-badge bg-green-100 text-green-800 hover:bg-green-200" data-filter="the_thao" onclick="filterAgenda('the_thao',this)">🏃 Thể thao</button>
+      <button class="filter-agenda-btn tag-badge bg-purple-100 text-purple-800 hover:bg-purple-200" data-filter="nghiep_vu" onclick="filterAgenda('nghiep_vu',this)">📋 Thi nghiệp vụ</button>
+      <button class="filter-agenda-btn tag-badge bg-blue-100 text-blue-800 hover:bg-blue-200" data-filter="su_kien" onclick="filterAgenda('su_kien',this)">🎉 Sự kiện / Gala</button>
+      <button class="filter-agenda-btn tag-badge bg-amber-100 text-amber-800 hover:bg-amber-200" data-filter="an_uong" onclick="filterAgenda('an_uong',this)">🍽️ Ăn uống</button>
+      <button class="filter-agenda-btn tag-badge bg-slate-100 text-slate-700 hover:bg-slate-200" data-filter="tham_quan" onclick="filterAgenda('tham_quan',this)">🗺️ Tham quan</button>
+    </div>
+    <div class="flex items-center gap-1.5">
+      <button onclick="toggleSubnavLayout()" class="btn-layout-toggle px-2.5 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-xs flex items-center gap-1 border border-indigo-200 transition cursor-pointer shadow-2xs" title="Chuyển đổi kiểu bố trí: Cố định phía trên / Bên trái màn hình">
+        <span>⬅</span><span class="hidden md:inline text-[11px]">Bố trí trái</span>
+      </button>
+    </div>
+  </aside>
+  <div class="tab-main-content flex-1 min-w-0">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5" id="agenda-grid"></div>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-5" id="agenda-grid"></div>
 </div>
 
 <!-- ======================== TAB 2: SCHEDULE (LỊCH THI ĐẤU) ======================== -->
-<div id="tab-schedule" class="tab-content hidden slide-in">
-  <div class="space-y-3 mb-4 no-print bg-white rounded-xl p-4 shadow-sm border border-slate-200/60">
-    <div class="flex flex-wrap gap-3 items-center justify-between">
-      <div class="flex gap-2">
-        <button class="day-btn px-4 py-2 rounded-lg font-bold text-sm bg-indigo-600 text-white shadow" data-day="2026-10-27" onclick="selectDay('2026-10-27',this)">Ngày 27/10 (Thứ Ba)</button>
-        <button class="day-btn px-4 py-2 rounded-lg font-bold text-sm bg-white text-slate-700 border border-slate-200 hover:bg-slate-50" data-day="2026-10-28" onclick="selectDay('2026-10-28',this)">Ngày 28/10 (Thứ Tư)</button>
-        <button class="day-btn px-4 py-2 rounded-lg font-bold text-sm bg-white text-slate-700 border border-slate-200 hover:bg-slate-50" data-day="2026-10-29" onclick="selectDay('2026-10-29',this)">Ngày 29/10 (Thứ Năm)</button>
+<div id="tab-schedule" class="tab-content hidden slide-in tab-layout-container">
+  <aside id="schedule-subnav" class="tab-subnav-panel space-y-2.5 mb-4 no-print rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-200/80 transition-all">
+    <div class="flex flex-wrap gap-2.5 items-center justify-between">
+      <div class="flex flex-wrap gap-2 items-center">
+        <button class="day-btn px-3.5 py-1.5 rounded-xl font-bold text-xs sm:text-sm bg-indigo-600 text-white shadow" data-day="2026-10-27" onclick="selectDay('2026-10-27',this)">Ngày 27/10 (Thứ Ba)</button>
+        <button class="day-btn px-3.5 py-1.5 rounded-xl font-bold text-xs sm:text-sm bg-white text-slate-700 border border-slate-200 hover:bg-slate-50" data-day="2026-10-28" onclick="selectDay('2026-10-28',this)">Ngày 28/10 (Thứ Tư)</button>
+        <button class="day-btn px-3.5 py-1.5 rounded-xl font-bold text-xs sm:text-sm bg-white text-slate-700 border border-slate-200 hover:bg-slate-50" data-day="2026-10-29" onclick="selectDay('2026-10-29',this)">Ngày 29/10 (Thứ Năm)</button>
       </div>
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-1.5">
         <span id="sch-count" class="text-xs font-semibold px-2.5 py-1 bg-slate-100 text-slate-600 rounded-full"></span>
+        <button onclick="toggleSubnavCollapse('schedule-subnav')" class="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-1 transition cursor-pointer shadow-2xs" title="Thu gọn / Mở rộng chi tiết bộ lọc">
+          <span class="subnav-toggle-icon">▲</span>
+          <span class="subnav-toggle-text text-[11px]">Thu gọn</span>
+        </button>
+        <button onclick="toggleSubnavLayout()" class="btn-layout-toggle px-2.5 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-xs flex items-center gap-1 border border-indigo-200 transition cursor-pointer shadow-2xs" title="Chuyển đổi kiểu bố trí: Cố định phía trên / Bên trái màn hình">
+          <span>⬅</span><span class="hidden md:inline text-[11px]">Bố trí trái</span>
+        </button>
       </div>
     </div>
 
@@ -265,177 +359,198 @@
       </div>
     </div>
 
-    <!-- SPORT COLOR LEGEND -->
-    <div class="flex flex-wrap items-center gap-2 pt-2 text-[11px] text-slate-600">
-      <span class="font-bold text-slate-500">Màu môn:</span>
-      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-purple-50 text-purple-700 font-semibold border border-purple-200"><span class="w-2.5 h-2.5 rounded-full bg-purple-600 inline-block"></span>NV (Nghiệp vụ - Tím)</span>
-      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-orange-50 text-orange-700 font-semibold border border-orange-200"><span class="w-2.5 h-2.5 rounded-full bg-orange-600 inline-block"></span>PK (Pickleball - Cam)</span>
-      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-green-50 text-green-700 font-semibold border border-green-200"><span class="w-2.5 h-2.5 rounded-full bg-green-600 inline-block"></span>BĐ (Bóng đá - Xanh lá)</span>
-      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-red-50 text-red-700 font-semibold border border-red-200"><span class="w-2.5 h-2.5 rounded-full bg-red-600 inline-block"></span>CL (Cầu lông - Đỏ)</span>
-      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-blue-50 text-blue-700 font-semibold border border-blue-200"><span class="w-2.5 h-2.5 rounded-full bg-blue-600 inline-block"></span>BB (Bóng bàn - Xanh biển)</span>
-      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-50 text-amber-700 font-semibold border border-amber-200"><span class="w-2.5 h-2.5 rounded-full bg-amber-600 inline-block"></span>KC (Kéo co - Nâu vàng)</span>
-      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-sky-50 text-sky-700 font-semibold border border-sky-200"><span class="w-2.5 h-2.5 rounded-full bg-sky-600 inline-block"></span>BƠI (Bơi lội - Xanh lơ)</span>
-    </div>
+    <!-- COLLAPSIBLE EXTRA: SPORT COLOR LEGEND & LIVE BANNER -->
+    <div class="subnav-collapsible space-y-2 pt-2 border-t border-slate-100">
+      <div class="flex flex-wrap items-center gap-2 text-[11px] text-slate-600">
+        <span class="font-bold text-slate-500">Màu môn:</span>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-purple-50 text-purple-700 font-semibold border border-purple-200"><span class="w-2.5 h-2.5 rounded-full bg-purple-600 inline-block"></span>NV (Nghiệp vụ - Tím)</span>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-orange-50 text-orange-700 font-semibold border border-orange-200"><span class="w-2.5 h-2.5 rounded-full bg-orange-600 inline-block"></span>PK (Pickleball - Cam)</span>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-green-50 text-green-700 font-semibold border border-green-200"><span class="w-2.5 h-2.5 rounded-full bg-green-600 inline-block"></span>BĐ (Bóng đá - Xanh lá)</span>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-red-50 text-red-700 font-semibold border border-red-200"><span class="w-2.5 h-2.5 rounded-full bg-red-600 inline-block"></span>CL (Cầu lông - Đỏ)</span>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-blue-50 text-blue-700 font-semibold border border-blue-200"><span class="w-2.5 h-2.5 rounded-full bg-blue-600 inline-block"></span>BB (Bóng bàn - Xanh biển)</span>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-50 text-amber-700 font-semibold border border-amber-200"><span class="w-2.5 h-2.5 rounded-full bg-amber-600 inline-block"></span>KC (Kéo co - Nâu vàng)</span>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-sky-50 text-sky-700 font-semibold border border-sky-200"><span class="w-2.5 h-2.5 rounded-full bg-sky-600 inline-block"></span>BƠI (Bơi lội - Xanh lơ)</span>
+      </div>
 
-    <!-- LIVE LINK BANNER -->
-    <div class="flex items-center gap-2 pt-2 border-t border-slate-100 text-[11px] text-slate-500">
-      <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-100 text-amber-900 font-bold border border-amber-300">
-        <span>⚡</span> Tự động liên kết Tab Kết quả:
-      </span>
-      <span>Khi có kết quả thi đấu ở các vòng bảng / tứ kết / bán kết, ô lịch thi đấu sẽ <strong>tự động điền tên 2 đội thi đấu cụ thể</strong> và tỉ số theo thời gian thực.</span>
+      <div class="flex items-center gap-2 pt-1.5 border-t border-slate-100 text-[11px] text-slate-500">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-100 text-amber-900 font-bold border border-amber-300">
+          <span>⚡</span> Tự động liên kết Tab Kết quả:
+        </span>
+        <span>Khi có kết quả thi đấu ở các vòng bảng / tứ kết / bán kết, ô lịch thi đấu sẽ <strong>tự động điền tên 2 đội thi đấu cụ thể</strong> và tỉ số theo thời gian thực.</span>
+      </div>
     </div>
-  </div>
+  </aside>
 
-  <div class="overflow-x-auto rounded-xl shadow border border-slate-200 bg-white">
-    <div id="schedule-grid" class="p-1"></div>
+  <div class="tab-main-content flex-1 min-w-0">
+    <div class="overflow-x-auto rounded-xl shadow border border-slate-200 bg-white">
+      <div id="schedule-grid" class="p-1"></div>
+    </div>
   </div>
 </div>
 
 <!-- ======================== TAB 3: ATHLETES (VẬN ĐỘNG VIÊN) ======================== -->
-<div id="tab-athletes" class="tab-content hidden slide-in">
-  <div class="flex flex-wrap gap-2.5 mb-4 items-center no-print bg-white rounded-xl p-3.5 shadow-sm border border-slate-200/60">
-    <div class="relative flex-1 min-w-[200px]">
-      <input id="search-athlete" type="text" placeholder="🔍 Tìm tên VĐV, thí sinh, chức danh, đơn vị..." oninput="filterAthletes()" class="w-full border border-slate-200 rounded-lg px-3.5 py-2 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300">
+<div id="tab-athletes" class="tab-content hidden slide-in tab-layout-container">
+  <aside id="athletes-subnav" class="tab-subnav-panel flex flex-wrap gap-2.5 mb-4 items-center justify-between no-print rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-200/80 transition-all">
+    <div class="flex flex-wrap gap-2 items-center flex-1">
+      <div class="relative flex-1 min-w-[200px]">
+        <input id="search-athlete" type="text" placeholder="🔍 Tìm tên VĐV, thí sinh, chức danh, đơn vị..." oninput="filterAthletes()" class="w-full border border-slate-200 rounded-xl px-3.5 py-1.5 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300">
+      </div>
+      <select id="filter-donvi" onchange="filterAthletes()" class="border border-slate-200 rounded-xl px-3 py-1.5 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300 max-w-[180px]">
+        <option value="">-- Tất cả đơn vị --</option>
+      </select>
+      <select id="filter-gender" onchange="filterAthletes()" class="border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300">
+        <option value="">-- Giới tính --</option>
+        <option value="Nam">Nam</option>
+        <option value="Nữ">Nữ</option>
+      </select>
+      <select id="filter-mon-ath" onchange="filterAthletes()" class="border border-slate-200 rounded-xl px-3 py-1.5 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300 max-w-[210px]">
+        <option value="">-- Tất cả môn thi / nội dung --</option>
+      </select>
     </div>
-    <select id="filter-donvi" onchange="filterAthletes()" class="border border-slate-200 rounded-lg px-3 py-2 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300 max-w-[200px]">
-      <option value="">-- Tất cả đơn vị --</option>
-    </select>
-    <select id="filter-gender" onchange="filterAthletes()" class="border border-slate-200 rounded-lg px-3 py-2 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300">
-      <option value="">-- Giới tính --</option>
-      <option value="Nam">Nam</option>
-      <option value="Nữ">Nữ</option>
-    </select>
-    <select id="filter-mon-ath" onchange="filterAthletes()" class="border border-slate-200 rounded-lg px-3 py-2 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300 max-w-[230px]">
-      <option value="">-- Tất cả môn thi / nội dung --</option>
-    </select>
-    <button onclick="window.print()" class="px-3.5 py-2 bg-slate-700 text-white rounded-lg text-xs font-semibold hover:bg-slate-800 transition">🖨️ In danh sách</button>
-  </div>
+    <div class="flex items-center gap-1.5 flex-wrap">
+      <button onclick="window.print()" class="px-3 py-1.5 bg-slate-800 text-white rounded-xl text-xs font-bold hover:bg-slate-900 transition flex items-center gap-1 cursor-pointer shadow-xs">
+        <span>🖨️</span><span>In</span>
+      </button>
+      <button onclick="toggleSubnavLayout()" class="btn-layout-toggle px-2.5 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-xs flex items-center gap-1 border border-indigo-200 transition cursor-pointer shadow-2xs" title="Chuyển đổi kiểu bố trí: Cố định phía trên / Bên trái màn hình">
+        <span>⬅</span><span class="hidden md:inline text-[11px]">Bố trí trái</span>
+      </button>
+    </div>
+  </aside>
 
-  <div class="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
-    <table class="w-full text-xs min-w-max">
-      <thead class="bg-slate-800 text-white uppercase tracking-wider text-[11px]">
-        <tr>
-          <th class="px-3 py-3 text-left w-12 sticky-th bg-slate-800 cursor-pointer select-none" onclick="sortAthletes('stt')">STT <span id="sort-stt"></span></th>
-          <th class="px-3 py-3 text-left sticky-th bg-slate-800 cursor-pointer select-none" onclick="sortAthletes('hoVaTen')">Họ và Tên <span id="sort-hoVaTen">↕</span></th>
-          <th class="px-3 py-3 text-left sticky-th bg-slate-800">Đơn vị / Khách sạn</th>
-          <th class="px-3 py-3 text-center w-20 sticky-th bg-slate-800">Giới tính</th>
-          <th class="px-3 py-3 text-left sticky-th bg-slate-800">Nội dung đăng ký thi đấu</th>
-          <th class="px-3 py-3 text-center w-20 sticky-th bg-slate-800 cursor-pointer select-none" onclick="sortAthletes('soMon')">Số môn <span id="sort-soMon"></span></th>
-        </tr>
-      </thead>
-      <tbody id="athletes-tbody"></tbody>
-    </table>
-    <div id="athletes-count" class="px-4 py-2.5 bg-slate-50 text-xs text-slate-500 border-t border-slate-200 font-medium"></div>
+  <div class="tab-main-content flex-1 min-w-0">
+    <div class="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+      <table class="w-full text-xs min-w-max">
+        <thead class="bg-slate-800 text-white uppercase tracking-wider text-[11px]">
+          <tr>
+            <th class="px-3 py-3 text-left w-12 sticky-th bg-slate-800 cursor-pointer select-none" onclick="sortAthletes('stt')">STT <span id="sort-stt"></span></th>
+            <th class="px-3 py-3 text-left sticky-th bg-slate-800 cursor-pointer select-none" onclick="sortAthletes('hoVaTen')">Họ và Tên <span id="sort-hoVaTen">↕</span></th>
+            <th class="px-3 py-3 text-left sticky-th bg-slate-800">Đơn vị / Khách sạn</th>
+            <th class="px-3 py-3 text-center w-20 sticky-th bg-slate-800">Giới tính</th>
+            <th class="px-3 py-3 text-left sticky-th bg-slate-800">Nội dung đăng ký thi đấu</th>
+            <th class="px-3 py-3 text-center w-20 sticky-th bg-slate-800 cursor-pointer select-none" onclick="sortAthletes('soMon')">Số môn <span id="sort-soMon"></span></th>
+          </tr>
+        </thead>
+        <tbody id="athletes-tbody"></tbody>
+      </table>
+      <div id="athletes-count" class="px-4 py-2.5 bg-slate-50 text-xs text-slate-500 border-t border-slate-200 font-medium"></div>
+    </div>
   </div>
 </div>
 
 <!-- ======================== TAB: RUNNERS (VẬN ĐỘNG VIÊN GIẢI CHẠY FUN RUN) ======================== -->
-<div id="tab-runners" class="tab-content hidden slide-in">
-  <!-- FUN RUN HERO BANNER -->
-  <div class="rounded-2xl p-5 mb-5 text-white shadow-lg relative overflow-hidden" style="background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #0f172a 100%);">
-    <div class="relative z-10">
-      <div class="flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <div class="flex items-center gap-2 mb-1.5">
-            <span class="px-2.5 py-0.5 rounded-full bg-emerald-400 text-slate-900 font-black text-xs uppercase tracking-wider">Đại hội Mường Thanh 2026</span>
-            <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-bold text-xs">Sáng 28/10/2026</span>
-          </div>
-          <h2 class="text-xl sm:text-2xl font-black tracking-tight flex items-center gap-2">
-            <span>🏃 GIẢI CHẠY MƯỜNG THANH FUN RUN 2026</span>
-          </h2>
-          <p class="text-xs sm:text-sm text-emerald-100 mt-1 max-w-3xl leading-relaxed">
-            📍 <strong>Tràng An Golf & Resort</strong> (Hồ Đồng Chương - 5 km/vòng) · Quy mô: <strong>434 Vận động viên</strong> tranh tài tại 3 cự ly (5km, 10km, 15km) · Khởi hành <strong>05:00</strong> từ KS Mường Thanh Ninh Bình (32 km).
-          </p>
-        </div>
+<div id="tab-runners" class="tab-content hidden slide-in tab-layout-container">
+  <!-- FUN RUN CONTROL BAR (STICKY SUBNAV) -->
+  <aside id="runners-subnav" class="tab-subnav-panel space-y-2.5 mb-4 no-print rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-200/80 transition-all">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <div class="flex flex-wrap items-center gap-1.5" id="runners-subtab-container">
+        <button onclick="switchRunnersSubView('list')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-emerald-700 text-white shadow-xs" data-sub="list">📋 Danh sách VĐV</button>
+        <button onclick="switchRunnersSubView('fleet')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="fleet">🚌 Xếp xe (23 Xe)</button>
+        <button onclick="switchRunnersSubView('route')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="route">🗺️ Cung đường & 9 Trạm</button>
+        <button onclick="switchRunnersSubView('timeline')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="timeline">⏱️ Lịch trình (17 Mốc)</button>
+        <button onclick="switchRunnersSubView('btc')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="btc">👥 Ban Tổ Chức (40)</button>
+      </div>
 
-        <div class="flex flex-wrap items-center gap-2">
-          <button onclick="switchRunnersSubView('list')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-white text-slate-900 shadow-sm" data-sub="list">📋 Danh sách VĐV</button>
-          <button onclick="switchRunnersSubView('fleet')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-white/15 text-white hover:bg-white/25" data-sub="fleet">🚌 Xếp xe (23 Xe)</button>
-          <button onclick="switchRunnersSubView('route')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-white/15 text-white hover:bg-white/25" data-sub="route">🗺️ Cung đường & 9 Trạm</button>
-          <button onclick="switchRunnersSubView('timeline')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-white/15 text-white hover:bg-white/25" data-sub="timeline">⏱️ Lịch trình (17 Mốc)</button>
-          <button onclick="switchRunnersSubView('btc')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-white/15 text-white hover:bg-white/25" data-sub="btc">👥 Ban Tổ Chức (40)</button>
+      <div class="flex items-center gap-1.5">
+        <button onclick="toggleSubnavCollapse('runners-subnav')" class="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-1 transition cursor-pointer shadow-2xs" title="Thu gọn / Mở rộng chi tiết bộ lọc">
+          <span class="subnav-toggle-icon">▲</span>
+          <span class="subnav-toggle-text text-[11px]">Thu gọn</span>
+        </button>
+        <button onclick="toggleSubnavLayout()" class="btn-layout-toggle px-2.5 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs flex items-center gap-1 border border-emerald-200 transition cursor-pointer shadow-2xs" title="Chuyển đổi kiểu bố trí: Cố định phía trên / Bên trái màn hình">
+          <span>⬅</span><span class="hidden md:inline text-[11px]">Bố trí trái</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- FILTER CONTROLS (SHOWN IN LIST VIEW) -->
+    <div id="runners-filter-row" class="subnav-collapsible flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100">
+      <div class="flex-1 min-w-[200px]">
+        <div class="relative">
+          <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">🔍</span>
+          <input type="text" id="runner-search" oninput="renderRunnersList()" placeholder="Tìm theo tên VĐV, số BIB, đơn vị, chức danh, SĐT..." class="w-full pl-9 pr-4 py-1.5 text-xs border border-slate-200 rounded-xl bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-400">
         </div>
       </div>
 
-      <!-- 4 KPI CARDS -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 pt-4 border-t border-white/15">
-        <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('all')">
-          <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Tổng số VĐV Chạy</span>
-          <strong class="text-xl sm:text-2xl font-black text-white block mt-0.5">434 <span class="text-xs font-normal text-emerald-200">người</span></strong>
-          <span class="text-[11px] text-emerald-200/80 block mt-0.5">Toàn tập đoàn & đơn vị</span>
+      <div class="flex flex-wrap items-center gap-2">
+        <select id="runner-filter-dist" onchange="renderRunnersList()" class="px-3 py-1.5 text-xs border border-slate-200 rounded-xl bg-slate-50 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-400">
+          <option value="all">-- Tất cả cự ly --</option>
+          <option value="5km">5km (380 VĐV)</option>
+          <option value="10km">10km (32 VĐV)</option>
+          <option value="15km">15km (22 VĐV)</option>
+        </select>
+        <select id="runner-filter-cat" onchange="renderRunnersList()" class="px-3 py-1.5 text-xs border border-slate-200 rounded-xl bg-slate-50 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 max-w-[180px]">
+          <option value="all">-- Tất cả nhóm giải --</option>
+          <option value="5km Nam dưới 35 tuổi">5km Nam dưới 35 tuổi (82)</option>
+          <option value="5km Nam trên 35 tuổi">5km Nam trên 35 tuổi (92)</option>
+          <option value="5km Nữ dưới 35 tuổi">5km Nữ dưới 35 tuổi (102)</option>
+          <option value="5km Nữ trên 35 tuổi">5km Nữ trên 35 tuổi (104)</option>
+          <option value="10km Nam">10km Nam (24)</option>
+          <option value="10km Nữ">10km Nữ (8)</option>
+          <option value="15km Nam">15km Nam (15)</option>
+          <option value="15km Nữ">15km Nữ (7)</option>
+        </select>
+        <select id="runner-filter-unit" onchange="renderRunnersList()" class="px-3 py-1.5 text-xs border border-slate-200 rounded-xl bg-slate-50 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 max-w-[170px]">
+          <option value="all">-- Tất cả đơn vị --</option>
+        </select>
+        <select id="runner-filter-vehicle" onchange="renderRunnersList()" class="px-3 py-1.5 text-xs border border-slate-200 rounded-xl bg-slate-50 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 max-w-[150px]">
+          <option value="all">-- Tất cả xe --</option>
+        </select>
+        <button onclick="window.print()" class="px-3 py-1.5 bg-slate-800 text-white rounded-xl text-xs font-bold hover:bg-slate-900 transition flex items-center gap-1.5 shadow-xs cursor-pointer">
+          <span>🖨️</span><span class="hidden sm:inline">In danh sách</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <div class="tab-main-content flex-1 min-w-0">
+    <!-- FUN RUN HERO BANNER -->
+    <div class="rounded-2xl p-5 mb-5 text-white shadow-lg relative overflow-hidden" style="background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #0f172a 100%);">
+      <div class="relative z-10">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-400 text-slate-900 font-black text-xs uppercase tracking-wider">Đại hội Mường Thanh 2026</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-bold text-xs">Sáng 28/10/2026</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-black tracking-tight flex items-center gap-2">
+              <span>🏃 GIẢI CHẠY MƯỜNG THANH FUN RUN 2026</span>
+            </h2>
+            <p class="text-xs sm:text-sm text-emerald-100 mt-1 max-w-3xl leading-relaxed">
+              📍 <strong>Tràng An Golf & Resort</strong> (Hồ Đồng Chương - 5 km/vòng) · Quy mô: <strong>434 Vận động viên</strong> tranh tài tại 3 cự ly (5km, 10km, 15km) · Khởi hành <strong>05:00</strong> từ KS Mường Thanh Ninh Bình (32 km).
+            </p>
+          </div>
         </div>
-        <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('5km')">
-          <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 5km (1 vòng)</span>
-          <strong class="text-xl sm:text-2xl font-black text-amber-300 block mt-0.5">380 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
-          <span class="text-[11px] text-emerald-200/80 block mt-0.5">174 Nam · 206 Nữ</span>
-        </div>
-        <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('10km')">
-          <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 10km (2 vòng)</span>
-          <strong class="text-xl sm:text-2xl font-black text-orange-300 block mt-0.5">32 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
-          <span class="text-[11px] text-emerald-200/80 block mt-0.5">24 Nam · 8 Nữ · 1 vòng tay</span>
-        </div>
-        <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('15km')">
-          <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 15km (3 vòng)</span>
-          <strong class="text-xl sm:text-2xl font-black text-indigo-300 block mt-0.5">22 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
-          <span class="text-[11px] text-emerald-200/80 block mt-0.5">15 Nam · 7 Nữ · 2 vòng tay</span>
+
+        <!-- 4 KPI CARDS -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 pt-4 border-t border-white/15">
+          <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('all')">
+            <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Tổng số VĐV Chạy</span>
+            <strong class="text-xl sm:text-2xl font-black text-white block mt-0.5">434 <span class="text-xs font-normal text-emerald-200">người</span></strong>
+            <span class="text-[11px] text-emerald-200/80 block mt-0.5">Toàn tập đoàn & đơn vị</span>
+          </div>
+          <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('5km')">
+            <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 5km (1 vòng)</span>
+            <strong class="text-xl sm:text-2xl font-black text-amber-300 block mt-0.5">380 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
+            <span class="text-[11px] text-emerald-200/80 block mt-0.5">174 Nam · 206 Nữ</span>
+          </div>
+          <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('10km')">
+            <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 10km (2 vòng)</span>
+            <strong class="text-xl sm:text-2xl font-black text-orange-300 block mt-0.5">32 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
+            <span class="text-[11px] text-emerald-200/80 block mt-0.5">24 Nam · 8 Nữ · 1 vòng tay</span>
+          </div>
+          <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('15km')">
+            <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 15km (3 vòng)</span>
+            <strong class="text-xl sm:text-2xl font-black text-indigo-300 block mt-0.5">22 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
+            <span class="text-[11px] text-emerald-200/80 block mt-0.5">15 Nam · 7 Nữ · 2 vòng tay</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- SUB-VIEW 1: DANH SÁCH VĐV CHẠY (MẶC ĐỊNH) -->
-  <div id="runners-view-list" class="runners-subview space-y-4">
-    <!-- FILTERS BAR -->
-    <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-200/80 space-y-3 no-print">
-      <div class="flex flex-wrap items-center justify-between gap-3">
-        <div class="flex-1 min-w-[240px]">
-          <div class="relative">
-            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">🔍</span>
-            <input type="text" id="runner-search" oninput="renderRunnersList()" placeholder="Tìm theo tên VĐV, số BIB, đơn vị, chức danh, SĐT..." class="w-full pl-9 pr-4 py-2 text-xs border border-slate-200 rounded-xl bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-400">
-          </div>
-        </div>
-
-        <div class="flex flex-wrap items-center gap-2">
-          <!-- CỰ LY -->
-          <select id="runner-filter-dist" onchange="renderRunnersList()" class="px-3 py-2 text-xs border border-slate-200 rounded-xl bg-slate-50 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-400">
-            <option value="all">-- Tất cả cự ly --</option>
-            <option value="5km">5km (380 VĐV)</option>
-            <option value="10km">10km (32 VĐV)</option>
-            <option value="15km">15km (22 VĐV)</option>
-          </select>
-
-          <!-- NHÓM NỘI DUNG -->
-          <select id="runner-filter-cat" onchange="renderRunnersList()" class="px-3 py-2 text-xs border border-slate-200 rounded-xl bg-slate-50 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 max-w-[220px]">
-            <option value="all">-- Tất cả nhóm giải --</option>
-            <option value="5km Nam dưới 35 tuổi">5km Nam dưới 35 tuổi (82)</option>
-            <option value="5km Nam trên 35 tuổi">5km Nam trên 35 tuổi (92)</option>
-            <option value="5km Nữ dưới 35 tuổi">5km Nữ dưới 35 tuổi (102)</option>
-            <option value="5km Nữ trên 35 tuổi">5km Nữ trên 35 tuổi (104)</option>
-            <option value="10km Nam">10km Nam (24)</option>
-            <option value="10km Nữ">10km Nữ (8)</option>
-            <option value="15km Nam">15km Nam (15)</option>
-            <option value="15km Nữ">15km Nữ (7)</option>
-          </select>
-
-          <!-- ĐƠN VỊ -->
-          <select id="runner-filter-unit" onchange="renderRunnersList()" class="px-3 py-2 text-xs border border-slate-200 rounded-xl bg-slate-50 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 max-w-[200px]">
-            <option value="all">-- Tất cả đơn vị --</option>
-          </select>
-
-          <!-- XE SỐ -->
-          <select id="runner-filter-vehicle" onchange="renderRunnersList()" class="px-3 py-2 text-xs border border-slate-200 rounded-xl bg-slate-50 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 max-w-[180px]">
-            <option value="all">-- Tất cả xe --</option>
-          </select>
-
-          <button onclick="window.print()" class="px-3.5 py-2 bg-slate-800 text-white rounded-xl text-xs font-bold hover:bg-slate-900 transition flex items-center gap-1.5 shadow-xs">
-            <span>🖨️</span><span>In danh sách</span>
-          </button>
-        </div>
-      </div>
-
+    <!-- SUB-VIEW 1: DANH SÁCH VĐV CHẠY (MẶC ĐỊNH) -->
+    <div id="runners-view-list" class="runners-subview space-y-4">
       <!-- QUICK STATS PILLS -->
-      <div class="flex flex-wrap items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-100">
-        <div id="runner-count-badge" class="font-bold text-slate-700">Đang hiển thị: 434 VĐV</div>
+      <div class="flex flex-wrap items-center justify-between text-xs text-slate-500 bg-white p-3 rounded-xl border border-slate-200/80 shadow-2xs">
+        <div id="runners-list-badge" class="font-bold text-slate-700">Đang hiển thị: 434 VĐV</div>
         <div class="flex items-center gap-2 text-[11px]">
           <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>5km Nam</span>
           <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-pink-500"></span>5km Nữ</span>
@@ -443,36 +558,35 @@
           <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-blue-700"></span>15km</span>
         </div>
       </div>
-    </div>
 
-    <!-- RUNNERS TABLE -->
-    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-      <div class="overflow-x-auto">
-        <table class="w-full text-xs text-left min-w-[900px]">
-          <thead class="bg-slate-900 text-white uppercase text-[11px] font-bold tracking-wider">
-            <tr>
-              <th class="px-3.5 py-3 w-12 text-center">STT</th>
-              <th class="px-3.5 py-3 w-24 text-center cursor-pointer select-none" onclick="sortRunners('bib')">Số BIB <span id="sort-runner-bib">↕</span></th>
-              <th class="px-4 py-3 cursor-pointer select-none" onclick="sortRunners('name')">Họ và Tên <span id="sort-runner-name">↕</span></th>
-              <th class="px-3.5 py-3">Cự ly & Nhóm giải</th>
-              <th class="px-4 py-3">Đơn vị / Khách sạn</th>
-              <th class="px-3 py-3">Chức danh</th>
-              <th class="px-2.5 py-3 text-center">Size</th>
-              <th class="px-3 py-3">Số điện thoại</th>
-              <th class="px-3.5 py-3">Xe di chuyển</th>
-              <th class="px-3 py-3 text-center">Thao tác</th>
-            </tr>
-          </thead>
-          <tbody id="runners-tbody" class="divide-y divide-slate-100"></tbody>
-        </table>
-      </div>
-      <div id="runners-empty" class="hidden p-12 text-center text-slate-400">
-        <span class="text-3xl block mb-2">🏃💨</span>
-        <p class="font-bold text-slate-600 text-sm">Không tìm thấy VĐV chạy nào phù hợp</p>
-        <p class="text-xs text-slate-400 mt-1">Vui lòng thử tìm kiếm với từ khóa khác hoặc xóa bớt bộ lọc</p>
+      <!-- RUNNERS TABLE -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left min-w-[900px]">
+            <thead class="bg-slate-900 text-white uppercase text-[11px] font-bold tracking-wider">
+              <tr>
+                <th class="px-3.5 py-3 w-12 text-center sticky-th">STT</th>
+                <th class="px-3.5 py-3 w-24 text-center cursor-pointer select-none sticky-th" onclick="sortRunners('bib')">Số BIB <span id="sort-runner-bib">↕</span></th>
+                <th class="px-4 py-3 cursor-pointer select-none sticky-th" onclick="sortRunners('name')">Họ và Tên <span id="sort-runner-name">↕</span></th>
+                <th class="px-3.5 py-3 sticky-th">Cự ly & Nhóm giải</th>
+                <th class="px-4 py-3 sticky-th">Đơn vị / Khách sạn</th>
+                <th class="px-3 py-3 sticky-th">Chức danh</th>
+                <th class="px-2.5 py-3 text-center sticky-th">Size</th>
+                <th class="px-3 py-3 sticky-th">Số điện thoại</th>
+                <th class="px-3.5 py-3 sticky-th">Xe di chuyển</th>
+                <th class="px-3 py-3 text-center sticky-th">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="runners-tbody" class="divide-y divide-slate-100"></tbody>
+          </table>
+        </div>
+        <div id="runners-empty" class="hidden p-12 text-center text-slate-400">
+          <span class="text-3xl block mb-2">🏃💨</span>
+          <p class="font-bold text-slate-600 text-sm">Không tìm thấy VĐV chạy nào phù hợp</p>
+          <p class="text-xs text-slate-400 mt-1">Vui lòng thử tìm kiếm với từ khóa khác hoặc xóa bớt bộ lọc</p>
+        </div>
       </div>
     </div>
-  </div>
 
   <!-- SUB-VIEW 2: SƠ ĐỒ XẾP XE (26 XE) -->
   <div id="runners-view-fleet" class="runners-subview hidden space-y-4">
@@ -538,138 +652,156 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5" id="runners-btc-container"></div>
     </div>
   </div>
+  </div>
 </div>
 
 <!-- ======================== TAB 4: VENUES (ĐỊA ĐIỂM & TỪNG SÂN/BÀN CHI TIẾT) ======================== -->
-<div id="tab-venues" class="tab-content hidden slide-in">
-  <!-- VENUE HUBS FILTER & BREADCRUMB -->
-  <div class="space-y-3 mb-5 no-print bg-white rounded-xl p-4 shadow-sm border border-slate-200/60">
+<div id="tab-venues" class="tab-content hidden slide-in tab-layout-container">
+  <!-- VENUE HUBS FILTER & BREADCRUMB (STICKY SUBNAV) -->
+  <aside id="venues-subnav" class="tab-subnav-panel space-y-2 mb-4 no-print rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-200/80 transition-all">
     <div class="flex flex-wrap items-center justify-between gap-2">
       <div class="flex flex-wrap items-center gap-1.5">
         <span class="font-bold text-slate-600 text-xs uppercase tracking-wider mr-1">Cụm địa điểm:</span>
         <button class="filter-venue-hub-btn px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-800 text-white shadow-sm" data-hub="all" onclick="selectVenueHub('all',this)">Tất cả (4 Cụm)</button>
-        <button class="filter-venue-hub-btn px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-hub="ks" onclick="selectVenueHub('ks',this)">🏨 Khách sạn Mường Thanh (8 sân/phòng)</button>
-        <button class="filter-venue-hub-btn px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-hub="ntd" onclick="selectVenueHub('ntd',this)">🏟️ Nhà thi đấu Ninh Bình (8 sân/bàn/làn)</button>
-        <button class="filter-venue-hub-btn px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-hub="teddy" onclick="selectVenueHub('teddy',this)">⚽ Sân Bóng Teddy (Sân 1, 2, 3)</button>
-        <button class="filter-venue-hub-btn px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-hub="ngoai" onclick="selectVenueHub('ngoai',this)">⛳ Golf Tràng An & Tham quan (2)</button>
+        <button class="filter-venue-hub-btn px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-hub="ks" onclick="selectVenueHub('ks',this)">🏨 KS Mường Thanh (8 sân)</button>
+        <button class="filter-venue-hub-btn px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-hub="ntd" onclick="selectVenueHub('ntd',this)">🏟️ NTĐ Ninh Bình (8 sân)</button>
+        <button class="filter-venue-hub-btn px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-hub="teddy" onclick="selectVenueHub('teddy',this)">⚽ Sân Teddy (3)</button>
+        <button class="filter-venue-hub-btn px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-hub="ngoai" onclick="selectVenueHub('ngoai',this)">⛳ Golf Tràng An (2)</button>
       </div>
-      
-      <!-- COURT SELECTOR DROPDOWN -->
+
       <div class="flex items-center gap-1.5">
-        <label class="text-xs font-bold text-slate-500">Tra cứu nhanh sân:</label>
-        <select id="quick-court-select" onchange="onQuickCourtSelect(this.value)" class="border border-slate-200 rounded-lg px-3 py-1.5 text-xs bg-white font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+        <button onclick="toggleSubnavCollapse('venues-subnav')" class="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-1 transition cursor-pointer shadow-2xs" title="Thu gọn / Mở rộng">
+          <span class="subnav-toggle-icon">▲</span>
+          <span class="subnav-toggle-text text-[11px]">Thu gọn</span>
+        </button>
+        <button onclick="toggleSubnavLayout()" class="btn-layout-toggle px-2.5 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-800 font-bold text-xs flex items-center gap-1 border border-indigo-200 transition cursor-pointer shadow-2xs" title="Chuyển đổi kiểu bố trí: Cố định phía trên / Bên trái màn hình">
+          <span>⬅</span><span class="hidden md:inline text-[11px]">Bố trí trái</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- QUICK COURT & HINT -->
+    <div class="subnav-collapsible flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100">
+      <div class="flex items-center gap-1.5 flex-1 min-w-[240px]">
+        <label class="text-xs font-bold text-slate-500 whitespace-nowrap">Tra cứu nhanh sân:</label>
+        <select id="quick-court-select" onchange="onQuickCourtSelect(this.value)" class="w-full max-w-sm border border-slate-200 rounded-lg px-3 py-1.5 text-xs bg-slate-50 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-300">
           <option value="">-- Chọn trực tiếp sân/bàn --</option>
         </select>
       </div>
+      <div class="text-[11px] text-slate-500 flex items-center gap-1.5">
+        <span>💡</span>
+        <span>Click vào từng thẻ <strong>Sân / Bàn</strong> để xem toàn bộ danh sách trận đấu và <strong>vận động viên / đội thi đấu</strong> chi tiết.</span>
+      </div>
     </div>
-    
-    <div class="text-[11px] text-slate-500 flex items-center gap-2 pt-1 border-t border-slate-100">
-      <span>💡</span>
-      <span>Click vào từng thẻ <strong>Sân / Bàn</strong> để xem toàn bộ danh sách trận đấu và <strong>vận động viên / đội thi đấu</strong> chi tiết trên sân đó.</span>
-    </div>
-  </div>
+  </aside>
 
-  <!-- HUBS WITH COURTS CONTAINER -->
-  <div id="venue-hubs-container" class="space-y-6"></div>
+  <div class="tab-main-content flex-1 min-w-0">
+    <!-- HUBS WITH COURTS CONTAINER -->
+    <div id="venue-hubs-container" class="space-y-6"></div>
+  </div>
 </div>
 
 <!-- ======================== TAB: TRANSPORT (LỊCH DI CHUYỂN & ĐIỀU PHỐI XE 3 ĐỊA ĐIỂM) ======================== -->
-<div id="tab-transport" class="tab-content hidden slide-in">
-  <!-- CONTROL BAR -->
-  <div class="space-y-3.5 mb-5 no-print bg-white rounded-2xl p-4 shadow-sm border border-slate-200/80">
-    <!-- TOP ROW: TITLE & DAY SELECTOR -->
-    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3">
-      <div class="flex items-center gap-2.5">
-        <span class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 font-black text-xl flex items-center justify-center flex-shrink-0 shadow-2xs">🚌</span>
+<div id="tab-transport" class="tab-content hidden slide-in tab-layout-container">
+  <!-- CONTROL BAR (STICKY SUBNAV) -->
+  <aside id="transport-subnav" class="tab-subnav-panel space-y-2 mb-4 no-print rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-200/80 transition-all">
+    <!-- TOP ROW: TITLE & CONTROLS -->
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <span class="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-600 font-black text-lg flex items-center justify-center flex-shrink-0 shadow-2xs">🚌</span>
         <div>
-          <h2 class="text-base font-extrabold text-slate-900 leading-tight">Điều phối xe & Lịch di chuyển Vận động viên</h2>
-          <p class="text-xs text-slate-500 font-medium mt-0.5">Thống kê số lượng VĐV & lộ trình xe đưa đón giữa 3 địa điểm: <strong>Khách sạn Mường Thanh</strong>, <strong>Nhà thi đấu Ninh Bình</strong> và <strong>Sân bóng Teddy</strong></p>
+          <h2 class="text-sm sm:text-base font-extrabold text-slate-900 leading-tight">Điều phối xe & Lịch di chuyển VĐV</h2>
         </div>
       </div>
 
-      <!-- DAY BUTTONS -->
-      <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl">
-        <button class="transport-day-btn px-3.5 py-1.5 rounded-lg font-bold text-xs bg-indigo-600 text-white shadow-xs transition cursor-pointer" onclick="selectTransportDay('2026-10-27', this)">27/10 (Thứ Ba)</button>
-        <button class="transport-day-btn px-3.5 py-1.5 rounded-lg font-bold text-xs bg-transparent text-slate-600 hover:text-slate-900 transition cursor-pointer" onclick="selectTransportDay('2026-10-28', this)">28/10 (Thứ Tư)</button>
-        <button class="transport-day-btn px-3.5 py-1.5 rounded-lg font-bold text-xs bg-transparent text-slate-600 hover:text-slate-900 transition cursor-pointer" onclick="selectTransportDay('2026-10-29', this)">29/10 (Thứ Năm)</button>
+      <!-- DAY BUTTONS & CONTROLS -->
+      <div class="flex items-center gap-2 flex-wrap">
+        <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl">
+          <button class="transport-day-btn px-3 py-1 rounded-lg font-bold text-xs bg-indigo-600 text-white shadow-xs transition cursor-pointer" onclick="selectTransportDay('2026-10-27', this)">27/10</button>
+          <button class="transport-day-btn px-3 py-1 rounded-lg font-bold text-xs bg-transparent text-slate-600 hover:text-slate-900 transition cursor-pointer" onclick="selectTransportDay('2026-10-28', this)">28/10</button>
+          <button class="transport-day-btn px-3 py-1 rounded-lg font-bold text-xs bg-transparent text-slate-600 hover:text-slate-900 transition cursor-pointer" onclick="selectTransportDay('2026-10-29', this)">29/10</button>
+        </div>
+        <button onclick="toggleSubnavCollapse('transport-subnav')" class="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-1 transition cursor-pointer shadow-2xs" title="Thu gọn / Mở rộng">
+          <span class="subnav-toggle-icon">▲</span>
+          <span class="subnav-toggle-text text-[11px]">Thu gọn</span>
+        </button>
+        <button onclick="toggleSubnavLayout()" class="btn-layout-toggle px-2.5 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold text-xs flex items-center gap-1 border border-amber-200 transition cursor-pointer shadow-2xs" title="Chuyển đổi kiểu bố trí: Cố định phía trên / Bên trái màn hình">
+          <span>⬅</span><span class="hidden md:inline text-[11px]">Bố trí trái</span>
+        </button>
       </div>
     </div>
 
-    <!-- FILTERS ROW -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-      <!-- TIME FILTER -->
+    <!-- FILTERS ROW (COLLAPSIBLE) -->
+    <div class="subnav-collapsible grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 pt-2 border-t border-slate-100 text-xs">
       <div>
-        <label class="block font-bold text-slate-600 mb-1">⏰ Khung giờ xe đón / xuất phát:</label>
-        <select id="transport-time-filter" onchange="renderTransportTab()" class="w-full border border-slate-200 rounded-xl px-3 py-2 bg-slate-50 font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-300">
-          <option value="all">-- Tất cả khung giờ trong ngày --</option>
+        <label class="block font-bold text-slate-600 mb-1 text-[11px]">⏰ Khung giờ xe đón / xuất phát:</label>
+        <select id="transport-time-filter" onchange="renderTransportTab()" class="w-full border border-slate-200 rounded-xl px-3 py-1.5 bg-slate-50 font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+          <option value="all">-- Tất cả khung giờ --</option>
         </select>
       </div>
 
-      <!-- ROUTE FILTER -->
       <div>
-        <label class="block font-bold text-slate-600 mb-1">📍 Tuyến đường di chuyển:</label>
-        <select id="transport-route-filter" onchange="renderTransportTab()" class="w-full border border-slate-200 rounded-xl px-3 py-2 bg-slate-50 font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+        <label class="block font-bold text-slate-600 mb-1 text-[11px]">📍 Tuyến đường di chuyển:</label>
+        <select id="transport-route-filter" onchange="renderTransportTab()" class="w-full border border-slate-200 rounded-xl px-3 py-1.5 bg-slate-50 font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-300">
           <option value="all">-- Tất cả các tuyến (3 địa điểm) --</option>
-          <option value="KS_TO_NTD">Khách sạn ➔ Nhà thi đấu Ninh Bình (Đi thi)</option>
+          <option value="KS_TO_NTD">Khách sạn ➔ Nhà thi đấu (Đi thi)</option>
           <option value="KS_TO_TEDDY">Khách sạn ➔ Sân bóng Teddy (Đi thi)</option>
-          <option value="NTD_TO_TEDDY">🔥 Nhà thi đấu ➔ Sân bóng Teddy (Trung chuyển)</option>
-          <option value="TEDDY_TO_NTD">Sân bóng Teddy ➔ Nhà thi đấu (Trung chuyển)</option>
-          <option value="NTD_TO_HOTEL">Nhà thi đấu ➔ Khách sạn Mường Thanh (Đón về)</option>
-          <option value="TEDDY_TO_HOTEL">Sân bóng Teddy ➔ Khách sạn Mường Thanh (Đón về)</option>
+          <option value="NTD_TO_TEDDY">🔥 NTĐ ➔ Sân bóng Teddy (Trung chuyển)</option>
+          <option value="TEDDY_TO_NTD">Sân Teddy ➔ NTĐ (Trung chuyển)</option>
+          <option value="NTD_TO_HOTEL">NTĐ ➔ Khách sạn (Đón về)</option>
+          <option value="TEDDY_TO_HOTEL">Sân Teddy ➔ Khách sạn (Đón về)</option>
         </select>
       </div>
 
-      <!-- SEARCH INPUT -->
       <div>
-        <label class="block font-bold text-slate-600 mb-1">🔍 Tìm kiếm VĐV / Đơn vị / Môn:</label>
-        <input type="text" id="transport-search" oninput="renderTransportTab()" placeholder="Nhập tên VĐV, đơn vị, môn thi..." class="w-full border border-slate-200 rounded-xl px-3 py-2 bg-slate-50 font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+        <label class="block font-bold text-slate-600 mb-1 text-[11px]">🔍 Tìm kiếm VĐV / Đơn vị / Môn:</label>
+        <input type="text" id="transport-search" oninput="renderTransportTab()" placeholder="Nhập tên VĐV, đơn vị, môn thi..." class="w-full border border-slate-200 rounded-xl px-3 py-1.5 bg-slate-50 font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-300">
       </div>
 
-      <!-- ACTION BUTTONS -->
       <div class="flex items-end gap-1.5 flex-wrap">
-        <button onclick="printTransportSchedule()" class="flex-1 py-2 px-2.5 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold rounded-xl shadow-xs text-xs flex items-center justify-center gap-1 transition cursor-pointer" title="In phiếu tổng hợp">
-          <span>🖨️</span>
-          <span>In Phiếu</span>
+        <button onclick="printTransportSchedule()" class="flex-1 py-1.5 px-2 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold rounded-xl shadow-xs text-xs flex items-center justify-center gap-1 transition cursor-pointer" title="In phiếu tổng hợp">
+          <span>🖨️</span><span>In</span>
         </button>
-        <button onclick="exportTransportCsv()" class="py-2 px-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs flex items-center justify-center gap-1 transition cursor-pointer" title="Xuất file CSV danh sách VĐV">
-          <span>📥</span>
-          <span>CSV</span>
+        <button onclick="exportTransportCsv()" class="py-1.5 px-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs flex items-center justify-center gap-1 transition cursor-pointer" title="Xuất file CSV danh sách VĐV">
+          <span>📥</span><span>CSV</span>
         </button>
-        <button onclick="expandAllTrips()" class="py-2 px-2.5 bg-white hover:bg-indigo-50 border border-slate-200 text-indigo-700 font-bold rounded-xl text-xs flex items-center justify-center gap-1 transition cursor-pointer shadow-2xs" title="Mở rộng tất cả danh sách VĐV của các chuyến">
-          <span>▼ Mở hết</span>
+        <button onclick="expandAllTrips()" class="py-1.5 px-2 bg-white hover:bg-indigo-50 border border-slate-200 text-indigo-700 font-bold rounded-xl text-xs flex items-center justify-center gap-1 transition cursor-pointer shadow-2xs" title="Mở rộng tất cả danh sách VĐV của các chuyến">
+          <span>▼ Mở</span>
         </button>
-        <button onclick="collapseAllTrips()" class="py-2 px-2.5 bg-white hover:bg-slate-100 border border-slate-200 text-slate-600 font-bold rounded-xl text-xs flex items-center justify-center gap-1 transition cursor-pointer shadow-2xs" title="Thu gọn tất cả về dạng danh sách chuyến xe">
-          <span>▲ Thu gọn</span>
+        <button onclick="collapseAllTrips()" class="py-1.5 px-2 bg-white hover:bg-slate-100 border border-slate-200 text-slate-600 font-bold rounded-xl text-xs flex items-center justify-center gap-1 transition cursor-pointer shadow-2xs" title="Thu gọn tất cả về dạng danh sách chuyến xe">
+          <span>▲ Gọn</span>
         </button>
       </div>
     </div>
+  </aside>
+
+  <div class="tab-main-content flex-1 min-w-0">
+    <!-- STATS OVERVIEW CARDS -->
+    <div id="transport-stats-container" class="grid grid-cols-2 md:grid-cols-4 gap-3.5 mb-4"></div>
+
+    <!-- FLEET & PERSONNEL DISPATCH BANNER (FROM BTC DATA) -->
+    <div id="transport-fleet-personnel-container"></div>
+
+    <!-- CROSS-TRANSFER ALERT BANNER (IF ANY) -->
+    <div id="transport-cross-alert-container"></div>
+
+    <!-- TRIPS & PASSENGERS LIST -->
+    <div id="transport-trips-container" class="space-y-4"></div>
   </div>
-
-  <!-- STATS OVERVIEW CARDS -->
-  <div id="transport-stats-container" class="grid grid-cols-2 md:grid-cols-4 gap-3.5 mb-4"></div>
-
-  <!-- FLEET & PERSONNEL DISPATCH BANNER (FROM BTC DATA) -->
-  <div id="transport-fleet-personnel-container"></div>
-
-  <!-- CROSS-TRANSFER ALERT BANNER (IF ANY) -->
-  <div id="transport-cross-alert-container"></div>
-
-  <!-- TRIPS & PASSENGERS LIST -->
-  <div id="transport-trips-container" class="space-y-4"></div>
 </div>
 
 <!-- ======================== TAB 5: RESULTS (SƠ ĐỒ THI ĐẤU & KẾT QUẢ TÍNH ĐIỂM TỰ ĐỘNG) ======================== -->
-<div id="tab-results" class="tab-content hidden slide-in">
+<div id="tab-results" class="tab-content hidden slide-in tab-layout-container">
   <!-- AUTH & PERMISSION STATUS BANNER -->
   <div id="tab5-auth-banner" class="mb-4"></div>
 
-  <!-- CONTROL BAR -->
-  <div class="space-y-3.5 mb-5 no-print bg-white rounded-2xl p-4 shadow-sm border border-slate-200/80">
-    <!-- SPORT FILTER PILLS -->
+  <!-- CONTROL BAR (STICKY SUBNAV) -->
+  <aside id="results-subnav" class="tab-subnav-panel space-y-2.5 mb-4 no-print rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-200/80 transition-all">
+    <!-- SPORT FILTER PILLS & ACTION BUTTONS -->
     <div class="flex flex-wrap items-center justify-between gap-2.5">
       <div class="flex flex-wrap items-center gap-1.5" id="tour-sport-pills">
         <span class="font-bold text-slate-500 text-xs uppercase tracking-wider mr-1">Bộ môn:</span>
-        <button class="tour-pill active px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-800 text-white shadow-sm" onclick="filterTourBySport('all', this)">Tất cả (14 Nội dung)</button>
+        <button class="tour-pill active px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-800 text-white shadow-sm" onclick="filterTourBySport('all', this)">Tất cả (14 Môn)</button>
         <button class="tour-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" onclick="filterTourBySport('Bóng đá', this)">⚽ Bóng đá</button>
         <button class="tour-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" onclick="filterTourBySport('Cầu lông', this)">🏸 Cầu lông</button>
         <button class="tour-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" onclick="filterTourBySport('Bóng bàn', this)">🏓 Bóng bàn</button>
@@ -678,45 +810,137 @@
         <button class="tour-pill px-3 py-1.5 rounded-lg text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" onclick="filterTourBySport('Bơi', this)">🏊 Bơi lội</button>
       </div>
 
-      <!-- UTILITY ACTION BUTTONS -->
       <div class="flex items-center gap-1.5 flex-wrap">
         <div id="admin-action-buttons-group" class="hidden items-center gap-1.5 flex-wrap">
           <button onclick="fillDemoScores()" title="Điền điểm mô phỏng mẫu môn đang chọn" class="px-2.5 py-1.5 bg-amber-50 text-amber-800 border border-amber-300 rounded-lg text-xs font-bold hover:bg-amber-100 transition flex items-center gap-1 shadow-2xs">
-            <span>⚡</span><span>Điền mẫu môn này</span>
+            <span>⚡</span><span>Điền mẫu</span>
           </button>
           <button onclick="fillAllDemoScores()" title="Điền điểm mô phỏng mẫu TẤT CẢ các môn để kiểm tra toàn bộ sơ đồ & tự động cập nhật Lịch thi đấu" class="px-2.5 py-1.5 bg-amber-500 text-white rounded-lg text-xs font-black hover:bg-amber-600 transition flex items-center gap-1 shadow-2xs">
-            <span>✨</span><span>Điền mẫu TẤT CẢ môn</span>
+            <span>✨</span><span>Mẫu tất cả</span>
           </button>
           <button onclick="clearCurrentTournamentScores()" title="Xóa điểm môn này" class="px-2.5 py-1.5 bg-rose-50 text-rose-700 border border-rose-200 rounded-lg text-xs font-bold hover:bg-rose-100 transition flex items-center gap-1 shadow-2xs">
-            <span>🗑️</span><span>Xóa điểm môn</span>
+            <span>🗑️</span><span>Xóa môn</span>
           </button>
           <button onclick="clearAllScores()" title="Xóa toàn bộ điểm số của tất cả các môn" class="px-2.5 py-1.5 bg-rose-100 text-rose-800 border border-rose-300 rounded-lg text-xs font-bold hover:bg-rose-200 transition flex items-center gap-1 shadow-2xs">
-            <span>🧹</span><span>Xóa tất cả điểm</span>
+            <span>🧹</span><span>Xóa hết</span>
           </button>
         </div>
         <button onclick="printTournamentBracket()" title="In sơ đồ thi đấu" class="px-2.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-300 rounded-lg text-xs font-bold hover:bg-slate-200 transition flex items-center gap-1 shadow-2xs">
-          <span>🖨️</span><span>In sơ đồ</span>
+          <span>🖨️</span><span class="hidden sm:inline">In sơ đồ</span>
+        </button>
+        <button onclick="toggleSubnavCollapse('results-subnav')" class="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-1 transition cursor-pointer shadow-2xs" title="Thu gọn / Mở rộng">
+          <span class="subnav-toggle-icon">▲</span>
+          <span class="subnav-toggle-text text-[11px]">Thu gọn</span>
+        </button>
+        <button onclick="toggleSubnavLayout()" class="btn-layout-toggle px-2.5 py-1.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-800 font-bold text-xs flex items-center gap-1 border border-purple-200 transition cursor-pointer shadow-2xs" title="Chuyển đổi kiểu bố trí: Cố định phía trên / Bên trái màn hình">
+          <span>⬅</span><span class="hidden md:inline text-[11px]">Bố trí trái</span>
         </button>
       </div>
     </div>
 
     <!-- TOURNAMENT SELECTOR DROPDOWN & HINT -->
-    <div class="flex flex-wrap items-center justify-between gap-3 pt-2.5 border-t border-slate-100">
+    <div class="subnav-collapsible flex flex-wrap items-center justify-between gap-3 pt-2.5 border-t border-slate-100">
       <div class="flex items-center gap-2 flex-1 min-w-[280px]">
         <label class="text-xs font-bold text-slate-600 uppercase tracking-wider whitespace-nowrap">Nội dung thi đấu:</label>
-        <select id="active-tournament-select" onchange="onTournamentSelectChange(this.value)" class="w-full max-w-md border border-slate-300 rounded-xl px-3.5 py-2 text-xs bg-white font-extrabold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-400 shadow-2xs">
+        <select id="active-tournament-select" onchange="onTournamentSelectChange(this.value)" class="w-full max-w-md border border-slate-300 rounded-xl px-3.5 py-1.5 text-xs bg-white font-extrabold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-400 shadow-2xs">
         </select>
       </div>
       <div class="text-[11px] text-slate-500 flex items-center gap-1.5 italic">
         <span>💡</span>
-        <span>Nhập tỉ số vào ô điểm: Hệ thống tự động tính điểm theo thể lệ và điền tên đội thắng vào vòng tiếp theo theo hướng từ trái sang phải.</span>
+        <span>Nhập tỉ số vào ô điểm: Hệ thống tự động tính điểm theo thể lệ và điền tên đội thắng vào vòng tiếp theo.</span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="tab-main-content flex-1 min-w-0">
+    <!-- TOURNAMENT VIEW CONTAINER -->
+    <div id="tournament-view-container" class="space-y-6"></div>
+  </div>
+</div>
+
+<!-- FLOATING LEFT TRIGGER (FOR FAST ACCESS TO DRAWER & CONTROLS) -->
+<button id="floating-left-trigger" onclick="toggleLeftQuickDrawer(true)" class="fixed left-0 top-1/2 -translate-y-1/2 z-40 bg-slate-900/90 hover:bg-slate-900 text-white px-2 py-3.5 rounded-r-2xl shadow-xl border border-l-0 border-indigo-400/30 text-xs font-bold transition flex flex-col items-center gap-1 cursor-pointer group" title="Mở bảng điều khiển nhanh bên trái">
+  <span class="text-amber-400 text-base group-hover:scale-110 transition">⚡</span>
+  <span class="[writing-mode:vertical-rl] tracking-widest text-[11px] text-slate-200">BỘ LỌC NHANH</span>
+</button>
+
+<!-- BACKDROP & LEFT QUICK DRAWER -->
+<div id="drawer-backdrop" onclick="toggleLeftQuickDrawer(false)" class="fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-50 hidden transition-opacity"></div>
+<div id="left-quick-drawer" class="fixed top-0 left-0 bottom-0 w-[320px] max-w-[85vw] bg-white z-50 shadow-2xl flex flex-col transform -translate-x-full transition-transform duration-300 ease-in-out border-r border-slate-200">
+  <div class="p-4 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white flex items-center justify-between border-b border-indigo-900/50">
+    <div class="flex items-center gap-2">
+      <span class="text-lg">⚙️</span>
+      <div>
+        <h3 class="font-bold text-sm leading-tight">Điều khiển & Bố cục</h3>
+        <p class="text-[11px] text-slate-300">Tùy biến vị trí menu & bộ lọc</p>
+      </div>
+    </div>
+    <button onclick="toggleLeftQuickDrawer(false)" class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-slate-300 hover:text-white cursor-pointer transition">✕</button>
+  </div>
+
+  <div class="p-4 flex-1 overflow-y-auto space-y-5 text-xs">
+    <!-- LAYOUT MODE SELECTOR -->
+    <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200">
+      <label class="font-extrabold text-slate-800 block mb-2 text-xs uppercase tracking-wider flex items-center gap-1.5">
+        <span>📐</span> Kiểu bố trí menu phụ:
+      </label>
+      <div class="grid grid-cols-2 gap-2">
+        <button onclick="setSubnavLayout('top')" id="drawer-opt-top" class="p-2.5 rounded-xl border text-center transition font-bold cursor-pointer">
+          <div class="text-lg mb-1">⬆️</div>
+          <div>Cố định Trên</div>
+          <div class="text-[10px] text-slate-400 font-normal">Trải rộng ngang</div>
+        </button>
+        <button onclick="setSubnavLayout('sidebar')" id="drawer-opt-sidebar" class="p-2.5 rounded-xl border text-center transition font-bold cursor-pointer">
+          <div class="text-lg mb-1">⬅️</div>
+          <div>Cột Trái (Sidebar)</div>
+          <div class="text-[10px] text-slate-400 font-normal">Cột độc lập bên trái</div>
+        </button>
+      </div>
+      <p class="text-[11px] text-slate-500 mt-2 leading-relaxed">
+        💡 <strong>Cột Trái</strong> rất tiện trên màn hình máy tính lớn để vừa cuộn nội dung vừa lọc. Trên điện thoại hệ thống tự chuyển về Cố định Trên.
+      </p>
+    </div>
+
+    <!-- QUICK TAB SWITCHER -->
+    <div class="space-y-2">
+      <label class="font-extrabold text-slate-800 block text-xs uppercase tracking-wider flex items-center gap-1.5">
+        <span>📑</span> Chuyển nhanh Tab:
+      </label>
+      <div class="space-y-1">
+        <button onclick="switchTabFromDrawer('agenda')" class="w-full text-left px-3 py-2 rounded-xl bg-slate-100 hover:bg-indigo-50 hover:text-indigo-700 font-bold flex items-center justify-between transition">
+          <span>📅 1. Chương trình Chung</span> <span>➔</span>
+        </button>
+        <button onclick="switchTabFromDrawer('schedule')" class="w-full text-left px-3 py-2 rounded-xl bg-slate-100 hover:bg-indigo-50 hover:text-indigo-700 font-bold flex items-center justify-between transition">
+          <span>🏆 2. Lịch thi đấu Thể thao</span> <span>➔</span>
+        </button>
+        <button onclick="switchTabFromDrawer('athletes')" class="w-full text-left px-3 py-2 rounded-xl bg-slate-100 hover:bg-indigo-50 hover:text-indigo-700 font-bold flex items-center justify-between transition">
+          <span>🏅 3. VĐV & Thí sinh</span> <span>➔</span>
+        </button>
+        <button onclick="switchTabFromDrawer('runners')" class="w-full text-left px-3 py-2 rounded-xl bg-slate-100 hover:bg-indigo-50 hover:text-indigo-700 font-bold flex items-center justify-between transition">
+          <span>🏃 4. Giải chạy Fun Run</span> <span>➔</span>
+        </button>
+        <button onclick="switchTabFromDrawer('venues')" class="w-full text-left px-3 py-2 rounded-xl bg-slate-100 hover:bg-indigo-50 hover:text-indigo-700 font-bold flex items-center justify-between transition">
+          <span>📍 5. Địa điểm & Sân thi đấu</span> <span>➔</span>
+        </button>
+        <button onclick="switchTabFromDrawer('transport')" class="w-full text-left px-3 py-2 rounded-xl bg-slate-100 hover:bg-indigo-50 hover:text-indigo-700 font-bold flex items-center justify-between transition">
+          <span>🚌 6. Lịch xe & Di chuyển</span> <span>➔</span>
+        </button>
+        <button onclick="switchTabFromDrawer('results')" class="w-full text-left px-3 py-2 rounded-xl bg-slate-100 hover:bg-indigo-50 hover:text-indigo-700 font-bold flex items-center justify-between transition">
+          <span>📊 7. Kết quả & Tính điểm</span> <span>➔</span>
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- TOURNAMENT VIEW CONTAINER -->
-  <div id="tournament-view-container" class="space-y-6"></div>
+  <div class="p-3 bg-slate-100 border-t border-slate-200 text-center text-[11px] text-slate-500 font-medium">
+    Đại hội Mường Thanh 2026 · Cố định & Cột bên trái
+  </div>
 </div>
+
+<!-- SCROLL TO TOP FLOATING BUTTON -->
+<button id="btn-scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-5 right-5 z-40 w-11 h-11 rounded-2xl bg-slate-900/90 hover:bg-slate-900 text-white shadow-xl border border-slate-700 flex items-center justify-center text-sm font-black transition-all duration-300 opacity-0 pointer-events-none translate-y-3 cursor-pointer hover:scale-105" title="Cuộn lên đầu trang">
+  ▲
+</button>
 
 </main>
 
@@ -1727,6 +1951,126 @@ function switchToTournamentTab(tourId, matchId) {
 }
 
 // ================================================================
+// DYNAMIC STICKY SUBNAV & SIDEBAR LAYOUT MANAGER
+// ================================================================
+let currentSubnavLayout = 'top';
+
+function updateSubnavMetrics() {
+  const header = document.getElementById('main-header');
+  const headerH = header ? header.offsetHeight : 104;
+  document.documentElement.style.setProperty('--header-height', headerH + 'px');
+
+  // Find active tab's subnav panel
+  const activeTab = document.querySelector('.tab-content:not(.hidden)');
+  if (activeTab) {
+    const subnav = activeTab.querySelector('.tab-subnav-panel');
+    if (subnav && window.getComputedStyle(subnav).display !== 'none') {
+      const isSidebar = document.body.classList.contains('layout-sidebar-mode') && window.innerWidth >= 1024;
+      const subnavH = subnav.offsetHeight;
+      document.documentElement.style.setProperty('--subnav-height', subnavH + 'px');
+      // In sidebar mode, table headers stick below header only; in top mode, stick below header + subnav
+      const subnavBottom = isSidebar ? (headerH + 8) : (headerH + subnavH + 8);
+      document.documentElement.style.setProperty('--subnav-bottom', subnavBottom + 'px');
+    } else {
+      document.documentElement.style.setProperty('--subnav-bottom', (headerH + 8) + 'px');
+    }
+  }
+
+  // Floating scroll-to-top button
+  const btnScrollTop = document.getElementById('btn-scroll-top');
+  if (btnScrollTop) {
+    if (window.scrollY > 250) {
+      btnScrollTop.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+      btnScrollTop.classList.add('opacity-100', 'translate-y-0');
+    } else {
+      btnScrollTop.classList.remove('opacity-100', 'translate-y-0');
+      btnScrollTop.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+    }
+  }
+}
+
+function setSubnavLayout(mode) {
+  currentSubnavLayout = mode;
+  try {
+    localStorage.setItem('dhmt_subnav_layout', mode);
+  } catch(e) {}
+
+  if (mode === 'sidebar') {
+    document.body.classList.add('layout-sidebar-mode');
+    document.querySelectorAll('.btn-layout-toggle').forEach(btn => {
+      btn.innerHTML = '<span>⬆</span><span class="hidden md:inline text-[11px]">Bố trí trên</span>';
+      btn.title = 'Chuyển về cố định phía trên trải rộng ngang';
+    });
+    const optSidebar = document.getElementById('drawer-opt-sidebar');
+    const optTop = document.getElementById('drawer-opt-top');
+    if (optSidebar) optSidebar.className = 'p-2.5 rounded-xl border border-indigo-600 bg-indigo-600 text-white text-center transition font-bold cursor-pointer shadow-sm';
+    if (optTop) optTop.className = 'p-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 text-center transition font-bold cursor-pointer hover:bg-slate-50';
+  } else {
+    document.body.classList.remove('layout-sidebar-mode');
+    document.querySelectorAll('.btn-layout-toggle').forEach(btn => {
+      btn.innerHTML = '<span>⬅</span><span class="hidden md:inline text-[11px]">Bố trí trái</span>';
+      btn.title = 'Chuyển sang cột điều khiển cố định bên trái màn hình';
+    });
+    const optSidebar = document.getElementById('drawer-opt-sidebar');
+    const optTop = document.getElementById('drawer-opt-top');
+    if (optTop) optTop.className = 'p-2.5 rounded-xl border border-indigo-600 bg-indigo-600 text-white text-center transition font-bold cursor-pointer shadow-sm';
+    if (optSidebar) optSidebar.className = 'p-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 text-center transition font-bold cursor-pointer hover:bg-slate-50';
+  }
+
+  updateSubnavMetrics();
+  setTimeout(updateSubnavMetrics, 150);
+}
+
+function toggleSubnavLayout() {
+  const newMode = (currentSubnavLayout === 'sidebar') ? 'top' : 'sidebar';
+  setSubnavLayout(newMode);
+}
+
+function toggleSubnavCollapse(subnavId) {
+  const panel = document.getElementById(subnavId);
+  if (!panel) return;
+  panel.classList.toggle('subnav-collapsed');
+  const isCollapsed = panel.classList.contains('subnav-collapsed');
+  
+  const icon = panel.querySelector('.subnav-toggle-icon');
+  const text = panel.querySelector('.subnav-toggle-text');
+  if (icon) icon.textContent = isCollapsed ? '▼' : '▲';
+  if (text) text.textContent = isCollapsed ? 'Mở rộng' : 'Thu gọn';
+
+  updateSubnavMetrics();
+  setTimeout(updateSubnavMetrics, 200);
+}
+
+function toggleLeftQuickDrawer(show) {
+  const backdrop = document.getElementById('drawer-backdrop');
+  const drawer = document.getElementById('left-quick-drawer');
+  if (!backdrop || !drawer) return;
+
+  if (show) {
+    backdrop.classList.remove('hidden');
+    void backdrop.offsetWidth;
+    backdrop.classList.remove('opacity-0');
+    backdrop.classList.add('opacity-100');
+    drawer.classList.remove('-translate-x-full');
+    drawer.classList.add('translate-x-0');
+  } else {
+    backdrop.classList.remove('opacity-100');
+    backdrop.classList.add('opacity-0');
+    drawer.classList.remove('translate-x-0');
+    drawer.classList.add('-translate-x-full');
+    setTimeout(() => {
+      backdrop.classList.add('hidden');
+    }, 280);
+  }
+}
+
+function switchTabFromDrawer(tabName) {
+  switchTab(tabName);
+  toggleLeftQuickDrawer(false);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ================================================================
 // TAB SWITCHING
 // ================================================================
 function switchTab(name, btn) {
@@ -1748,10 +2092,11 @@ function switchTab(name, btn) {
   else if (name === 'schedule') renderSchedule();
   else if (name === 'athletes') filterAthletes();
   else if (name === 'runners') renderRunnersTab();
-  else if (name === 'runners') renderRunnersTab();
   else if (name === 'venues') renderVenuesTab();
   else if (name === 'transport') renderTransportTab();
   else if (name === 'results') renderResults();
+
+  setTimeout(updateSubnavMetrics, 60);
 }
 
 // ================================================================
@@ -5552,8 +5897,27 @@ window.addEventListener('DOMContentLoaded', () => {
   initQuickCourtSelect();
   initResults();
 
+  // Load saved layout preference (top or sidebar)
+  const savedLayout = localStorage.getItem('dhmt_subnav_layout') || 'top';
+  setSubnavLayout(savedLayout);
+
+  // Scroll listener for compact header and dynamic sticky measurements
+  window.addEventListener('scroll', () => {
+    const isScrolled = window.scrollY > 60;
+    const header = document.getElementById('main-header');
+    if (header) {
+      header.classList.toggle('header-compact', isScrolled);
+    }
+    updateSubnavMetrics();
+  }, { passive: true });
+
+  window.addEventListener('resize', () => {
+    updateSubnavMetrics();
+  });
+
   // Initial render
   renderAgenda();
+  setTimeout(updateSubnavMetrics, 120);
 });
 
 // ================================================================
@@ -5569,11 +5933,21 @@ function switchRunnersSubView(view) {
   currentRunnersSubView = view;
   document.querySelectorAll('.runners-subtab-btn').forEach(b => {
     if (b.getAttribute('data-sub') === view) {
-      b.className = 'runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-white text-slate-900 shadow-sm';
+      b.className = 'runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-emerald-700 text-white shadow-xs';
     } else {
-      b.className = 'runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-white/15 text-white hover:bg-white/25';
+      b.className = 'runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200';
     }
   });
+
+  // Toggle filter row visibility: only visible in 'list' view
+  const filterRow = document.getElementById('runners-filter-row');
+  if (filterRow) {
+    if (view === 'list') {
+      filterRow.classList.remove('hidden');
+    } else {
+      filterRow.classList.add('hidden');
+    }
+  }
 
   document.querySelectorAll('.runners-subview').forEach(v => v.classList.add('hidden'));
   const target = document.getElementById('runners-view-' + view);
@@ -5587,6 +5961,8 @@ function switchRunnersSubView(view) {
   else if (view === 'route') renderRunnersRouteView();
   else if (view === 'timeline') renderRunnersTimelineView();
   else if (view === 'btc') renderRunnersBtcView();
+
+  setTimeout(updateSubnavMetrics, 60);
 }
 
 function renderRunnersTab() {

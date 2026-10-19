@@ -165,9 +165,9 @@
       <!-- STATS BADGES & AUTH -->
       <div class="flex items-center gap-2.5">
         <div class="hidden md:flex items-center gap-2 text-sm">
-          <div class="bg-white/10 px-2.5 py-1.5 rounded-lg text-center backdrop-blur">
-            <div class="text-[10px] uppercase tracking-wider text-slate-300 font-semibold">VĐV</div>
-            <div class="font-bold gold-text text-sm sm:text-base" id="hdr-athletes">358</div>
+          <div class="bg-white/10 px-2.5 py-1.5 rounded-lg text-center backdrop-blur cursor-pointer" onclick="switchTab('athletes', document.querySelector('[data-tab=athletes]'))" title="Xem danh sách VĐV và Thí sinh">
+            <div class="text-[10px] uppercase tracking-wider text-slate-300 font-semibold">VĐV & Thí sinh</div>
+            <div class="font-bold gold-text text-sm sm:text-base" id="hdr-athletes">407</div>
           </div>
           <div class="bg-white/10 px-2.5 py-1.5 rounded-lg text-center backdrop-blur">
             <div class="text-[10px] uppercase tracking-wider text-slate-300 font-semibold">Trận/Ô lịch</div>
@@ -205,7 +205,7 @@
     <nav class="flex gap-1 mt-3 border-t border-white/10 pt-2 overflow-x-auto pb-1 text-sm">
       <button class="tab-btn active px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="agenda" onclick="switchTab('agenda',this)">📅 Agenda</button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="schedule" onclick="switchTab('schedule',this)">🏆 Lịch thi đấu</button>
-      <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="athletes" onclick="switchTab('athletes',this)">👤 Vận động viên</button>
+      <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="athletes" onclick="switchTab('athletes',this)">👤 VĐV và Thí sinh/Nội dung thi</button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg flex items-center gap-1.5" data-tab="runners" onclick="switchTab('runners',this)"><span>🏃</span><span>VĐV Chạy</span><span class="px-1.5 py-0.2 rounded-full bg-emerald-400 text-slate-900 text-[10px] font-black shadow-xs">434</span></button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="venues" onclick="switchTab('venues',this)">📍 Địa điểm & Sân/Bàn</button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg flex items-center gap-1.5" data-tab="transport" onclick="switchTab('transport',this)"><span>🚌</span><span>Lịch di chuyển</span><span class="px-1.5 py-0.2 rounded-full bg-amber-400 text-slate-900 text-[10px] font-black">Mới</span></button>
@@ -295,7 +295,7 @@
 <div id="tab-athletes" class="tab-content hidden slide-in">
   <div class="flex flex-wrap gap-2.5 mb-4 items-center no-print bg-white rounded-xl p-3.5 shadow-sm border border-slate-200/60">
     <div class="relative flex-1 min-w-[200px]">
-      <input id="search-athlete" type="text" placeholder="🔍 Tìm tên VĐV, đơn vị..." oninput="filterAthletes()" class="w-full border border-slate-200 rounded-lg px-3.5 py-2 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300">
+      <input id="search-athlete" type="text" placeholder="🔍 Tìm tên VĐV, thí sinh, chức danh, đơn vị..." oninput="filterAthletes()" class="w-full border border-slate-200 rounded-lg px-3.5 py-2 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300">
     </div>
     <select id="filter-donvi" onchange="filterAthletes()" class="border border-slate-200 rounded-lg px-3 py-2 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300 max-w-[200px]">
       <option value="">-- Tất cả đơn vị --</option>
@@ -305,8 +305,8 @@
       <option value="Nam">Nam</option>
       <option value="Nữ">Nữ</option>
     </select>
-    <select id="filter-mon-ath" onchange="filterAthletes()" class="border border-slate-200 rounded-lg px-3 py-2 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300 max-w-[180px]">
-      <option value="">-- Tất cả môn thi --</option>
+    <select id="filter-mon-ath" onchange="filterAthletes()" class="border border-slate-200 rounded-lg px-3 py-2 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300 max-w-[230px]">
+      <option value="">-- Tất cả môn thi / nội dung --</option>
     </select>
     <button onclick="window.print()" class="px-3.5 py-2 bg-slate-700 text-white rounded-lg text-xs font-semibold hover:bg-slate-800 transition">🖨️ In danh sách</button>
   </div>
@@ -973,6 +973,12 @@ const LOAI_CFG = {
 
 const MON_COLORS = {
   'Thi nghiệp vụ': '#7c3aed',
+  'AN-KT-IT': '#7c3aed',
+  'Bếp': '#7c3aed',
+  'Buồng': '#7c3aed',
+  'Dịch vụ Ẩm thực': '#7c3aed',
+  'Kế toán - Nhân sự': '#7c3aed',
+  'Kinh doanh – Lễ tân – Marketing': '#7c3aed',
   'Pickleball':    '#ea580c',
   'Bóng đá':       '#15803d',
   'Cầu lông':      '#dc2626',
@@ -986,6 +992,12 @@ const MON_COLORS = {
 
 const MON_TAGS = {
   'Thi nghiệp vụ': { bg: 'bg-purple-600', badge: 'bg-purple-100 text-purple-800', prefix: 'NV' },
+  'AN-KT-IT':                        { bg: 'bg-purple-600', badge: 'bg-purple-100 text-purple-800 border border-purple-200', prefix: 'NV' },
+  'Bếp':                             { bg: 'bg-purple-600', badge: 'bg-purple-100 text-purple-800 border border-purple-200', prefix: 'NV' },
+  'Buồng':                           { bg: 'bg-purple-600', badge: 'bg-purple-100 text-purple-800 border border-purple-200', prefix: 'NV' },
+  'Dịch vụ Ẩm thực':                 { bg: 'bg-purple-600', badge: 'bg-purple-100 text-purple-800 border border-purple-200', prefix: 'NV' },
+  'Kế toán - Nhân sự':               { bg: 'bg-purple-600', badge: 'bg-purple-100 text-purple-800 border border-purple-200', prefix: 'NV' },
+  'Kinh doanh – Lễ tân – Marketing': { bg: 'bg-purple-600', badge: 'bg-purple-100 text-purple-800 border border-purple-200', prefix: 'NV' },
   'Pickleball':    { bg: 'bg-orange-600', badge: 'bg-orange-100 text-orange-800', prefix: 'PK' },
   'Bóng đá':       { bg: 'bg-green-600',  badge: 'bg-green-100 text-green-800',  prefix: 'BĐ' },
   'Cầu lông':      { bg: 'bg-red-600',    badge: 'bg-red-100 text-red-800',    prefix: 'CL' },
@@ -2034,14 +2046,45 @@ function initAthleteFilters() {
     selDv.appendChild(o);
   });
   
-  const mons = [...new Set(DATA.athletes.flatMap(a => a.monThi))].sort();
+  const NV_MONS = [
+    'AN-KT-IT',
+    'Bếp',
+    'Buồng',
+    'Dịch vụ Ẩm thực',
+    'Kế toán - Nhân sự',
+    'Kinh doanh – Lễ tân – Marketing'
+  ];
+
+  const allMons = [...new Set(DATA.athletes.flatMap(a => a.monThi))];
+  const nvInUse = NV_MONS.filter(m => allMons.includes(m));
+  const sportInUse = allMons.filter(m => !NV_MONS.includes(m)).sort();
+
   const selMon = document.getElementById('filter-mon-ath');
-  selMon.innerHTML = '<option value="">-- Tất cả môn thi --</option>';
-  mons.forEach(m => {
-    const o = document.createElement('option');
-    o.value = m;
-    selMon.appendChild(o);
-  });
+  selMon.innerHTML = '<option value="">-- Tất cả môn thi / nội dung --</option>';
+
+  if (nvInUse.length > 0) {
+    const grpNv = document.createElement('optgroup');
+    grpNv.label = '📋 6 Nội dung thi nghiệp vụ';
+    nvInUse.forEach(m => {
+      const o = document.createElement('option');
+      o.value = m;
+      o.textContent = m;
+      grpNv.appendChild(o);
+    });
+    selMon.appendChild(grpNv);
+  }
+
+  if (sportInUse.length > 0) {
+    const grpSport = document.createElement('optgroup');
+    grpSport.label = '🏃 Môn thi thể thao';
+    sportInUse.forEach(m => {
+      const o = document.createElement('option');
+      o.value = m;
+      o.textContent = m;
+      grpSport.appendChild(o);
+    });
+    selMon.appendChild(grpSport);
+  }
 }
 
 function sortAthletes(key) {
@@ -2064,7 +2107,7 @@ function filterAthletes() {
   const mon = document.getElementById('filter-mon-ath').value;
   
   let list = DATA.athletes.filter(a => {
-    if (q && !a.hoVaTen.toLowerCase().includes(q) && !a.donVi.toLowerCase().includes(q)) return false;
+    if (q && !a.hoVaTen.toLowerCase().includes(q) && !a.donVi.toLowerCase().includes(q) && !(a.chucDanh && a.chucDanh.toLowerCase().includes(q))) return false;
     if (dv && a.donVi !== dv) return false;
     if (gen && a.gioiTinh !== gen) return false;
     if (mon && !a.monThi.includes(mon)) return false;
@@ -2082,7 +2125,7 @@ function filterAthletes() {
     const monBadges = a.monThi.map(m => {
       let badgeStyle = 'bg-slate-100 text-slate-700';
       for (const [k, v] of Object.entries(MON_TAGS)) {
-        if (m.includes(k) || (k==='Bơi' && m.startsWith('Bơi'))) {
+        if (m === k || m.includes(k) || (k==='Bơi' && m.startsWith('Bơi'))) {
           badgeStyle = v.badge;
           break;
         }
@@ -2096,7 +2139,10 @@ function filterAthletes() {
     
     return `<tr class="${i % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'} hover:bg-indigo-50/40 cursor-pointer border-b border-slate-100 transition" onclick='showAthleteDetail(${ad})'>
       <td class="px-3 py-2.5 text-slate-400 font-semibold">${a.stt}</td>
-      <td class="px-3 py-2.5 font-bold text-slate-800 text-sm">${nm}</td>
+      <td class="px-3 py-2.5 font-bold text-slate-800 text-sm">
+        ${nm}
+        ${a.chucDanh ? `<span class="block text-[11px] font-normal text-slate-500">${escHtml(a.chucDanh)}</span>` : ''}
+      </td>
       <td class="px-3 py-2.5 text-slate-600">${dv2}</td>
       <td class="px-3 py-2.5 text-center"><span class="tag-badge ${a.gioiTinh==='Nam'?'bg-blue-100 text-blue-700':'bg-pink-100 text-pink-700'}">${a.gioiTinh}</span></td>
       <td class="px-3 py-2.5">${monBadges}</td>
@@ -2104,7 +2150,7 @@ function filterAthletes() {
     </tr>`;
   }).join('');
   
-  document.getElementById('athletes-count').textContent = `📊 Hiển thị ${list.length} / ${DATA.athletes.length} vận động viên`;
+  document.getElementById('athletes-count').textContent = `📊 Hiển thị ${list.length} / ${DATA.athletes.length} VĐV và thí sinh`;
 }
 
 function showAthleteDetail(a) {
@@ -2196,6 +2242,7 @@ function showAthleteDetail(a) {
         <div>
           <p class="font-extrabold text-slate-900 text-base leading-tight">${escHtml(a.hoVaTen)}</p>
           <p class="text-xs text-slate-600 mt-0.5">${escHtml(a.donVi)}</p>
+          ${a.chucDanh ? `<p class="text-xs text-slate-500 mt-0.5 font-medium">${escHtml(a.chucDanh)}${a.maNv ? ` · Mã NV: ${escHtml(a.maNv)}` : ''}${a.sdt ? ` · 📞 ${escHtml(a.sdt)}` : ''}</p>` : ''}
           <span class="tag-badge mt-1.5 inline-block ${a.gioiTinh==='Nam'?'bg-blue-100 text-blue-700':'bg-pink-100 text-pink-700'}">${a.gioiTinh}</span>
         </div>
       </div>
@@ -2206,7 +2253,7 @@ function showAthleteDetail(a) {
       </div>
 
       <div>
-        <p class="font-bold text-slate-700 mb-1.5 text-xs uppercase tracking-wider">🏅 Các môn thi đấu (${a.soMon} môn):</p>
+        <p class="font-bold text-slate-700 mb-1.5 text-xs uppercase tracking-wider">🏅 Nội dung đăng ký thi đấu (${a.soMon} nội dung):</p>
         <div>${monBadges || '<span class="text-slate-400 text-xs">Chưa có môn</span>'}</div>
       </div>
 

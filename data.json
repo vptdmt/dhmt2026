@@ -1005,9 +1005,13 @@
       "hoVaTen": "Nguyễn Minh Hùng",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Bếp"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chucDanh": "Nhân viên bếp bánh",
+      "maNv": "70060249",
+      "sdt": "0907478361"
     },
     {
       "stt": 69,
@@ -1035,9 +1039,13 @@
       "hoVaTen": "Nguyễn Tuấn Đạt",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "AN-KT-IT"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chucDanh": "Nhân viên kỹ thuật",
+      "maNv": "70060052",
+      "sdt": "0776587288"
     },
     {
       "stt": 72,
@@ -1746,9 +1754,13 @@
       "hoVaTen": "Vũ Minh Phúc",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Bếp"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chucDanh": "Giám sát bếp",
+      "maNv": "50100390",
+      "sdt": "0982177296"
     },
     {
       "stt": 142,
@@ -2246,9 +2258,13 @@
       "hoVaTen": "Trần Thị Thảo Vân",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Dịch vụ Ẩm thực"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chucDanh": "Nhân viên dịch vụ ẩm thực",
+      "maNv": "70030156",
+      "sdt": "0962765597"
     },
     {
       "stt": 191,
@@ -2632,9 +2648,13 @@
       "hoVaTen": "Nguyễn Thị Lệ Chi",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Kế toán - Nhân sự"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chucDanh": "Kế toán trưởng",
+      "maNv": "70100006",
+      "sdt": "0769344131"
     },
     {
       "stt": 229,
@@ -2886,9 +2906,13 @@
       "hoVaTen": "Trần Xuân Vinh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bơi tự do Nam 40m"
+        "Bơi tự do Nam 40m",
+        "Buồng"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chucDanh": "Nhân viên buồng",
+      "maNv": "70020214",
+      "sdt": "0333389960"
     },
     {
       "stt": 254,
@@ -3169,9 +3193,13 @@
       "hoVaTen": "Tòng Thị Kim Duyên",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Buồng"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chucDanh": "Nhân viên văn phòng buồng",
+      "maNv": "60140256",
+      "sdt": "0968189619"
     },
     {
       "stt": 282,
@@ -3956,6 +3984,643 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Bóng đá Nữ"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 359,
+      "donVi": "Mường Thanh Luxury Bắc Ninh",
+      "hoVaTen": "Nguyễn Hùng Cường",
+      "gioiTinh": "Nam",
+      "chucDanh": "Nhân viên kỹ thuật",
+      "maNv": "10110170",
+      "sdt": "0913482170",
+      "monThi": [
+        "AN-KT-IT"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 360,
+      "donVi": "Mường Thanh Grand Hạ Long",
+      "hoVaTen": "Ngô Văn Liên",
+      "gioiTinh": "Nam",
+      "chucDanh": "Nhân viên kỹ thuật",
+      "maNv": "50020300",
+      "sdt": "0339993979",
+      "monThi": [
+        "AN-KT-IT"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 361,
+      "donVi": "Mường Thanh Luxury Đà Nẵng",
+      "hoVaTen": "Trần Lâm Hữu Đức",
+      "gioiTinh": "Nam",
+      "chucDanh": "Nhân viên kỹ thuật",
+      "maNv": "30030338",
+      "sdt": "0905071663",
+      "monThi": [
+        "AN-KT-IT"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 362,
+      "donVi": "Mường Thanh Luxury Mộc Châu",
+      "hoVaTen": "Mai Đức Huy",
+      "gioiTinh": "Nam",
+      "chucDanh": "Nhân viên kỹ thuật",
+      "maNv": "60160037",
+      "sdt": "0982016129",
+      "monThi": [
+        "AN-KT-IT"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 363,
+      "donVi": "Mường Thanh Luxury Nhật Lệ",
+      "hoVaTen": "Bùi Trung Hiếu",
+      "gioiTinh": "Nam",
+      "chucDanh": "Nhân viên kỹ thuật",
+      "maNv": "20180089",
+      "sdt": "0848523162",
+      "monThi": [
+        "AN-KT-IT"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 364,
+      "donVi": "Mường Thanh Luxury Sông Lam",
+      "hoVaTen": "Nguyễn Đình Phúc",
+      "gioiTinh": "Nam",
+      "chucDanh": "Quản lý CNTT",
+      "maNv": "20070069",
+      "sdt": "0941133737",
+      "monThi": [
+        "AN-KT-IT"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 365,
+      "donVi": "Mường Thanh Luxury Viễn Triều",
+      "hoVaTen": "Phạm Nguyễn Quốc Khang",
+      "gioiTinh": "Nam",
+      "chucDanh": "Nhân viên An ninh",
+      "maNv": "40070309",
+      "sdt": "0979749120",
+      "monThi": [
+        "AN-KT-IT"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 366,
+      "donVi": "Mường Thanh Luxury Cần Thơ",
+      "hoVaTen": "Trần Thanh Tuấn",
+      "gioiTinh": "Nam",
+      "chucDanh": "Giám sát bếp",
+      "maNv": "70060064",
+      "sdt": "0838854548",
+      "monThi": [
+        "Bếp"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 367,
+      "donVi": "Mường Thanh Grand Gia Lai",
+      "hoVaTen": "Bùi Hồng Dương",
+      "gioiTinh": "Nam",
+      "chucDanh": "Giám sát bếp",
+      "maNv": "40120086",
+      "sdt": "0326029080",
+      "monThi": [
+        "Bếp"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 368,
+      "donVi": "Mường Thanh Grand Gia Lai",
+      "hoVaTen": "Nguyễn Tấn Khiêm",
+      "gioiTinh": "Nam",
+      "chucDanh": "Nhân viên bếp chính",
+      "maNv": "40120124",
+      "sdt": "0379200799",
+      "monThi": [
+        "Bếp"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 369,
+      "donVi": "Mường Thanh Luxury Hạ Long Centre",
+      "hoVaTen": "Nguyễn Thị Minh Liệu",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Giám sát bếp",
+      "maNv": "50100103",
+      "sdt": "0963436378",
+      "monThi": [
+        "Bếp"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 370,
+      "donVi": "Mường Thanh Grand Lào Cai",
+      "hoVaTen": "Ngô Trường Giang",
+      "gioiTinh": "Nam",
+      "chucDanh": "Giám sát bếp",
+      "maNv": "60060035",
+      "sdt": "0961617817",
+      "monThi": [
+        "Bếp"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 371,
+      "donVi": "Mường Thanh Grand Lào Cai",
+      "hoVaTen": "Trần Duy Khánh",
+      "gioiTinh": "Nam",
+      "chucDanh": "Giám sát bếp bánh",
+      "maNv": "60060036",
+      "sdt": "0399260589",
+      "monThi": [
+        "Bếp"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 372,
+      "donVi": "Mường Thanh Luxury Đà Nẵng",
+      "hoVaTen": "Bùi Thanh Tuấn",
+      "gioiTinh": "Nam",
+      "chucDanh": "Quản lý bếp bánh",
+      "maNv": "30030160",
+      "sdt": "0905443488",
+      "monThi": [
+        "Bếp"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 373,
+      "donVi": "Mường Thanh Luxury Đà Nẵng",
+      "hoVaTen": "Đồng Đắc Trọng",
+      "gioiTinh": "Nam",
+      "chucDanh": "Giám sát bếp",
+      "maNv": "30030153",
+      "sdt": "0704017114",
+      "monThi": [
+        "Bếp"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 374,
+      "donVi": "Mường Thanh Grand Phương Đông",
+      "hoVaTen": "Trần Thị Giang",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Giám sát bếp",
+      "maNv": "20110038",
+      "sdt": "0396374720",
+      "monThi": [
+        "Bếp"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 375,
+      "donVi": "Mường Thanh Grand Phương Đông",
+      "hoVaTen": "Trần Thị Phương Thảo",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Phụ bếp",
+      "maNv": "20110041",
+      "sdt": "0914076575",
+      "monThi": [
+        "Bếp"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 376,
+      "donVi": "Mường Thanh Luxury Sông Lam",
+      "hoVaTen": "Trương Thị Hòa A",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Nhân viên bếp bánh",
+      "maNv": "20070050",
+      "sdt": "0975466394",
+      "monThi": [
+        "Bếp"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 377,
+      "donVi": "Mường Thanh Luxury Sông Lam",
+      "hoVaTen": "Trần Văn Tình",
+      "gioiTinh": "Nam",
+      "chucDanh": "Giám sát bếp",
+      "maNv": "20070171",
+      "sdt": "0971599729",
+      "monThi": [
+        "Bếp"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 378,
+      "donVi": "Mường Thanh Grand Xa La",
+      "hoVaTen": "Nguyễn Thị Hiếu",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Nhân viên bếp chính",
+      "maNv": "10040365",
+      "sdt": "0386434958",
+      "monThi": [
+        "Bếp"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 379,
+      "donVi": "Mường Thanh Grand Xa La",
+      "hoVaTen": "Đỗ Viết Phúc",
+      "gioiTinh": "Nam",
+      "chucDanh": "Giám sát bếp",
+      "maNv": "10040095",
+      "sdt": "0356960946",
+      "monThi": [
+        "Bếp"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 380,
+      "donVi": "Mường Thanh Grand Bãi Cháy",
+      "hoVaTen": "Đinh Thùy Dương",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Giám sát tầng",
+      "maNv": "50060217",
+      "sdt": "0904362003",
+      "monThi": [
+        "Buồng"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 381,
+      "donVi": "Mường Thanh Luxury Diễn Lâm",
+      "hoVaTen": "Hồ Thị Thơm",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Giám sát tầng",
+      "maNv": "20050038",
+      "sdt": "0987135935",
+      "monThi": [
+        "Buồng"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 382,
+      "donVi": "Mường Thanh Luxury Đà Nẵng",
+      "hoVaTen": "Đỗ Thị Ngọc Tiên",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Nhân viên buồng",
+      "maNv": "30030240",
+      "sdt": "0905892014",
+      "monThi": [
+        "Buồng"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 383,
+      "donVi": "Mường Thanh Luxury Phú Thọ",
+      "hoVaTen": "Nguyễn Thị Ngọc Tú",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Nhân viên buồng",
+      "maNv": "10140091",
+      "sdt": "0986758659",
+      "monThi": [
+        "Buồng"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 384,
+      "donVi": "Mường Thanh Luxury Viễn Triều",
+      "hoVaTen": "Phan Thị Lệ Trinh",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Nhân viên buồng",
+      "maNv": "40070256",
+      "sdt": "0987693981",
+      "monThi": [
+        "Buồng"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 385,
+      "donVi": "Mường Thanh Luxury Xuân Thành",
+      "hoVaTen": "Nguyễn Thị Hồng",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Nhân viên buồng",
+      "maNv": "20140039",
+      "sdt": "0705944292",
+      "monThi": [
+        "Buồng"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 386,
+      "donVi": "Mường Thanh Grand Bắc Giang",
+      "hoVaTen": "Ngô Thị Ngọc",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Quản lý nhà hàng",
+      "maNv": "10120054",
+      "sdt": "0988903846",
+      "monThi": [
+        "Dịch vụ Ẩm thực"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 387,
+      "donVi": "Mường Thanh Grand Điện Biên Phủ",
+      "hoVaTen": "Đỗ Tuấn Thành",
+      "gioiTinh": "Nam",
+      "chucDanh": "Trưởng bộ phận dịch vụ ẩm thực",
+      "maNv": "60120036",
+      "sdt": "0365317333",
+      "monThi": [
+        "Dịch vụ Ẩm thực"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 388,
+      "donVi": "Mường Thanh Luxury Khánh Hòa",
+      "hoVaTen": "Nguyễn Xuân Thắng",
+      "gioiTinh": "Nam",
+      "chucDanh": "Giám sát dịch vụ ẩm thực",
+      "maNv": "40060014",
+      "sdt": "0905183648",
+      "monThi": [
+        "Dịch vụ Ẩm thực"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 389,
+      "donVi": "Mường Thanh Luxury Lạng Sơn",
+      "hoVaTen": "Bùi Thị Mơ",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Giám sát dịch vụ ẩm thực",
+      "maNv": "60080054",
+      "sdt": "0383287128",
+      "monThi": [
+        "Dịch vụ Ẩm thực"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 390,
+      "donVi": "Mường Thanh Holiday Quảng Bình",
+      "hoVaTen": "Đoàn Trang Nhung",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Nhân viên dịch vụ ẩm thực",
+      "maNv": "20160011",
+      "sdt": "0857662699",
+      "monThi": [
+        "Dịch vụ Ẩm thực"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 391,
+      "donVi": "Mường Thanh Grand Quảng Nam",
+      "hoVaTen": "Ngô Thị Thu Hương",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Nhân viên dịch vụ ẩm thực",
+      "maNv": "30060043",
+      "sdt": "0379960673",
+      "monThi": [
+        "Dịch vụ Ẩm thực"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 392,
+      "donVi": "Mường Thanh Luxury Sông Lam",
+      "hoVaTen": "Nguyễn Huyền Thương",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Quản lý tiệc",
+      "maNv": "20070015",
+      "sdt": "0961788286",
+      "monThi": [
+        "Dịch vụ Ẩm thực"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 393,
+      "donVi": "Mường Thanh Grand Cửa Lò",
+      "hoVaTen": "Phan Thị Lý",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Kế toán trưởng",
+      "maNv": "20121260",
+      "sdt": "0985177068",
+      "monThi": [
+        "Kế toán - Nhân sự"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 394,
+      "donVi": "Mường Thanh Holiday Hội An",
+      "hoVaTen": "Phan Thanh Hà",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Kế toán trưởng",
+      "maNv": "30040011",
+      "sdt": "0764478887",
+      "monThi": [
+        "Kế toán - Nhân sự"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 395,
+      "donVi": "Mường Thanh Luxury Hạ Long Centre",
+      "hoVaTen": "Nguyễn Thị Thu Hằng",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Kế toán trưởng",
+      "maNv": "50100140",
+      "sdt": "0904445499",
+      "monThi": [
+        "Kế toán - Nhân sự"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 396,
+      "donVi": "Mường Thanh Luxury Mộc Châu",
+      "hoVaTen": "Vũ Thị Hồng Nhung",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Kế toán tổng hợp",
+      "maNv": "60160046",
+      "sdt": "0981021912",
+      "monThi": [
+        "Kế toán - Nhân sự"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 397,
+      "donVi": "Mường Thanh Quy Nhơn",
+      "hoVaTen": "Đỗ Thị Ngọc Nga",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Kế toán trưởng",
+      "maNv": "30160005",
+      "sdt": "0901131520",
+      "monThi": [
+        "Kế toán - Nhân sự"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 398,
+      "donVi": "Mường Thanh Grand Thanh Hóa",
+      "hoVaTen": "Nguyễn Thị Tuyết",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Kế toán tổng hợp",
+      "maNv": "20020105",
+      "sdt": "0963004745",
+      "monThi": [
+        "Kế toán - Nhân sự"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 399,
+      "donVi": "Mường Thanh Luxury Xuân Thành",
+      "hoVaTen": "Trần Thị Thu",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Kế toán tổng hợp",
+      "maNv": "20140205",
+      "sdt": "0973743192",
+      "monThi": [
+        "Kế toán - Nhân sự"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 400,
+      "donVi": "Mường Thanh Grand Hà Nội Centre",
+      "hoVaTen": "Phạm Thị Hồng Hạnh",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Nhân viên kinh doanh",
+      "maNv": "10080575",
+      "sdt": "0356515012",
+      "monThi": [
+        "Kinh doanh – Lễ tân – Marketing"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 401,
+      "donVi": "Mường Thanh Grand Lào Cai",
+      "hoVaTen": "Hoàng Anh Đức",
+      "gioiTinh": "Nam",
+      "chucDanh": "Nhân viên lễ tân",
+      "maNv": "60060014",
+      "sdt": "0828894333",
+      "monThi": [
+        "Kinh doanh – Lễ tân – Marketing"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 402,
+      "donVi": "Mường Thanh Luxury Đà Nẵng",
+      "hoVaTen": "Huỳnh Nguyễn Quỳnh Trang",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Nhân viên lễ tân",
+      "maNv": "30030265",
+      "sdt": "0795521655",
+      "monThi": [
+        "Kinh doanh – Lễ tân – Marketing"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 403,
+      "donVi": "Mường Thanh Luxury Sài Gòn",
+      "hoVaTen": "Huỳnh Công Lợi",
+      "gioiTinh": "Nam",
+      "chucDanh": "Nhân viên lễ tân",
+      "maNv": "70030301",
+      "sdt": "0769683808",
+      "monThi": [
+        "Kinh doanh – Lễ tân – Marketing"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 404,
+      "donVi": "Mường Thanh Luxury Nha Trang",
+      "hoVaTen": "Trần Quang Tân",
+      "gioiTinh": "Nam",
+      "chucDanh": "Nhân viên lễ tân",
+      "maNv": "40040258",
+      "sdt": "0935876182",
+      "monThi": [
+        "Kinh doanh – Lễ tân – Marketing"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 405,
+      "donVi": "Mường Thanh Grand Phương Đông",
+      "hoVaTen": "Nguyễn Thị Phương Mai",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Nhân viên lễ tân",
+      "maNv": "20110206",
+      "sdt": "0966625980",
+      "monThi": [
+        "Kinh doanh – Lễ tân – Marketing"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 406,
+      "donVi": "Mường Thanh Luxury Quảng Ninh",
+      "hoVaTen": "Ninh Xuân Tiến",
+      "gioiTinh": "Nam",
+      "chucDanh": "Trưởng bộ phận kinh doanh - lễ tân",
+      "maNv": "50040595",
+      "sdt": "0705678899",
+      "monThi": [
+        "Kinh doanh – Lễ tân – Marketing"
+      ],
+      "soMon": 1
+    },
+    {
+      "stt": 407,
+      "donVi": "Mường Thanh Luxury Sông Lam",
+      "hoVaTen": "Trần Thị Dung",
+      "gioiTinh": "Nữ",
+      "chucDanh": "Phó bộ phận kinh doanh và tiếp thị",
+      "maNv": "20070279",
+      "sdt": "0916062655",
+      "monThi": [
+        "Kinh doanh – Lễ tân – Marketing"
       ],
       "soMon": 1
     }
@@ -14791,6 +15456,454 @@
       "donVi": "Trung tâm Giải trí Vinh",
       "chucDanh": "Nhân viên",
       "maDoi": "BE.F40.09_VRC (Phượng)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Nguyễn Hùng Cường",
+      "donVi": "Mường Thanh Luxury Bắc Ninh",
+      "chucDanh": "Nhân viên kỹ thuật",
+      "maDoi": "NV.BNI (AN-KT-IT)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Nguyễn Tuấn Đạt",
+      "donVi": "Mường Thanh Luxury Cần Thơ",
+      "chucDanh": "Nhân viên kỹ thuật",
+      "maDoi": "NV.CTH (AN-KT-IT)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Ngô Văn Liên",
+      "donVi": "Mường Thanh Grand Hạ Long",
+      "chucDanh": "Nhân viên kỹ thuật",
+      "maDoi": "NV.HLO (AN-KT-IT)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Trần Lâm Hữu Đức",
+      "donVi": "Mường Thanh Luxury Đà Nẵng",
+      "chucDanh": "Nhân viên kỹ thuật",
+      "maDoi": "NV.LDN (AN-KT-IT)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Mai Đức Huy",
+      "donVi": "Mường Thanh Luxury Mộc Châu",
+      "chucDanh": "Nhân viên kỹ thuật",
+      "maDoi": "NV.MCH (AN-KT-IT)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Bùi Trung Hiếu",
+      "donVi": "Mường Thanh Luxury Nhật Lệ",
+      "chucDanh": "Nhân viên kỹ thuật",
+      "maDoi": "NV.NLE (AN-KT-IT)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Nguyễn Đình Phúc",
+      "donVi": "Mường Thanh Luxury Sông Lam",
+      "chucDanh": "Quản lý CNTT",
+      "maDoi": "NV.SLM (AN-KT-IT)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Phạm Nguyễn Quốc Khang",
+      "donVi": "Mường Thanh Luxury Viễn Triều",
+      "chucDanh": "Nhân viên An ninh",
+      "maDoi": "NV.VTR (AN-KT-IT)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Nguyễn Minh Hùng",
+      "donVi": "Mường Thanh Luxury Cần Thơ",
+      "chucDanh": "Nhân viên bếp bánh",
+      "maDoi": "NV.CTH (Bếp)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Trần Thanh Tuấn",
+      "donVi": "Mường Thanh Luxury Cần Thơ",
+      "chucDanh": "Giám sát bếp",
+      "maDoi": "NV.CTH (Bếp)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Bùi Hồng Dương",
+      "donVi": "Mường Thanh Grand Gia Lai",
+      "chucDanh": "Giám sát bếp",
+      "maDoi": "NV.GLA (Bếp)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Nguyễn Tấn Khiêm",
+      "donVi": "Mường Thanh Grand Gia Lai",
+      "chucDanh": "Nhân viên bếp chính",
+      "maDoi": "NV.GLA (Bếp)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Nguyễn Thị Minh Liệu",
+      "donVi": "Mường Thanh Luxury Hạ Long Centre",
+      "chucDanh": "Giám sát bếp",
+      "maDoi": "NV.HLC (Bếp)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Vũ Minh Phúc",
+      "donVi": "Mường Thanh Luxury Hạ Long Centre",
+      "chucDanh": "Giám sát bếp",
+      "maDoi": "NV.HLC (Bếp)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Ngô Trường Giang",
+      "donVi": "Mường Thanh Grand Lào Cai",
+      "chucDanh": "Giám sát bếp",
+      "maDoi": "NV.LCA (Bếp)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Trần Duy Khánh",
+      "donVi": "Mường Thanh Grand Lào Cai",
+      "chucDanh": "Giám sát bếp bánh",
+      "maDoi": "NV.LCA (Bếp)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Bùi Thanh Tuấn",
+      "donVi": "Mường Thanh Luxury Đà Nẵng",
+      "chucDanh": "Quản lý bếp bánh",
+      "maDoi": "NV.LDN (Bếp)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Đồng Đắc Trọng",
+      "donVi": "Mường Thanh Luxury Đà Nẵng",
+      "chucDanh": "Giám sát bếp",
+      "maDoi": "NV.LDN (Bếp)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Trần Thị Giang",
+      "donVi": "Mường Thanh Grand Phương Đông",
+      "chucDanh": "Giám sát bếp",
+      "maDoi": "NV.PDO (Bếp)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Trần Thị Phương Thảo",
+      "donVi": "Mường Thanh Grand Phương Đông",
+      "chucDanh": "Phụ bếp",
+      "maDoi": "NV.PDO (Bếp)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Trương Thị Hòa A",
+      "donVi": "Mường Thanh Luxury Sông Lam",
+      "chucDanh": "Nhân viên bếp bánh",
+      "maDoi": "NV.SLM (Bếp)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Trần Văn Tình",
+      "donVi": "Mường Thanh Luxury Sông Lam",
+      "chucDanh": "Giám sát bếp",
+      "maDoi": "NV.SLM (Bếp)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Nguyễn Thị Hiếu",
+      "donVi": "Mường Thanh Grand Xa La",
+      "chucDanh": "Nhân viên bếp chính",
+      "maDoi": "NV.XLA (Bếp)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Đỗ Viết Phúc",
+      "donVi": "Mường Thanh Grand Xa La",
+      "chucDanh": "Giám sát bếp",
+      "maDoi": "NV.XLA (Bếp)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Đinh Thùy Dương",
+      "donVi": "Mường Thanh Grand Bãi Cháy",
+      "chucDanh": "Giám sát tầng",
+      "maDoi": "NV.BCH (Buồng)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Hồ Thị Thơm",
+      "donVi": "Mường Thanh Luxury Diễn Lâm",
+      "chucDanh": "Giám sát tầng",
+      "maDoi": "NV.DLR (Buồng)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Đỗ Thị Ngọc Tiên",
+      "donVi": "Mường Thanh Luxury Đà Nẵng",
+      "chucDanh": "Nhân viên buồng",
+      "maDoi": "NV.LDN (Buồng)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Nguyễn Thị Ngọc Tú",
+      "donVi": "Mường Thanh Luxury Phú Thọ",
+      "chucDanh": "Nhân viên buồng",
+      "maDoi": "NV.PTH (Buồng)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Trần Xuân Vinh",
+      "donVi": "Mường Thanh Grand Sài Gòn Centre",
+      "chucDanh": "Nhân viên buồng",
+      "maDoi": "NV.SGO (Buồng)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Tòng Thị Kim Duyên",
+      "donVi": "Mường Thanh Luxury Sơn La",
+      "chucDanh": "Nhân viên văn phòng buồng",
+      "maDoi": "NV.SLA (Buồng)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Phan Thị Lệ Trinh",
+      "donVi": "Mường Thanh Luxury Viễn Triều",
+      "chucDanh": "Nhân viên buồng",
+      "maDoi": "NV.VTR (Buồng)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Nguyễn Thị Hồng",
+      "donVi": "Mường Thanh Luxury Xuân Thành",
+      "chucDanh": "Nhân viên buồng",
+      "maDoi": "NV.XTH (Buồng)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Ngô Thị Ngọc",
+      "donVi": "Mường Thanh Grand Bắc Giang",
+      "chucDanh": "Quản lý nhà hàng",
+      "maDoi": "NV.BGI (Dịch vụ Ẩm thực)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Đỗ Tuấn Thành",
+      "donVi": "Mường Thanh Grand Điện Biên Phủ",
+      "chucDanh": "Trưởng bộ phận dịch vụ ẩm thực",
+      "maDoi": "NV.DBP (Dịch vụ Ẩm thực)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Nguyễn Xuân Thắng",
+      "donVi": "Mường Thanh Luxury Khánh Hòa",
+      "chucDanh": "Giám sát dịch vụ ẩm thực",
+      "maDoi": "NV.KHO (Dịch vụ Ẩm thực)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Trần Thị Thảo Vân",
+      "donVi": "Mường Thanh Luxury Sài Gòn",
+      "chucDanh": "Nhân viên dịch vụ ẩm thực",
+      "maDoi": "NV.LSG (Dịch vụ Ẩm thực)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Bùi Thị Mơ",
+      "donVi": "Mường Thanh Luxury Lạng Sơn",
+      "chucDanh": "Giám sát dịch vụ ẩm thực",
+      "maDoi": "NV.LSO (Dịch vụ Ẩm thực)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Đoàn Trang Nhung",
+      "donVi": "Mường Thanh Holiday Quảng Bình",
+      "chucDanh": "Nhân viên dịch vụ ẩm thực",
+      "maDoi": "NV.QBI (Dịch vụ Ẩm thực)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Ngô Thị Thu Hương",
+      "donVi": "Mường Thanh Grand Quảng Nam",
+      "chucDanh": "Nhân viên dịch vụ ẩm thực",
+      "maDoi": "NV.QNA (Dịch vụ Ẩm thực)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Nguyễn Huyền Thương",
+      "donVi": "Mường Thanh Luxury Sông Lam",
+      "chucDanh": "Quản lý tiệc",
+      "maDoi": "NV.SLM (Dịch vụ Ẩm thực)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Phan Thị Lý",
+      "donVi": "Mường Thanh Grand Cửa Lò",
+      "chucDanh": "Kế toán trưởng",
+      "maDoi": "NV.CLO (Kế toán - Nhân sự)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Phan Thanh Hà",
+      "donVi": "Mường Thanh Holiday Hội An",
+      "chucDanh": "Kế toán trưởng",
+      "maDoi": "NV.HAN (Kế toán - Nhân sự)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Nguyễn Thị Thu Hằng",
+      "donVi": "Mường Thanh Luxury Hạ Long Centre",
+      "chucDanh": "Kế toán trưởng",
+      "maDoi": "NV.HLC (Kế toán - Nhân sự)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Vũ Thị Hồng Nhung",
+      "donVi": "Mường Thanh Luxury Mộc Châu",
+      "chucDanh": "Kế toán tổng hợp",
+      "maDoi": "NV.MCH (Kế toán - Nhân sự)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Nguyễn Thị Lệ Chi",
+      "donVi": "Mường Thanh Luxury Phú Quốc",
+      "chucDanh": "Kế toán trưởng",
+      "maDoi": "NV.PQU (Kế toán - Nhân sự)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Đỗ Thị Ngọc Nga",
+      "donVi": "Mường Thanh Quy Nhơn",
+      "chucDanh": "Kế toán trưởng",
+      "maDoi": "NV.QNH (Kế toán - Nhân sự)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Nguyễn Thị Tuyết",
+      "donVi": "Mường Thanh Grand Thanh Hóa",
+      "chucDanh": "Kế toán tổng hợp",
+      "maDoi": "NV.THO (Kế toán - Nhân sự)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Trần Thị Thu",
+      "donVi": "Mường Thanh Luxury Xuân Thành",
+      "chucDanh": "Kế toán tổng hợp",
+      "maDoi": "NV.XTH (Kế toán - Nhân sự)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Phạm Thị Hồng Hạnh",
+      "donVi": "Mường Thanh Grand Hà Nội Centre",
+      "chucDanh": "Nhân viên kinh doanh",
+      "maDoi": "NV.HNC (Kinh doanh – Lễ tân – Marketing)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Hoàng Anh Đức",
+      "donVi": "Mường Thanh Grand Lào Cai",
+      "chucDanh": "Nhân viên lễ tân",
+      "maDoi": "NV.LCA (Kinh doanh – Lễ tân – Marketing)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Huỳnh Nguyễn Quỳnh Trang",
+      "donVi": "Mường Thanh Luxury Đà Nẵng",
+      "chucDanh": "Nhân viên lễ tân",
+      "maDoi": "NV.LDN (Kinh doanh – Lễ tân – Marketing)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Huỳnh Công Lợi",
+      "donVi": "Mường Thanh Luxury Sài Gòn",
+      "chucDanh": "Nhân viên lễ tân",
+      "maDoi": "NV.LSG (Kinh doanh – Lễ tân – Marketing)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Trần Quang Tân",
+      "donVi": "Mường Thanh Luxury Nha Trang",
+      "chucDanh": "Nhân viên lễ tân",
+      "maDoi": "NV.NTC (Kinh doanh – Lễ tân – Marketing)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Nguyễn Thị Phương Mai",
+      "donVi": "Mường Thanh Grand Phương Đông",
+      "chucDanh": "Nhân viên lễ tân",
+      "maDoi": "NV.PDO (Kinh doanh – Lễ tân – Marketing)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Ninh Xuân Tiến",
+      "donVi": "Mường Thanh Luxury Quảng Ninh",
+      "chucDanh": "Trưởng bộ phận kinh doanh - lễ tân",
+      "maDoi": "NV.QNI (Kinh doanh – Lễ tân – Marketing)"
+    },
+    {
+      "mon": "Thi nghiệp vụ",
+      "maMon": "NV",
+      "hoVaTen": "Trần Thị Dung",
+      "donVi": "Mường Thanh Luxury Sông Lam",
+      "chucDanh": "Phó bộ phận kinh doanh và tiếp thị",
+      "maDoi": "NV.SLM (Kinh doanh – Lễ tân – Marketing)"
     }
   ],
   "schedule": [

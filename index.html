@@ -87,14 +87,6 @@
     display: none !important;
   }
 
-  /* TABLE HEADERS STICKINESS */
-  .sticky-th {
-    position: sticky;
-    top: var(--subnav-bottom, 160px);
-    z-index: 25;
-    background: #0f172a;
-  }
-
   /* LEFT SIDEBAR LAYOUT MODE (DESKTOP) */
   @media (min-width: 1024px) {
     body.layout-sidebar-mode .tab-layout-container {
@@ -118,10 +110,6 @@
     body.layout-sidebar-mode .tab-main-content {
       flex: 1 1 0% !important;
       min-width: 0 !important;
-    }
-
-    body.layout-sidebar-mode .sticky-th {
-      top: var(--header-height, 104px) !important;
     }
   }
 
@@ -441,12 +429,12 @@
         <table class="w-full text-xs min-w-[720px]">
           <thead class="bg-slate-800 text-white uppercase tracking-wider text-[11px]">
             <tr>
-              <th class="px-3 py-3 text-center w-12 sticky-th bg-slate-800 cursor-pointer select-none" onclick="sortAthletes('stt')">STT <span id="sort-stt"></span></th>
-              <th class="px-3.5 py-3 text-left sticky-th bg-slate-800 cursor-pointer select-none min-w-[160px]" onclick="sortAthletes('hoVaTen')">Họ và Tên <span id="sort-hoVaTen">↕</span></th>
-              <th class="px-3.5 py-3 text-left sticky-th bg-slate-800 min-w-[160px]">Đơn vị / Khách sạn</th>
-              <th class="px-3 py-3 text-center w-20 sticky-th bg-slate-800">Giới tính</th>
-              <th class="px-3.5 py-3 text-left sticky-th bg-slate-800 min-w-[220px]">Nội dung đăng ký thi đấu</th>
-              <th class="px-3 py-3 text-center w-20 sticky-th bg-slate-800 cursor-pointer select-none" onclick="sortAthletes('soMon')">Số môn <span id="sort-soMon"></span></th>
+              <th class="px-3 py-3 text-center w-12 cursor-pointer select-none" onclick="sortAthletes('stt')">STT <span id="sort-stt"></span></th>
+              <th class="px-3.5 py-3 text-left cursor-pointer select-none min-w-[160px]" onclick="sortAthletes('hoVaTen')">Họ và Tên <span id="sort-hoVaTen">↕</span></th>
+              <th class="px-3.5 py-3 text-left min-w-[160px]">Đơn vị / Khách sạn</th>
+              <th class="px-3 py-3 text-center w-20">Giới tính</th>
+              <th class="px-3.5 py-3 text-left min-w-[220px]">Nội dung đăng ký thi đấu</th>
+              <th class="px-3 py-3 text-center w-20 cursor-pointer select-none" onclick="sortAthletes('soMon')">Số môn <span id="sort-soMon"></span></th>
             </tr>
           </thead>
           <tbody id="athletes-tbody" class="divide-y divide-slate-100"></tbody>
@@ -585,16 +573,16 @@
           <table class="w-full text-xs text-left min-w-[900px]">
             <thead class="bg-slate-900 text-white uppercase text-[11px] font-bold tracking-wider">
               <tr>
-                <th class="px-3.5 py-3 w-12 text-center sticky-th">STT</th>
-                <th class="px-3.5 py-3 w-24 text-center cursor-pointer select-none sticky-th" onclick="sortRunners('bib')">Số BIB <span id="sort-runner-bib">↕</span></th>
-                <th class="px-4 py-3 cursor-pointer select-none sticky-th" onclick="sortRunners('name')">Họ và Tên <span id="sort-runner-name">↕</span></th>
-                <th class="px-3.5 py-3 sticky-th">Cự ly & Nhóm giải</th>
-                <th class="px-4 py-3 sticky-th">Đơn vị / Khách sạn</th>
-                <th class="px-3 py-3 sticky-th">Chức danh</th>
-                <th class="px-2.5 py-3 text-center sticky-th">Size</th>
-                <th class="px-3 py-3 sticky-th">Số điện thoại</th>
-                <th class="px-3.5 py-3 sticky-th">Xe di chuyển</th>
-                <th class="px-3 py-3 text-center sticky-th">Thao tác</th>
+                <th class="px-3.5 py-3 w-12 text-center">STT</th>
+                <th class="px-3.5 py-3 w-24 text-center cursor-pointer select-none" onclick="sortRunners('bib')">Số BIB <span id="sort-runner-bib">↕</span></th>
+                <th class="px-4 py-3 cursor-pointer select-none" onclick="sortRunners('name')">Họ và Tên <span id="sort-runner-name">↕</span></th>
+                <th class="px-3.5 py-3">Cự ly & Nhóm giải</th>
+                <th class="px-4 py-3">Đơn vị / Khách sạn</th>
+                <th class="px-3 py-3">Chức danh</th>
+                <th class="px-2.5 py-3 text-center">Size</th>
+                <th class="px-3 py-3">Số điện thoại</th>
+                <th class="px-3.5 py-3">Xe di chuyển</th>
+                <th class="px-3 py-3 text-center">Thao tác</th>
               </tr>
             </thead>
             <tbody id="runners-tbody" class="divide-y divide-slate-100"></tbody>

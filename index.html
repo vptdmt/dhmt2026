@@ -390,48 +390,68 @@
 
 <!-- ======================== TAB 3: ATHLETES (VẬN ĐỘNG VIÊN) ======================== -->
 <div id="tab-athletes" class="tab-content hidden slide-in tab-layout-container">
-  <aside id="athletes-subnav" class="tab-subnav-panel flex flex-wrap gap-2.5 mb-4 items-center justify-between no-print rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-200/80 transition-all">
-    <div class="flex flex-wrap gap-2 items-center flex-1">
+  <aside id="athletes-subnav" class="tab-subnav-panel space-y-2 mb-4 no-print rounded-2xl p-3 sm:p-4 shadow-sm border border-slate-200/80 transition-all">
+    <div class="flex flex-wrap items-center justify-between gap-2">
       <div class="relative flex-1 min-w-[200px]">
         <input id="search-athlete" type="text" placeholder="🔍 Tìm tên VĐV, thí sinh, chức danh, đơn vị..." oninput="filterAthletes()" class="w-full border border-slate-200 rounded-xl px-3.5 py-1.5 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300">
       </div>
-      <select id="filter-donvi" onchange="filterAthletes()" class="border border-slate-200 rounded-xl px-3 py-1.5 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300 max-w-[180px]">
+      <div class="flex items-center gap-1.5">
+        <button onclick="window.print()" class="px-2.5 py-1.5 bg-slate-800 text-white rounded-xl text-xs font-bold hover:bg-slate-900 transition flex items-center gap-1 cursor-pointer shadow-xs" title="In danh sách">
+          <span>🖨️</span><span class="hidden sm:inline">In</span>
+        </button>
+        <button onclick="toggleSubnavCollapse('athletes-subnav')" class="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-1 transition cursor-pointer shadow-2xs" title="Thu gọn / Mở rộng bộ lọc">
+          <span class="subnav-toggle-icon">▲</span>
+          <span class="subnav-toggle-text text-[11px]">Thu gọn</span>
+        </button>
+        <button onclick="toggleSubnavLayout()" class="btn-layout-toggle px-2.5 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-xs flex items-center gap-1 border border-indigo-200 transition cursor-pointer shadow-2xs" title="Chuyển đổi kiểu bố trí: Cố định phía trên / Bên trái màn hình">
+          <span>⬅</span><span class="hidden md:inline text-[11px]">Bố trí trái</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- COLLAPSIBLE FILTERS ROW -->
+    <div class="subnav-collapsible flex flex-wrap gap-2 items-center pt-2 border-t border-slate-100">
+      <select id="filter-donvi" onchange="filterAthletes()" class="border border-slate-200 rounded-xl px-3 py-1.5 text-xs bg-slate-50 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 max-w-[180px]">
         <option value="">-- Tất cả đơn vị --</option>
       </select>
-      <select id="filter-gender" onchange="filterAthletes()" class="border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300">
+      <select id="filter-gender" onchange="filterAthletes()" class="border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs bg-slate-50 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-300">
         <option value="">-- Giới tính --</option>
         <option value="Nam">Nam</option>
         <option value="Nữ">Nữ</option>
       </select>
-      <select id="filter-mon-ath" onchange="filterAthletes()" class="border border-slate-200 rounded-xl px-3 py-1.5 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-300 max-w-[210px]">
+      <select id="filter-mon-ath" onchange="filterAthletes()" class="border border-slate-200 rounded-xl px-3 py-1.5 text-xs bg-slate-50 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 max-w-[210px]">
         <option value="">-- Tất cả môn thi / nội dung --</option>
       </select>
-    </div>
-    <div class="flex items-center gap-1.5 flex-wrap">
-      <button onclick="window.print()" class="px-3 py-1.5 bg-slate-800 text-white rounded-xl text-xs font-bold hover:bg-slate-900 transition flex items-center gap-1 cursor-pointer shadow-xs">
-        <span>🖨️</span><span>In</span>
-      </button>
-      <button onclick="toggleSubnavLayout()" class="btn-layout-toggle px-2.5 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-xs flex items-center gap-1 border border-indigo-200 transition cursor-pointer shadow-2xs" title="Chuyển đổi kiểu bố trí: Cố định phía trên / Bên trái màn hình">
-        <span>⬅</span><span class="hidden md:inline text-[11px]">Bố trí trái</span>
-      </button>
     </div>
   </aside>
 
   <div class="tab-main-content flex-1 min-w-0">
-    <div class="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
-      <table class="w-full text-xs min-w-max">
-        <thead class="bg-slate-800 text-white uppercase tracking-wider text-[11px]">
-          <tr>
-            <th class="px-3 py-3 text-left w-12 sticky-th bg-slate-800 cursor-pointer select-none" onclick="sortAthletes('stt')">STT <span id="sort-stt"></span></th>
-            <th class="px-3 py-3 text-left sticky-th bg-slate-800 cursor-pointer select-none" onclick="sortAthletes('hoVaTen')">Họ và Tên <span id="sort-hoVaTen">↕</span></th>
-            <th class="px-3 py-3 text-left sticky-th bg-slate-800">Đơn vị / Khách sạn</th>
-            <th class="px-3 py-3 text-center w-20 sticky-th bg-slate-800">Giới tính</th>
-            <th class="px-3 py-3 text-left sticky-th bg-slate-800">Nội dung đăng ký thi đấu</th>
-            <th class="px-3 py-3 text-center w-20 sticky-th bg-slate-800 cursor-pointer select-none" onclick="sortAthletes('soMon')">Số môn <span id="sort-soMon"></span></th>
-          </tr>
-        </thead>
-        <tbody id="athletes-tbody"></tbody>
-      </table>
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+      <!-- MOBILE SWIPE HINT -->
+      <div class="md:hidden flex items-center justify-between px-3.5 py-2 bg-indigo-50/90 border-b border-indigo-100 text-[11px] text-indigo-800 font-medium select-none">
+        <span class="flex items-center gap-1.5">
+          <span class="animate-pulse">👉</span>
+          <span>Vuốt ngang bảng để xem: <strong>Giới tính</strong>, <strong>Môn thi</strong>, <strong>Số môn</strong></span>
+        </span>
+        <span class="text-indigo-500 font-bold">↔</span>
+      </div>
+
+      <!-- HORIZONTAL SCROLL WRAPPER FOR MOBILE & DESKTOP -->
+      <div class="overflow-x-auto w-full scrollbar-thin" style="-webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;">
+        <table class="w-full text-xs min-w-[720px]">
+          <thead class="bg-slate-800 text-white uppercase tracking-wider text-[11px]">
+            <tr>
+              <th class="px-3 py-3 text-center w-12 sticky-th bg-slate-800 cursor-pointer select-none" onclick="sortAthletes('stt')">STT <span id="sort-stt"></span></th>
+              <th class="px-3.5 py-3 text-left sticky-th bg-slate-800 cursor-pointer select-none min-w-[160px]" onclick="sortAthletes('hoVaTen')">Họ và Tên <span id="sort-hoVaTen">↕</span></th>
+              <th class="px-3.5 py-3 text-left sticky-th bg-slate-800 min-w-[160px]">Đơn vị / Khách sạn</th>
+              <th class="px-3 py-3 text-center w-20 sticky-th bg-slate-800">Giới tính</th>
+              <th class="px-3.5 py-3 text-left sticky-th bg-slate-800 min-w-[220px]">Nội dung đăng ký thi đấu</th>
+              <th class="px-3 py-3 text-center w-20 sticky-th bg-slate-800 cursor-pointer select-none" onclick="sortAthletes('soMon')">Số môn <span id="sort-soMon"></span></th>
+            </tr>
+          </thead>
+          <tbody id="athletes-tbody" class="divide-y divide-slate-100"></tbody>
+        </table>
+      </div>
       <div id="athletes-count" class="px-4 py-2.5 bg-slate-50 text-xs text-slate-500 border-t border-slate-200 font-medium"></div>
     </div>
   </div>
@@ -859,9 +879,8 @@
 </div>
 
 <!-- FLOATING LEFT TRIGGER (FOR FAST ACCESS TO DRAWER & CONTROLS) -->
-<button id="floating-left-trigger" onclick="toggleLeftQuickDrawer(true)" class="fixed left-0 top-1/2 -translate-y-1/2 z-40 bg-slate-900/90 hover:bg-slate-900 text-white px-2 py-3.5 rounded-r-2xl shadow-xl border border-l-0 border-indigo-400/30 text-xs font-bold transition flex flex-col items-center gap-1 cursor-pointer group" title="Mở bảng điều khiển nhanh bên trái">
-  <span class="text-amber-400 text-base group-hover:scale-110 transition">⚡</span>
-  <span class="[writing-mode:vertical-rl] tracking-widest text-[11px] text-slate-200">BỘ LỌC NHANH</span>
+<button id="floating-left-trigger" onclick="toggleLeftQuickDrawer(true)" class="fixed bottom-5 left-5 z-40 w-11 h-11 rounded-2xl bg-slate-900/90 hover:bg-slate-900 text-white shadow-xl border border-indigo-400/30 flex items-center justify-center text-sm font-black transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 group" title="Mở Bảng điều khiển & Chuyển Tab nhanh">
+  <span class="text-amber-400 text-lg group-hover:scale-110 transition">⚡</span>
 </button>
 
 <!-- BACKDROP & LEFT QUICK DRAWER -->
@@ -2669,15 +2688,15 @@ function filterAthletes() {
     const ad = JSON.stringify(a).replace(/'/g,"&#39;");
     
     return `<tr class="${i % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'} hover:bg-indigo-50/40 cursor-pointer border-b border-slate-100 transition" onclick='showAthleteDetail(${ad})'>
-      <td class="px-3 py-2.5 text-slate-400 font-semibold">${a.stt}</td>
-      <td class="px-3 py-2.5 font-bold text-slate-800 text-sm">
+      <td class="px-3 py-2.5 text-center text-slate-400 font-semibold">${a.stt}</td>
+      <td class="px-3.5 py-2.5 font-bold text-slate-800 text-sm whitespace-nowrap min-w-[160px]">
         ${nm}
         ${a.chucDanh ? `<span class="block text-[11px] font-normal text-slate-500">${escHtml(a.chucDanh)}</span>` : ''}
       </td>
-      <td class="px-3 py-2.5 text-slate-600">${dv2}</td>
-      <td class="px-3 py-2.5 text-center"><span class="tag-badge ${a.gioiTinh==='Nam'?'bg-blue-100 text-blue-700':'bg-pink-100 text-pink-700'}">${a.gioiTinh}</span></td>
-      <td class="px-3 py-2.5">${monBadges}</td>
-      <td class="px-3 py-2.5 text-center font-black text-indigo-600 text-sm">${a.soMon}</td>
+      <td class="px-3.5 py-2.5 text-slate-600 min-w-[160px]">${dv2}</td>
+      <td class="px-3 py-2.5 text-center whitespace-nowrap"><span class="tag-badge ${a.gioiTinh==='Nam'?'bg-blue-100 text-blue-700':'bg-pink-100 text-pink-700'}">${a.gioiTinh}</span></td>
+      <td class="px-3.5 py-2.5 min-w-[220px]">${monBadges}</td>
+      <td class="px-3 py-2.5 text-center font-black text-indigo-600 text-sm whitespace-nowrap">${a.soMon}</td>
     </tr>`;
   }).join('');
   

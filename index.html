@@ -1006,6 +1006,151 @@ const MON_TAGS = {
   'Bơi':           { bg: 'bg-sky-600',    badge: 'bg-sky-100 text-sky-800',    prefix: 'BƠI' }
 };
 
+const NV_MONS = [
+  'AN-KT-IT',
+  'Bếp',
+  'Buồng',
+  'Dịch vụ Ẩm thực',
+  'Kế toán - Nhân sự',
+  'Kinh doanh – Lễ tân – Marketing'
+];
+
+function getProfessionalCategory(str) {
+  if (!str) return null;
+  const s = str.toUpperCase();
+  if (s.includes('AKT') || s.includes('AN-KT') || s.includes('AN NINH') || s.includes('KỸ THUẬT') || s.includes('IT')) return 'AN-KT-IT';
+  if (s.includes('BẾP') || s.includes('BEP')) return 'Bếp';
+  if (s.includes('BUỒNG') || s.includes('BUONG')) return 'Buồng';
+  if (s.includes('NHÀ HÀNG') || s.includes('NHA HANG') || s.includes('ẨM THỰC') || s.includes('AM THUC') || s.includes('DỊCH VỤ')) return 'Dịch vụ Ẩm thực';
+  if (s.includes('KT-NS') || s.includes('KẾ TOÁN') || s.includes('NHÂN SỰ') || s.includes('KE TOAN') || s.includes('NHAN SU')) return 'Kế toán - Nhân sự';
+  if (s.includes('LKM') || s.includes('KINH DOANH') || s.includes('LỄ TÂN') || s.includes('MARKETING') || s.includes('LE TAN')) return 'Kinh doanh – Lễ tân – Marketing';
+  if (s.includes('KHAI MẠC') || s.includes('TRAO GIẢI') || s.includes('ALL')) return 'ALL';
+  return null;
+}
+
+function renderProfessionalContestants(matchString, san) {
+  const cat = getProfessionalCategory(matchString) || (san ? getProfessionalCategory(san) : null);
+  
+  const catMeta = {
+    'AN-KT-IT': { icon: '🛡️', title: 'An ninh – Kỹ thuật – CNTT (AKT)', color: '#0284c7', desc: 'Thi thực hành xử lý nghiệp vụ an ninh, kỹ thuật tòa nhà và CNTT' },
+    'Bếp': { icon: '🍳', title: 'Nghiệp vụ Bếp', color: '#ea580c', desc: 'Thi chế biến món ăn và bếp bánh (mỗi khách sạn 2 thí sinh)' },
+    'Buồng': { icon: '🛏️', title: 'Nghiệp vụ Buồng', color: '#84cc16', desc: 'Thi tay nghề dọn phòng và set up giường tiêu chuẩn 1m8' },
+    'Dịch vụ Ẩm thực': { icon: '🍽️', title: 'Dịch vụ Ẩm thực & Nhà hàng', color: '#e11d48', desc: 'Thi kỹ năng set up bàn tiệc và phục vụ khách hàng tiêu chuẩn' },
+    'Kế toán - Nhân sự': { icon: '📊', title: 'Kế toán – Nhân sự (KT-NS)', color: '#059669', desc: 'Game show kiến thức nghiệp vụ và xử lý tình huống tài chính, nhân sự' },
+    'Kinh doanh – Lễ tân – Marketing': { icon: '🤝', title: 'Kinh doanh – Lễ tân – Marketing (LKM)', color: '#7c3aed', desc: 'Game show kiến thức lễ tân, kinh doanh, xử lý phàn nàn và marketing' }
+  };
+
+  const renderContestantCard = (c, idx) => {
+    const cdJson = JSON.stringify(c).replace(/'/g, "&#39;");
+    const isProtected = c.hoVaTen && c.hoVaTen.includes('Hoàng Yến') && c.hoVaTen.includes('Lê Thị');
+    const phoneBtn = (c.sdt && !isProtected) ? `
+      <a href="tel:${escHtml(c.sdt.replace(/\\s+/g, ''))}" onclick="event.stopPropagation()"
+         class="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[11px] font-bold bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200 transition shadow-2xs flex-shrink-0" title="Gọi điện">
+        <span>📞</span>
+        <span>${escHtml(c.sdt)}</span>
+      </a>
+    ` : '';
+
+    return `
+      <div class="bg-white p-3 rounded-xl border border-slate-200 hover:border-purple-300 hover:shadow-xs transition flex flex-col justify-between cursor-pointer group"
+           onclick='showAthleteDetail(${cdJson})' title="Nhấp xem chi tiết thí sinh">
+        <div class="flex items-start justify-between gap-2">
+          <div class="flex items-start gap-2.5 min-w-0">
+            <span class="w-6 h-6 rounded-full bg-purple-100 text-purple-800 font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
+              ${idx}
+            </span>
+            <div class="min-w-0">
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="font-bold text-slate-900 text-xs group-hover:text-purple-700 transition">${escHtml(c.hoVaTen)}</span>
+                <span class="px-1.5 py-0.2 rounded text-[10px] font-bold ${c.gioiTinh === 'Nam' ? 'bg-blue-50 text-blue-700 border border-blue-200' : 'bg-pink-50 text-pink-700 border border-pink-200'}">${escHtml(c.gioiTinh || '')}</span>
+              </div>
+              <div class="text-[11px] text-slate-600 font-medium mt-0.5 truncate flex items-center gap-1">
+                <span>🏨</span>
+                <span class="truncate">${escHtml(c.donVi)}</span>
+              </div>
+            </div>
+          </div>
+          ${phoneBtn}
+        </div>
+        <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+          <span class="truncate font-medium flex items-center gap-1">
+            <span>💼</span>
+            <span class="truncate">${escHtml(c.chucDanh || 'Thí sinh')}</span>
+          </span>
+          ${c.maNv ? `<span class="font-mono text-[10px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-600 flex-shrink-0">MNV: ${escHtml(c.maNv)}</span>` : ''}
+        </div>
+      </div>
+    `;
+  };
+
+  if (cat === 'ALL') {
+    return `
+      <div class="space-y-4">
+        <div class="bg-purple-50 border border-purple-200 rounded-xl p-3 text-xs text-purple-900 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-xl">🎉</span>
+            <div>
+              <div class="font-bold">Tổng cộng 56 thí sinh đại diện 8 đơn vị thành viên tham gia 6 nội dung thi nghiệp vụ</div>
+              <div class="text-purple-700 text-[11px] mt-0.5">Bao gồm: AN-KT-IT, Bếp, Buồng, Nhà hàng, KT-NS, LKM</div>
+            </div>
+          </div>
+          <span class="px-2.5 py-1 bg-purple-600 text-white font-extrabold rounded-lg text-xs shadow-2xs flex-shrink-0">56 Thí sinh</span>
+        </div>
+        ${NV_MONS.map(mName => {
+          const meta = catMeta[mName] || { icon: '📋', title: mName, color: '#7c3aed' };
+          const contestants = DATA.athletes.filter(a => a.monThi && a.monThi.includes(mName));
+          return `
+            <div class="bg-slate-50/70 rounded-xl p-3 border border-slate-200">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-2">
+                  <span class="text-base">${meta.icon}</span>
+                  <span class="font-bold text-slate-800 text-xs uppercase tracking-wide">${escHtml(meta.title)}</span>
+                </div>
+                <span class="px-2 py-0.5 rounded bg-white border border-slate-200 text-slate-700 font-bold text-[11px]">${contestants.length} thí sinh</span>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                ${contestants.map((c, i) => renderContestantCard(c, i + 1)).join('')}
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    `;
+  }
+
+  if (cat && NV_MONS.includes(cat)) {
+    const meta = catMeta[cat] || { icon: '📋', title: cat, color: '#7c3aed' };
+    const contestants = DATA.athletes.filter(a => a.monThi && a.monThi.includes(cat));
+    const donViCount = new Set(contestants.map(c => c.donVi)).size;
+
+    return `
+      <div class="space-y-3">
+        <div class="bg-gradient-to-r from-purple-50 to-indigo-50 border border-purple-200/80 rounded-xl p-3 flex items-center justify-between text-xs">
+          <div class="flex items-center gap-2.5">
+            <span class="text-xl p-2 rounded-xl bg-white shadow-2xs border border-purple-100">${meta.icon}</span>
+            <div>
+              <div class="font-extrabold text-purple-950 text-sm">${escHtml(meta.title)}</div>
+              <div class="text-purple-700 text-[11px] mt-0.5">${escHtml(meta.desc || '')}</div>
+            </div>
+          </div>
+          <div class="text-right flex-shrink-0">
+            <span class="px-2.5 py-1 rounded-lg bg-purple-600 text-white font-black text-xs shadow-2xs inline-block">${contestants.length} Thí sinh</span>
+            <div class="text-[10px] text-purple-700 font-semibold mt-1">Từ ${donViCount} Khách sạn</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+          ${contestants.map((c, i) => renderContestantCard(c, i + 1)).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  return `<div class="p-3 bg-purple-50 rounded-lg text-xs text-purple-700">
+    Nội dung thi đấu theo lịch tổng hợp của môn Thi nghiệp vụ. Tra cứu tên từng vận động viên theo đơn vị tại tab 👤 <strong>VĐV và Thí sinh</strong>.
+  </div>`;
+}
+
 // Natural venue order
 const VENUE_NATURAL_ORDER = [
   'NV.VIP1-T3', 'NV.VIP2-T3', 'NV.VIP3-Ngoài trời', 'NV.Casino-T3', 'NV.Nhà hàng',
@@ -1740,7 +1885,16 @@ function renderSchedule() {
   if (q) rows = rows.filter(s => {
     const live = findMatchForScheduleCell(s);
     const liveTeams = live && live.hasLiveTeams ? `${live.team1.name} ${live.team2.name}`.toLowerCase() : '';
-    return s.noiDung.toLowerCase().includes(q) || s.san.toLowerCase().includes(q) || s.mon.toLowerCase().includes(q) || liveTeams.includes(q);
+    let matchesProf = false;
+    if (s.mon === 'Thi nghiệp vụ' || (s.san && s.san.startsWith('NV.'))) {
+      const cat = getProfessionalCategory(s.noiDung);
+      if (cat === 'ALL') {
+        matchesProf = DATA.athletes.some(a => a.monThi && a.monThi.some(m => NV_MONS.includes(m)) && (a.hoVaTen.toLowerCase().includes(q) || a.donVi.toLowerCase().includes(q)));
+      } else if (cat) {
+        matchesProf = DATA.athletes.some(a => a.monThi && a.monThi.includes(cat) && (a.hoVaTen.toLowerCase().includes(q) || a.donVi.toLowerCase().includes(q)));
+      }
+    }
+    return s.noiDung.toLowerCase().includes(q) || s.san.toLowerCase().includes(q) || s.mon.toLowerCase().includes(q) || liveTeams.includes(q) || matchesProf;
   });
   
   document.getElementById('sch-count').textContent = rows.length + ' trận/ô lịch';
@@ -1882,6 +2036,37 @@ function renderSchedule() {
                 </div>
                 ${lanesHtml}
               </div>`;
+          } else if (cell.mon === 'Thi nghiệp vụ' || (cell.san && cell.san.startsWith('NV.'))) {
+            // THẺ THI NGHIỆP VỤ HIỂN THỊ SỐ LƯỢNG THÍ SINH VÀ PREVIEW TÊN
+            const cat = getProfessionalCategory(cell.noiDung);
+            let badgeText = '';
+            let previewText = '';
+            
+            if (cat === 'ALL') {
+              badgeText = '56 thí sinh';
+              previewText = 'Khai mạc / Trao giải toàn đoàn · 6 nội dung';
+            } else if (cat) {
+              const athList = DATA.athletes.filter(a => a.monThi && a.monThi.includes(cat));
+              badgeText = `${athList.length} thí sinh`;
+              if (athList.length > 0) {
+                const sampleNames = athList.slice(0, 3).map(a => a.hoVaTen.split(' ').pop()).join(', ');
+                previewText = `${sampleNames}${athList.length > 3 ? ` (+${athList.length - 3})` : ''}`;
+              }
+            }
+            
+            const disp = q ? hl(cell.noiDung, q) : escHtml(cell.noiDung);
+            tbl += `
+              <div class="schedule-cell text-white font-medium relative border-l-4 border-purple-300 shadow-sm cursor-pointer hover:brightness-110 transition p-2" 
+                   style="background:${col}" onclick='showScheduleDetail(${cd})' title="Nhấp để xem danh sách thí sinh & SĐT">
+                <div class="flex items-center justify-between gap-1 mb-0.5">
+                  <span class="font-extrabold block opacity-90 text-[10px] uppercase tracking-wide truncate">📋 ${escHtml(cat || 'THI NV')}</span>
+                  ${badgeText ? `<span class="px-1.5 py-0.2 rounded bg-purple-200 text-purple-950 font-black text-[9px] uppercase tracking-tight shadow-xs flex-shrink-0">👥 ${badgeText}</span>` : ''}
+                </div>
+                <div class="text-[11px] leading-snug font-bold text-purple-100">
+                  ${disp}
+                </div>
+                ${previewText ? `<div class="mt-1 text-[10px] text-purple-200 flex items-center gap-1 font-medium truncate"><span>👤</span><span class="truncate">${escHtml(previewText)}</span></div>` : ''}
+              </div>`;
           } else {
             // ORIGINAL SCHEDULE CONTENT
             const disp = q ? hl(cell.noiDung, q) : escHtml(cell.noiDung);
@@ -2012,6 +2197,14 @@ function showScheduleDetail(s) {
         <span class="text-sky-200 font-bold">➔</span>
       </button>
     </div>`;
+  } else if (s.mon === 'Thi nghiệp vụ' || (s.san && s.san.startsWith('NV.')) || (s.noiDung && getProfessionalCategory(s.noiDung))) {
+    extraDetail = `<div class="mt-3 pt-3 border-t border-slate-200">
+      <div class="text-[11px] font-bold text-purple-900 uppercase tracking-wider mb-2 flex items-center justify-between">
+        <span class="flex items-center gap-1.5"><span>👥</span><span>Thí sinh tham gia thi nghiệp vụ:</span></span>
+        <span class="text-[10px] font-semibold text-purple-600 lowercase">(Nhấp vào thí sinh để xem hồ sơ chi tiết)</span>
+      </div>
+      ${renderProfessionalContestants(s.noiDung, s.san)}
+    </div>`;
   } else if (!squadsHtml) {
     extraDetail = `<div class="mt-3 pt-3 border-t border-slate-200">
       <div class="text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-2">👥 Đội hình / VĐV tham gia:</div>
@@ -2019,13 +2212,15 @@ function showScheduleDetail(s) {
     </div>`;
   }
 
+  const locDisp = s.khuVuc || (s.san && s.san.startsWith('NV.') ? 'Khách sạn Mường Thanh Luxury Ninh Bình (Tầng 3)' : (s.san && s.san.startsWith('BƠI') ? 'Khách sạn Mường Thanh Luxury Ninh Bình (Bể bơi)' : ''));
+
   showModal(s.mon, `${s.san} · ${s.batdau} - ${s.ketthuc}`,
     `<div class="bg-slate-50 rounded-xl p-4 space-y-3 text-xs">
       ${liveCardHtml}
       <div class="flex gap-3"><span class="text-slate-400 w-24 flex-shrink-0 font-medium">📅 Ngày</span><span class="font-bold text-slate-800">${DAY_LABELS[s.ngay]}</span></div>
       <div class="flex gap-3"><span class="text-slate-400 w-24 flex-shrink-0 font-medium">⏰ Khung giờ</span><span class="font-bold text-slate-800">${s.batdau} – ${s.ketthuc} ${s.luot ? '(' + s.luot + ')' : ''}</span></div>
       <div class="flex gap-3"><span class="text-slate-400 w-24 flex-shrink-0 font-medium">🏟️ Sân / Bàn</span><span class="font-bold text-indigo-700">${escHtml(s.san)}</span></div>
-      <div class="flex gap-3"><span class="text-slate-400 w-24 flex-shrink-0 font-medium">📍 Khu vực</span><span class="font-semibold text-slate-700">${escHtml(s.khuVuc || '')}</span></div>
+      <div class="flex gap-3"><span class="text-slate-400 w-24 flex-shrink-0 font-medium">📍 Khu vực</span><span class="font-semibold text-slate-700">${escHtml(locDisp || 'Khu vực thi đấu')}</span></div>
       <div class="flex gap-3"><span class="text-slate-400 w-24 flex-shrink-0 font-medium">📋 Nội dung</span><span class="font-bold text-slate-900 bg-white p-2.5 rounded border border-slate-200 flex-1 leading-relaxed">${escHtml(s.noiDung)}</span></div>
       ${squadsHtml}
       ${extraDetail}
@@ -2046,15 +2241,6 @@ function initAthleteFilters() {
     selDv.appendChild(o);
   });
   
-  const NV_MONS = [
-    'AN-KT-IT',
-    'Bếp',
-    'Buồng',
-    'Dịch vụ Ẩm thực',
-    'Kế toán - Nhân sự',
-    'Kinh doanh – Lễ tân – Marketing'
-  ];
-
   const allMons = [...new Set(DATA.athletes.flatMap(a => a.monThi))];
   const nvInUse = NV_MONS.filter(m => allMons.includes(m));
   const sportInUse = allMons.filter(m => !NV_MONS.includes(m)).sort();
@@ -2170,6 +2356,19 @@ function showAthleteDetail(a) {
   const lastName = a.hoVaTen.split(' ').pop().toLowerCase();
   const nameMatches = DATA.schedule.filter(s => s.noiDung.toLowerCase().includes(`(${lastName})`) || s.noiDung.toLowerCase().includes(`-${lastName})`) || s.noiDung.toLowerCase().includes(`(${lastName}-`));
   matchedMatches = [...new Set([...matchedMatches, ...nameMatches])];
+
+  // Khớp lịch thi môn Nghiệp vụ nếu VĐV / Thí sinh có đăng ký môn nghiệp vụ
+  if (a.monThi && a.monThi.some(m => NV_MONS.includes(m))) {
+    const myNvMons = a.monThi.filter(m => NV_MONS.includes(m));
+    const profMatches = DATA.schedule.filter(s => {
+      if (s.mon !== 'Thi nghiệp vụ' && !(s.san && s.san.startsWith('NV.'))) return false;
+      const cat = getProfessionalCategory(s.noiDung);
+      if (!cat) return false;
+      if (cat === 'ALL') return true;
+      return myNvMons.includes(cat);
+    });
+    matchedMatches = [...new Set([...matchedMatches, ...profMatches])];
+  }
 
   // Tìm các lượt bơi và làn bơi cụ thể của VĐV (chuẩn hóa dấu Unicode uỷ/ủy)
   const normName = str => (str || '').trim().toLowerCase().normalize('NFC').replace(/uỷ/g, 'ủy');
@@ -2667,6 +2866,11 @@ function renderSquadForMatch(matchString, sport) {
   // NẾU LÀ MÔN BƠI: HIỂN THỊ CHI TIẾT CÁC LƯỢT VÀ 6 LÀN BƠI VỚI VẬN ĐỘNG VIÊN
   if (sport === 'Bơi' || matchString.toLowerCase().includes('bơi') || (matchString.includes('lượt') && (matchString.toLowerCase().includes('vòng loại') || matchString.toLowerCase().includes('chung kết')))) {
     return renderSwimHeatsView(matchString);
+  }
+
+  // NẾU LÀ THI NGHIỆP VỤ: HIỂN THỊ DANH SÁCH THÍ SINH
+  if (sport === 'Thi nghiệp vụ' || (sport && NV_MONS.includes(sport)) || (matchString && getProfessionalCategory(matchString))) {
+    return renderProfessionalContestants(matchString);
   }
 
   const units = DATA.sportUnits || [];

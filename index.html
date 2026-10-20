@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+<!-- SHEETJS SPREADSHEET PARSER & EXPORTER -->
+<script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
 <!-- FIREBASE REALTIME DATABASE COMPAT SDK -->
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-database-compat.js"></script>
@@ -208,6 +210,85 @@
     padding: 16px;
     box-shadow: 0 4px 14px rgba(245, 158, 11, 0.12);
   }
+
+  /* ================================================================ */
+  /* TAB 8: GHI NHẬN KẾT QUẢ CHẠY (CHECK-IN & XẾP HẠNG TRAO GIẢI) */
+  /* ================================================================ */
+  .checkin-theme {
+    background: #0b1120;
+    color: #f8fafc;
+  }
+  .checkin-stat-box { 
+    background: #1e293b; padding: 8px 16px; border-radius: 12px; 
+    border: 2px solid #475569; text-align: center; cursor: pointer; 
+    user-select: none; transition: 0.2s;
+  }
+  .checkin-stat-box:hover { transform: translateY(-2px); border-color: #94a3b8; }
+  .checkin-stat-box .num { font-size: 24px; font-weight: 800; color: #38bdf8; }
+  .checkin-stat-box .lbl { font-size: 11px; color: #94a3b8; text-transform: uppercase; font-weight: 700; margin-top: 2px; }
+  
+  .checkin-stat-box.active-all { border-color: #38bdf8; background: #0f2d4a; box-shadow: 0 0 12px rgba(56, 189, 248, 0.45); }
+  .checkin-stat-box.active-finish { border-color: #10b981; background: #064e3b; box-shadow: 0 0 12px rgba(16, 185, 129, 0.45); }
+  .checkin-stat-box.active-remain { border-color: #f59e0b; background: #451a03; box-shadow: 0 0 12px rgba(245, 158, 11, 0.45); }
+
+  .checkin-cat-bar { display: flex; gap: 6px; overflow-x: auto; padding: 6px 0; margin-bottom: 10px; align-items: center; }
+  .checkin-cat-chip { 
+    padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; 
+    background: #1e293b; color: #cbd5e1; border: 1.5px solid #475569; 
+    cursor: pointer; white-space: nowrap; transition: 0.15s; 
+  }
+  .checkin-cat-chip:hover { border-color: #38bdf8; color: #f8fafc; }
+  .checkin-cat-chip.active { background: #0284c7; color: white; border-color: #38bdf8; box-shadow: 0 0 10px rgba(2, 132, 199, 0.5); }
+
+  .checkin-scan-input {
+    width: 100%; font-size: 20px; padding: 12px 18px; border-radius: 12px;
+    border: 3px solid #38bdf8; background: #030712; color: #38bdf8;
+    font-weight: 800; outline: none; resize: none; transition: all 0.2s;
+  }
+  .checkin-scan-input:focus { border-color: #f59e0b; box-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
+
+  .checkin-banner { padding: 16px 20px; border-radius: 14px; margin-bottom: 12px; display: none; text-align: center; }
+  .checkin-banner.success { display: block; background: #064e3b; border: 2px solid #10b981; color: #ecfdf5; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2); }
+  .checkin-banner.warning { display: block; background: #78350f; border: 2px solid #f59e0b; color: #fffbeb; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2); }
+  .checkin-banner.error { display: block; background: #7f1d1d; border: 2px solid #ef4444; color: #fef2f2; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2); }
+  .checkin-banner .title { font-size: 26px; font-weight: 900; }
+  .checkin-banner .subtitle { font-size: 15px; color: #cbd5e1; font-weight: 600; margin: 4px 0 6px 0; }
+  .checkin-banner .desc { font-size: 16px; font-weight: 800; color: #fef08a; }
+  .checkin-banner .time { font-size: 13px; opacity: 0.9; margin-top: 4px; }
+
+  .checkin-table-wrap { background: #1e293b; border-radius: 14px; overflow: hidden; border: 1px solid #334155; max-height: 520px; overflow-y: auto; }
+  .checkin-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+  .checkin-table th { background: #0f172a; padding: 10px 12px; color: #94a3b8; font-size: 11px; text-transform: uppercase; position: sticky; top: 0; z-index: 2; font-weight: 800; }
+  .checkin-table td { padding: 9px 12px; border-bottom: 1px solid #334155; }
+  .checkin-table tr:hover { background: #243247; }
+  
+  .status-finish { background: #15803d; color: white; padding: 2px 7px; border-radius: 6px; font-weight: 800; font-size: 11px; display: inline-block; }
+  .status-unfinish { color: #64748b; font-size: 11px; font-weight: 600; }
+  
+  .rank-badge { font-weight: 800; padding: 3px 8px; border-radius: 6px; font-size: 11px; display: inline-block; }
+  .rank-1 { background: #eab308; color: #000; box-shadow: 0 0 8px rgba(234, 179, 8, 0.5); }
+  .rank-2 { background: #94a3b8; color: #000; }
+  .rank-3 { background: #b45309; color: #fff; }
+
+  .time-box { font-weight: 800; padding: 3px 8px; border-radius: 6px; display: inline-block; }
+  .time-valid { color: #10b981; font-size: 14px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); }
+  .time-overdue { background: #7f1d1d; color: #fecaca; border: 1px solid #ef4444; font-size: 13px; }
+
+  .checkin-modal { display: none; position: fixed; inset: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; padding: 16px; backdrop-filter: blur(4px); }
+  .checkin-modal-content { background: #0f172a; width: 95%; max-width: 960px; max-height: 90vh; border-radius: 16px; border: 2px solid #38bdf8; overflow-y: auto; padding: 24px; color: #f8fafc; box-shadow: 0 10px 40px rgba(0,0,0,0.7); }
+  .checkin-modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #334155; padding-bottom: 12px; margin-bottom: 16px; }
+
+  .grid-top3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+  .top3-card { background: #1e293b; border-radius: 12px; border: 1px solid #475569; padding: 14px; }
+  .top3-card h3 { font-size: 13px; color: #38bdf8; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-bottom: 10px; font-weight: 800; }
+  .top3-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 12px; }
+
+  .config-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  .config-table th { background: #1e293b; padding: 10px; color: #94a3b8; font-size: 12px; font-weight: 700; }
+  .config-table td { padding: 9px; border-bottom: 1px solid #334155; font-size: 13px; }
+  .config-input { background: #030712; border: 1.5px solid #475569; color: #38bdf8; padding: 6px 10px; border-radius: 6px; font-weight: bold; width: 120px; text-align: center; }
+  .config-input:focus { border-color: #38bdf8; outline: none; }
+
 </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -276,6 +357,7 @@
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="venues" onclick="switchTab('venues',this)">📍 Địa điểm & Sân/Bàn</button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg flex items-center gap-1.5" data-tab="transport" onclick="switchTab('transport',this)"><span>🚌</span><span>Lịch di chuyển</span><span class="px-1.5 py-0.2 rounded-full bg-amber-400 text-slate-900 text-[10px] font-black">Mới</span></button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="results" onclick="switchTab('results',this)">🥇 Kết quả thi đấu</button>
+      <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg flex items-center gap-1.5" data-tab="checkin" onclick="switchTab('checkin',this)"><span>🏁</span><span>Ghi nhận kết quả Chạy</span><span class="px-1.5 py-0.2 rounded-full bg-emerald-400 text-slate-900 text-[10px] font-black">QR</span></button>
     </nav>
   </div>
 </header>
@@ -866,6 +948,170 @@
   </div>
 </div>
 
+
+<!-- ======================== TAB 8: GHI NHẬN KẾT QUẢ CHẠY (CHECKIN) ======================== -->
+<div class="tab-content hidden" id="tab-checkin">
+  <div class="checkin-theme rounded-3xl p-4 sm:p-6 shadow-2xl border border-slate-700/80 mb-6">
+    
+    <!-- HEADER BAR -->
+    <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b-2 border-slate-700/80">
+      <div>
+        <div class="flex items-center gap-2 mb-1">
+          <span class="px-2.5 py-0.5 rounded-full bg-emerald-500 text-slate-950 font-black text-xs uppercase tracking-wider">Fun Run Ninh Bình 2026</span>
+          <span id="checkin-cloud-badge" class="px-2.5 py-0.5 rounded-full bg-sky-950 text-sky-300 border border-sky-500/40 text-[11px] font-bold flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span id="checkin-cloud-text">Cloud Realtime Sync</span>
+          </span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black text-sky-400 flex items-center gap-2 uppercase tracking-wide">
+          <span>🏁 GHI NHẬN VỀ ĐÍCH & XẾP HẠNG TRAO GIẢI</span>
+        </h2>
+        <p class="text-xs text-slate-400 mt-0.5">
+          Quét mã QR / Nhập số BIB ghi nhận tức thì · Tính số phút chạy · Đối chiếu cut-off · Bảng danh dự Top 3
+        </p>
+      </div>
+
+      <!-- 3 STAT BOXES (CLICKABLE FILTERS) -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <div id="boxAll" class="checkin-stat-box active-all" onclick="changeStatusFilter('ALL')" title="Xem tất cả VĐV">
+          <div class="num" id="totalCount">0</div>
+          <div class="lbl">Tất cả VĐV</div>
+        </div>
+        <div id="boxFinish" class="checkin-stat-box" onclick="changeStatusFilter('FINISH')" title="Chỉ xem VĐV đã về đích">
+          <div class="num" id="finishCount" style="color: #10b981;">0</div>
+          <div class="lbl">Đã về đích</div>
+        </div>
+        <div id="boxRemain" class="checkin-stat-box" onclick="changeStatusFilter('REMAIN')" title="Chỉ xem VĐV chưa về">
+          <div class="num" id="remainCount" style="color: #f59e0b;">0</div>
+          <div class="lbl">Chưa về</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTROL ACTION BUTTONS BAR -->
+    <div class="my-3.5 flex flex-wrap items-center gap-2">
+      <input type="file" id="excelFile" accept=".xlsx, .xls, .csv" style="display: none;" onchange="handleFileSelect(event)">
+      <button class="px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs flex items-center gap-1.5 transition cursor-pointer shadow-sm" onclick="document.getElementById('excelFile').click()">
+        <span>📂</span><span>1. Nạp file Excel danh sách</span>
+      </button>
+      <button class="px-3.5 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs flex items-center gap-1.5 transition cursor-pointer shadow-sm" onclick="loadAthletesFromFunrun(true)" title="Khôi phục/Nạp danh sách VĐV có sẵn từ hệ thống">
+        <span>🔄</span><span>Nạp từ 427 VĐV Hệ Thống</span>
+      </button>
+      <button class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center gap-1.5 transition cursor-pointer shadow-sm" onclick="openConfigModal()">
+        <span>⏱️</span><span>CÀI GIỜ XUẤT PHÁT & CUT-OFF (PHÚT)</span>
+      </button>
+      <button class="px-3.5 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs flex items-center gap-1.5 transition cursor-pointer shadow-sm" onclick="openTop3Modal()">
+        <span>🏆</span><span>XEM BẢNG TOP 3 TRAO GIẢI</span>
+      </button>
+      <button class="px-3.5 py-2 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-xs flex items-center gap-1.5 transition cursor-pointer shadow-sm" onclick="exportResultExcel()">
+        <span>💾</span><span>2. Xuất Excel 9 Sheet</span>
+      </button>
+      <button class="px-3.5 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs flex items-center gap-1.5 transition cursor-pointer shadow-sm sm:ml-auto" onclick="resetAllData()">
+        <span>🗑️</span><span>Xóa làm lại từ đầu</span>
+      </button>
+    </div>
+
+    <!-- CATEGORY CHIPS BAR -->
+    <div class="checkin-cat-bar" id="categoryChips">
+      <span class="text-xs text-slate-400 font-bold mr-1 whitespace-nowrap">Nội dung:</span>
+      <button class="checkin-cat-chip active" onclick="changeCatFilter('ALL')">TẤT CẢ (8 NỘI DUNG)</button>
+      <button class="checkin-cat-chip" onclick="changeCatFilter('10km Nam')">10km Nam</button>
+      <button class="checkin-cat-chip" onclick="changeCatFilter('10km Nữ')">10km Nữ</button>
+      <button class="checkin-cat-chip" onclick="changeCatFilter('15km Nam')">15km Nam</button>
+      <button class="checkin-cat-chip" onclick="changeCatFilter('15km Nữ')">15km Nữ</button>
+      <button class="checkin-cat-chip" onclick="changeCatFilter('5km Nam dưới 35 tuổi')">5km Nam &lt; 35T</button>
+      <button class="checkin-cat-chip" onclick="changeCatFilter('5km Nam trên 35 tuổi')">5km Nam &gt; 35T</button>
+      <button class="checkin-cat-chip" onclick="changeCatFilter('5km Nữ dưới 35 tuổi')">5km Nữ &lt; 35T</button>
+      <button class="checkin-cat-chip" onclick="changeCatFilter('5km Nữ trên 35 tuổi')">5km Nữ &gt; 35T</button>
+    </div>
+
+    <!-- SCAN INPUT TEXTAREA -->
+    <div class="my-2.5">
+      <textarea id="scanInput" class="checkin-scan-input" rows="1" placeholder="🔍 Sẵn sàng nhận máy quét mã QR hoặc nhập số BIB... (Nhấp chuột vào đây một lần)" autofocus></textarea>
+      <div class="flex items-center justify-between text-[11px] text-slate-400 mt-1 px-1">
+        <span>💡 Tự động nhận diện chuỗi QR hoặc số BIB khi quét (nhấn Enter hoặc tự động sau 100ms).</span>
+        <span class="italic text-sky-400">Tự động đồng bộ lên máy chủ đám mây Firebase Realtime</span>
+      </div>
+    </div>
+
+    <!-- STATUS BANNER -->
+    <div id="statusBanner" class="checkin-banner">
+      <div class="title" id="bannerTitle"></div>
+      <div class="subtitle" id="bannerSubtitle"></div>
+      <div class="desc" id="bannerDesc"></div>
+      <div class="time" id="bannerTime"></div>
+    </div>
+
+    <!-- RESULT TABLE -->
+    <div class="checkin-table-wrap">
+      <table class="checkin-table">
+        <thead>
+          <tr>
+            <th style="width: 50px; text-align: center;">Hạng</th>
+            <th style="width: 80px; text-align: center;">Mã BIB</th>
+            <th>Họ và tên</th>
+            <th>Chức danh</th>
+            <th>Đơn vị</th>
+            <th>Nội dung thi đấu</th>
+            <th style="width: 75px; text-align: center;">Giờ XP</th>
+            <th style="width: 95px; text-align: center;">Giờ về đích</th>
+            <th style="width: 145px; background: #032b43; color: #38bdf8; text-align: center;">⏱️ Số phút chạy</th>
+            <th style="width: 85px; text-align: center;">Cut-off</th>
+            <th style="width: 80px; text-align: center;">Trạng thái</th>
+          </tr>
+        </thead>
+        <tbody id="athleteTableBody">
+          <tr><td colspan="11" style="text-align: center; color: #94a3b8; padding: 30px;">Chưa nạp danh sách VĐV.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- MODAL 1: CÀI ĐẶT GIỜ XUẤT PHÁT & CUT-OFF -->
+<div id="configModal" class="checkin-modal">
+  <div class="checkin-modal-content" style="max-width: 700px;">
+    <div class="checkin-modal-header">
+      <h2 style="color: #818cf8; font-weight: 800; font-size: 18px;" class="flex items-center gap-2">
+        <span>⏱️</span><span>CÀI ĐẶT GIỜ XUẤT PHÁT & CUT-OFF (SỐ PHÚT)</span>
+      </h2>
+      <button class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition cursor-pointer" onclick="closeConfigModal()">Đóng [X]</button>
+    </div>
+    <p style="font-size: 12px; color: #94a3b8; margin-bottom: 12px;">
+      Nhập <b>Giờ xuất phát</b> (ví dụ: <code>06:30</code>, <code>06:40</code>) và <b>Cut-off quy định</b> bằng <b>số phút</b> (ví dụ: <code>75</code>, <code>120</code>, <code>150</code>). Dữ liệu sẽ được lưu vào máy và đồng bộ lên Database Online.
+    </p>
+    <table class="config-table">
+      <thead>
+        <tr>
+          <th>Nội dung thi đấu</th>
+          <th style="text-align: center;">Giờ xuất phát (HH:mm)</th>
+          <th style="text-align: center;">Cut-off quy định (Số phút)</th>
+        </tr>
+      </thead>
+      <tbody id="configTableBody"></tbody>
+    </table>
+    <div style="margin-top: 18px; text-align: right; display: flex; justify-content: flex-end; gap: 8px;">
+      <button class="px-4 py-2 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-bold text-xs transition cursor-pointer" onclick="closeConfigModal()">Hủy bỏ</button>
+      <button class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition cursor-pointer shadow-sm" onclick="saveConfigData()">💾 Lưu Cài Đặt</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 2: BẢNG TOP 3 TRAO GIẢI -->
+<div id="top3Modal" class="checkin-modal">
+  <div class="checkin-modal-content">
+    <div class="checkin-modal-header">
+      <h2 style="color: #eab308; font-weight: 800; font-size: 18px;" class="flex items-center gap-2">
+        <span>🏆</span><span>BẢNG TOP 3 TRAO GIẢI THEO THỜI GIAN CHẠY (SỐ PHÚT)</span>
+      </h2>
+      <button class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition cursor-pointer" onclick="closeTop3Modal()">Đóng [X]</button>
+    </div>
+    <div class="grid-top3" id="top3Grid"></div>
+  </div>
+</div>
+
+
 <!-- FLOATING LEFT TRIGGER (FOR FAST ACCESS TO DRAWER & CONTROLS) -->
 <button id="floating-left-trigger" onclick="toggleLeftQuickDrawer(true)" class="fixed bottom-5 left-5 z-40 w-11 h-11 rounded-2xl bg-slate-900/90 hover:bg-slate-900 text-white shadow-xl border border-indigo-400/30 flex items-center justify-center text-sm font-black transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 group" title="Mở Bảng điều khiển & Chuyển Tab nhanh">
   <span class="text-amber-400 text-lg group-hover:scale-110 transition">⚡</span>
@@ -934,6 +1180,9 @@
         </button>
         <button onclick="switchTabFromDrawer('results')" class="w-full text-left px-3 py-2 rounded-xl bg-slate-100 hover:bg-indigo-50 hover:text-indigo-700 font-bold flex items-center justify-between transition">
           <span>📊 7. Kết quả & Tính điểm</span> <span>➔</span>
+        </button>
+        <button onclick="switchTabFromDrawer('checkin')" class="w-full text-left px-3 py-2 rounded-xl bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 font-bold flex items-center justify-between transition">
+          <span>🏁 8. Ghi nhận kết quả Chạy</span> <span>➔</span>
         </button>
       </div>
     </div>
@@ -2102,6 +2351,7 @@ function switchTab(name, btn) {
   else if (name === 'venues') renderVenuesTab();
   else if (name === 'transport') renderTransportTab();
   else if (name === 'results') renderResults();
+  else if (name === 'checkin') renderCheckinTab();
 
   setTimeout(updateSubnavMetrics, 60);
 }
@@ -2830,7 +3080,86 @@ function printAthleteSchedule() {
       li { margin-bottom: 6px; }
       .footer { margin-top: 24px; color: #64748b; font-size: 11px; border-top: 1px dashed #cbd5e1; padding-top: 8px; }
       @media print { button { display: none !important; } }
-    </style></head><body onload="window.print()">
+    
+  /* ================================================================ */
+  /* TAB 8: GHI NHẬN KẾT QUẢ CHẠY (CHECK-IN & XẾP HẠNG TRAO GIẢI) */
+  /* ================================================================ */
+  .checkin-theme {
+    background: #0b1120;
+    color: #f8fafc;
+  }
+  .checkin-stat-box { 
+    background: #1e293b; padding: 8px 16px; border-radius: 12px; 
+    border: 2px solid #475569; text-align: center; cursor: pointer; 
+    user-select: none; transition: 0.2s;
+  }
+  .checkin-stat-box:hover { transform: translateY(-2px); border-color: #94a3b8; }
+  .checkin-stat-box .num { font-size: 24px; font-weight: 800; color: #38bdf8; }
+  .checkin-stat-box .lbl { font-size: 11px; color: #94a3b8; text-transform: uppercase; font-weight: 700; margin-top: 2px; }
+  
+  .checkin-stat-box.active-all { border-color: #38bdf8; background: #0f2d4a; box-shadow: 0 0 12px rgba(56, 189, 248, 0.45); }
+  .checkin-stat-box.active-finish { border-color: #10b981; background: #064e3b; box-shadow: 0 0 12px rgba(16, 185, 129, 0.45); }
+  .checkin-stat-box.active-remain { border-color: #f59e0b; background: #451a03; box-shadow: 0 0 12px rgba(245, 158, 11, 0.45); }
+
+  .checkin-cat-bar { display: flex; gap: 6px; overflow-x: auto; padding: 6px 0; margin-bottom: 10px; align-items: center; }
+  .checkin-cat-chip { 
+    padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; 
+    background: #1e293b; color: #cbd5e1; border: 1.5px solid #475569; 
+    cursor: pointer; white-space: nowrap; transition: 0.15s; 
+  }
+  .checkin-cat-chip:hover { border-color: #38bdf8; color: #f8fafc; }
+  .checkin-cat-chip.active { background: #0284c7; color: white; border-color: #38bdf8; box-shadow: 0 0 10px rgba(2, 132, 199, 0.5); }
+
+  .checkin-scan-input {
+    width: 100%; font-size: 20px; padding: 12px 18px; border-radius: 12px;
+    border: 3px solid #38bdf8; background: #030712; color: #38bdf8;
+    font-weight: 800; outline: none; resize: none; transition: all 0.2s;
+  }
+  .checkin-scan-input:focus { border-color: #f59e0b; box-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
+
+  .checkin-banner { padding: 16px 20px; border-radius: 14px; margin-bottom: 12px; display: none; text-align: center; }
+  .checkin-banner.success { display: block; background: #064e3b; border: 2px solid #10b981; color: #ecfdf5; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2); }
+  .checkin-banner.warning { display: block; background: #78350f; border: 2px solid #f59e0b; color: #fffbeb; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2); }
+  .checkin-banner.error { display: block; background: #7f1d1d; border: 2px solid #ef4444; color: #fef2f2; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2); }
+  .checkin-banner .title { font-size: 26px; font-weight: 900; }
+  .checkin-banner .subtitle { font-size: 15px; color: #cbd5e1; font-weight: 600; margin: 4px 0 6px 0; }
+  .checkin-banner .desc { font-size: 16px; font-weight: 800; color: #fef08a; }
+  .checkin-banner .time { font-size: 13px; opacity: 0.9; margin-top: 4px; }
+
+  .checkin-table-wrap { background: #1e293b; border-radius: 14px; overflow: hidden; border: 1px solid #334155; max-height: 520px; overflow-y: auto; }
+  .checkin-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+  .checkin-table th { background: #0f172a; padding: 10px 12px; color: #94a3b8; font-size: 11px; text-transform: uppercase; position: sticky; top: 0; z-index: 2; font-weight: 800; }
+  .checkin-table td { padding: 9px 12px; border-bottom: 1px solid #334155; }
+  .checkin-table tr:hover { background: #243247; }
+  
+  .status-finish { background: #15803d; color: white; padding: 2px 7px; border-radius: 6px; font-weight: 800; font-size: 11px; display: inline-block; }
+  .status-unfinish { color: #64748b; font-size: 11px; font-weight: 600; }
+  
+  .rank-badge { font-weight: 800; padding: 3px 8px; border-radius: 6px; font-size: 11px; display: inline-block; }
+  .rank-1 { background: #eab308; color: #000; box-shadow: 0 0 8px rgba(234, 179, 8, 0.5); }
+  .rank-2 { background: #94a3b8; color: #000; }
+  .rank-3 { background: #b45309; color: #fff; }
+
+  .time-box { font-weight: 800; padding: 3px 8px; border-radius: 6px; display: inline-block; }
+  .time-valid { color: #10b981; font-size: 14px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); }
+  .time-overdue { background: #7f1d1d; color: #fecaca; border: 1px solid #ef4444; font-size: 13px; }
+
+  .checkin-modal { display: none; position: fixed; inset: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; padding: 16px; backdrop-filter: blur(4px); }
+  .checkin-modal-content { background: #0f172a; width: 95%; max-width: 960px; max-height: 90vh; border-radius: 16px; border: 2px solid #38bdf8; overflow-y: auto; padding: 24px; color: #f8fafc; box-shadow: 0 10px 40px rgba(0,0,0,0.7); }
+  .checkin-modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #334155; padding-bottom: 12px; margin-bottom: 16px; }
+
+  .grid-top3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+  .top3-card { background: #1e293b; border-radius: 12px; border: 1px solid #475569; padding: 14px; }
+  .top3-card h3 { font-size: 13px; color: #38bdf8; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-bottom: 10px; font-weight: 800; }
+  .top3-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 12px; }
+
+  .config-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  .config-table th { background: #1e293b; padding: 10px; color: #94a3b8; font-size: 12px; font-weight: 700; }
+  .config-table td { padding: 9px; border-bottom: 1px solid #334155; font-size: 13px; }
+  .config-input { background: #030712; border: 1.5px solid #475569; color: #38bdf8; padding: 6px 10px; border-radius: 6px; font-weight: bold; width: 120px; text-align: center; }
+  .config-input:focus { border-color: #38bdf8; outline: none; }
+
+</style></head><body onload="window.print()">
     <h1>ĐẠI HỘI MƯỜNG THANH 2026 · LỊCH THI CÁ NHÂN</h1>
     <div class="card">
       <p><strong>Vận động viên:</strong> ${a.hoVaTen}</p>
@@ -4291,7 +4620,86 @@ function printSingleTrip(trip) {
         .text-center { text-align: center; }
         .sign-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; text-align: center; font-size: 12px; margin-top: 30px; }
         .sign-space { height: 60px; }
-      </style>
+      
+  /* ================================================================ */
+  /* TAB 8: GHI NHẬN KẾT QUẢ CHẠY (CHECK-IN & XẾP HẠNG TRAO GIẢI) */
+  /* ================================================================ */
+  .checkin-theme {
+    background: #0b1120;
+    color: #f8fafc;
+  }
+  .checkin-stat-box { 
+    background: #1e293b; padding: 8px 16px; border-radius: 12px; 
+    border: 2px solid #475569; text-align: center; cursor: pointer; 
+    user-select: none; transition: 0.2s;
+  }
+  .checkin-stat-box:hover { transform: translateY(-2px); border-color: #94a3b8; }
+  .checkin-stat-box .num { font-size: 24px; font-weight: 800; color: #38bdf8; }
+  .checkin-stat-box .lbl { font-size: 11px; color: #94a3b8; text-transform: uppercase; font-weight: 700; margin-top: 2px; }
+  
+  .checkin-stat-box.active-all { border-color: #38bdf8; background: #0f2d4a; box-shadow: 0 0 12px rgba(56, 189, 248, 0.45); }
+  .checkin-stat-box.active-finish { border-color: #10b981; background: #064e3b; box-shadow: 0 0 12px rgba(16, 185, 129, 0.45); }
+  .checkin-stat-box.active-remain { border-color: #f59e0b; background: #451a03; box-shadow: 0 0 12px rgba(245, 158, 11, 0.45); }
+
+  .checkin-cat-bar { display: flex; gap: 6px; overflow-x: auto; padding: 6px 0; margin-bottom: 10px; align-items: center; }
+  .checkin-cat-chip { 
+    padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; 
+    background: #1e293b; color: #cbd5e1; border: 1.5px solid #475569; 
+    cursor: pointer; white-space: nowrap; transition: 0.15s; 
+  }
+  .checkin-cat-chip:hover { border-color: #38bdf8; color: #f8fafc; }
+  .checkin-cat-chip.active { background: #0284c7; color: white; border-color: #38bdf8; box-shadow: 0 0 10px rgba(2, 132, 199, 0.5); }
+
+  .checkin-scan-input {
+    width: 100%; font-size: 20px; padding: 12px 18px; border-radius: 12px;
+    border: 3px solid #38bdf8; background: #030712; color: #38bdf8;
+    font-weight: 800; outline: none; resize: none; transition: all 0.2s;
+  }
+  .checkin-scan-input:focus { border-color: #f59e0b; box-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
+
+  .checkin-banner { padding: 16px 20px; border-radius: 14px; margin-bottom: 12px; display: none; text-align: center; }
+  .checkin-banner.success { display: block; background: #064e3b; border: 2px solid #10b981; color: #ecfdf5; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2); }
+  .checkin-banner.warning { display: block; background: #78350f; border: 2px solid #f59e0b; color: #fffbeb; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2); }
+  .checkin-banner.error { display: block; background: #7f1d1d; border: 2px solid #ef4444; color: #fef2f2; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.2); }
+  .checkin-banner .title { font-size: 26px; font-weight: 900; }
+  .checkin-banner .subtitle { font-size: 15px; color: #cbd5e1; font-weight: 600; margin: 4px 0 6px 0; }
+  .checkin-banner .desc { font-size: 16px; font-weight: 800; color: #fef08a; }
+  .checkin-banner .time { font-size: 13px; opacity: 0.9; margin-top: 4px; }
+
+  .checkin-table-wrap { background: #1e293b; border-radius: 14px; overflow: hidden; border: 1px solid #334155; max-height: 520px; overflow-y: auto; }
+  .checkin-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+  .checkin-table th { background: #0f172a; padding: 10px 12px; color: #94a3b8; font-size: 11px; text-transform: uppercase; position: sticky; top: 0; z-index: 2; font-weight: 800; }
+  .checkin-table td { padding: 9px 12px; border-bottom: 1px solid #334155; }
+  .checkin-table tr:hover { background: #243247; }
+  
+  .status-finish { background: #15803d; color: white; padding: 2px 7px; border-radius: 6px; font-weight: 800; font-size: 11px; display: inline-block; }
+  .status-unfinish { color: #64748b; font-size: 11px; font-weight: 600; }
+  
+  .rank-badge { font-weight: 800; padding: 3px 8px; border-radius: 6px; font-size: 11px; display: inline-block; }
+  .rank-1 { background: #eab308; color: #000; box-shadow: 0 0 8px rgba(234, 179, 8, 0.5); }
+  .rank-2 { background: #94a3b8; color: #000; }
+  .rank-3 { background: #b45309; color: #fff; }
+
+  .time-box { font-weight: 800; padding: 3px 8px; border-radius: 6px; display: inline-block; }
+  .time-valid { color: #10b981; font-size: 14px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); }
+  .time-overdue { background: #7f1d1d; color: #fecaca; border: 1px solid #ef4444; font-size: 13px; }
+
+  .checkin-modal { display: none; position: fixed; inset: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; padding: 16px; backdrop-filter: blur(4px); }
+  .checkin-modal-content { background: #0f172a; width: 95%; max-width: 960px; max-height: 90vh; border-radius: 16px; border: 2px solid #38bdf8; overflow-y: auto; padding: 24px; color: #f8fafc; box-shadow: 0 10px 40px rgba(0,0,0,0.7); }
+  .checkin-modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #334155; padding-bottom: 12px; margin-bottom: 16px; }
+
+  .grid-top3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+  .top3-card { background: #1e293b; border-radius: 12px; border: 1px solid #475569; padding: 14px; }
+  .top3-card h3 { font-size: 13px; color: #38bdf8; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-bottom: 10px; font-weight: 800; }
+  .top3-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 12px; }
+
+  .config-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  .config-table th { background: #1e293b; padding: 10px; color: #94a3b8; font-size: 12px; font-weight: 700; }
+  .config-table td { padding: 9px; border-bottom: 1px solid #334155; font-size: 13px; }
+  .config-input { background: #030712; border: 1.5px solid #475569; color: #38bdf8; padding: 6px 10px; border-radius: 6px; font-weight: bold; width: 120px; text-align: center; }
+  .config-input:focus { border-color: #38bdf8; outline: none; }
+
+</style>
     </head>
     <body onload="window.print()">
       <div class="header">
@@ -5892,6 +6300,8 @@ function printTournamentBracket() {
 // ================================================================
 window.addEventListener('DOMContentLoaded', () => {
   initFirebaseSync();
+  initCheckinInputListeners();
+  initCheckinFirebaseSync();
   renderAuthHeader();
   updateAllTournamentsLiveState();
   document.getElementById('hdr-athletes').textContent = DATA.athletes.length;
@@ -6773,6 +7183,681 @@ function closeFunRunVenueModal(e) {
   if (e && e.target && e.target.id !== 'funrun-venue-modal-backdrop' && e.type !== 'click') return;
   const modal = document.getElementById('funrun-venue-modal-backdrop');
   if (modal) modal.remove();
+}
+
+
+// ================================================================
+// TAB 8: GHI NHẬN KẾT QUẢ CHẠY (CHECKIN) & ONLINE SYNC
+// ================================================================
+const STANDARD_CATS = [
+    "10km Nam", "10km Nữ",
+    "15km Nam", "15km Nữ",
+    "5km Nam dưới 35 tuổi", "5km Nam trên 35 tuổi",
+    "5km Nữ dưới 35 tuổi", "5km Nữ trên 35 tuổi"
+];
+
+let raceConfig = JSON.parse(localStorage.getItem('RACE_CONFIG') || '{}');
+STANDARD_CATS.forEach(cat => {
+    if (!raceConfig[cat]) {
+        let defMinutes = 75;
+        let defStart = "06:40";
+        if (cat.includes('10km')) { defMinutes = 120; defStart = "06:35"; }
+        else if (cat.includes('15km')) { defMinutes = 150; defStart = "06:30"; }
+        else if (cat.includes('Nữ')) { defStart = "06:45"; }
+        raceConfig[cat] = { start: defStart, cutoffMinutes: defMinutes };
+    }
+});
+
+let athletes = JSON.parse(localStorage.getItem('RACE_ATHLETES') || '[]');
+let currentStatusFilter = 'ALL';
+let currentCatFilter = 'ALL';
+let scanTimeout = null;
+
+// Khởi tạo danh sách VĐV từ hệ thống DATA.funrun.runners nếu chưa có
+function loadAthletesFromFunrun(force = false) {
+    if (!DATA.funrun || !DATA.funrun.runners) return;
+    if (!force && athletes && athletes.length > 0) return;
+
+    let oldFinishMap = {};
+    if (athletes && athletes.length > 0) {
+        athletes.forEach(a => {
+            if (a.status === 'FINISH') oldFinishMap[a.bib] = a.finishTime;
+        });
+    }
+
+    athletes = DATA.funrun.runners.map(r => {
+        const bibVal = String(r.bib);
+        const prevTime = oldFinishMap[bibVal];
+        return {
+            bib: bibVal,
+            name: r.name,
+            title: r.title || '',
+            unit: r.unit || '',
+            phone: r.phone || '',
+            gender: r.gender || '',
+            distance: r.distance || r.dist || '5km',
+            category: r.category || '',
+            status: prevTime ? 'FINISH' : 'CHƯA',
+            finishTime: prevTime || ''
+        };
+    });
+
+    saveAndRender(true);
+    if (force) {
+        showBanner('success', 'ĐÃ ĐỒNG BỘ TỪ HỆ THỐNG', '', `Đã nạp thành công ${athletes.length} VĐV Giải chạy Fun Run vào bảng ghi nhận!`, `Thời gian: ${new Date().toLocaleTimeString('vi-VN')}`);
+    }
+}
+
+function updateCheckinCloudIndicator(online) {
+    const text = document.getElementById('checkin-cloud-text');
+    const badge = document.getElementById('checkin-cloud-badge');
+    if (text) text.textContent = online ? 'Cloud Realtime: Trực tuyến' : 'Ngoại tuyến (Lưu máy)';
+    if (badge) {
+        badge.className = online 
+            ? 'px-2.5 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/40 text-[11px] font-bold flex items-center gap-1.5'
+            : 'px-2.5 py-0.5 rounded-full bg-amber-950 text-amber-300 border border-amber-500/40 text-[11px] font-bold flex items-center gap-1.5';
+    }
+}
+
+// KHỞI TẠO LẮNG NGHE ĐỒNG BỘ REALTIME TỪ FIREBASE
+function initCheckinFirebaseSync() {
+    if (typeof firebaseDb === 'undefined' || !firebaseDb) return;
+    
+    updateCheckinCloudIndicator(true);
+
+    // 1. Lắng nghe cấu hình giờ xuất phát & cut-off
+    firebaseDb.ref('dhmt2026/funrun_checkin/config').on('value', snap => {
+        const cloudCfg = snap.val();
+        if (cloudCfg && typeof cloudCfg === 'object') {
+            raceConfig = { ...raceConfig, ...cloudCfg };
+            localStorage.setItem('RACE_CONFIG', JSON.stringify(raceConfig));
+            renderTableOnly();
+        }
+    });
+
+    // 2. Lắng nghe dữ liệu VĐV về đích đồng thời từ nhiều máy quét
+    firebaseDb.ref('dhmt2026/funrun_checkin/athletes').on('value', snap => {
+        const cloudAthletes = snap.val();
+        if (cloudAthletes && Array.isArray(cloudAthletes) && cloudAthletes.length > 0) {
+            let changed = false;
+            if (!athletes || athletes.length === 0) {
+                athletes = cloudAthletes;
+                changed = true;
+            } else {
+                cloudAthletes.forEach(cA => {
+                    let localA = athletes.find(a => String(a.bib) === String(cA.bib));
+                    if (localA) {
+                        if (cA.status === 'FINISH' && localA.status !== 'FINISH') {
+                            localA.status = 'FINISH';
+                            localA.finishTime = cA.finishTime;
+                            changed = true;
+                        }
+                    }
+                });
+            }
+            if (changed) {
+                localStorage.setItem('RACE_ATHLETES', JSON.stringify(athletes));
+                updateStatsCounters();
+                renderTableOnly();
+            }
+        }
+    });
+}
+
+function parseToSeconds(timeStr) {
+    if (!timeStr) return null;
+    const parts = timeStr.trim().split(':');
+    if (parts.length < 2) return null;
+    const h = parseInt(parts[0], 10);
+    const m = parseInt(parts[1], 10);
+    const s = parts[2] ? parseFloat(parts[2]) : 0;
+    return h * 3600 + m * 60 + s;
+}
+
+function calculateRunMinutes(finishTime, cat) {
+    if (!finishTime) return { minutesVal: null, displayStr: '--', isOverdue: false, cutoffLimit: '--' };
+    const cfg = raceConfig[cat] || { start: "06:40", cutoffMinutes: 75 };
+    const finishSec = parseToSeconds(finishTime);
+    const startSec = parseToSeconds(cfg.start);
+    const cutoffMin = parseFloat(cfg.cutoffMinutes) || 9999;
+
+    if (finishSec === null || startSec === null) {
+        return { minutesVal: null, displayStr: '--', isOverdue: false, cutoffLimit: cutoffMin };
+    }
+
+    let diffSec = finishSec - startSec;
+    if (diffSec < 0) diffSec += 86400;
+
+    const totalMin = Number((diffSec / 60).toFixed(1));
+    const isOverdue = totalMin > cutoffMin;
+
+    return {
+        minutesVal: totalMin,
+        displayStr: `${totalMin} phút`,
+        isOverdue: isOverdue,
+        cutoffLimit: cutoffMin
+    };
+}
+
+function processRawData(raw) {
+    raw = (raw || '').trim();
+    if (!raw) return;
+    const scanInput = document.getElementById('scanInput');
+    if (scanInput) scanInput.value = '';
+
+    let match = raw.match(/^([0-9a-zA-Z]+)[_\s\-]/) || raw.match(/^([0-9]+)/) || raw.match(/(\d{3,5})/);
+    let bib = match ? match[1] : raw;
+
+    let athlete = athletes.find(a => String(a.bib).trim().toLowerCase() === String(bib).trim().toLowerCase());
+    const now = new Date();
+    const timeStr = now.toTimeString().split(' ')[0] + '.' + Math.floor(now.getMilliseconds()/100);
+
+    if (!athlete) {
+        showBanner('error', `KHÔNG TÌM THẤY BIB: ${bib}`, '', `Mã "${raw}" không khớp VĐV nào trong danh sách!`, `Thời gian: ${timeStr}`);
+        return;
+    }
+
+    let jobUnit = [athlete.title, athlete.unit].filter(Boolean).join(' - ');
+
+    if (athlete.status === 'FINISH') {
+        const info = calculateRunMinutes(athlete.finishTime, athlete.category);
+        showBanner('warning', 
+            `⚠️ BIB ${athlete.bib} - ${athlete.name}`, 
+            jobUnit,
+            `VĐV ĐÃ VỀ ĐÍCH TỪ TRƯỚC! Thời gian: ${info.displayStr}`, 
+            `Giờ về: ${athlete.finishTime} | ${athlete.category}`
+        );
+        return;
+    }
+
+    athlete.status = 'FINISH';
+    athlete.finishTime = timeStr;
+    const runInfo = calculateRunMinutes(timeStr, athlete.category);
+
+    showBanner('success', 
+        `🎉 BIB ${athlete.bib} - ${athlete.name}`, 
+        jobUnit,
+        `FINISH! Thời gian chạy: ${runInfo.displayStr} ${runInfo.isOverdue ? '(⚠️ Quá Cut-off)' : ''}`, 
+        `Giờ về: ${timeStr} | ${athlete.category}`
+    );
+    saveAndRender(true);
+}
+
+function showBanner(type, title, subtitle, desc, time) {
+    const statusBanner = document.getElementById('statusBanner');
+    if (!statusBanner) return;
+    statusBanner.className = `checkin-banner ${type}`;
+    const tEl = document.getElementById('bannerTitle');
+    const sEl = document.getElementById('bannerSubtitle');
+    const dEl = document.getElementById('bannerDesc');
+    const tiEl = document.getElementById('bannerTime');
+    if (tEl) tEl.innerText = title;
+    if (sEl) sEl.innerText = subtitle || '';
+    if (dEl) dEl.innerText = desc;
+    if (tiEl) tiEl.innerText = time;
+}
+
+function changeStatusFilter(status) {
+    currentStatusFilter = status;
+    const bAll = document.getElementById('boxAll');
+    const bFin = document.getElementById('boxFinish');
+    const bRem = document.getElementById('boxRemain');
+
+    if (bAll) bAll.className = 'checkin-stat-box';
+    if (bFin) bFin.className = 'checkin-stat-box';
+    if (bRem) bRem.className = 'checkin-stat-box';
+
+    if (status === 'ALL' && bAll) bAll.classList.add('active-all');
+    else if (status === 'FINISH' && bFin) bFin.classList.add('active-finish');
+    else if (status === 'REMAIN' && bRem) bRem.classList.add('active-remain');
+
+    renderTableOnly();
+    focusScanInput();
+}
+
+function changeCatFilter(cat) {
+    currentCatFilter = cat;
+    document.querySelectorAll('.checkin-cat-chip').forEach(btn => btn.classList.remove('active'));
+    if (event && event.target) event.target.classList.add('active');
+    renderTableOnly();
+    focusScanInput();
+}
+
+function updateStatsCounters() {
+    const totalEl = document.getElementById('totalCount');
+    const finishEl = document.getElementById('finishCount');
+    const remainEl = document.getElementById('remainCount');
+    if (totalEl) totalEl.innerText = athletes.length;
+    if (finishEl) finishEl.innerText = athletes.filter(a => a.status === 'FINISH').length;
+    if (remainEl) remainEl.innerText = athletes.filter(a => a.status !== 'FINISH').length;
+}
+
+function saveAndRender(pushToCloud = true) {
+    localStorage.setItem('RACE_ATHLETES', JSON.stringify(athletes));
+    updateStatsCounters();
+    renderTableOnly();
+
+    if (pushToCloud && typeof firebaseDb !== 'undefined' && firebaseDb) {
+        firebaseDb.ref('dhmt2026/funrun_checkin/athletes').set(athletes)
+            .then(() => updateCheckinCloudIndicator(true))
+            .catch(err => {
+                console.warn('Firebase athletes sync error:', err);
+                updateCheckinCloudIndicator(false);
+            });
+    }
+}
+
+function renderTableOnly() {
+    const tbody = document.getElementById('athleteTableBody');
+    if (!tbody) return;
+    if (athletes.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="11" style="text-align: center; color: #94a3b8; padding: 30px;">Chưa nạp danh sách VĐV. Hãy nhấn "Nạp từ 427 VĐV Hệ Thống" hoặc tải file Excel lên.</td></tr>`;
+        return;
+    }
+
+    let rankMap = {};
+    STANDARD_CATS.forEach(cat => {
+        let finishedInCat = athletes.filter(a => a.category === cat && a.status === 'FINISH')
+            .map(a => ({ ...a, ...calculateRunMinutes(a.finishTime, a.category) }))
+            .sort((a,b) => (a.minutesVal || 999999) - (b.minutesVal || 999999));
+
+        finishedInCat.forEach((a, idx) => {
+            rankMap[a.bib] = idx + 1;
+        });
+    });
+
+    let filtered = athletes.filter(a => {
+        if (currentStatusFilter === 'FINISH' && a.status !== 'FINISH') return false;
+        if (currentStatusFilter === 'REMAIN' && a.status === 'FINISH') return false;
+        if (currentCatFilter !== 'ALL' && a.category !== currentCatFilter) return false;
+        return true;
+    });
+
+    filtered.sort((a,b) => {
+        if (a.status === 'FINISH' && b.status !== 'FINISH') return -1;
+        if (a.status !== 'FINISH' && b.status === 'FINISH') return 1;
+        if (a.status === 'FINISH' && b.status === 'FINISH') {
+            const infoA = calculateRunMinutes(a.finishTime, a.category);
+            const infoB = calculateRunMinutes(b.finishTime, b.category);
+            return (infoA.minutesVal || 999999) - (infoB.minutesVal || 999999);
+        }
+        return 0;
+    });
+
+    tbody.innerHTML = filtered.map(a => {
+        const rank = rankMap[a.bib];
+        let rankBadge = '--';
+        if (rank === 1) rankBadge = '<span class="rank-badge rank-1">🥇 1</span>';
+        else if (rank === 2) rankBadge = '<span class="rank-badge rank-2">🥈 2</span>';
+        else if (rank === 3) rankBadge = '<span class="rank-badge rank-3">🥉 3</span>';
+        else if (rank) rankBadge = `<span class="rank-badge" style="background:#334155;color:#fff;">${rank}</span>`;
+
+        const cfg = raceConfig[a.category] || { start: '--:--', cutoffMinutes: '--' };
+        const runInfo = calculateRunMinutes(a.finishTime, a.category);
+
+        let durationHtml = `--`;
+        if (a.status === 'FINISH') {
+            if (runInfo.isOverdue) {
+                durationHtml = `<span class="time-box time-overdue" title="Vượt Cut-off (${cfg.cutoffMinutes} phút)">⚠️ ${runInfo.displayStr}</span>`;
+            } else {
+                durationHtml = `<span class="time-box time-valid">${runInfo.displayStr}</span>`;
+            }
+        }
+
+        return `
+            <tr style="${a.status === 'FINISH' ? 'background: rgba(16, 185, 129, 0.08);' : ''}">
+                <td style="text-align: center;">${rankBadge}</td>
+                <td style="font-weight: bold; color: #38bdf8; font-size: 15px; text-align: center;">${a.bib}</td>
+                <td style="font-weight: 600;">${escHtml(a.name)}</td>
+                <td style="color: #cbd5e1;">${escHtml(a.title || '')}</td>
+                <td style="color: #94a3b8;">${escHtml(a.unit || '')}</td>
+                <td style="font-weight: 600; color: #f59e0b;">${escHtml(a.category || '')}</td>
+                <td style="color: #94a3b8; font-size: 12px; text-align: center;">${cfg.start}</td>
+                <td style="color: #cbd5e1; text-align: center;">${a.finishTime || '--:--:--'}</td>
+                <td style="font-size: 14px; text-align: center;">${durationHtml}</td>
+                <td style="color: #94a3b8; font-size: 12px; text-align: center;">${cfg.cutoffMinutes} phút</td>
+                <td style="text-align: center;"><span class="${a.status === 'FINISH' ? 'status-finish' : 'status-unfinish'}">${a.status || 'CHƯA'}</span></td>
+            </tr>
+        `;
+    }).join('');
+}
+
+function focusScanInput() {
+    const scanInput = document.getElementById('scanInput');
+    if (scanInput) {
+        scanInput.focus();
+    }
+}
+
+// CÀI ĐẶT GIỜ XUẤT PHÁT & CUT-OFF
+function openConfigModal() {
+    const tbody = document.getElementById('configTableBody');
+    if (!tbody) return;
+    tbody.innerHTML = STANDARD_CATS.map(cat => {
+        const cfg = raceConfig[cat] || { start: "06:40", cutoffMinutes: 75 };
+        return `
+            <tr>
+                <td style="font-weight: 600; color: #38bdf8;">${cat}</td>
+                <td style="text-align: center;">
+                    <input type="text" class="config-input" id="start_${cat}" value="${cfg.start}">
+                </td>
+                <td style="text-align: center;">
+                    <input type="number" class="config-input" id="cutoff_${cat}" value="${cfg.cutoffMinutes}" placeholder="75, 120...">
+                    <span style="font-size: 12px; color: #94a3b8; margin-left: 4px;">phút</span>
+                </td>
+            </tr>
+        `;
+    }).join('');
+
+    const modal = document.getElementById('configModal');
+    if (modal) modal.style.display = 'flex';
+}
+
+function closeConfigModal() {
+    const modal = document.getElementById('configModal');
+    if (modal) modal.style.display = 'none';
+    focusScanInput();
+}
+
+function saveConfigData() {
+    STANDARD_CATS.forEach(cat => {
+        const startEl = document.getElementById(`start_${cat}`);
+        const cutEl = document.getElementById(`cutoff_${cat}`);
+        const startVal = startEl ? startEl.value.trim() : "06:40";
+        const cutVal = cutEl ? (parseFloat(cutEl.value) || 0) : 75;
+        raceConfig[cat] = { start: startVal, cutoffMinutes: cutVal };
+    });
+    localStorage.setItem('RACE_CONFIG', JSON.stringify(raceConfig));
+
+    if (typeof firebaseDb !== 'undefined' && firebaseDb) {
+        firebaseDb.ref('dhmt2026/funrun_checkin/config').set(raceConfig)
+            .catch(err => console.warn('Firebase config sync error:', err));
+    }
+
+    alert('Đã lưu thành công cài đặt Giờ xuất phát và Cut-off (số phút)!');
+    closeConfigModal();
+    renderTableOnly();
+}
+
+// BẢNG TOP 3 TRAO GIẢI
+function openTop3Modal() {
+    const grid = document.getElementById('top3Grid');
+    if (!grid) return;
+    grid.innerHTML = STANDARD_CATS.map(cat => {
+        let finished = athletes.filter(a => a.category === cat && a.status === 'FINISH')
+            .map(a => ({ ...a, ...calculateRunMinutes(a.finishTime, a.category) }))
+            .sort((a,b) => (a.minutesVal || 999999) - (b.minutesVal || 999999));
+
+        const top1 = finished[0];
+        const top2 = finished[1];
+        const top3 = finished[2];
+
+        const cfg = raceConfig[cat] || { start: '06:40', cutoffMinutes: 75 };
+
+        return `
+            <div class="top3-card">
+                <h3>🏃 ${cat} <span style="font-size:11px;color:#94a3b8;font-weight:normal;">(Cut-off: ${cfg.cutoffMinutes}p)</span></h3>
+                <div class="top3-item">
+                    <span>🥇 Nhất: <b>${top1 ? escHtml(top1.name) : '---'}</b> ${top1 ? `(BIB ${top1.bib})` : ''}</span>
+                    <span style="color:#10b981;font-weight:bold;font-size:13px;">${top1 ? top1.displayStr : '--'}</span>
+                </div>
+                <div class="top3-item">
+                    <span>🥈 Nhì: <b>${top2 ? escHtml(top2.name) : '---'}</b> ${top2 ? `(BIB ${top2.bib})` : ''}</span>
+                    <span style="color:#10b981;font-weight:bold;font-size:13px;">${top2 ? top2.displayStr : '--'}</span>
+                </div>
+                <div class="top3-item">
+                    <span>🥉 Ba: <b>${top3 ? escHtml(top3.name) : '---'}</b> ${top3 ? `(BIB ${top3.bib})` : ''}</span>
+                    <span style="color:#10b981;font-weight:bold;font-size:13px;">${top3 ? top3.displayStr : '--'}</span>
+                </div>
+                <div style="font-size: 11px; color: #94a3b8; margin-top: 6px; border-top: 1px dashed #334155; padding-top: 4px;">
+                    Đã về đích: ${finished.length} VĐV
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    const modal = document.getElementById('top3Modal');
+    if (modal) modal.style.display = 'flex';
+}
+
+function closeTop3Modal() {
+    const modal = document.getElementById('top3Modal');
+    if (modal) modal.style.display = 'none';
+    focusScanInput();
+}
+
+// NẠP FILE EXCEL DANH SÁCH
+function handleFileSelect(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    if (typeof XLSX === 'undefined') {
+        alert('Thư viện đọc bảng tính SheetJS đang tải, vui lòng thử lại sau giây lát!');
+        return;
+    }
+    const reader = new FileReader();
+    reader.onload = function(evt) {
+        try {
+            const data = new Uint8Array(evt.target.result);
+            const workbook = XLSX.read(data, { type: 'array' });
+            const rows = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]], { header: 1 });
+            parseExcelRows(rows);
+        } catch (err) {
+            alert('Lỗi khi đọc file Excel: ' + err.message);
+        }
+    };
+    reader.readAsArrayBuffer(file);
+}
+
+function parseExcelRows(rows) {
+    if (!rows || rows.length < 2) return alert('File không có dữ liệu!');
+    let headerIdx = 0;
+    for (let r = 0; r < Math.min(10, rows.length); r++) {
+        let txt = (rows[r] || []).join(' ').toLowerCase();
+        if (txt.includes('bib') || txt.includes('số bib')) { headerIdx = r; break; }
+    }
+
+    const header = rows[headerIdx].map(c => String(c || '').trim().toLowerCase());
+    const col = (name) => header.findIndex(h => h.includes(name));
+
+    const bibCol = col('bib');
+    const nameCol = col('họ và tên') !== -1 ? col('họ và tên') : col('tên');
+    const titleCol = col('chức danh');
+    const unitCol = col('đơn vị');
+    const phoneCol = col('điện thoại') !== -1 ? col('điện thoại') : col('sđt');
+    const genderCol = col('giới tính');
+    const distCol = col('cự ly');
+    const catCol = col('nội dung');
+
+    let oldFinishMap = {};
+    athletes.forEach(a => {
+        if (a.status === 'FINISH') oldFinishMap[a.bib] = a.finishTime;
+    });
+
+    let loaded = [];
+    for (let i = headerIdx + 1; i < rows.length; i++) {
+        const r = rows[i];
+        if (!r || !r[bibCol]) continue;
+        const bibVal = String(r[bibCol]).trim();
+        if (!bibVal || isNaN(bibVal)) continue;
+
+        const prevTime = oldFinishMap[bibVal];
+        loaded.push({
+            bib: bibVal,
+            name: r[nameCol] ? String(r[nameCol]).trim() : 'VĐV ' + bibVal,
+            title: titleCol !== -1 && r[titleCol] ? String(r[titleCol]).trim() : '',
+            unit: unitCol !== -1 && r[unitCol] ? String(r[unitCol]).trim() : '',
+            phone: phoneCol !== -1 && r[phoneCol] ? String(r[phoneCol]).trim() : '',
+            gender: genderCol !== -1 && r[genderCol] ? String(r[genderCol]).trim() : '',
+            distance: distCol !== -1 && r[distCol] ? String(r[distCol]).trim() : '',
+            category: catCol !== -1 && r[catCol] ? String(r[catCol]).trim() : '',
+            status: prevTime ? 'FINISH' : 'CHƯA',
+            finishTime: prevTime || ''
+        });
+    }
+
+    if (confirm(`Tìm thấy ${loaded.length} VĐV. Nạp vào hệ thống? (Kết quả quét cũ sẽ được giữ nguyên)`)) {
+        athletes = loaded;
+        saveAndRender(true);
+        alert(`Nạp thành công ${loaded.length} VĐV!`);
+    }
+}
+
+// XUẤT BẢNG KẾT QUẢ EXCEL 9 SHEET
+function exportResultExcel() {
+    if (athletes.length === 0) return alert('Chưa có dữ liệu để xuất!');
+    if (typeof XLSX === 'undefined') return alert('Thư viện XLSX chưa sẵn sàng!');
+
+    const wb = XLSX.utils.book_new();
+
+    let rankMap = {};
+    STANDARD_CATS.forEach(cat => {
+        let finishedInCat = athletes.filter(a => a.category === cat && a.status === 'FINISH')
+            .map(a => ({ ...a, ...calculateRunMinutes(a.finishTime, a.category) }))
+            .sort((a,b) => (a.minutesVal || 999999) - (b.minutesVal || 999999));
+        finishedInCat.forEach((a, idx) => { rankMap[a.bib] = idx + 1; });
+    });
+
+    const totalData = athletes.map((a, i) => {
+        const cfg = raceConfig[a.category] || { start: '', cutoffMinutes: '' };
+        const runInfo = calculateRunMinutes(a.finishTime, a.category);
+        return {
+            "STT": i + 1,
+            "Hạng Nội Dung": rankMap[a.bib] || '',
+            "Số BIB": a.bib,
+            "Họ và tên": a.name,
+            "Chức danh": a.title,
+            "Đơn vị": a.unit,
+            "Số điện thoại": a.phone,
+            "Giới tính": a.gender,
+            "Cự ly": a.distance,
+            "Nội dung": a.category,
+            "Giờ xuất phát": cfg.start,
+            "Giờ về đích": a.finishTime,
+            "Thời gian chạy (Phút)": a.status === 'FINISH' ? runInfo.minutesVal : '',
+            "Cut-off quy định (Phút)": cfg.cutoffMinutes,
+            "Đạt Cut-off": a.status === 'FINISH' ? (runInfo.isOverdue ? "QUÁ CUT-OFF" : "HỢP LỆ") : '',
+            "Trạng thái": a.status
+        };
+    });
+    const wsTong = XLSX.utils.json_to_sheet(totalData);
+    XLSX.utils.book_append_sheet(wb, wsTong, "Tong_Hop_Tat_Ca");
+
+    STANDARD_CATS.forEach(cat => {
+        let catList = athletes.filter(a => a.category === cat);
+        catList.sort((a, b) => {
+            if (a.status === 'FINISH' && b.status !== 'FINISH') return -1;
+            if (a.status !== 'FINISH' && b.status === 'FINISH') return 1;
+            if (a.status === 'FINISH' && b.status === 'FINISH') {
+                const infoA = calculateRunMinutes(a.finishTime, a.category);
+                const infoB = calculateRunMinutes(b.finishTime, b.category);
+                return (infoA.minutesVal || 999999) - (infoB.minutesVal || 999999);
+            }
+            return 0;
+        });
+
+        const cfg = raceConfig[cat] || { start: '', cutoffMinutes: '' };
+        const catData = catList.map(a => {
+            const runInfo = calculateRunMinutes(a.finishTime, a.category);
+            return {
+                "Thứ hạng": rankMap[a.bib] || 'Chưa finish',
+                "Số BIB": a.bib,
+                "Họ và tên": a.name,
+                "Chức danh": a.title,
+                "Đơn vị": a.unit,
+                "Số điện thoại": a.phone,
+                "Giới tính": a.gender,
+                "Giờ xuất phát": cfg.start,
+                "Giờ về đích": a.finishTime,
+                "Thời gian chạy (Phút)": a.status === 'FINISH' ? runInfo.minutesVal : '',
+                "Cut-off quy định (Phút)": cfg.cutoffMinutes,
+                "Đạt Cut-off": a.status === 'FINISH' ? (runInfo.isOverdue ? "QUÁ CUT-OFF" : "HỢP LỆ") : '',
+                "Trạng thái": a.status
+            };
+        });
+
+        const wsCat = XLSX.utils.json_to_sheet(catData);
+        let sheetName = cat.replace('tuổi', 'T').replace('dưới', '<').replace('trên', '>');
+        XLSX.utils.book_append_sheet(wb, wsCat, sheetName.slice(0, 31));
+    });
+
+    XLSX.writeFile(wb, `KET_QUA_CHAY_CHINH_THUC_${new Date().toISOString().slice(0,10)}.xlsx`);
+}
+
+function resetAllData() {
+    if (confirm('Bạn có chắc chắn muốn xóa toàn bộ kết quả để làm lại từ đầu không?')) {
+        localStorage.removeItem('RACE_ATHLETES');
+        athletes = [];
+        saveAndRender(true);
+    }
+}
+
+// RENDER FUNCTION CALLED WHEN SWITCHING TO CHECKIN TAB
+function renderCheckinTab() {
+    loadAthletesFromFunrun(false);
+    updateStatsCounters();
+    renderTableOnly();
+    focusScanInput();
+}
+
+// SETUP LISTENERS FOR CHECKIN INPUT & SCANNER
+function initCheckinInputListeners() {
+    const scanInput = document.getElementById('scanInput');
+    if (!scanInput) return;
+
+    scanInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            processRawData(scanInput.value);
+        }
+    });
+
+    scanInput.addEventListener('input', function() {
+        clearTimeout(scanTimeout);
+        scanTimeout = setTimeout(() => {
+            if (scanInput.value.trim().length > 0) {
+                processRawData(scanInput.value);
+            }
+        }, 120);
+    });
+
+    // Tự động focus vào ô quét khi click trong tab checkin
+    document.addEventListener('click', (e) => {
+        const checkinTab = document.getElementById('tab-checkin');
+        if (!checkinTab || checkinTab.classList.contains('hidden')) return;
+        if (!e.target.closest('.checkin-stat-box') && 
+            !e.target.closest('button') && 
+            !e.target.closest('.checkin-cat-chip') && 
+            !e.target.closest('.checkin-modal-content') &&
+            !e.target.closest('header') &&
+            !e.target.closest('nav') &&
+            !e.target.closest('#left-quick-drawer')) {
+            focusScanInput();
+        }
+    });
+
+    // Chặn phím tắt sập hoặc reload ngoài ý muốn khi máy quét quét ký tự đặc biệt trong tab checkin
+    window.addEventListener('keydown', function(e) {
+        const checkinTab = document.getElementById('tab-checkin');
+        if (!checkinTab || checkinTab.classList.contains('hidden')) return;
+
+        const configModal = document.getElementById('configModal');
+        const top3Modal = document.getElementById('top3Modal');
+        const isModalOpen = (configModal && configModal.style.display === 'flex') || (top3Modal && top3Modal.style.display === 'flex');
+
+        if (e.key === 'Escape') {
+            if (isModalOpen) {
+                closeConfigModal();
+                closeTop3Modal();
+            }
+            return;
+        }
+
+        if (isModalOpen) return; // Allow normal typing in modal inputs
+
+        if (['F1','F3','F11','F12'].includes(e.key)) {
+            e.preventDefault();
+        }
+    }, true);
 }
 
 </script>

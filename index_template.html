@@ -243,9 +243,9 @@
             <div class="text-[10px] uppercase tracking-wider text-slate-300 font-semibold">Đơn vị</div>
             <div class="font-bold gold-text text-sm sm:text-base" id="hdr-donvi">56</div>
           </div>
-          <div class="bg-white/10 px-2.5 py-1.5 rounded-lg text-center backdrop-blur border border-emerald-400/30 cursor-pointer" onclick="switchTab('runners')" title="Nhấn xem 434 VĐV Giải chạy Fun Run">
+          <div class="bg-white/10 px-2.5 py-1.5 rounded-lg text-center backdrop-blur border border-emerald-400/30 cursor-pointer" onclick="switchTab('runners')" title="Nhấn xem 427 VĐV Giải chạy Fun Run">
             <div class="text-[10px] uppercase tracking-wider text-emerald-300 font-semibold flex items-center justify-center gap-1"><span>🏃</span><span>Fun Run</span></div>
-            <div class="font-bold text-emerald-400 text-sm sm:text-base">434</div>
+            <div class="font-bold text-emerald-400 text-sm sm:text-base">427</div>
           </div>
         </div>
 
@@ -272,7 +272,7 @@
       <button class="tab-btn active px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="agenda" onclick="switchTab('agenda',this)">📅 Agenda</button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="schedule" onclick="switchTab('schedule',this)">🏆 Lịch thi đấu</button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="athletes" onclick="switchTab('athletes',this)">👤 VĐV và Thí sinh/Nội dung thi</button>
-      <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg flex items-center gap-1.5" data-tab="runners" onclick="switchTab('runners',this)"><span>🏃</span><span>VĐV Chạy</span><span class="px-1.5 py-0.2 rounded-full bg-emerald-400 text-slate-900 text-[10px] font-black shadow-xs">434</span></button>
+      <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg flex items-center gap-1.5" data-tab="runners" onclick="switchTab('runners',this)"><span>🏃</span><span>VĐV Chạy</span><span class="px-1.5 py-0.2 rounded-full bg-emerald-400 text-slate-900 text-[10px] font-black shadow-xs">427</span></button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="venues" onclick="switchTab('venues',this)">📍 Địa điểm & Sân/Bàn</button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg flex items-center gap-1.5" data-tab="transport" onclick="switchTab('transport',this)"><span>🚌</span><span>Lịch di chuyển</span><span class="px-1.5 py-0.2 rounded-full bg-amber-400 text-slate-900 text-[10px] font-black">Mới</span></button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="results" onclick="switchTab('results',this)">🥇 Kết quả thi đấu</button>
@@ -452,7 +452,7 @@
     <div class="flex flex-wrap items-center justify-between gap-3">
       <div class="flex flex-wrap items-center gap-1.5" id="runners-subtab-container">
         <button onclick="switchRunnersSubView('list')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-emerald-700 text-white shadow-xs" data-sub="list">📋 Danh sách VĐV</button>
-        <button onclick="switchRunnersSubView('fleet')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="fleet">🚌 Xếp xe (23 Xe)</button>
+        <button onclick="switchRunnersSubView('fleet')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="fleet">🚌 Xếp xe (33 Xe)</button>
         <button onclick="switchRunnersSubView('route')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="route">🗺️ Cung đường & 9 Trạm</button>
         <button onclick="switchRunnersSubView('timeline')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="timeline">⏱️ Lịch trình (17 Mốc)</button>
         <button onclick="switchRunnersSubView('btc')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="btc">👥 Ban Tổ Chức (40)</button>
@@ -481,16 +481,16 @@
       <div class="flex flex-wrap items-center gap-2">
         <select id="runner-filter-dist" onchange="renderRunnersList()" class="px-3 py-1.5 text-xs border border-slate-200 rounded-xl bg-slate-50 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-400">
           <option value="all">-- Tất cả cự ly --</option>
-          <option value="5km">5km (380 VĐV)</option>
+          <option value="5km">5km (373 VĐV)</option>
           <option value="10km">10km (32 VĐV)</option>
           <option value="15km">15km (22 VĐV)</option>
         </select>
         <select id="runner-filter-cat" onchange="renderRunnersList()" class="px-3 py-1.5 text-xs border border-slate-200 rounded-xl bg-slate-50 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 max-w-[180px]">
           <option value="all">-- Tất cả nhóm giải --</option>
-          <option value="5km Nam dưới 35 tuổi">5km Nam dưới 35 tuổi (82)</option>
+          <option value="5km Nam dưới 35 tuổi">5km Nam dưới 35 tuổi (81)</option>
           <option value="5km Nam trên 35 tuổi">5km Nam trên 35 tuổi (92)</option>
-          <option value="5km Nữ dưới 35 tuổi">5km Nữ dưới 35 tuổi (102)</option>
-          <option value="5km Nữ trên 35 tuổi">5km Nữ trên 35 tuổi (104)</option>
+          <option value="5km Nữ dưới 35 tuổi">5km Nữ dưới 35 tuổi (99)</option>
+          <option value="5km Nữ trên 35 tuổi">5km Nữ trên 35 tuổi (101)</option>
           <option value="10km Nam">10km Nam (24)</option>
           <option value="10km Nữ">10km Nữ (8)</option>
           <option value="15km Nam">15km Nam (15)</option>
@@ -523,7 +523,7 @@
               <span>🏃 GIẢI CHẠY MƯỜNG THANH FUN RUN 2026</span>
             </h2>
             <p class="text-xs sm:text-sm text-emerald-100 mt-1 max-w-3xl leading-relaxed">
-              📍 <strong>Tràng An Golf & Resort</strong> (Hồ Đồng Chương - 5 km/vòng) · Quy mô: <strong>434 Vận động viên</strong> tranh tài tại 3 cự ly (5km, 10km, 15km) · Khởi hành <strong>05:00</strong> từ KS Mường Thanh Ninh Bình (32 km).
+              📍 <strong>Tràng An Golf & Resort</strong> (Hồ Đồng Chương - 5 km/vòng) · Quy mô: <strong>427 Vận động viên</strong> tranh tài tại 3 cự ly (5km, 10km, 15km) · Khởi hành <strong>05:00</strong> từ KS Mường Thanh Ninh Bình (32 km).
             </p>
           </div>
         </div>
@@ -532,13 +532,13 @@
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 pt-4 border-t border-white/15">
           <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('all')">
             <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Tổng số VĐV Chạy</span>
-            <strong class="text-xl sm:text-2xl font-black text-white block mt-0.5">434 <span class="text-xs font-normal text-emerald-200">người</span></strong>
+            <strong class="text-xl sm:text-2xl font-black text-white block mt-0.5">427 <span class="text-xs font-normal text-emerald-200">người</span></strong>
             <span class="text-[11px] text-emerald-200/80 block mt-0.5">Toàn tập đoàn & đơn vị</span>
           </div>
           <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('5km')">
             <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 5km (1 vòng)</span>
-            <strong class="text-xl sm:text-2xl font-black text-amber-300 block mt-0.5">380 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
-            <span class="text-[11px] text-emerald-200/80 block mt-0.5">174 Nam · 206 Nữ</span>
+            <strong class="text-xl sm:text-2xl font-black text-amber-300 block mt-0.5">373 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
+            <span class="text-[11px] text-emerald-200/80 block mt-0.5">173 Nam · 200 Nữ</span>
           </div>
           <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('10km')">
             <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 10km (2 vòng)</span>
@@ -558,7 +558,7 @@
     <div id="runners-view-list" class="runners-subview space-y-4">
       <!-- QUICK STATS PILLS -->
       <div class="flex flex-wrap items-center justify-between text-xs text-slate-500 bg-white p-3 rounded-xl border border-slate-200/80 shadow-2xs">
-        <div id="runners-list-badge" class="font-bold text-slate-700">Đang hiển thị: 434 VĐV</div>
+        <div id="runners-list-badge" class="font-bold text-slate-700">Đang hiển thị: 427 VĐV</div>
         <div class="flex items-center gap-2 text-[11px]">
           <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>5km Nam</span>
           <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-pink-500"></span>5km Nữ</span>
@@ -596,7 +596,7 @@
       </div>
     </div>
 
-  <!-- SUB-VIEW 2: SƠ ĐỒ XẾP XE (26 XE) -->
+  <!-- SUB-VIEW 2: SƠ ĐỒ XẾP XE (33 XE) -->
   <div id="runners-view-fleet" class="runners-subview hidden space-y-4">
     <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
       <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
@@ -3569,21 +3569,21 @@ function getFleetInfoForSession(day, timeStr = '12:00') {
       return {
         sessionKey: '2026-10-28_AM',
         label: 'Sáng 28/10/2026 (Fun Run Tràng An)',
-        fleetSummary: '8 xe 45 chỗ, 2 xe 16 chỗ, 26 xe 7 chỗ',
-        fleetShort: '8 xe 45 · 2 xe 16 · 26 xe 7 chỗ',
+        fleetSummary: '6 xe 45 chỗ, 3 xe 16 chỗ, 21 xe 7 chỗ, 1 xe 4 chỗ, 2 đoàn tự túc (Tổng 33 xe)',
+        fleetShort: '6 xe 45 · 3 xe 16 · 21 xe 7 · 1 xe 4 · 2 tự túc (33 xe)',
         has29: false,
         has45: true,
-        max45: 8,
-        max16: 2,
-        max7: 26,
-        totalCapacity: 450,
+        max45: 6,
+        max16: 3,
+        max7: 21,
+        totalCapacity: 468,
         staff: {
           ks: 'Tập trung tại Sân Golf Tràng An',
           teddy: '---',
           ntd: '---',
           golf: 'Mr. Tiệp, Thu Trang, Dương, Giang, Phương, Nhung, Quốc Anh'
         },
-        note: '450 người (Sân Golf Tràng An)'
+        note: '468 người (427 VĐV + 28 BTC + 13 Lái xe - Sân Golf Tràng An)'
       };
     } else {
       return {
@@ -3667,7 +3667,7 @@ function suggestVehicles(headCount, day, timeStr = '12:00') {
     }
   }
 
-  // Case C: Fun Run Sáng 28/10 (8 xe 45, 2 xe 16, 26 xe 7)
+  // Case C: Fun Run Sáng 28/10 (6 xe 45, 3 xe 16, 21 xe 7, 1 xe 4, 2 tự túc)
   if (fleetInfo.has45) {
     if (headCount <= 7) return '01 xe 7 chỗ';
     if (headCount <= 16) return '01 xe 16 chỗ';
@@ -3842,7 +3842,7 @@ function renderFunRunTransportSection(query = '') {
 
         <div class="flex items-center gap-2">
           <button onclick="switchTab('runners')" class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-            <span>🏃</span><span>Xem 434 VĐV Chạy & Số BIB</span>
+            <span>🏃</span><span>Xem 427 VĐV Chạy & Số BIB</span>
           </button>
         </div>
       </div>
@@ -3851,13 +3851,13 @@ function renderFunRunTransportSection(query = '') {
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
         <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10">
           <span class="text-[10px] uppercase font-bold text-emerald-300 block">Tổng đoàn tham gia</span>
-          <strong class="text-xl sm:text-2xl font-black text-white block mt-0.5">450+ <span class="text-xs font-normal text-emerald-300">người</span></strong>
-          <span class="text-[10px] text-white/70 block">434 VĐV + Ban Tổ Chức</span>
+          <strong class="text-xl sm:text-2xl font-black text-white block mt-0.5">468 <span class="text-xs font-normal text-emerald-300">người</span></strong>
+          <span class="text-[10px] text-white/70 block">427 VĐV + 28 BTC + 13 Lái xe</span>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10">
           <span class="text-[10px] uppercase font-bold text-emerald-300 block">Đội xe phục vụ BTC</span>
-          <strong class="text-xl sm:text-2xl font-black text-amber-300 block mt-0.5">8 xe 45 · 2 xe 16</strong>
-          <span class="text-[10px] text-white/70 block">+ 26 xe 7 chỗ (Đủ chỗ 450+)</span>
+          <strong class="text-xl sm:text-2xl font-black text-amber-300 block mt-0.5">6 xe 45 · 3 xe 16</strong>
+          <span class="text-[10px] text-white/70 block">+ 21 xe 7 · 1 xe 4 · 2 tự túc (Tổng 33 xe)</span>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10">
           <span class="text-[10px] uppercase font-bold text-emerald-300 block">Quy cách xếp xe</span>
@@ -6165,7 +6165,7 @@ function sortRunners(col) {
 }
 
 // ================================================================
-// SUB-VIEW 2: SƠ ĐỒ XẾP XE (26 XE) & ACCORDION
+// SUB-VIEW 2: SƠ ĐỒ XẾP XE (33 XE) & ACCORDION
 // ================================================================
 function renderRunnersFleetView() {
   if (!DATA.funrun) return;
@@ -6177,11 +6177,12 @@ function renderRunnersFleetView() {
 }
 
 function renderVehicleCardHtml(v, prefix = '') {
-  const isEarly = v.isEarly;
+  const isEarly = v.isEarly || (v.departTime && v.departTime.includes('04:30'));
   const isVIP = v.isVIP;
   const isSelf = v.isSelfTransport;
-  const isCoord = v.isCoordination;
-  const isEventTeam = (v.code === 'XE-SK');
+  const isCoord = v.isCoordination || (v.num === 33);
+  const isEventTeam = v.isEventTeam || (v.num === 4);
+  const isMedical = v.isMedical || (v.num === 32);
 
   let headerBg = 'bg-slate-900 text-white';
   let icon = '🚌';
@@ -6194,6 +6195,9 @@ function renderVehicleCardHtml(v, prefix = '') {
   } else if (isEventTeam) {
     headerBg = 'bg-gradient-to-r from-purple-800 via-pink-700 to-slate-900 text-white';
     icon = '🎭';
+  } else if (isMedical) {
+    headerBg = 'bg-gradient-to-r from-emerald-800 via-teal-700 to-slate-900 text-white';
+    icon = '🩺';
   } else if (isCoord) {
     headerBg = 'bg-gradient-to-r from-blue-700 via-indigo-700 to-slate-900 text-white';
     icon = '🚗';
@@ -6202,34 +6206,39 @@ function renderVehicleCardHtml(v, prefix = '') {
     icon = '🚙';
   }
 
-  const driverHtml = v.driver ? `
+  const hasDriver = v.driver && v.driver.name;
+  const isDriverRunner = hasDriver && (v.driver.name.includes('tự lái') || v.driver.name.includes('VĐV'));
+  const driverHtml = hasDriver ? `
     <div class="p-3 bg-blue-50/90 border-b border-blue-200/60 text-xs flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-2 text-blue-950 font-bold">
+      <div class="flex items-center gap-2 text-blue-950 font-bold flex-wrap">
         <span class="text-base">🚗</span>
         <div>
-          <span>Lái xe tự lái kiêm VĐV: </span>
+          <span>Lái xe: </span>
           <strong class="text-blue-700 font-black">${escHtml(v.driver.name)}</strong>
-          <span class="text-[11px] font-normal text-slate-600">(BIB ${v.driver.bib} · ${escHtml(v.driver.unit)})</span>
+          ${v.driver.phone ? `<a href="tel:${v.driver.phone.replace(/\s+/g,'')}" class="ml-2 font-bold text-indigo-700 hover:underline">📞 ${escHtml(v.driver.phone)}</a>` : ''}
+          ${v.plate ? `<span class="ml-2 px-2 py-0.5 rounded bg-yellow-300 text-slate-900 font-black text-[10px] shadow-2xs">🚘 BKS: ${escHtml(v.plate)}</span>` : ''}
         </div>
       </div>
-      <span class="px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 text-[10px] font-black uppercase tracking-wider">Lái xe kiêm VĐV 5km</span>
+      <span class="px-2 py-0.5 rounded-full ${isDriverRunner ? 'bg-indigo-100 text-indigo-800' : 'bg-blue-100 text-blue-800'} text-[10px] font-black uppercase tracking-wider">
+        ${isDriverRunner ? 'VĐV tự lái xe' : 'Lái xe phụ trách'}
+      </span>
     </div>
   ` : '';
 
   const btcHtml = (v.btcStaff && v.btcStaff.length > 0) ? `
     <div class="p-3 bg-amber-50/80 border-b border-amber-200/60 text-xs">
       <div class="text-[11px] font-bold text-amber-900 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-        <span>👑</span> Cán bộ Ban Tổ Chức / Trực tiếp điều hành trên xe này:
+        <span>👑</span> Ban Tổ Chức / Cán bộ Điều hành & Chuyên môn trên xe:
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
         ${v.btcStaff.map(b => `
-          <div class="bg-white p-2.5 rounded-xl border border-amber-200 shadow-2xs flex items-center justify-between">
-            <div>
-              <strong class="text-xs text-slate-900 block">${escHtml(b.name)}</strong>
-              <span class="text-[10px] text-amber-800 block">${escHtml(b.title)} (${escHtml(b.dept)})</span>
-              <span class="text-[10px] text-slate-500 block italic">Nhiệm vụ: ${escHtml(b.duty)}</span>
+          <div class="bg-white p-2.5 rounded-xl border border-amber-200 shadow-2xs flex flex-col justify-between">
+            <div class="min-w-0">
+              <strong class="text-xs text-slate-900 block truncate">${escHtml(b.name)}</strong>
+              <span class="text-[10px] text-amber-800 block truncate">${escHtml(b.title || '')} ${(b.unit || b.dept) ? `(${escHtml(b.unit || b.dept)})` : ''}</span>
+              ${(b.role || b.duty) ? `<span class="text-[10px] text-slate-500 block italic line-clamp-2 mt-0.5">Nhiệm vụ: ${escHtml(b.role || b.duty)}</span>` : ''}
             </div>
-            ${b.phone ? `<a href="tel:${b.phone.replace(/\s+/g,'')}" class="text-[11px] font-bold text-indigo-600 bg-indigo-50 px-2 py-1 rounded-lg hover:underline flex-shrink-0">📞 ${escHtml(b.phone)}</a>` : ''}
+            ${b.phone ? `<div class="mt-1.5 pt-1.5 border-t border-slate-100"><a href="tel:${b.phone.replace(/\s+/g,'')}" class="text-[11px] font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded hover:underline inline-block">📞 ${escHtml(b.phone)}</a></div>` : ''}
           </div>
         `).join('')}
       </div>
@@ -6240,7 +6249,7 @@ function renderVehicleCardHtml(v, prefix = '') {
     <div class="p-4 bg-slate-50">
       <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
         <h5 class="text-xs font-bold uppercase tracking-wider text-slate-700">
-          Danh sách ${v.runners.length} Vận động viên ngồi trên xe này:
+          Danh sách ${v.runners.length} Vận động viên tham gia chạy:
         </h5>
         <span class="text-[11px] font-medium text-slate-500">
           ${isSelf ? 'Tự túc giờ di chuyển' : `Giờ xuất phát: <strong>${v.departTime}</strong>`}
@@ -6250,7 +6259,7 @@ function renderVehicleCardHtml(v, prefix = '') {
         ${v.runners.map(r => {
           const bibCfg = getBibColorConfig(r.category, r.dist || r.distance);
           const isCapt = (v.captain && v.captain.name === r.name);
-          const isDriver = (v.driver && v.driver.bib === r.bib);
+          const isDriver = (v.driver && (v.driver.name === r.name || (v.driver.name && v.driver.name.includes(r.name))));
           return `
             <div class="bg-white p-2.5 rounded-xl border ${isCapt ? 'border-amber-400 ring-2 ring-amber-300' : (isDriver ? 'border-blue-400 ring-2 ring-blue-200' : 'border-slate-200')} shadow-xs flex items-center justify-between cursor-pointer hover:border-indigo-400 transition" onclick="openRunnerModal(${r.bib})">
               <div class="flex items-center gap-2 min-w-0">
@@ -6263,10 +6272,10 @@ function renderVehicleCardHtml(v, prefix = '') {
                     ${isCapt ? '<span class="px-1 py-0.2 rounded bg-amber-500 text-white text-[8px] font-black">TRƯỞNG XE</span>' : ''}
                     ${isDriver ? '<span class="px-1 py-0.2 rounded bg-blue-600 text-white text-[8px] font-black">LÁI XE KIÊM VĐV</span>' : ''}
                   </div>
-                  <span class="text-[10px] text-slate-500 block truncate">${escHtml(r.unit)}</span>
+                  <span class="text-[10px] text-slate-500 block truncate">${escHtml(r.unit || '')}</span>
                 </div>
               </div>
-              <span class="text-[10px] font-bold text-slate-400 ml-1">Size ${r.size || 'M'}</span>
+              <span class="text-[10px] font-bold text-slate-400 ml-1 flex-shrink-0">${r.size ? 'Size ' + r.size : ''}</span>
             </div>
           `;
         }).join('')}
@@ -6284,24 +6293,29 @@ function renderVehicleCardHtml(v, prefix = '') {
         <div class="flex items-center gap-3">
           <span class="text-2xl">${icon}</span>
           <div>
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
               <h4 class="font-black text-sm sm:text-base leading-tight">${escHtml(v.label)}</h4>
               <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider">${v.type}</span>
-              ${isSelf ? '<span class="px-2 py-0.5 rounded-full bg-teal-400 text-slate-900 text-[10px] font-black uppercase">Tự di chuyển</span>' : ''}
-              ${v.driver ? '<span class="px-2 py-0.5 rounded-full bg-blue-500 text-white text-[10px] font-black uppercase">Có Lái xe VĐV</span>' : ''}
+              ${v.plate ? `<span class="px-2 py-0.5 rounded-full bg-yellow-400 text-slate-900 text-[10px] font-black uppercase tracking-wider shadow-2xs">🚘 BKS: ${escHtml(v.plate)}</span>` : ''}
+              ${isVIP ? '<span class="px-2 py-0.5 rounded-full bg-amber-400 text-slate-900 text-[10px] font-black uppercase">VIP</span>' : ''}
+              ${isEarly ? '<span class="px-2 py-0.5 rounded-full bg-rose-400 text-slate-900 text-[10px] font-black uppercase">Đi sớm 04h30</span>' : ''}
+              ${isSelf ? '<span class="px-2 py-0.5 rounded-full bg-teal-300 text-slate-950 text-[10px] font-black uppercase">Tự di chuyển</span>' : ''}
+              ${isMedical ? '<span class="px-2 py-0.5 rounded-full bg-emerald-300 text-slate-950 text-[10px] font-black uppercase">Tổ Y Tế</span>' : ''}
+              ${isCoord ? '<span class="px-2 py-0.5 rounded-full bg-sky-300 text-slate-950 text-[10px] font-black uppercase">Chốt đoàn</span>' : ''}
             </div>
-            <p class="text-xs text-white/80 mt-0.5">
-              ${isSelf ? `Đoàn tự túc phương tiện (${v.paxCount} người)` : `Dải số: <strong>${v.bibRange}</strong> · Cự ly: <strong>${v.distance}</strong>`}
+            <p class="text-xs text-white/80 mt-1">
+              ${isSelf ? `Đoàn tự túc phương tiện (${v.paxCount} người)` : `${v.bibRange ? `Dải số: <strong>${v.bibRange}</strong> · ` : ''}Xuất phát: <strong>${v.departTime}</strong>`}
             </p>
           </div>
         </div>
 
         <div class="flex items-center gap-4">
           <div class="text-right text-xs">
-            <div class="font-extrabold text-amber-300">👤 Trưởng xe: ${escHtml(v.captain.name)}</div>
+            <div class="font-extrabold text-amber-300">👤 Trưởng xe: ${escHtml(v.captain ? v.captain.name : '---')}</div>
             <div class="text-[11px] text-white/80">
-              ${isTgd ? 'Thư ký: 📞 0968 449 690' : (v.captain.phone ? `📞 ${v.captain.phone}` : v.captain.title)}
+              ${isTgd ? 'Thư ký: 📞 0968 449 690' : (v.captain && v.captain.phone ? `📞 ${v.captain.phone}` : (v.captain ? v.captain.title : ''))}
             </div>
+            ${hasDriver ? `<div class="text-[10px] text-blue-200 font-medium">🚗 LX: ${escHtml(v.driver.name)}</div>` : ''}
           </div>
           <div class="flex items-center gap-2">
             <span class="px-2.5 py-1 rounded-lg bg-white/20 text-white text-xs font-black">
@@ -6587,10 +6601,25 @@ function openRunnerModal(bib) {
                 </div>
               ` : ((v.captain && v.captain.phone) ? `
                 <div class="flex justify-between">
-                  <span>Số điện thoại liên hệ:</span>
+                  <span>SĐT Trưởng xe:</span>
                   <a href="tel:${v.captain.phone.replace(/\s+/g,'')}" class="text-indigo-600 font-bold hover:underline">📞 ${escHtml(v.captain.phone)}</a>
                 </div>
               ` : '')}
+              ${(v.driver && v.driver.name) ? `
+                <div class="flex justify-between border-t border-slate-200/60 pt-1.5">
+                  <span>Lái xe & SĐT:</span>
+                  <div class="text-right">
+                    <strong class="text-blue-900">${escHtml(v.driver.name)}</strong>
+                    ${v.driver.phone ? `<a href="tel:${v.driver.phone.replace(/\s+/g,'')}" class="block text-indigo-600 font-bold hover:underline">📞 ${escHtml(v.driver.phone)}</a>` : ''}
+                  </div>
+                </div>
+              ` : ''}
+              ${(v.plate) ? `
+                <div class="flex justify-between">
+                  <span>Biển số xe:</span>
+                  <strong class="px-2 py-0.5 rounded bg-yellow-300 text-slate-900 font-black text-[11px]">🚘 ${escHtml(v.plate)}</strong>
+                </div>
+              ` : ''}
               ${v.note ? `<div class="pt-1 text-[11px] text-slate-500 italic border-t border-slate-200/60">💡 ${escHtml(v.note)}</div>` : ''}
             </div>
           </div>
@@ -6651,11 +6680,11 @@ function showFunRunVenueModal(courtInfo, hubInfo) {
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200 text-center">
               <span class="text-[10px] font-bold text-emerald-800 uppercase">Quy mô</span>
-              <strong class="text-xl font-black text-emerald-950 block">434 VĐV</strong>
+              <strong class="text-xl font-black text-emerald-950 block">427 VĐV</strong>
             </div>
             <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-center">
               <span class="text-[10px] font-bold text-amber-800 uppercase">Cự ly 5km</span>
-              <strong class="text-xl font-black text-amber-950 block">380 VĐV</strong>
+              <strong class="text-xl font-black text-amber-950 block">373 VĐV</strong>
             </div>
             <div class="bg-orange-50 p-3 rounded-xl border border-orange-200 text-center">
               <span class="text-[10px] font-bold text-orange-800 uppercase">Cự ly 10km</span>
@@ -6720,7 +6749,7 @@ function showFunRunVenueModal(courtInfo, hubInfo) {
         <div class="p-4 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2">
           <div class="flex items-center gap-2">
             <button onclick="closeFunRunVenueModal(); switchTab('runners');" class="px-3.5 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition flex items-center gap-1.5 shadow-xs">
-              <span>🏃</span><span>Xem 434 VĐV Chạy & Số BIB ➔</span>
+              <span>🏃</span><span>Xem 427 VĐV Chạy & Số BIB ➔</span>
             </button>
             <button onclick="closeFunRunVenueModal(); switchTab('transport');" class="px-3.5 py-2 rounded-xl bg-indigo-600 text-white font-bold text-xs hover:bg-indigo-700 transition flex items-center gap-1.5 shadow-xs">
               <span>🚌</span><span>Xem Kế hoạch Điều xe Sáng 28/10 ➔</span>

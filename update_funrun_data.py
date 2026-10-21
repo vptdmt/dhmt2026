@@ -4,6 +4,16 @@ import json
 
 sys.stdout.reconfigure(encoding='utf-8')
 
+# Known categories and fallback info for runners who may not have been in old runners map
+KNOWN_RUNNERS_EXTRA = {
+    5009: {'category': '5km Nữ dưới 35 tuổi', 'phone': '0868 495 413', 'size': 'XS'},
+    5083: {'category': '5km Nữ trên 35 tuổi', 'phone': '0977 336 868', 'size': 'M'},
+    5084: {'category': '5km Nữ trên 35 tuổi', 'phone': '', 'size': 'S'},
+    5085: {'category': '5km Nữ dưới 35 tuổi', 'phone': '', 'size': 'S'},
+    5086: {'category': '5km Nam dưới 35 tuổi', 'phone': '0923 384 929', 'size': 'L'},
+    5087: {'category': '5km Nữ trên 35 tuổi', 'phone': '0973 737 013', 'size': 'M'},
+}
+
 # Load existing data.json to preserve categories and other tabs
 with open('data.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
@@ -31,6 +41,15 @@ for r in list(s1.iter_rows(values_only=True))[4:]:
         bib_range = str(r[10]).strip() if r[10] else ''
         plate = str(r[11]).strip() if r[11] else ''
         note = str(r[12]).strip() if r[12] else ''
+
+        if not bib_range or bib_range == 'None':
+            if num == 14:
+                bib_range = '5009, 5083 – 5087'
+            elif num == 1:
+                bib_range = 'BIB 5001'
+
+        if not route or route == 'None':
+            route = 'Sảnh Khách sạn Mường Thanh Luxury Ninh Bình ➔ Sân Golf Tràng An & Resort'
 
         # Capacity number
         cap_num = 7
@@ -114,10 +133,9 @@ for r in s2.iter_rows(values_only=True):
 
 print(f'Parsed members for {len(sheet2_data)} vehicles from Sheet 2.')
 
-# 3. Assemble funrun.vehicles
+# 3. Assemble funrun.vehicles & funrun.runners
 vehicles = []
 all_runners = []
-total_runners_count = 0
 
 for v1 in sheet1_vehicles:
     num = v1['num']
@@ -219,12 +237,11 @@ for v1 in sheet1_vehicles:
 
         if m['bib'] is not None:
             # Runner
-            # Determine category
             bib = m['bib']
             old_r = old_runners_map.get(bib, {})
-            cat = old_r.get('category', '')
+            extra = KNOWN_RUNNERS_EXTRA.get(bib, {})
+            cat = old_r.get('category', '') or extra.get('category', '')
             if not cat:
-                # Infer category from dist & gender
                 d_str = m['dist'].lower()
                 g_str = m['gender']
                 if '15' in d_str: cat = f"15km {g_str}"
@@ -239,6 +256,9 @@ for v1 in sheet1_vehicles:
             is_btc_role = ('BTC' in m['role'] or 'Trưởng xe' in m['role'] or old_r.get('btc'))
             btc_badge = m['role'] if ('BTC' in m['role'] or 'Trưởng xe' in m['role']) else (old_r.get('btc', '') if is_btc_role else '')
 
+            phone_val = m['phone'] or extra.get('phone', '') or old_r.get('phone', '')
+            size_val = m['size'] or extra.get('size', '') or old_r.get('size', 'M')
+
             runner_obj = {
                 'stt': len(all_runners) + 1,
                 'bib': bib,
@@ -249,8 +269,8 @@ for v1 in sheet1_vehicles:
                 'distance': runner_dist,
                 'dist': m['dist'],
                 'category': cat,
-                'size': m['size'] or old_r.get('size', 'M'),
-                'phone': m['phone'] or old_r.get('phone', ''),
+                'size': size_val,
+                'phone': phone_val,
                 'role': m['role'],
                 'btc': btc_badge,
                 'note': '',
@@ -319,6 +339,15 @@ data['funrun']['overview']['summaryCounts'] = {
     'c15k_m': sum(1 for r in c15 if r['gender'] == 'Nam'),
     'c15k_f': sum(1 for r in c15 if r['gender'] == 'Nữ')
 }
+
+# Update category counts
+cat_counts = {}
+for r in all_runners:
+    cat = r['category']
+    cat_counts[cat] = cat_counts.get(cat, 0) + 1
+
+for c in data['funrun'].get('categories', []):
+    c['count'] = cat_counts.get(c['name'], 0)
 
 with open('data.json', 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=2)

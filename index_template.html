@@ -1489,7 +1489,9 @@ const MON_TAGS = {
   'Cầu lông':      { bg: 'bg-red-600',    badge: 'bg-red-100 text-red-800',    prefix: 'CL' },
   'Bóng bàn':      { bg: 'bg-blue-600',   badge: 'bg-blue-100 text-blue-800',   prefix: 'BB' },
   'Kéo co':        { bg: 'bg-amber-600',  badge: 'bg-amber-100 text-amber-800',  prefix: 'KC' },
-  'Bơi':           { bg: 'bg-sky-600',    badge: 'bg-sky-100 text-sky-800',    prefix: 'BƠI' }
+  'Bơi':           { bg: 'bg-sky-600',    badge: 'bg-sky-100 text-sky-800',    prefix: 'BƠI' },
+  'Chạy':          { bg: 'bg-emerald-600', badge: 'bg-emerald-100 text-emerald-800 border border-emerald-300 font-semibold', prefix: 'FUN RUN' },
+  'Fun Run':       { bg: 'bg-emerald-600', badge: 'bg-emerald-100 text-emerald-800 border border-emerald-300 font-semibold', prefix: 'FUN RUN' }
 };
 
 const NV_MONS = [
@@ -2851,7 +2853,8 @@ function initAthleteFilters() {
   
   const allMons = [...new Set(DATA.athletes.flatMap(a => a.monThi))];
   const nvInUse = NV_MONS.filter(m => allMons.includes(m));
-  const sportInUse = allMons.filter(m => !NV_MONS.includes(m)).sort();
+  const funRunInUse = allMons.filter(m => m.startsWith('Chạy') || m.includes('Fun Run')).sort();
+  const sportInUse = allMons.filter(m => !NV_MONS.includes(m) && !funRunInUse.includes(m)).sort();
 
   const selMon = document.getElementById('filter-mon-ath');
   selMon.innerHTML = '<option value="">-- Tất cả môn thi / nội dung --</option>';
@@ -2870,7 +2873,7 @@ function initAthleteFilters() {
 
   if (sportInUse.length > 0) {
     const grpSport = document.createElement('optgroup');
-    grpSport.label = '🏃 Môn thi thể thao';
+    grpSport.label = '⚽ Môn thi thể thao';
     sportInUse.forEach(m => {
       const o = document.createElement('option');
       o.value = m;
@@ -2878,6 +2881,25 @@ function initAthleteFilters() {
       grpSport.appendChild(o);
     });
     selMon.appendChild(grpSport);
+  }
+
+  if (funRunInUse.length > 0) {
+    const grpRun = document.createElement('optgroup');
+    grpRun.label = '🏃 Giải chạy Fun Run';
+    const totalRunnersCount = DATA.athletes.filter(a => a.monThi && a.monThi.some(m => m.startsWith('Chạy') || m.includes('Fun Run'))).length;
+    const oAllRun = document.createElement('option');
+    oAllRun.value = 'Chạy';
+    oAllRun.textContent = `🏃 Tất cả VĐV thi Chạy (${totalRunnersCount} VĐV)`;
+    grpRun.appendChild(oAllRun);
+
+    funRunInUse.forEach(m => {
+      const o = document.createElement('option');
+      o.value = m;
+      const cnt = DATA.athletes.filter(a => a.monThi && a.monThi.includes(m)).length;
+      o.textContent = `${m} (${cnt} VĐV)`;
+      grpRun.appendChild(o);
+    });
+    selMon.appendChild(grpRun);
   }
 }
 
@@ -2901,10 +2923,23 @@ function filterAthletes() {
   const mon = document.getElementById('filter-mon-ath').value;
   
   let list = DATA.athletes.filter(a => {
-    if (q && !a.hoVaTen.toLowerCase().includes(q) && !a.donVi.toLowerCase().includes(q) && !(a.chucDanh && a.chucDanh.toLowerCase().includes(q))) return false;
+    if (q) {
+      const matchName = a.hoVaTen.toLowerCase().includes(q);
+      const matchUnit = a.donVi.toLowerCase().includes(q);
+      const matchTitle = a.chucDanh && a.chucDanh.toLowerCase().includes(q);
+      const matchSport = a.monThi && a.monThi.some(m => m.toLowerCase().includes(q));
+      const matchBib = a.chay && String(a.chay.bib).includes(q);
+      if (!matchName && !matchUnit && !matchTitle && !matchSport && !matchBib) return false;
+    }
     if (dv && a.donVi !== dv) return false;
     if (gen && a.gioiTinh !== gen) return false;
-    if (mon && !a.monThi.includes(mon)) return false;
+    if (mon) {
+      if (mon === 'Chạy') {
+        if (!a.monThi || !a.monThi.some(m => m.startsWith('Chạy') || m.includes('Fun Run'))) return false;
+      } else if (!a.monThi || !a.monThi.includes(mon)) {
+        return false;
+      }
+    }
     return true;
   });
 
@@ -2919,12 +2954,13 @@ function filterAthletes() {
     const monBadges = a.monThi.map(m => {
       let badgeStyle = 'bg-slate-100 text-slate-700';
       for (const [k, v] of Object.entries(MON_TAGS)) {
-        if (m === k || m.includes(k) || (k==='Bơi' && m.startsWith('Bơi'))) {
+        if (m === k || m.includes(k) || (k==='Bơi' && m.startsWith('Bơi')) || (k==='Chạy' && m.startsWith('Chạy'))) {
           badgeStyle = v.badge;
           break;
         }
       }
-      return `<span class="tag-badge ${badgeStyle} mr-1 mb-1 inline-block">${escHtml(m)}</span>`;
+      const icon = m.startsWith('Chạy') ? '🏃 ' : '';
+      return `<span class="tag-badge ${badgeStyle} mr-1 mb-1 inline-block">${icon}${escHtml(m)}</span>`;
     }).join('');
     
     const nm = q ? hl(a.hoVaTen, q) : escHtml(a.hoVaTen);
@@ -3063,6 +3099,25 @@ function showAthleteDetail(a) {
         <p class="font-bold text-slate-700 mb-1.5 text-xs uppercase tracking-wider">🏅 Nội dung đăng ký thi đấu (${a.soMon} nội dung):</p>
         <div>${monBadges || '<span class="text-slate-400 text-xs">Chưa có môn</span>'}</div>
       </div>
+
+      ${a.chay ? `
+      <div>
+        <p class="font-bold text-emerald-800 mb-1.5 text-xs uppercase tracking-wider flex items-center gap-1.5">
+          <span>🏃</span> Tham gia Giải chạy Fun Run 2026:
+        </p>
+        <div class="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-300 rounded-xl p-3 shadow-2xs text-xs">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-black text-emerald-900">${escHtml(a.chay.runEvent || a.chay.category)}</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-600 text-white font-black text-xs shadow-2xs">BIB ${a.chay.bib}</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-[11px] text-slate-700">
+            <div>🚌 <strong>Xe di chuyển:</strong> ${escHtml(a.chay.vehicle || 'Đội xe BTC')}</div>
+            <div>⏱️ <strong>Giờ xuất phát:</strong> 06:00 (Sáng 28/10/2026)</div>
+            <div>📍 <strong>Địa điểm:</strong> Sân Golf Tràng An & Resort</div>
+            <div>📋 <strong>Nhiệm vụ:</strong> ${escHtml(a.chay.role || 'Vận động viên')}</div>
+          </div>
+        </div>
+      </div>` : ''}
 
       <div>
         <p class="font-bold text-slate-700 mb-2 text-xs uppercase tracking-wider">📅 Lịch thi đấu chi tiết:</p>

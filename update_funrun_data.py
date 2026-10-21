@@ -349,6 +349,77 @@ for r in all_runners:
 for c in data['funrun'].get('categories', []):
     c['count'] = cat_counts.get(c['name'], 0)
 
+# Cross-reference athletes with Fun Run runners
+UNIT_MAP = {
+    'Bệnh Viện Phủ Diễn': ['Bệnh viện Phủ Diễn'],
+    'Trường Nguyễn Du': ['Trường THPT Nguyễn Du'],
+    'Chung cư Thanh Hà': ['Chi nhánh DVNO Thanh Hà'],
+    'Cienco5 và DHE': ['Công ty CP Phát triển Địa ốc Cienco5', 'Công ty CP Phát triển địa ốc Cienco5', 'Công ty TNHH Thang máy DHE'],
+    'Cụm Chung cư Hà Nội': ['Chi nhánh DVNO Linh Đàm', 'Chung cư Mường Thanh Khánh Hòa', 'Chung cư Mường Thanh Viễn Triều'],
+    'Cụm siêu thị MT Mart': ['Ban Điều hành Siêu thị Mường Thanh', 'Siêu thị Mường Thanh HH1', 'Siêu thị Mường Thanh HH2', 'Siêu thị Mường Thanh Hoàng Mai', 'Siêu thị Mường Thanh Con Cuông'],
+    'Văn Phòng Tập Đoàn': ['Văn phòng Tập đoàn Mường Thanh', 'Văn Phòng Tập Đoàn Mường Thanh', 'Ban Nhân sự', 'Ban Kiểm toán nội bộ', 'Công ty TNHH ĐTTC và Vàng Mường Thanh'],
+    'Mường Thanh Luxury Diễn Lâm': ['Mường Thanh Luxury Diễn Lâm', 'Mường Thanh Golf Club Diễn Lâm', 'Khu sinh thái Mường Thanh Diễn Lâm'],
+}
+
+def is_unit_match(ath_unit, run_unit):
+    u_a = ath_unit.strip()
+    u_r = run_unit.strip()
+    if u_a.lower() == u_r.lower():
+        return True
+    if u_a in UNIT_MAP:
+        for allowed in UNIT_MAP[u_a]:
+            if u_r.lower() == allowed.lower():
+                return True
+    return False
+
+runners_by_name = {}
+for r in all_runners:
+    k = r['name'].strip().lower()
+    if k not in runners_by_name:
+        runners_by_name[k] = []
+    runners_by_name[k].append(r)
+
+matched_athletes_count = 0
+for a in data.get('athletes', []):
+    # Strip old Chạy events to remain idempotent
+    a['monThi'] = [m for m in a['monThi'] if not m.startswith('Chạy') and 'Fun Run' not in m]
+    if 'chay' in a:
+        del a['chay']
+
+    a_name = a['hoVaTen'].strip().lower()
+    a_unit = a['donVi'].strip()
+    a_gen = a.get('gioiTinh', '').strip().lower()
+
+    candidates = runners_by_name.get(a_name, [])
+    matched_r = None
+    for r in candidates:
+        r_unit = r['unit'].strip()
+        r_gen = r.get('gender', '').strip().lower()
+        if is_unit_match(a_unit, r_unit):
+            if a_gen and r_gen and a_gen != r_gen:
+                continue
+            matched_r = r
+            break
+
+    if matched_r:
+        matched_athletes_count += 1
+        cat = matched_r['category']
+        run_event = f"Chạy {cat}" if not cat.startswith('Chạy') else cat
+        a['monThi'].append(run_event)
+        a['chay'] = {
+            'bib': matched_r['bib'],
+            'dist': matched_r['dist'],
+            'category': matched_r['category'],
+            'runEvent': run_event,
+            'vehicle': matched_r['vehicleLabel'],
+            'vehicleNum': matched_r['vehicleNum'],
+            'role': matched_r['role']
+        }
+
+    a['soMon'] = len(a['monThi'])
+
+print(f'Cross-referenced {matched_athletes_count} athletes with Fun Run runners.')
+
 with open('data.json', 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=2)
 

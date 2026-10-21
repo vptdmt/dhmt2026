@@ -320,9 +320,19 @@
       "hoVaTen": "Nguyễn Hương Ly",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bơi tự do Nữ 40m"
+        "Bơi tự do Nữ 40m",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5295,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 2,
@@ -330,9 +340,19 @@
       "hoVaTen": "Nguyễn Thị Thu Thảo",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Pickleball đôi Nữ"
+        "Pickleball đôi Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5202,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 3,
@@ -340,9 +360,19 @@
       "hoVaTen": "Trần Thị Hạnh",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Pickleball đôi Nữ"
+        "Pickleball đôi Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5161,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 4,
@@ -350,9 +380,19 @@
       "hoVaTen": "Trần Văn Anh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bơi tự do Nam 80m"
+        "Bơi tự do Nam 80m",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5294,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 5,
@@ -360,9 +400,19 @@
       "hoVaTen": "Nguyễn Ngọc Quỳnh Vy",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Cầu lông đơn Nữ"
+        "Cầu lông đơn Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5056,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 09 - Vận động viên (7 chỗ)",
+        "vehicleNum": 9,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 6,
@@ -370,9 +420,19 @@
       "hoVaTen": "Nguyễn Trọng Vinh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Cầu lông đôi Nam"
+        "Cầu lông đôi Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5079,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 13 - Vận động viên (7 chỗ)",
+        "vehicleNum": 13,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 7,
@@ -380,9 +440,19 @@
       "hoVaTen": "Nguyễn Văn Chí",
       "gioiTinh": "Nam",
       "monThi": [
-        "Cầu lông đôi Nam"
+        "Cầu lông đôi Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5096,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 8,
@@ -390,9 +460,19 @@
       "hoVaTen": "Nguyễn Viết Minh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bơi ếch Nam 40m"
+        "Bơi ếch Nam 40m",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5068,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 11 - Vận động viên (7 chỗ)",
+        "vehicleNum": 11,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 9,
@@ -420,9 +500,19 @@
       "hoVaTen": "Hoàng Xuân Kỳ",
       "gioiTinh": "Nam",
       "monThi": [
-        "Pickleball đôi Nam"
+        "Pickleball đôi Nam",
+        "Chạy 10km Nam"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 10023,
+        "dist": "Chạy 10km",
+        "category": "10km Nam",
+        "runEvent": "Chạy 10km Nam",
+        "vehicle": "Xe 18 - Vận động viên (7 chỗ)",
+        "vehicleNum": 18,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 12,
@@ -440,9 +530,19 @@
       "hoVaTen": "Lê Thị Phúc",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Cầu lông đôi Nam-Nữ"
+        "Cầu lông đôi Nam-Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5147,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 14,
@@ -544,9 +644,19 @@
       "hoVaTen": "Nguyễn Công Toàn",
       "gioiTinh": "Nam",
       "monThi": [
-        "Pickleball đôi Nam"
+        "Pickleball đôi Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5286,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 24,
@@ -576,9 +686,19 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Pickleball đôi Nữ",
-        "Pickleball đôi Nam-Nữ"
+        "Pickleball đôi Nam-Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5197,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 31 - Công ty Cienco5 & Thang máy DHE (Tự di chuyển)",
+        "vehicleNum": 31,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 27,
@@ -598,9 +718,19 @@
       "monThi": [
         "Pickleball đôi Nữ",
         "Pickleball đôi Nam-Nữ",
-        "Bóng bàn đơn Nữ"
+        "Bóng bàn đơn Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 3
+      "soMon": 4,
+      "chay": {
+        "bib": 5198,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 31 - Công ty Cienco5 & Thang máy DHE (Tự di chuyển)",
+        "vehicleNum": 31,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 29,
@@ -648,9 +778,19 @@
       "hoVaTen": "Nguyễn Thị Như Quỳnh",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bơi ếch Nữ 40m"
+        "Bơi ếch Nữ 40m",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5289,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 31 - Công ty Cienco5 & Thang máy DHE (Tự di chuyển)",
+        "vehicleNum": 31,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 34,
@@ -688,9 +828,19 @@
       "hoVaTen": "Ngô Đức Hoàn",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5208,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 31 - Công ty Cienco5 & Thang máy DHE (Tự di chuyển)",
+        "vehicleNum": 31,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 38,
@@ -719,9 +869,19 @@
       "hoVaTen": "Phạm Thị Hương",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bơi ếch Nữ 40m"
+        "Bơi ếch Nữ 40m",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5196,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 31 - Công ty Cienco5 & Thang máy DHE (Tự di chuyển)",
+        "vehicleNum": 31,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 41,
@@ -731,9 +891,19 @@
       "monThi": [
         "Pickleball đôi Nữ",
         "Pickleball đôi Nam-Nữ",
-        "Cầu lông đôi Nữ"
+        "Cầu lông đôi Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 3
+      "soMon": 4,
+      "chay": {
+        "bib": 5034,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 31 - Công ty Cienco5 & Thang máy DHE (Tự di chuyển)",
+        "vehicleNum": 31,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 42,
@@ -752,9 +922,19 @@
       "hoVaTen": "Trần Xuân Dương",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5199,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 31 - Công ty Cienco5 & Thang máy DHE (Tự di chuyển)",
+        "vehicleNum": 31,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 44,
@@ -772,9 +952,19 @@
       "hoVaTen": "Võ Thanh Hoài",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Pickleball đôi Nữ"
+        "Pickleball đôi Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5195,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 31 - Công ty Cienco5 & Thang máy DHE (Tự di chuyển)",
+        "vehicleNum": 31,
+        "role": "Trưởng đoàn / Vận động viên"
+      }
     },
     {
       "stt": 46,
@@ -793,9 +983,19 @@
       "hoVaTen": "Đoàn Hồng Thái",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5193,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 31 - Công ty Cienco5 & Thang máy DHE (Tự di chuyển)",
+        "vehicleNum": 31,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 48,
@@ -813,9 +1013,19 @@
       "hoVaTen": "Đặng Ngọc Nhân",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5231,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 31 - Công ty Cienco5 & Thang máy DHE (Tự di chuyển)",
+        "vehicleNum": 31,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 50,
@@ -823,9 +1033,19 @@
       "hoVaTen": "Đặng Thị Xuốt",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Pickleball đôi Nữ"
+        "Pickleball đôi Nữ",
+        "Chạy 10km Nữ"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 10017,
+        "dist": "Chạy 10km",
+        "category": "10km Nữ",
+        "runEvent": "Chạy 10km Nữ",
+        "vehicle": "Xe 31 - Công ty Cienco5 & Thang máy DHE (Tự di chuyển)",
+        "vehicleNum": 31,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 51,
@@ -844,9 +1064,19 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Bơi tự do Nam 40m",
-        "Bơi tự do Nam 80m"
+        "Bơi tự do Nam 80m",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5209,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 53,
@@ -854,9 +1084,19 @@
       "hoVaTen": "Huỳnh Thị Bích Tuyền",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5128,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 54,
@@ -864,9 +1104,19 @@
       "hoVaTen": "Lê Huyền Trang",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5073,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 12 - Vận động viên (7 chỗ)",
+        "vehicleNum": 12,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 55,
@@ -874,9 +1124,19 @@
       "hoVaTen": "Nguyễn Chí Vịnh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5070,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 11 - Vận động viên (7 chỗ)",
+        "vehicleNum": 11,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 56,
@@ -894,9 +1154,19 @@
       "hoVaTen": "Nguyễn Kế Mão",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5075,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 12 - Vận động viên (7 chỗ)",
+        "vehicleNum": 12,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 58,
@@ -904,9 +1174,19 @@
       "hoVaTen": "Nguyễn Thị Cẩm Như",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5269,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 59,
@@ -925,9 +1205,19 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Bơi ếch Nam 80m",
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5089,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 15 - Vận động viên (7 chỗ)",
+        "vehicleNum": 15,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 61,
@@ -935,9 +1225,19 @@
       "hoVaTen": "Nhan Tấn Đạt",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5091,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 15 - Vận động viên (7 chỗ)",
+        "vehicleNum": 15,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 62,
@@ -945,9 +1245,19 @@
       "hoVaTen": "Phạm Thúy Kiều",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5066,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 10 - Vận động viên (7 chỗ)",
+        "vehicleNum": 10,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 63,
@@ -955,9 +1265,19 @@
       "hoVaTen": "Trần Văn Quân",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5270,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 64,
@@ -965,9 +1285,19 @@
       "hoVaTen": "Hoàng Trung Đức",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5133,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 65,
@@ -975,9 +1305,19 @@
       "hoVaTen": "Huỳnh Nhựt Anh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5118,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 66,
@@ -995,9 +1335,19 @@
       "hoVaTen": "Lê Trần Đình Khương",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5134,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 68,
@@ -1006,12 +1356,22 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Bóng đá Nam",
-        "Bếp"
+        "Bếp",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 2,
+      "soMon": 3,
       "chucDanh": "Nhân viên bếp bánh",
       "maNv": "70060249",
-      "sdt": "0907478361"
+      "sdt": "0907478361",
+      "chay": {
+        "bib": 5129,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 69,
@@ -1019,9 +1379,19 @@
       "hoVaTen": "Nguyễn Nhựt Linh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5086,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 14 - Vận động viên (7 chỗ)",
+        "vehicleNum": 14,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 70,
@@ -1029,9 +1399,19 @@
       "hoVaTen": "Nguyễn Thái Dương",
       "gioiTinh": "Nam",
       "monThi": [
-        "Cầu lông đơn Nam"
+        "Cầu lông đơn Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5296,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 71,
@@ -1040,12 +1420,22 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Bóng đá Nam",
-        "AN-KT-IT"
+        "AN-KT-IT",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 2,
+      "soMon": 3,
       "chucDanh": "Nhân viên kỹ thuật",
       "maNv": "70060052",
-      "sdt": "0776587288"
+      "sdt": "0776587288",
+      "chay": {
+        "bib": 5132,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 72,
@@ -1053,9 +1443,19 @@
       "hoVaTen": "Thái Minh Tân",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5112,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 73,
@@ -1063,9 +1463,19 @@
       "hoVaTen": "Trương Hoàng Tây",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5191,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 74,
@@ -1073,9 +1483,19 @@
       "hoVaTen": "Trần Hoàn Mỹ",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5121,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 75,
@@ -1083,9 +1503,19 @@
       "hoVaTen": "Trần Thanh Duy",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5113,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 76,
@@ -1093,9 +1523,19 @@
       "hoVaTen": "Đoàn Tuấn Duy",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5127,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 77,
@@ -1154,9 +1594,19 @@
       "hoVaTen": "Nguyễn Thị Thảo",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Cầu lông đôi Nam-Nữ"
+        "Cầu lông đôi Nam-Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5108,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 83,
@@ -1174,9 +1624,19 @@
       "hoVaTen": "Nguyễn Trọng Thắng",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5271,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 85,
@@ -1184,9 +1644,19 @@
       "hoVaTen": "Đinh Ngọc Dương",
       "gioiTinh": "Nam",
       "monThi": [
-        "Cầu lông đôi Nam-Nữ"
+        "Cầu lông đôi Nam-Nữ",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5250,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 86,
@@ -1236,9 +1706,19 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Kéo co",
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5156,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 91,
@@ -1267,9 +1747,19 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Kéo co",
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5360,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 29 - Vận động viên (45 chỗ)",
+        "vehicleNum": 29,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 94,
@@ -1277,9 +1767,19 @@
       "hoVaTen": "Nguyễn Thị Hòa",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5054,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 08 - Vận động viên (7 chỗ)",
+        "vehicleNum": 8,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 95,
@@ -1308,9 +1808,19 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Kéo co",
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5220,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 98,
@@ -1329,9 +1839,19 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Kéo co",
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 10km Nữ"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 10003,
+        "dist": "Chạy 10km",
+        "category": "10km Nữ",
+        "runEvent": "Chạy 10km Nữ",
+        "vehicle": "Xe 23 - Vận động viên (16 chỗ)",
+        "vehicleNum": 23,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 100,
@@ -1370,9 +1890,19 @@
       "hoVaTen": "Trần Văn Hải",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5354,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 29 - Vận động viên (45 chỗ)",
+        "vehicleNum": 29,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 104,
@@ -1380,9 +1910,19 @@
       "hoVaTen": "Tăng Ngọc Cương",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5362,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 29 - Vận động viên (45 chỗ)",
+        "vehicleNum": 29,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 105,
@@ -1422,9 +1962,19 @@
       "hoVaTen": "Nguyễn Thế Anh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 10km Nam"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 10021,
+        "dist": "Chạy 10km",
+        "category": "10km Nam",
+        "runEvent": "Chạy 10km Nam",
+        "vehicle": "Xe 18 - Vận động viên (7 chỗ)",
+        "vehicleNum": 18,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 109,
@@ -1432,9 +1982,19 @@
       "hoVaTen": "Nguyễn Trần Vương Nhi",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Cầu lông đơn Nữ"
+        "Cầu lông đơn Nữ",
+        "Chạy 10km Nữ"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 10010,
+        "dist": "Chạy 10km",
+        "category": "10km Nữ",
+        "runEvent": "Chạy 10km Nữ",
+        "vehicle": "Xe 23 - Vận động viên (16 chỗ)",
+        "vehicleNum": 23,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 110,
@@ -1442,9 +2002,19 @@
       "hoVaTen": "Nguyễn Đăng Thiện",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5201,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 111,
@@ -1473,9 +2043,19 @@
       "hoVaTen": "Trần Nhơn Huy",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5205,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 114,
@@ -1483,9 +2063,19 @@
       "hoVaTen": "Trần Thanh Thọ",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5245,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 115,
@@ -1493,9 +2083,19 @@
       "hoVaTen": "Đặng Quang Huy",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 10km Nam"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 10016,
+        "dist": "Chạy 10km",
+        "category": "10km Nam",
+        "runEvent": "Chạy 10km Nam",
+        "vehicle": "Xe 23 - Vận động viên (16 chỗ)",
+        "vehicleNum": 23,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 116,
@@ -1503,9 +2103,19 @@
       "hoVaTen": "Đặng Tuấn Minh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5206,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 117,
@@ -1513,9 +2123,19 @@
       "hoVaTen": "Hoàng Thị Hiệp",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5084,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 14 - Vận động viên (7 chỗ)",
+        "vehicleNum": 14,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 118,
@@ -1523,9 +2143,19 @@
       "hoVaTen": "Hồ Thị Thanh",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5107,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 119,
@@ -1533,9 +2163,19 @@
       "hoVaTen": "Lê Thị Hoa",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5085,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 14 - Vận động viên (7 chỗ)",
+        "vehicleNum": 14,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 120,
@@ -1543,9 +2183,19 @@
       "hoVaTen": "Lê Thị Ngọc Bích",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5169,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 121,
@@ -1553,9 +2203,19 @@
       "hoVaTen": "Nguyễn Thị Thơm",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5097,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 122,
@@ -1563,9 +2223,19 @@
       "hoVaTen": "Phan Thị Hằng",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5080,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 13 - Vận động viên (7 chỗ)",
+        "vehicleNum": 13,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 123,
@@ -1573,9 +2243,19 @@
       "hoVaTen": "Phạm Thị Yến",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5167,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 124,
@@ -1583,9 +2263,19 @@
       "hoVaTen": "Trần Thị Tuyết",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5150,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 125,
@@ -1623,9 +2313,19 @@
       "hoVaTen": "Trần Quốc Việt",
       "gioiTinh": "Nam",
       "monThi": [
-        "Pickleball đôi Nam"
+        "Pickleball đôi Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5203,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 129,
@@ -1653,9 +2353,19 @@
       "hoVaTen": "Trần Văn Quân",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bơi tự do Nam 40m"
+        "Bơi tự do Nam 40m",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5221,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 132,
@@ -1664,9 +2374,19 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Kéo co",
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5144,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 133,
@@ -1684,9 +2404,19 @@
       "hoVaTen": "Nguyễn Thu Hằng",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5246,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 135,
@@ -1694,9 +2424,19 @@
       "hoVaTen": "Nguyễn Thái Duy",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5268,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 136,
@@ -1704,9 +2444,19 @@
       "hoVaTen": "Phạm Minh Hải",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bơi tự do Nam 80m"
+        "Bơi tự do Nam 80m",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5292,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 137,
@@ -1714,9 +2464,19 @@
       "hoVaTen": "Phạm Thi Thu Thủy",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5153,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 138,
@@ -1768,9 +2528,19 @@
       "hoVaTen": "Vũ Thị Thịnh",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5212,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 143,
@@ -1819,9 +2589,19 @@
       "hoVaTen": "Bùi Thị Thu Hương",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5222,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 148,
@@ -1829,9 +2609,19 @@
       "hoVaTen": "Lâm Thái Bảo",
       "gioiTinh": "",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5261,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 149,
@@ -1879,9 +2669,19 @@
       "hoVaTen": "Trần Thị Hoa",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bơi tự do Nữ 40m"
+        "Bơi tự do Nữ 40m",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5332,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 29 - Vận động viên (45 chỗ)",
+        "vehicleNum": 29,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 154,
@@ -1910,9 +2710,19 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Cầu lông đơn Nam",
-        "Cầu lông đôi Nam"
+        "Cầu lông đôi Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5092,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 15 - Vận động viên (7 chỗ)",
+        "vehicleNum": 15,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 157,
@@ -1921,9 +2731,19 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Cầu lông đơn Nam",
-        "Cầu lông đôi Nam"
+        "Cầu lông đôi Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5052,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 08 - Vận động viên (7 chỗ)",
+        "vehicleNum": 8,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 158,
@@ -1941,9 +2761,19 @@
       "hoVaTen": "Đào Quang Tùng",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5123,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 160,
@@ -1972,9 +2802,19 @@
       "hoVaTen": "Lục Anh Tuấn",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5310,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 163,
@@ -2015,9 +2855,19 @@
       "hoVaTen": "Lê Trọng Phú",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng bàn đơn Nam"
+        "Bóng bàn đơn Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5048,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 07 - Vận động viên (7 chỗ)",
+        "vehicleNum": 7,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 167,
@@ -2025,9 +2875,19 @@
       "hoVaTen": "Lê Tuấn Kha",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bơi tự do Nam 40m"
+        "Bơi tự do Nam 40m",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5095,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 168,
@@ -2036,9 +2896,19 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Cầu lông đôi Nam-Nữ",
-        "Cầu lông đơn Nam"
+        "Cầu lông đơn Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5046,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 07 - Vận động viên (7 chỗ)",
+        "vehicleNum": 7,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 169,
@@ -2046,9 +2916,19 @@
       "hoVaTen": "Đặng Thị Hoài Anh",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Cầu lông đôi Nam-Nữ"
+        "Cầu lông đôi Nam-Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5135,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 170,
@@ -2056,9 +2936,19 @@
       "hoVaTen": "Hà Thị Lập",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Pickleball đôi Nữ"
+        "Pickleball đôi Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5088,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 15 - Vận động viên (7 chỗ)",
+        "vehicleNum": 15,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 171,
@@ -2067,9 +2957,19 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Bơi tự do Nam 40m",
-        "Bơi tự do Nam 80m"
+        "Bơi tự do Nam 80m",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5130,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 172,
@@ -2088,9 +2988,19 @@
       "hoVaTen": "Vũ Thanh Bình",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Pickleball đôi Nữ"
+        "Pickleball đôi Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5137,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 174,
@@ -2098,9 +3008,19 @@
       "hoVaTen": "Cà Văn Anh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5298,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 175,
@@ -2108,9 +3028,19 @@
       "hoVaTen": "Nguyễn Thị Như Sang",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5219,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 176,
@@ -2128,9 +3058,19 @@
       "hoVaTen": "Quàng Thanh Lương",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5224,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 178,
@@ -2138,9 +3078,19 @@
       "hoVaTen": "Quàng Văn Thủy",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5300,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 179,
@@ -2148,9 +3098,19 @@
       "hoVaTen": "Trần Thị Quỳnh",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5215,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 180,
@@ -2158,9 +3118,19 @@
       "hoVaTen": "Nguyễn Thị Thái An",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Pickleball đôi Nữ"
+        "Pickleball đôi Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5044,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 06 - Vận động viên (7 chỗ)",
+        "vehicleNum": 6,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 181,
@@ -2168,9 +3138,19 @@
       "hoVaTen": "Trần Lê Quốc Khánh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bơi tự do Nam 40m"
+        "Bơi tự do Nam 40m",
+        "Chạy 10km Nam"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 10008,
+        "dist": "Chạy 10km",
+        "category": "10km Nam",
+        "runEvent": "Chạy 10km Nam",
+        "vehicle": "Xe 23 - Vận động viên (16 chỗ)",
+        "vehicleNum": 23,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 182,
@@ -2178,9 +3158,19 @@
       "hoVaTen": "Trần Thị Thu Hòa",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Pickleball đôi Nữ"
+        "Pickleball đôi Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5279,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 183,
@@ -2188,9 +3178,19 @@
       "hoVaTen": "Dương Thị Thùy Linh",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bơi ếch Nữ 40m"
+        "Bơi ếch Nữ 40m",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5152,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 184,
@@ -2198,9 +3198,19 @@
       "hoVaTen": "Lê Uyển Nhi",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5138,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 185,
@@ -2208,9 +3218,19 @@
       "hoVaTen": "Nguyễn Thị My",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5249,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 186,
@@ -2218,9 +3238,19 @@
       "hoVaTen": "Nguyễn Thị Ngân Giang",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5272,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 187,
@@ -2228,9 +3258,19 @@
       "hoVaTen": "Nguyễn Thị Thúy Liểu",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5142,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 188,
@@ -2238,9 +3278,19 @@
       "hoVaTen": "Trần Quốc Anh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bơi ếch Nam 80m"
+        "Bơi ếch Nam 80m",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5177,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 189,
@@ -2248,9 +3298,19 @@
       "hoVaTen": "Trần Thị Thu Trang",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5154,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 190,
@@ -2259,12 +3319,22 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Bóng đá Nữ",
-        "Dịch vụ Ẩm thực"
+        "Dịch vụ Ẩm thực",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 2,
+      "soMon": 3,
       "chucDanh": "Nhân viên dịch vụ ẩm thực",
       "maNv": "70030156",
-      "sdt": "0962765597"
+      "sdt": "0962765597",
+      "chay": {
+        "bib": 5158,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 191,
@@ -2282,9 +3352,19 @@
       "hoVaTen": "Đỗ Huỳnh Anh Thư",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5165,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 193,
@@ -2292,9 +3372,19 @@
       "hoVaTen": "Bùi Thị Tâm",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5076,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 12 - Vận động viên (7 chỗ)",
+        "vehicleNum": 12,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 194,
@@ -2302,9 +3392,19 @@
       "hoVaTen": "Dương Quang Đạo",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5260,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 195,
@@ -2312,9 +3412,19 @@
       "hoVaTen": "Lê Văn Phúc",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5141,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 196,
@@ -2322,9 +3432,19 @@
       "hoVaTen": "Nguyễn Thị An Tiên",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5077,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 12 - Vận động viên (7 chỗ)",
+        "vehicleNum": 12,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 197,
@@ -2332,9 +3452,19 @@
       "hoVaTen": "Nguyễn Văn Hải",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5258,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 198,
@@ -2342,9 +3472,19 @@
       "hoVaTen": "Trần Thị Kim Thảo",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5059,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 09 - Vận động viên (7 chỗ)",
+        "vehicleNum": 9,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 199,
@@ -2352,9 +3492,19 @@
       "hoVaTen": "Đinh Thị Mỹ Lợi",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5106,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 200,
@@ -2372,9 +3522,19 @@
       "hoVaTen": "Lê Thị Thắm",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 10km Nữ"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 10006,
+        "dist": "Chạy 10km",
+        "category": "10km Nữ",
+        "runEvent": "Chạy 10km Nữ",
+        "vehicle": "Xe 23 - Vận động viên (16 chỗ)",
+        "vehicleNum": 23,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 202,
@@ -2382,9 +3542,19 @@
       "hoVaTen": "Lò Thị Hiền",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 10km Nữ"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 10012,
+        "dist": "Chạy 10km",
+        "category": "10km Nữ",
+        "runEvent": "Chạy 10km Nữ",
+        "vehicle": "Xe 23 - Vận động viên (16 chỗ)",
+        "vehicleNum": 23,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 203,
@@ -2392,9 +3562,19 @@
       "hoVaTen": "Lò Thị Ngân",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 10km Nữ"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 10009,
+        "dist": "Chạy 10km",
+        "category": "10km Nữ",
+        "runEvent": "Chạy 10km Nữ",
+        "vehicle": "Xe 23 - Vận động viên (16 chỗ)",
+        "vehicleNum": 23,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 204,
@@ -2413,9 +3593,19 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Pickleball đôi Nam",
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5116,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 206,
@@ -2423,9 +3613,19 @@
       "hoVaTen": "Vũ Xuân Trường",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 10km Nam"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 10007,
+        "dist": "Chạy 10km",
+        "category": "10km Nam",
+        "runEvent": "Chạy 10km Nam",
+        "vehicle": "Xe 23 - Vận động viên (16 chỗ)",
+        "vehicleNum": 23,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 207,
@@ -2433,9 +3633,19 @@
       "hoVaTen": "Đặng Văn Đức",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 10km Nam"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 10013,
+        "dist": "Chạy 10km",
+        "category": "10km Nam",
+        "runEvent": "Chạy 10km Nam",
+        "vehicle": "Xe 23 - Vận động viên (16 chỗ)",
+        "vehicleNum": 23,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 208,
@@ -2464,9 +3674,19 @@
       "hoVaTen": "Hà Thị Thùy Giang",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Pickleball đôi Nam-Nữ"
+        "Pickleball đôi Nam-Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5124,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 211,
@@ -2506,9 +3726,19 @@
       "monThi": [
         "Cầu lông đôi Nam-Nữ",
         "Cầu lông đôi Nam",
-        "Bóng bàn đơn Nam"
+        "Bóng bàn đơn Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 3
+      "soMon": 4,
+      "chay": {
+        "bib": 5223,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 215,
@@ -2526,9 +3756,19 @@
       "hoVaTen": "Cao Thành Trung",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5227,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 217,
@@ -2536,9 +3776,19 @@
       "hoVaTen": "Huỳnh  Tân",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5230,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 218,
@@ -2546,9 +3796,19 @@
       "hoVaTen": "Nguyễn Bá Đạt",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5229,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 219,
@@ -2557,9 +3817,19 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Bóng bàn đơn Nam",
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5228,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 220,
@@ -2608,9 +3878,19 @@
       "hoVaTen": "Nguyễn Thị Nguyệt",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Pickleball đôi Nữ"
+        "Pickleball đôi Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5087,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 14 - Vận động viên (7 chỗ)",
+        "vehicleNum": 14,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 225,
@@ -2628,9 +3908,19 @@
       "hoVaTen": "Đoàn Thị Thanh Tình",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Pickleball đôi Nữ"
+        "Pickleball đôi Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5103,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 227,
@@ -2638,9 +3928,19 @@
       "hoVaTen": "Châu Thị Inh Đa",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5179,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 228,
@@ -2649,12 +3949,22 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Bóng đá Nữ",
-        "Kế toán - Nhân sự"
+        "Kế toán - Nhân sự",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 2,
+      "soMon": 3,
       "chucDanh": "Kế toán trưởng",
       "maNv": "70100006",
-      "sdt": "0769344131"
+      "sdt": "0769344131",
+      "chay": {
+        "bib": 5064,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 10 - Vận động viên (7 chỗ)",
+        "vehicleNum": 10,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 229,
@@ -2662,9 +3972,19 @@
       "hoVaTen": "Nguyễn Vũ Linh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Pickleball đôi Nam-Nữ"
+        "Pickleball đôi Nam-Nữ",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5207,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 230,
@@ -2672,9 +3992,19 @@
       "hoVaTen": "Phan Thị Lê",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Pickleball đôi Nam-Nữ"
+        "Pickleball đôi Nam-Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5047,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 07 - Vận động viên (7 chỗ)",
+        "vehicleNum": 7,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 231,
@@ -2682,9 +4012,19 @@
       "hoVaTen": "Phù ái Siêu",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5072,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 12 - Vận động viên (7 chỗ)",
+        "vehicleNum": 12,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 232,
@@ -2692,9 +4032,19 @@
       "hoVaTen": "Trần Thị Tuyết Nghi",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5050,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 07 - Vận động viên (7 chỗ)",
+        "vehicleNum": 7,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 233,
@@ -2732,9 +4082,19 @@
       "hoVaTen": "Hồ Thị Lâm Oanh",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5067,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 11 - Vận động viên (7 chỗ)",
+        "vehicleNum": 11,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 237,
@@ -2763,9 +4123,19 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Bơi ếch Nữ 40m",
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5200,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 240,
@@ -2783,9 +4153,19 @@
       "hoVaTen": "Võ Đình Lưu",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bơi ếch Nam 40m"
+        "Bơi ếch Nam 40m",
+        "Chạy 15km Nam"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 15001,
+        "dist": "Chạy 15km",
+        "category": "15km Nam",
+        "runEvent": "Chạy 15km Nam",
+        "vehicle": "Xe 20 - Vận động viên (7 chỗ)",
+        "vehicleNum": 20,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 242,
@@ -2794,9 +4174,19 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Cầu lông đôi Nữ",
-        "Cầu lông đôi Nam-Nữ"
+        "Cầu lông đôi Nam-Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5192,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 243,
@@ -2805,9 +4195,19 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Cầu lông đôi Nam-Nữ",
-        "Cầu lông đôi Nam"
+        "Cầu lông đôi Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5181,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 244,
@@ -2826,9 +4226,19 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Cầu lông đơn Nữ",
-        "Cầu lông đôi Nữ"
+        "Cầu lông đôi Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5182,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 246,
@@ -2836,9 +4246,19 @@
       "hoVaTen": "Trần Đức Tâm",
       "gioiTinh": "Nam",
       "monThi": [
-        "Cầu lông đôi Nam"
+        "Cầu lông đôi Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5178,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 247,
@@ -2846,9 +4266,19 @@
       "hoVaTen": "Lê Bá Hải",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bơi ếch Nam 40m"
+        "Bơi ếch Nam 40m",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5288,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 248,
@@ -2856,9 +4286,19 @@
       "hoVaTen": "Lê Thị Lụa",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng bàn đơn Nữ"
+        "Bóng bàn đơn Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5346,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 29 - Vận động viên (45 chỗ)",
+        "vehicleNum": 29,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 249,
@@ -2866,9 +4306,19 @@
       "hoVaTen": "Nguyễn Duy Nhật Nam",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bơi ếch Nam 40m"
+        "Bơi ếch Nam 40m",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5101,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 250,
@@ -2876,9 +4326,19 @@
       "hoVaTen": "Phan Ngọc Kiều",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Cầu lông đôi Nữ"
+        "Cầu lông đôi Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5262,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 251,
@@ -2886,9 +4346,19 @@
       "hoVaTen": "Trương Nhật Minh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Pickleball đôi Nam"
+        "Pickleball đôi Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5062,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 10 - Vận động viên (7 chỗ)",
+        "vehicleNum": 10,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 252,
@@ -2896,9 +4366,19 @@
       "hoVaTen": "Trần Mạnh Hùng",
       "gioiTinh": "Nam",
       "monThi": [
-        "Pickleball đôi Nam"
+        "Pickleball đôi Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5055,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 08 - Vận động viên (7 chỗ)",
+        "vehicleNum": 8,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 253,
@@ -2907,12 +4387,22 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Bơi tự do Nam 40m",
-        "Buồng"
+        "Buồng",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 2,
+      "soMon": 3,
       "chucDanh": "Nhân viên buồng",
       "maNv": "70020214",
-      "sdt": "0333389960"
+      "sdt": "0333389960",
+      "chay": {
+        "bib": 5287,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 254,
@@ -2920,9 +4410,19 @@
       "hoVaTen": "Trịnh Thị Lan Hương",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Cầu lông đôi Nữ"
+        "Cầu lông đôi Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5278,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 255,
@@ -2931,9 +4431,19 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Bơi ếch Nam 40m",
-        "Cầu lông đôi Nam"
+        "Cầu lông đôi Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5321,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 256,
@@ -2941,9 +4451,19 @@
       "hoVaTen": "Huỳnh Tăng Vĩnh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Cầu lông đôi Nam"
+        "Cầu lông đôi Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5350,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 29 - Vận động viên (45 chỗ)",
+        "vehicleNum": 29,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 257,
@@ -2952,9 +4472,19 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Pickleball đôi Nam-Nữ",
-        "Cầu lông đôi Nữ"
+        "Cầu lông đôi Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5326,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 258,
@@ -2982,9 +4512,19 @@
       "hoVaTen": "Chu Phương Ly",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5374,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 30 - Khối Siêu Thị Mường Thanh (Tự di chuyển)",
+        "vehicleNum": 30,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 261,
@@ -2992,9 +4532,19 @@
       "hoVaTen": "Hoàng Thu Hiền",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5074,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 30 - Khối Siêu Thị Mường Thanh (Tự di chuyển)",
+        "vehicleNum": 30,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 262,
@@ -3002,9 +4552,19 @@
       "hoVaTen": "Lê Thị Thảo",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5060,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 30 - Khối Siêu Thị Mường Thanh (Tự di chuyển)",
+        "vehicleNum": 30,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 263,
@@ -3012,9 +4572,19 @@
       "hoVaTen": "Nguyễn Hoa Lý",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5100,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 30 - Khối Siêu Thị Mường Thanh (Tự di chuyển)",
+        "vehicleNum": 30,
+        "role": "Trưởng xe/ Vận động viên"
+      }
     },
     {
       "stt": 264,
@@ -3032,9 +4602,19 @@
       "hoVaTen": "Nguyễn Thị Yến",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5131,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 30 - Khối Siêu Thị Mường Thanh (Tự di chuyển)",
+        "vehicleNum": 30,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 266,
@@ -3042,9 +4622,19 @@
       "hoVaTen": "Trần Thị Hường",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5336,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 30 - Khối Siêu Thị Mường Thanh (Tự di chuyển)",
+        "vehicleNum": 30,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 267,
@@ -3052,9 +4642,19 @@
       "hoVaTen": "Trần Thị Thanh",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5136,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 30 - Khối Siêu Thị Mường Thanh (Tự di chuyển)",
+        "vehicleNum": 30,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 268,
@@ -3062,9 +4662,19 @@
       "hoVaTen": "Trần Thị Trà",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5049,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 30 - Khối Siêu Thị Mường Thanh (Tự di chuyển)",
+        "vehicleNum": 30,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 269,
@@ -3072,9 +4682,19 @@
       "hoVaTen": "Vũ Thị Khuyên",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5311,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 30 - Khối Siêu Thị Mường Thanh (Tự di chuyển)",
+        "vehicleNum": 30,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 270,
@@ -3082,9 +4702,19 @@
       "hoVaTen": "Hà Anh Tuấn",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5164,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 271,
@@ -3093,9 +4723,19 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Pickleball đôi Nam-Nữ",
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5180,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 272,
@@ -3103,9 +4743,19 @@
       "hoVaTen": "Lèo Bá Linh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bơi tự do Nam 80m"
+        "Bơi tự do Nam 80m",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5173,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 273,
@@ -3113,9 +4763,19 @@
       "hoVaTen": "Lò Thị Dược",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5174,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 274,
@@ -3123,9 +4783,19 @@
       "hoVaTen": "Lò Thị Luân",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5175,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 275,
@@ -3133,9 +4803,19 @@
       "hoVaTen": "Lường Sinh Đạt",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5186,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 276,
@@ -3143,9 +4823,19 @@
       "hoVaTen": "Nguyễn Tất Anh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5183,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 277,
@@ -3153,9 +4843,19 @@
       "hoVaTen": "Quàng Thị Thơm",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5166,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 278,
@@ -3163,9 +4863,19 @@
       "hoVaTen": "Quàng Văn Hạnh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 10km Nam"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 10015,
+        "dist": "Chạy 10km",
+        "category": "10km Nam",
+        "runEvent": "Chạy 10km Nam",
+        "vehicle": "Xe 23 - Vận động viên (16 chỗ)",
+        "vehicleNum": 23,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 279,
@@ -3173,9 +4883,19 @@
       "hoVaTen": "Trần Thị Hương",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5159,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 280,
@@ -3183,9 +4903,19 @@
       "hoVaTen": "Trần Đình Trí",
       "gioiTinh": "Nam",
       "monThi": [
-        "Pickleball đôi Nam-Nữ"
+        "Pickleball đôi Nam-Nữ",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5053,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 08 - Vận động viên (7 chỗ)",
+        "vehicleNum": 8,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 281,
@@ -3194,12 +4924,22 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Bóng đá Nữ",
-        "Buồng"
+        "Buồng",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 2,
+      "soMon": 3,
       "chucDanh": "Nhân viên văn phòng buồng",
       "maNv": "60140256",
-      "sdt": "0968189619"
+      "sdt": "0968189619",
+      "chay": {
+        "bib": 5176,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 282,
@@ -3207,9 +4947,19 @@
       "hoVaTen": "Tòng Văn Hải",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 10km Nam"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 10014,
+        "dist": "Chạy 10km",
+        "category": "10km Nam",
+        "runEvent": "Chạy 10km Nam",
+        "vehicle": "Xe 23 - Vận động viên (16 chỗ)",
+        "vehicleNum": 23,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 283,
@@ -3217,9 +4967,19 @@
       "hoVaTen": "Tòng Văn Trọng",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5185,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 284,
@@ -3227,9 +4987,19 @@
       "hoVaTen": "Tòng Văn Định",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5184,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 285,
@@ -3237,9 +5007,19 @@
       "hoVaTen": "Đỗ Đình Chiến",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5170,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 286,
@@ -3277,9 +5057,19 @@
       "hoVaTen": "Vũ Thị Yên",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5226,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 290,
@@ -3298,9 +5088,19 @@
       "hoVaTen": "Phùng Thị Hiền",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng bàn đơn Nữ"
+        "Bóng bàn đơn Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5358,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 29 - Vận động viên (45 chỗ)",
+        "vehicleNum": 29,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 292,
@@ -3308,9 +5108,19 @@
       "hoVaTen": "Hoàng Kiều Trinh",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Cầu lông đôi Nữ"
+        "Cầu lông đôi Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5373,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 29 - Vận động viên (45 chỗ)",
+        "vehicleNum": 29,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 293,
@@ -3329,9 +5139,19 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Cầu lông đôi Nữ",
-        "Cầu lông đôi Nam-Nữ"
+        "Cầu lông đôi Nam-Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5038,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 05 - Vận động viên (7 chỗ)",
+        "vehicleNum": 5,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 295,
@@ -3339,9 +5159,19 @@
       "hoVaTen": "Trần Thị Trang",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Cầu lông đôi Nữ"
+        "Cầu lông đôi Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5037,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 05 - Vận động viên (7 chỗ)",
+        "vehicleNum": 5,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 296,
@@ -3350,9 +5180,19 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Cầu lông đơn Nữ",
-        "Cầu lông đôi Nữ"
+        "Cầu lông đôi Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5316,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 297,
@@ -3370,9 +5210,19 @@
       "hoVaTen": "Hoàng Roãn Cường",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5357,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 03 - Ban Tổ Chức Đi Sớm (04h30) (7 chỗ)",
+        "vehicleNum": 3,
+        "role": "Lái xe kiêm VĐV"
+      }
     },
     {
       "stt": 300,
@@ -3381,9 +5231,19 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Pickleball đôi Nữ",
-        "Pickleball đôi Nam-Nữ"
+        "Pickleball đôi Nam-Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5010,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 02 - Ban Phó Tổng & Lãnh Đạo Cấp Cao (7 chỗ)",
+        "vehicleNum": 2,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 301,
@@ -3392,9 +5252,19 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Pickleball đôi Nam-Nữ",
-        "Pickleball đôi Nam"
+        "Pickleball đôi Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5020,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 12 - Vận động viên (7 chỗ)",
+        "vehicleNum": 12,
+        "role": "Trưởng xe & Vận động viên"
+      }
     },
     {
       "stt": 302,
@@ -3412,9 +5282,19 @@
       "hoVaTen": "Nguyễn Thị Lan",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5018,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 32 - Tổ Y Tế BV Phủ Diễn (7 chỗ)",
+        "vehicleNum": 32,
+        "role": "Vận động viên -Trưởng xe Y tế & Hậu cần cứu thương"
+      }
     },
     {
       "stt": 304,
@@ -3422,9 +5302,19 @@
       "hoVaTen": "Nguyễn Thị Thanh Thuận",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5029,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 17 - Vận động viên (7 chỗ)",
+        "vehicleNum": 17,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 305,
@@ -3432,9 +5322,19 @@
       "hoVaTen": "Nguyễn Thị Thu Trang",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5006,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 05 - Vận động viên (7 chỗ)",
+        "vehicleNum": 5,
+        "role": "Trưởng xe & Vận động viên"
+      }
     },
     {
       "stt": 306,
@@ -3442,9 +5342,19 @@
       "hoVaTen": "Nguyễn Thị Vân",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bơi ếch Nữ 40m"
+        "Bơi ếch Nữ 40m",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5318,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 307,
@@ -3452,9 +5362,19 @@
       "hoVaTen": "Nguyễn Tuấn Long",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5380,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 03 - Ban Tổ Chức Đi Sớm (04h30) (7 chỗ)",
+        "vehicleNum": 3,
+        "role": "TP Đào tạo & Điều phối XP/Đích (BTC)"
+      }
     },
     {
       "stt": 308,
@@ -3462,9 +5382,19 @@
       "hoVaTen": "Nguyễn Đăng Hoàng",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5015,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 08 - Vận động viên (7 chỗ)",
+        "vehicleNum": 8,
+        "role": "Trưởng xe & Vận động viên"
+      }
     },
     {
       "stt": 309,
@@ -3523,9 +5453,19 @@
       "hoVaTen": "Trần Mai Phương",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng bàn đơn Nữ"
+        "Bóng bàn đơn Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5019,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 10 - Vận động viên (7 chỗ)",
+        "vehicleNum": 10,
+        "role": "Trưởng xe & Vận động viên"
+      }
     },
     {
       "stt": 315,
@@ -3533,9 +5473,19 @@
       "hoVaTen": "Trần Đại Nghĩa",
       "gioiTinh": "Nam",
       "monThi": [
-        "Pickleball đôi Nam"
+        "Pickleball đôi Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5022,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 16 - Vận động viên (7 chỗ)",
+        "vehicleNum": 16,
+        "role": "Trưởng xe & Vận động viên"
+      }
     },
     {
       "stt": 316,
@@ -3564,9 +5514,19 @@
       "hoVaTen": "Vũ Huyền Thu",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Cầu lông đơn Nữ"
+        "Cầu lông đơn Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5317,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 319,
@@ -3574,9 +5534,19 @@
       "hoVaTen": "Đoàn Thị Thu",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5319,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 320,
@@ -3585,9 +5555,19 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Bơi tự do Nam 80m",
-        "Bơi ếch Nam 40m"
+        "Bơi ếch Nam 40m",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5378,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 29 - Vận động viên (45 chỗ)",
+        "vehicleNum": 29,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 321,
@@ -3596,9 +5576,19 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Cầu lông đôi Nữ",
-        "Cầu lông đôi Nam-Nữ"
+        "Cầu lông đôi Nam-Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5111,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 322,
@@ -3606,9 +5596,19 @@
       "hoVaTen": "Nguyễn Chiến Huy",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5082,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 13 - Vận động viên (7 chỗ)",
+        "vehicleNum": 13,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 323,
@@ -3616,9 +5616,19 @@
       "hoVaTen": "Nguyễn Minh Hiếu",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5125,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 324,
@@ -3628,9 +5638,19 @@
       "monThi": [
         "Cầu lông đôi Nam-Nữ",
         "Cầu lông đơn Nam",
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 3
+      "soMon": 4,
+      "chay": {
+        "bib": 5061,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 09 - Vận động viên (7 chỗ)",
+        "vehicleNum": 9,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 325,
@@ -3638,9 +5658,19 @@
       "hoVaTen": "Phan Nguyễn Đức Lưu",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5143,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 326,
@@ -3648,9 +5678,19 @@
       "hoVaTen": "Phan Thảo Nam",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Cầu lông đôi Nữ"
+        "Cầu lông đôi Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5115,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 327,
@@ -3660,9 +5700,19 @@
       "monThi": [
         "Bơi tự do Nam 80m",
         "Bơi ếch Nam 80m",
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 3
+      "soMon": 4,
+      "chay": {
+        "bib": 5285,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 328,
@@ -3670,9 +5720,19 @@
       "hoVaTen": "Đặng Thị Ánh Phượng",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bơi ếch Nữ 40m"
+        "Bơi ếch Nữ 40m",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5090,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 15 - Vận động viên (7 chỗ)",
+        "vehicleNum": 15,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 329,
@@ -3700,9 +5760,19 @@
       "hoVaTen": "Lê Văn Hải",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5375,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 29 - Vận động viên (45 chỗ)",
+        "vehicleNum": 29,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 332,
@@ -3710,9 +5780,19 @@
       "hoVaTen": "Maivanh  Thongvilaylom",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5171,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 25 - Vận động viên (45 chỗ)",
+        "vehicleNum": 25,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 333,
@@ -3720,9 +5800,19 @@
       "hoVaTen": "Mokxi  Bounnavong",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5293,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 334,
@@ -3731,9 +5821,19 @@
       "gioiTinh": "Nữ",
       "monThi": [
         "Pickleball đôi Nam-Nữ",
-        "Kéo co"
+        "Kéo co",
+        "Chạy 10km Nữ"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 10022,
+        "dist": "Chạy 10km",
+        "category": "10km Nữ",
+        "runEvent": "Chạy 10km Nữ",
+        "vehicle": "Xe 18 - Vận động viên (7 chỗ)",
+        "vehicleNum": 18,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 335,
@@ -3741,9 +5841,19 @@
       "hoVaTen": "Ounseng  Thammavong",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5320,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 336,
@@ -3751,9 +5861,19 @@
       "hoVaTen": "Outhai  Yodsomphanh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5323,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 337,
@@ -3761,9 +5881,19 @@
       "hoVaTen": "Thipphavan  Mapanya",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5369,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 29 - Vận động viên (45 chỗ)",
+        "vehicleNum": 29,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 338,
@@ -3772,9 +5902,19 @@
       "gioiTinh": "Nam",
       "monThi": [
         "Pickleball đôi Nam-Nữ",
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 2
+      "soMon": 3,
+      "chay": {
+        "bib": 5363,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 29 - Vận động viên (45 chỗ)",
+        "vehicleNum": 29,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 339,
@@ -3782,9 +5922,19 @@
       "hoVaTen": "Yeryang  Youayia",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5291,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 340,
@@ -3792,9 +5942,19 @@
       "hoVaTen": "Dương Tiến Phúc",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5376,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 29 - Vận động viên (45 chỗ)",
+        "vehicleNum": 29,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 341,
@@ -3802,9 +5962,19 @@
       "hoVaTen": "Huỳnh Bảo Anh Nam",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5241,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 342,
@@ -3812,9 +5982,19 @@
       "hoVaTen": "Lê Duy Toàn",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5364,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 29 - Vận động viên (45 chỗ)",
+        "vehicleNum": 29,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 343,
@@ -3822,9 +6002,19 @@
       "hoVaTen": "Lưu Xuân Hà",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5238,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 344,
@@ -3852,9 +6042,19 @@
       "hoVaTen": "Nguyễn Chí Đức",
       "gioiTinh": "Nam",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5242,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 347,
@@ -3872,9 +6072,19 @@
       "hoVaTen": "Nguyễn Thị Nguyệt",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Kéo co"
+        "Kéo co",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5265,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 349,
@@ -3882,9 +6092,19 @@
       "hoVaTen": "Nguyễn Tú Khanh",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5233,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 350,
@@ -3912,9 +6132,19 @@
       "hoVaTen": "Võ Anh Tiến",
       "gioiTinh": "Nam",
       "monThi": [
-        "Bóng đá Nam"
+        "Bóng đá Nam",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5239,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 353,
@@ -3963,9 +6193,19 @@
       "hoVaTen": "Phạm Thị Hoan",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5356,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 29 - Vận động viên (45 chỗ)",
+        "vehicleNum": 29,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 358,
@@ -3973,9 +6213,19 @@
       "hoVaTen": "Trần Thị Lan",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5126,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 359,
@@ -3983,9 +6233,19 @@
       "hoVaTen": "Trần Thị Ngọc Bích",
       "gioiTinh": "Nữ",
       "monThi": [
-        "Bóng đá Nữ"
+        "Bóng đá Nữ",
+        "Chạy 5km Nữ trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5099,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ trên 35 tuổi",
+        "runEvent": "Chạy 5km Nữ trên 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 359,
@@ -4035,9 +6295,19 @@
       "maNv": "60160037",
       "sdt": "0982016129",
       "monThi": [
-        "AN-KT-IT"
+        "AN-KT-IT",
+        "Chạy 10km Nam"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 10011,
+        "dist": "Chạy 10km",
+        "category": "10km Nam",
+        "runEvent": "Chạy 10km Nam",
+        "vehicle": "Xe 23 - Vận động viên (16 chỗ)",
+        "vehicleNum": 23,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 363,
@@ -4100,9 +6370,19 @@
       "maNv": "40120086",
       "sdt": "0326029080",
       "monThi": [
-        "Bếp"
+        "Bếp",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5188,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 368,
@@ -4113,9 +6393,19 @@
       "maNv": "40120124",
       "sdt": "0379200799",
       "monThi": [
-        "Bếp"
+        "Bếp",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5190,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 369,
@@ -4230,9 +6520,19 @@
       "maNv": "20070171",
       "sdt": "0971599729",
       "monThi": [
-        "Bếp"
+        "Bếp",
+        "Chạy 5km Nam trên 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5301,
+        "dist": "Chạy 5km",
+        "category": "5km Nam trên 35 tuổi",
+        "runEvent": "Chạy 5km Nam trên 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 378,
@@ -4360,9 +6660,19 @@
       "maNv": "60120036",
       "sdt": "0365317333",
       "monThi": [
-        "Dịch vụ Ẩm thực"
+        "Dịch vụ Ẩm thực",
+        "Chạy 10km Nam"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 10020,
+        "dist": "Chạy 10km",
+        "category": "10km Nam",
+        "runEvent": "Chạy 10km Nam",
+        "vehicle": "Xe 18 - Vận động viên (7 chỗ)",
+        "vehicleNum": 18,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 388,
@@ -4373,9 +6683,19 @@
       "maNv": "40060014",
       "sdt": "0905183648",
       "monThi": [
-        "Dịch vụ Ẩm thực"
+        "Dịch vụ Ẩm thực",
+        "Chạy 5km Nam dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5283,
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nam dưới 35 tuổi",
+        "vehicle": "Xe 28 - Vận động viên (45 chỗ)",
+        "vehicleNum": 28,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 389,
@@ -4451,9 +6771,19 @@
       "maNv": "30040011",
       "sdt": "0764478887",
       "monThi": [
-        "Kế toán - Nhân sự"
+        "Kế toán - Nhân sự",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5204,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 26 - Vận động viên (45 chỗ)",
+        "vehicleNum": 26,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 395,
@@ -4529,9 +6859,19 @@
       "maNv": "10080575",
       "sdt": "0356515012",
       "monThi": [
-        "Kinh doanh – Lễ tân – Marketing"
+        "Kinh doanh – Lễ tân – Marketing",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5094,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 24 - Vận động viên (45 chỗ)",
+        "vehicleNum": 24,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 401,
@@ -4594,9 +6934,19 @@
       "maNv": "20110206",
       "sdt": "0966625980",
       "monThi": [
-        "Kinh doanh – Lễ tân – Marketing"
+        "Kinh doanh – Lễ tân – Marketing",
+        "Chạy 5km Nữ dưới 35 tuổi"
       ],
-      "soMon": 1
+      "soMon": 2,
+      "chay": {
+        "bib": 5264,
+        "dist": "Chạy 5km",
+        "category": "5km Nữ dưới 35 tuổi",
+        "runEvent": "Chạy 5km Nữ dưới 35 tuổi",
+        "vehicle": "Xe 27 - Vận động viên (45 chỗ)",
+        "vehicleNum": 27,
+        "role": "Vận động viên"
+      }
     },
     {
       "stt": 406,

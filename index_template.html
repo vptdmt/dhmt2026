@@ -7466,7 +7466,20 @@ STANDARD_CATS.forEach(cat => {
     }
 });
 
+let knownLapsMap = {};
+
+function normalizeLaps(raw) {
+    if (!raw) return [];
+    if (Array.isArray(raw)) return raw.filter(Boolean).map(String);
+    if (typeof raw === 'object') return Object.values(raw).filter(Boolean).map(String);
+    return [String(raw)];
+}
+
 let athletes = JSON.parse(localStorage.getItem('RACE_ATHLETES') || '[]');
+athletes.forEach(a => {
+    a.laps = normalizeLaps(a.laps);
+    if (a.laps.length > 0) knownLapsMap[String(a.bib)] = [...a.laps];
+});
 athletes.forEach(a => {
     if (!a.laps || !Array.isArray(a.laps)) a.laps = [];
 });
@@ -7483,7 +7496,8 @@ function loadAthletesFromFunrun(force = false) {
     if (!DATA.funrun || !DATA.funrun.runners) return;
     if (!force && athletes && athletes.length > 0) {
         athletes.forEach(a => {
-            if (!a.laps || !Array.isArray(a.laps)) a.laps = [];
+            a.laps = normalizeLaps(a.laps);
+            if (a.laps.length > 0) knownLapsMap[String(a.bib)] = [...a.laps];
         });
         return;
     }
@@ -7493,7 +7507,7 @@ function loadAthletesFromFunrun(force = false) {
     if (athletes && athletes.length > 0) {
         athletes.forEach(a => {
             if (a.status === 'FINISH') oldFinishMap[a.bib] = a.finishTime;
-            if (a.laps && Array.isArray(a.laps) && a.laps.length > 0) oldLapsMap[a.bib] = a.laps;
+            const nLaps = normalizeLaps(a.laps); if (nLaps.length > 0) { oldLapsMap[String(a.bib)] = nLaps; knownLapsMap[String(a.bib)] = [...nLaps]; }
         });
     }
 
@@ -7512,7 +7526,7 @@ function loadAthletesFromFunrun(force = false) {
             category: r.category || '',
             status: prevTime ? 'FINISH' : 'CHƯA',
             finishTime: prevTime || '',
-            laps: prevLaps ? [...prevLaps] : []
+            laps: prevLaps ? [...prevLaps] : (knownLapsMap[bibVal] ? [...knownLapsMap[bibVal]] : [])
         };
     });
 
@@ -7555,19 +7569,30 @@ function initCheckinFirebaseSync() {
         if (cloudAthletes && Array.isArray(cloudAthletes) && cloudAthletes.length > 0) {
             let changed = false;
             if (!athletes || athletes.length === 0) {
-                athletes = cloudAthletes.map(cA => ({
-                    ...cA,
-                    laps: Array.isArray(cA.laps) ? cA.laps : []
-                }));
+                athletes = cloudAthletes.map(cA => {
+                    const bibStr = String(cA.bib);
+                    const cloudLaps = normalizeLaps(cA.laps);
+                    const kLaps = knownLapsMap[bibStr] || [];
+                    const merged = Array.from(new Set([...kLaps, ...cloudLaps]));
+                    if (merged.length > 0) knownLapsMap[bibStr] = [...merged];
+                    return {
+                        ...cA,
+                        laps: merged
+                    };
+                });
                 changed = true;
             } else {
                 cloudAthletes.forEach(cA => {
-                    let localA = athletes.find(a => String(a.bib) === String(cA.bib));
+                    const bibStr = String(cA.bib);
+                    let localA = athletes.find(a => String(a.bib) === bibStr);
                     if (localA) {
-                        // Đồng bộ VÒNG CHẠY (LAPS): Hợp nhất mốc thời gian qua trạm từ các máy quét
-                        const cLaps = Array.isArray(cA.laps) ? cA.laps : [];
-                        const lLaps = Array.isArray(localA.laps) ? localA.laps : [];
-                        const mergedLaps = Array.from(new Set([...lLaps, ...cLaps]));
+                        // Đồng bộ VÒNG CHẠY (LAPS): Hợp nhất mốc thời gian qua trạm từ các máy quét & bộ nhớ trạm
+                        const cLaps = normalizeLaps(cA.laps);
+                        const lLaps = normalizeLaps(localA.laps);
+                        const kLaps = knownLapsMap[bibStr] || [];
+                        const mergedLaps = Array.from(new Set([...lLaps, ...cLaps, ...kLaps]));
+                        if (mergedLaps.length > 0) knownLapsMap[bibStr] = [...mergedLaps];
+
                         if (mergedLaps.length !== lLaps.length || JSON.stringify(mergedLaps) !== JSON.stringify(lLaps)) {
                             localA.laps = mergedLaps;
                             changed = true;
@@ -7597,19 +7622,24 @@ function initCheckinFirebaseSync() {
         }
     });
 
-    // 3. Lắng nghe trực tiếp kênh Realtime Vòng chạy theo từng số BIB (tránh ghi đè mảng)
+    // 3. Lắng nghe trực tiếp kênh Realtime Vòng chạy theo từng số BIB (nguồn chuẩn, không bao giờ bị ghi đè)
     firebaseDb.ref('dhmt2026/funrun_checkin/laps').on('value', snap => {
         const lapsData = snap.val();
         if (lapsData && typeof lapsData === 'object') {
             let changed = false;
             Object.keys(lapsData).forEach(bib => {
-                const localA = athletes.find(a => String(a.bib) === String(bib));
+                const bibStr = String(bib);
+                const cloudLaps = normalizeLaps(lapsData[bib]);
+                const kLaps = knownLapsMap[bibStr] || [];
+                const merged = Array.from(new Set([...kLaps, ...cloudLaps]));
+                if (merged.length > 0) knownLapsMap[bibStr] = [...merged];
+
+                const localA = athletes.find(a => String(a.bib) === bibStr);
                 if (localA) {
-                    const cLaps = Array.isArray(lapsData[bib]) ? lapsData[bib] : [];
-                    const lLaps = Array.isArray(localA.laps) ? localA.laps : [];
-                    const mergedLaps = Array.from(new Set([...lLaps, ...cLaps]));
-                    if (mergedLaps.length !== lLaps.length) {
-                        localA.laps = mergedLaps;
+                    const lLaps = normalizeLaps(localA.laps);
+                    const finalLaps = Array.from(new Set([...lLaps, ...merged]));
+                    if (finalLaps.length !== lLaps.length || JSON.stringify(finalLaps) !== JSON.stringify(lLaps)) {
+                        localA.laps = finalLaps;
                         changed = true;
                     }
                 }
@@ -8122,6 +8152,10 @@ function manualRemoveLap(bib) {
     if (!a || !a.laps || a.laps.length === 0) return;
     if (confirm(`Bạn có chắc muốn xóa 1 lượt quét vòng của VĐV ${a.bib} - ${a.name}?`)) {
         a.laps.pop();
+        knownLapsMap[String(a.bib)] = [...a.laps];
+        if (typeof firebaseDb !== 'undefined' && firebaseDb) {
+            firebaseDb.ref(`dhmt2026/funrun_checkin/laps/${a.bib}`).set(a.laps.length > 0 ? a.laps : null).catch(() => {});
+        }
         saveAndRender(true);
         openLapDetailModal(bib);
     }
@@ -8215,11 +8249,22 @@ function updateStatsCounters() {
 }
 
 function saveAndRender(pushToCloud = true) {
+    // Bảo vệ và cập nhật knownLapsMap trước khi lưu
+    athletes.forEach(a => {
+        const bibStr = String(a.bib);
+        const curLaps = normalizeLaps(a.laps);
+        const kLaps = knownLapsMap[bibStr] || [];
+        const merged = Array.from(new Set([...kLaps, ...curLaps]));
+        a.laps = merged;
+        if (merged.length > 0) knownLapsMap[bibStr] = [...merged];
+    });
+
     localStorage.setItem('RACE_ATHLETES', JSON.stringify(athletes));
     updateStatsCounters();
     renderTableOnly();
 
     if (pushToCloud && typeof firebaseDb !== 'undefined' && firebaseDb) {
+        // Ghi lên cloud với dữ liệu laps đã được bảo toàn đầy đủ
         firebaseDb.ref('dhmt2026/funrun_checkin/athletes').set(athletes)
             .then(() => updateCheckinCloudIndicator(true))
             .catch(err => {
@@ -8231,7 +8276,7 @@ function saveAndRender(pushToCloud = true) {
         const lapsDict = {};
         athletes.forEach(a => {
             if (a.laps && Array.isArray(a.laps) && a.laps.length > 0) {
-                lapsDict[a.bib] = a.laps;
+                lapsDict[String(a.bib)] = a.laps;
             }
         });
         if (Object.keys(lapsDict).length > 0) {
@@ -8622,6 +8667,10 @@ function resetAllData() {
     if (confirm('Bạn có chắc chắn muốn xóa toàn bộ kết quả để làm lại từ đầu không?')) {
         localStorage.removeItem('RACE_ATHLETES');
         athletes = [];
+        knownLapsMap = {};
+        if (typeof firebaseDb !== 'undefined' && firebaseDb) {
+            firebaseDb.ref('dhmt2026/funrun_checkin/laps').set(null).catch(() => {});
+        }
         saveAndRender(true);
     }
 }

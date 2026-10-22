@@ -232,6 +232,7 @@
   .checkin-stat-box.active-all { border-color: #38bdf8; background: #0f2d4a; box-shadow: 0 0 12px rgba(56, 189, 248, 0.45); }
   .checkin-stat-box.active-finish { border-color: #10b981; background: #064e3b; box-shadow: 0 0 12px rgba(16, 185, 129, 0.45); }
   .checkin-stat-box.active-remain { border-color: #f59e0b; background: #451a03; box-shadow: 0 0 12px rgba(245, 158, 11, 0.45); }
+  .checkin-stat-box.active-dq { border-color: #ef4444; background: #450a0a; box-shadow: 0 0 12px rgba(239, 68, 68, 0.45); }
 
   .checkin-cat-bar { display: flex; gap: 6px; overflow-x: auto; padding: 6px 0; margin-bottom: 10px; align-items: center; }
   .checkin-cat-chip { 
@@ -266,6 +267,8 @@
   
   .status-finish { background: #15803d; color: white; padding: 2px 7px; border-radius: 6px; font-weight: 800; font-size: 11px; display: inline-block; }
   .status-unfinish { color: #64748b; font-size: 11px; font-weight: 600; }
+  .status-dq { background: #dc2626; color: white; padding: 2px 7px; border-radius: 6px; font-weight: 800; font-size: 11px; display: inline-block; box-shadow: 0 0 6px rgba(220, 38, 38, 0.4); }
+  .status-warning { background: #d97706; color: #fffbeb; padding: 2px 7px; border-radius: 6px; font-weight: 800; font-size: 11px; display: inline-block; }
   
   .rank-badge { font-weight: 800; padding: 3px 8px; border-radius: 6px; font-size: 11px; display: inline-block; }
   .rank-1 { background: #eab308; color: #000; box-shadow: 0 0 8px rgba(234, 179, 8, 0.5); }
@@ -1011,6 +1014,10 @@
           <div class="num" id="remainCount" style="color: #f59e0b;">0</div>
           <div class="lbl">Chưa về</div>
         </div>
+        <div id="boxDQ" class="checkin-stat-box" onclick="changeStatusFilter('DQ')" title="Xem danh sách VĐV bị loại" style="display: none;">
+          <div class="num" id="dqCount" style="color: #ef4444;">0</div>
+          <div class="lbl">Bị loại</div>
+        </div>
       </div>
     </div>
 
@@ -1070,6 +1077,7 @@
       <div class="subtitle" id="bannerSubtitle"></div>
       <div class="desc" id="bannerDesc"></div>
       <div class="time" id="bannerTime"></div>
+      <div id="bannerActions" class="banner-actions mt-3 flex flex-wrap items-center justify-center gap-2.5" style="display:none;"></div>
     </div>
 
     <!-- RESULT TABLE -->
@@ -3346,6 +3354,7 @@ function printAthleteSchedule() {
   .checkin-stat-box.active-all { border-color: #38bdf8; background: #0f2d4a; box-shadow: 0 0 12px rgba(56, 189, 248, 0.45); }
   .checkin-stat-box.active-finish { border-color: #10b981; background: #064e3b; box-shadow: 0 0 12px rgba(16, 185, 129, 0.45); }
   .checkin-stat-box.active-remain { border-color: #f59e0b; background: #451a03; box-shadow: 0 0 12px rgba(245, 158, 11, 0.45); }
+  .checkin-stat-box.active-dq { border-color: #ef4444; background: #450a0a; box-shadow: 0 0 12px rgba(239, 68, 68, 0.45); }
 
   .checkin-cat-bar { display: flex; gap: 6px; overflow-x: auto; padding: 6px 0; margin-bottom: 10px; align-items: center; }
   .checkin-cat-chip { 
@@ -3380,6 +3389,8 @@ function printAthleteSchedule() {
   
   .status-finish { background: #15803d; color: white; padding: 2px 7px; border-radius: 6px; font-weight: 800; font-size: 11px; display: inline-block; }
   .status-unfinish { color: #64748b; font-size: 11px; font-weight: 600; }
+  .status-dq { background: #dc2626; color: white; padding: 2px 7px; border-radius: 6px; font-weight: 800; font-size: 11px; display: inline-block; box-shadow: 0 0 6px rgba(220, 38, 38, 0.4); }
+  .status-warning { background: #d97706; color: #fffbeb; padding: 2px 7px; border-radius: 6px; font-weight: 800; font-size: 11px; display: inline-block; }
   
   .rank-badge { font-weight: 800; padding: 3px 8px; border-radius: 6px; font-size: 11px; display: inline-block; }
   .rank-1 { background: #eab308; color: #000; box-shadow: 0 0 8px rgba(234, 179, 8, 0.5); }
@@ -4886,6 +4897,7 @@ function printSingleTrip(trip) {
   .checkin-stat-box.active-all { border-color: #38bdf8; background: #0f2d4a; box-shadow: 0 0 12px rgba(56, 189, 248, 0.45); }
   .checkin-stat-box.active-finish { border-color: #10b981; background: #064e3b; box-shadow: 0 0 12px rgba(16, 185, 129, 0.45); }
   .checkin-stat-box.active-remain { border-color: #f59e0b; background: #451a03; box-shadow: 0 0 12px rgba(245, 158, 11, 0.45); }
+  .checkin-stat-box.active-dq { border-color: #ef4444; background: #450a0a; box-shadow: 0 0 12px rgba(239, 68, 68, 0.45); }
 
   .checkin-cat-bar { display: flex; gap: 6px; overflow-x: auto; padding: 6px 0; margin-bottom: 10px; align-items: center; }
   .checkin-cat-chip { 
@@ -4920,6 +4932,8 @@ function printSingleTrip(trip) {
   
   .status-finish { background: #15803d; color: white; padding: 2px 7px; border-radius: 6px; font-weight: 800; font-size: 11px; display: inline-block; }
   .status-unfinish { color: #64748b; font-size: 11px; font-weight: 600; }
+  .status-dq { background: #dc2626; color: white; padding: 2px 7px; border-radius: 6px; font-weight: 800; font-size: 11px; display: inline-block; box-shadow: 0 0 6px rgba(220, 38, 38, 0.4); }
+  .status-warning { background: #d97706; color: #fffbeb; padding: 2px 7px; border-radius: 6px; font-weight: 800; font-size: 11px; display: inline-block; }
   
   .rank-badge { font-weight: 800; padding: 3px 8px; border-radius: 6px; font-size: 11px; display: inline-block; }
   .rank-1 { background: #eab308; color: #000; box-shadow: 0 0 8px rgba(234, 179, 8, 0.5); }
@@ -7662,14 +7676,10 @@ function initCheckinFirebaseSync() {
                             changed = true;
                         }
 
-                        // Đồng bộ TRẠNG THÁI VỀ ĐÍCH (FINISH / CHƯA)
-                        if (cA.status === 'FINISH' && localA.status !== 'FINISH') {
-                            localA.status = 'FINISH';
+                        // Đồng bộ TRẠNG THÁI VỀ ĐÍCH (FINISH / BỊ LOẠI / CHƯA)
+                        if (cA.status && cA.status !== localA.status) {
+                            localA.status = cA.status;
                             localA.finishTime = cA.finishTime || '';
-                            changed = true;
-                        } else if (cA.status === 'CHƯA' && localA.status === 'FINISH') {
-                            localA.status = 'CHƯA';
-                            localA.finishTime = '';
                             changed = true;
                         } else if (cA.status === 'FINISH' && localA.status === 'FINISH' && cA.finishTime && cA.finishTime !== localA.finishTime) {
                             localA.finishTime = cA.finishTime;
@@ -8049,6 +8059,26 @@ function processFinishScan(athlete, raw, timeStr) {
     const required = getRequiredLaps(athlete.distance);
     let jobUnit = [athlete.title, athlete.unit].filter(Boolean).join(' - ');
 
+    // Kiểm tra nếu VĐV đã BỊ LOẠI từ trước
+    if (athlete.status === 'BỊ LOẠI') {
+        playCheckinBeep('warning');
+        const actionsHtml = `
+            <div class="flex flex-wrap items-center justify-center gap-3 mt-3">
+                <button onclick="approveAthleteFinish('${athlete.bib}')" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs shadow-lg transition cursor-pointer flex items-center gap-1.5 active:scale-95">
+                    <span>✓</span><span>Phục hồi & Chấp nhận FINISH</span>
+                </button>
+            </div>
+        `;
+        showBanner('error', 
+            `🛑 BIB ${athlete.bib} - ${athlete.name} [BỊ LOẠI]`, 
+            jobUnit,
+            `VĐV ĐÃ BỊ LOẠI TRƯỚC ĐÓ! (Không đủ vòng kiểm soát hoặc theo quyết định BTC).`, 
+            `Giờ về ghi nhận: ${athlete.finishTime || '--:--:--'} | ${athlete.category}`,
+            actionsHtml
+        );
+        return { success: false, type: 'DISQUALIFIED', athlete: athlete, bib: athlete.bib, finishTime: athlete.finishTime };
+    }
+
     // Kiểm tra VĐV đã Finish từ trước chưa
     if (athlete.status === 'FINISH') {
         playCheckinBeep('warning');
@@ -8073,19 +8103,39 @@ function processFinishScan(athlete, raw, timeStr) {
             ? `⚠️ CẢNH BÁO: CHƯA ĐỦ VÒNG KIỂM SOÁT! VĐV cự ly 10km chưa có xác nhận qua trạm vòng 2!`
             : `⚠️ CẢNH BÁO: THIẾU VÒNG KIỂM SOÁT! VĐV cự ly 15km mới xác nhận ${lapInfo.count}/2 vòng kiểm soát!`;
 
-        showBanner('error', 
-            `⚠️ BIB ${athlete.bib} - ${athlete.name} (${lapInfo.text})`, 
+        // Vẫn tạm ghi nhận trạng thái FINISH, cảnh báo nền VÀNG
+        athlete.status = 'FINISH';
+        athlete.finishTime = timeStr;
+        athlete.lapWarning = true;
+        saveAndRender(true);
+
+        const actionsHtml = `
+            <div class="flex flex-wrap items-center justify-center gap-3 mt-3">
+                <button onclick="approveAthleteFinish('${athlete.bib}')" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs shadow-lg transition cursor-pointer flex items-center gap-1.5 active:scale-95">
+                    <span>✓</span><span>Chấp nhận FINISH</span>
+                </button>
+                <button onclick="rejectAthleteFinish('${athlete.bib}')" class="px-4 py-2 rounded-xl bg-rose-700 hover:bg-rose-600 text-white font-black text-xs shadow-lg transition cursor-pointer flex items-center gap-1.5 active:scale-95">
+                    <span>✕</span><span>Từ chối FINISH (Bị loại)</span>
+                </button>
+            </div>
+        `;
+
+        showBanner('warning', 
+            `⚠️ BIB ${athlete.bib} - ${athlete.name} [${lapInfo.text}]`, 
             jobUnit,
-            warningDesc + ` Theo điều lệ giải: VĐV không đủ số dấu xác nhận vòng sẽ không được công nhận hoàn thành cự ly!`, 
-            `Giờ về: ${timeStr} | ${athlete.category}`
+            `${warningDesc} Đã tạm ghi nhận FINISH (${runInfo.displayStr}). Vui lòng bấm xác nhận:`, 
+            `Giờ về: ${timeStr} | ${athlete.category}`,
+            actionsHtml
         );
-        return { success: false, type: 'FINISH_LAP_MISSING', athlete: athlete, bib: athlete.bib, lapInfo: lapInfo, runInfo: runInfo, finishTime: timeStr, warningDesc };
+        return { success: true, type: 'FINISH_LAP_MISSING', athlete: athlete, bib: athlete.bib, lapInfo: lapInfo, runInfo: runInfo, finishTime: timeStr, warningDesc };
     }
 
     // Đủ điều kiện hoàn thành hợp lệ!
     playCheckinBeep('success');
     athlete.status = 'FINISH';
     athlete.finishTime = timeStr;
+    delete athlete.lapWarning;
+    athlete.lapApproved = true;
     const runInfo = calculateRunMinutes(timeStr, athlete.category);
 
     showBanner('success', 
@@ -8098,18 +8148,43 @@ function processFinishScan(athlete, raw, timeStr) {
     return { success: true, type: 'FINISH', athlete: athlete, bib: athlete.bib, lapInfo: lapInfo, runInfo: runInfo, finishTime: timeStr };
 }
 
-// HÀM ĐẶC CÁCH GHI NHẬN FINISH CHO VĐV KHI THIẾU VÒNG (NẾU BTC XÁC NHẬN HỢP LỆ)
-function forceApproveFinish(bib, timeStr) {
+// HÀM CHẤP NHẬN FINISH (CÔNG NHẬN THÀNH TÍCH VỀ ĐÍCH)
+function approveAthleteFinish(bib) {
     const athlete = athletes.find(a => String(a.bib) === String(bib));
     if (!athlete) return;
-    if (confirm(`Ban Tổ Chức xác nhận ĐẶC CÁCH ghi nhận về đích cho VĐV ${athlete.bib} - ${athlete.name} dù thiếu xác nhận trạm vòng?`)) {
-        athlete.status = 'FINISH';
-        athlete.finishTime = timeStr || (new Date().toTimeString().split(' ')[0] + '.0');
-        saveAndRender(true);
-        updateCameraStatsCounter();
-        resumeCameraScanning();
-        showBanner('success', `ĐÃ ĐẶC CÁCH FINISH BIB ${athlete.bib}`, `${athlete.name}`, 'Đã ghi nhận về đích theo quyết định của BTC.', '');
-    }
+    athlete.status = 'FINISH';
+    delete athlete.lapWarning;
+    athlete.lapApproved = true;
+    saveAndRender(true);
+    updateCameraStatsCounter();
+    showBanner('success', 
+        `✓ ĐÃ CHẤP NHẬN FINISH - BIB ${athlete.bib}`, 
+        `${athlete.name} - ${athlete.unit}`, 
+        `Trọng tài/BTC đã phê duyệt công nhận kết quả về đích!`, 
+        `Giờ về: ${athlete.finishTime} | ${athlete.category}`
+    );
+}
+
+// HÀM TỪ CHỐI FINISH (CHUYỂN TRẠNG THÁI SANG BỊ LOẠI, KHÔNG TÍNH THÀNH TÍCH)
+function rejectAthleteFinish(bib) {
+    const athlete = athletes.find(a => String(a.bib) === String(bib));
+    if (!athlete) return;
+    athlete.status = 'BỊ LOẠI';
+    delete athlete.lapApproved;
+    athlete.lapWarning = false;
+    saveAndRender(true);
+    updateCameraStatsCounter();
+    showBanner('error', 
+        `✕ ĐÃ TỪ CHỐI FINISH - BIB ${athlete.bib} BỊ LOẠI`, 
+        `${athlete.name} - ${athlete.unit}`, 
+        `VĐV bị loại do không đủ số vòng kiểm soát theo điều lệ giải. Thành tích không được xếp giải!`, 
+        `Giờ về ghi nhận: ${athlete.finishTime || '--:--:--'} | ${athlete.category}`
+    );
+}
+
+// Alias hỗ trợ tương thích ngược
+function forceApproveFinish(bib, timeStr) {
+    approveAthleteFinish(bib);
 }
 
 // POPUP CHI TIẾT VÒNG CHẠY CỦA VĐV
@@ -8282,7 +8357,7 @@ function processRawData(raw, fromCamera = false) {
     }
 }
 
-function showBanner(type, title, subtitle, desc, time) {
+function showBanner(type, title, subtitle, desc, time, actionsHtml) {
     const statusBanner = document.getElementById('statusBanner');
     if (!statusBanner) return;
     statusBanner.className = `checkin-banner ${type}`;
@@ -8290,10 +8365,20 @@ function showBanner(type, title, subtitle, desc, time) {
     const sEl = document.getElementById('bannerSubtitle');
     const dEl = document.getElementById('bannerDesc');
     const tiEl = document.getElementById('bannerTime');
+    const aEl = document.getElementById('bannerActions');
     if (tEl) tEl.innerText = title;
     if (sEl) sEl.innerText = subtitle || '';
     if (dEl) dEl.innerText = desc;
     if (tiEl) tiEl.innerText = time;
+    if (aEl) {
+        if (actionsHtml) {
+            aEl.innerHTML = actionsHtml;
+            aEl.style.display = 'flex';
+        } else {
+            aEl.innerHTML = '';
+            aEl.style.display = 'none';
+        }
+    }
 }
 
 function changeStatusFilter(status) {
@@ -8301,14 +8386,17 @@ function changeStatusFilter(status) {
     const bAll = document.getElementById('boxAll');
     const bFin = document.getElementById('boxFinish');
     const bRem = document.getElementById('boxRemain');
+    const bDq = document.getElementById('boxDQ');
 
     if (bAll) bAll.className = 'checkin-stat-box';
     if (bFin) bFin.className = 'checkin-stat-box';
     if (bRem) bRem.className = 'checkin-stat-box';
+    if (bDq) bDq.className = 'checkin-stat-box';
 
     if (status === 'ALL' && bAll) bAll.classList.add('active-all');
     else if (status === 'FINISH' && bFin) bFin.classList.add('active-finish');
     else if (status === 'REMAIN' && bRem) bRem.classList.add('active-remain');
+    else if (status === 'DQ' && bDq) bDq.classList.add('active-dq');
 
     renderTableOnly();
     focusScanInput();
@@ -8326,9 +8414,18 @@ function updateStatsCounters() {
     const totalEl = document.getElementById('totalCount');
     const finishEl = document.getElementById('finishCount');
     const remainEl = document.getElementById('remainCount');
+    const dqEl = document.getElementById('dqCount');
+    const dqCount = athletes.filter(a => a.status === 'BỊ LOẠI').length;
+
     if (totalEl) totalEl.innerText = athletes.length;
     if (finishEl) finishEl.innerText = athletes.filter(a => a.status === 'FINISH').length;
-    if (remainEl) remainEl.innerText = athletes.filter(a => a.status !== 'FINISH').length;
+    if (remainEl) remainEl.innerText = athletes.filter(a => a.status !== 'FINISH' && a.status !== 'BỊ LOẠI').length;
+    if (dqEl) dqEl.innerText = dqCount;
+
+    const boxDq = document.getElementById('boxDQ');
+    if (boxDq) {
+        boxDq.style.display = dqCount > 0 ? 'block' : 'none';
+    }
 }
 
 function saveAndRender(pushToCloud = true) {
@@ -8389,14 +8486,22 @@ function renderTableOnly() {
 
     let filtered = athletes.filter(a => {
         if (currentStatusFilter === 'FINISH' && a.status !== 'FINISH') return false;
-        if (currentStatusFilter === 'REMAIN' && a.status === 'FINISH') return false;
+        if (currentStatusFilter === 'REMAIN' && (a.status === 'FINISH' || a.status === 'BỊ LOẠI')) return false;
+        if (currentStatusFilter === 'DQ' && a.status !== 'BỊ LOẠI') return false;
         if (currentCatFilter !== 'ALL' && a.category !== currentCatFilter) return false;
         return true;
     });
 
     filtered.sort((a,b) => {
-        if (a.status === 'FINISH' && b.status !== 'FINISH') return -1;
-        if (a.status !== 'FINISH' && b.status === 'FINISH') return 1;
+        const getGroupScore = (item) => {
+            if (item.status === 'FINISH') return 1;
+            if (item.status === 'BỊ LOẠI') return 3;
+            return 2; // CHƯA
+        };
+        const scoreA = getGroupScore(a);
+        const scoreB = getGroupScore(b);
+        if (scoreA !== scoreB) return scoreA - scoreB;
+
         if (a.status === 'FINISH' && b.status === 'FINISH') {
             const infoA = calculateRunMinutes(a.finishTime, a.category);
             const infoB = calculateRunMinutes(b.finishTime, b.category);
@@ -8408,10 +8513,14 @@ function renderTableOnly() {
     tbody.innerHTML = filtered.map(a => {
         const rank = rankMap[a.bib];
         let rankBadge = '--';
-        if (rank === 1) rankBadge = '<span class="rank-badge rank-1">🥇 1</span>';
-        else if (rank === 2) rankBadge = '<span class="rank-badge rank-2">🥈 2</span>';
-        else if (rank === 3) rankBadge = '<span class="rank-badge rank-3">🥉 3</span>';
-        else if (rank) rankBadge = `<span class="rank-badge" style="background:#334155;color:#fff;">${rank}</span>`;
+        if (a.status === 'BỊ LOẠI') {
+            rankBadge = '<span class="status-dq" style="font-size:10px; padding:1px 5px;">BỊ LOẠI</span>';
+        } else if (a.status === 'FINISH') {
+            if (rank === 1) rankBadge = '<span class="rank-badge rank-1">🥇 1</span>';
+            else if (rank === 2) rankBadge = '<span class="rank-badge rank-2">🥈 2</span>';
+            else if (rank === 3) rankBadge = '<span class="rank-badge rank-3">🥉 3</span>';
+            else if (rank) rankBadge = `<span class="rank-badge" style="background:#334155;color:#fff;">${rank}</span>`;
+        }
 
         const cfg = raceConfig[a.category] || { start: '--:--', cutoffMinutes: '--' };
         const runInfo = calculateRunMinutes(a.finishTime, a.category);
@@ -8423,6 +8532,8 @@ function renderTableOnly() {
             } else {
                 durationHtml = `<span class="time-box time-valid">${runInfo.displayStr}</span>`;
             }
+        } else if (a.status === 'BỊ LOẠI') {
+            durationHtml = `<span class="text-rose-400 font-mono text-xs font-bold" title="Thời gian ghi nhận: ${runInfo.displayStr}">Bị loại</span>`;
         }
 
         const lapInfo = getLapStatusInfo(a);
@@ -8432,8 +8543,26 @@ function renderTableOnly() {
             lapBadgeHtml = `<button onclick="openLapDetailModal('${a.bib}')" class="px-2 py-0.5 rounded-md ${lapInfo.badgeClass} border font-black text-xs cursor-pointer hover:opacity-80 transition active:scale-95" title="${(a.laps && a.laps.length > 0) ? a.laps.map((t, idx) => `Vòng ${idx+2}: ${t}`).join(' | ') : 'Chưa qua trạm'} (Nhấp xem chi tiết)">${lapInfo.text}</button>`;
         }
 
+        // Tạo nút trạng thái tương ứng
+        let statusBtnHtml = '';
+        let rowStyle = '';
+        if (a.status === 'BỊ LOẠI') {
+            rowStyle = 'background: rgba(220, 38, 38, 0.1); border-left: 3px solid #ef4444;';
+            statusBtnHtml = `<button onclick="toggleAthleteFinish('${a.bib}')" class="status-dq cursor-pointer hover:opacity-80" title="Nhấp để xử lý trạng thái">BỊ LOẠI</button>`;
+        } else if (a.status === 'FINISH') {
+            if (a.lapWarning) {
+                rowStyle = 'background: rgba(245, 158, 11, 0.1); border-left: 3px solid #f59e0b;';
+                statusBtnHtml = `<button onclick="toggleAthleteFinish('${a.bib}')" class="status-warning cursor-pointer hover:opacity-80" title="Cảnh báo thiếu vòng! Nhấp để duyệt hoặc từ chối">FINISH (⚠️)</button>`;
+            } else {
+                rowStyle = 'background: rgba(16, 185, 129, 0.08);';
+                statusBtnHtml = `<button onclick="toggleAthleteFinish('${a.bib}')" class="status-finish cursor-pointer hover:opacity-80" title="Nhấp để HỦY hoặc chuyển BỊ LOẠI">FINISH</button>`;
+            }
+        } else {
+            statusBtnHtml = `<button onclick="toggleAthleteFinish('${a.bib}')" class="status-unfinish cursor-pointer hover:opacity-80" title="Chưa về đích. Nhấp để xử lý">${a.status || 'CHƯA'}</button>`;
+        }
+
         return `
-            <tr style="${a.status === 'FINISH' ? 'background: rgba(16, 185, 129, 0.08);' : ''}">
+            <tr style="${rowStyle}">
                 <td style="text-align: center;">${rankBadge}</td>
                 <td style="font-weight: bold; color: #38bdf8; font-size: 15px; text-align: center;">${a.bib}</td>
                 <td style="font-weight: 600;">${escHtml(a.name)}</td>
@@ -8445,7 +8574,7 @@ function renderTableOnly() {
                 <td style="font-size: 14px; text-align: center;">${durationHtml}</td>
                 <td style="text-align: center;">${lapBadgeHtml}</td>
                 <td style="color: #94a3b8; font-size: 12px; text-align: center;">${cfg.cutoffMinutes} phút</td>
-                <td style="text-align: center;"><button onclick="toggleAthleteFinish('${a.bib}')" class="${a.status === 'FINISH' ? 'status-finish cursor-pointer hover:opacity-80' : 'status-unfinish'}" title="${a.status === 'FINISH' ? 'Nhấp để HỦY kết quả về đích' : ''}">${a.status || 'CHƯA'}</button></td>
+                <td style="text-align: center;">${statusBtnHtml}</td>
             </tr>
         `;
     }).join('');
@@ -8458,12 +8587,38 @@ function toggleAthleteFinish(bib) {
     }
     const a = athletes.find(x => String(x.bib) === String(bib));
     if (!a) return;
+
     if (a.status === 'FINISH') {
-        if (confirm(`Bạn có chắc muốn HỦY kết quả về đích của VĐV:\nBIB: ${a.bib} - ${a.name} (${a.unit})\nđể chuyển lại về trạng thái CHƯA không?`)) {
+        const choice = confirm(`VĐV BIB ${a.bib} - ${a.name} (${a.unit})\nTrạng thái hiện tại: FINISH (Giờ về: ${a.finishTime || '--:--:--'})\n\n- Bấm [OK] để TỪ CHỐI FINISH và chuyển thành [BỊ LOẠI]\n- Bấm [Cancel] để xem tùy chọn HỦY kết quả về CHƯA`);
+        if (choice) {
+            rejectAthleteFinish(a.bib);
+        } else {
+            if (confirm(`Bạn có muốn HỦY HOÀN TOÀN kết quả về đích của BIB ${a.bib} để đưa về trạng thái [CHƯA VỀ ĐÍCH] không?`)) {
+                a.status = 'CHƯA';
+                a.finishTime = '';
+                delete a.lapWarning;
+                delete a.lapApproved;
+                saveAndRender(true);
+                showBanner('warning', `ĐÃ HỦY KẾT QUẢ BIB ${a.bib}`, `${a.name} - ${a.unit}`, 'Đã chuyển trạng thái về CHƯA về đích.', '');
+            }
+        }
+    } else if (a.status === 'BỊ LOẠI') {
+        const choice = confirm(`VĐV BIB ${a.bib} - ${a.name} (${a.unit}) hiện đang [BỊ LOẠI].\n\n- Bấm [OK] để phục hồi và [CHẤP NHẬN FINISH]\n- Bấm [Cancel] để chuyển về trạng thái [CHƯA VỀ ĐÍCH]`);
+        if (choice) {
+            approveAthleteFinish(a.bib);
+        } else {
             a.status = 'CHƯA';
             a.finishTime = '';
+            delete a.lapWarning;
+            delete a.lapApproved;
             saveAndRender(true);
-            showBanner('warning', `ĐÃ HỦY KẾT QUẢ BIB ${a.bib}`, `${a.name} - ${a.unit}`, 'Đã chuyển trạng thái về CHƯA về đích.', '');
+            showBanner('warning', `ĐÃ CHUYỂN VỀ CHƯA VỀ ĐÍCH`, `BIB ${a.bib} - ${a.name}`, 'Đã đặt lại trạng thái.', '');
+        }
+    } else {
+        if (confirm(`VĐV BIB ${a.bib} - ${a.name} chưa về đích.\nBạn có muốn ghi nhận FINISH thủ công ngay bây giờ không?`)) {
+            const now = new Date();
+            const timeStr = now.toTimeString().split(' ')[0] + '.' + Math.floor(now.getMilliseconds()/100);
+            processFinishScan(a, String(a.bib), timeStr);
         }
     }
 }
@@ -8682,9 +8837,17 @@ function exportResultExcel() {
     const totalData = athletes.map((a, i) => {
         const cfg = raceConfig[a.category] || { start: '', cutoffMinutes: '' };
         const runInfo = calculateRunMinutes(a.finishTime, a.category);
+        let rankDisplay = rankMap[a.bib] || '';
+        let cutoffDisplay = '';
+        if (a.status === 'BỊ LOẠI') {
+            rankDisplay = 'BỊ LOẠI';
+            cutoffDisplay = 'BỊ LOẠI (THIẾU VÒNG)';
+        } else if (a.status === 'FINISH') {
+            cutoffDisplay = runInfo.isOverdue ? "QUÁ CUT-OFF" : "HỢP LỆ";
+        }
         return {
             "STT": i + 1,
-            "Hạng Nội Dung": rankMap[a.bib] || '',
+            "Hạng Nội Dung": rankDisplay,
             "Số BIB": a.bib,
             "Họ và tên": a.name,
             "Chức danh": a.title,
@@ -8695,9 +8858,9 @@ function exportResultExcel() {
             "Nội dung": a.category,
             "Giờ xuất phát": cfg.start,
             "Giờ về đích": a.finishTime,
-            "Thời gian chạy (Phút)": a.status === 'FINISH' ? runInfo.minutesVal : '',
+            "Thời gian chạy (Phút)": a.status === 'FINISH' ? runInfo.minutesVal : (a.status === 'BỊ LOẠI' ? runInfo.minutesVal : ''),
             "Cut-off quy định (Phút)": cfg.cutoffMinutes,
-            "Đạt Cut-off": a.status === 'FINISH' ? (runInfo.isOverdue ? "QUÁ CUT-OFF" : "HỢP LỆ") : '',
+            "Đạt Cut-off": cutoffDisplay,
             "Trạng thái": a.status
         };
     });
@@ -8707,8 +8870,14 @@ function exportResultExcel() {
     STANDARD_CATS.forEach(cat => {
         let catList = athletes.filter(a => a.category === cat);
         catList.sort((a, b) => {
-            if (a.status === 'FINISH' && b.status !== 'FINISH') return -1;
-            if (a.status !== 'FINISH' && b.status === 'FINISH') return 1;
+            const getGroupScore = (item) => {
+                if (item.status === 'FINISH') return 1;
+                if (item.status === 'BỊ LOẠI') return 3;
+                return 2;
+            };
+            const scoreA = getGroupScore(a);
+            const scoreB = getGroupScore(b);
+            if (scoreA !== scoreB) return scoreA - scoreB;
             if (a.status === 'FINISH' && b.status === 'FINISH') {
                 const infoA = calculateRunMinutes(a.finishTime, a.category);
                 const infoB = calculateRunMinutes(b.finishTime, b.category);
@@ -8720,8 +8889,16 @@ function exportResultExcel() {
         const cfg = raceConfig[cat] || { start: '', cutoffMinutes: '' };
         const catData = catList.map(a => {
             const runInfo = calculateRunMinutes(a.finishTime, a.category);
+            let rankDisplay = rankMap[a.bib] || 'Chưa finish';
+            let cutoffDisplay = '';
+            if (a.status === 'BỊ LOẠI') {
+                rankDisplay = 'BỊ LOẠI';
+                cutoffDisplay = 'BỊ LOẠI (THIẾU VÒNG)';
+            } else if (a.status === 'FINISH') {
+                cutoffDisplay = runInfo.isOverdue ? "QUÁ CUT-OFF" : "HỢP LỆ";
+            }
             return {
-                "Thứ hạng": rankMap[a.bib] || 'Chưa finish',
+                "Thứ hạng": rankDisplay,
                 "Số BIB": a.bib,
                 "Họ và tên": a.name,
                 "Chức danh": a.title,
@@ -8730,9 +8907,9 @@ function exportResultExcel() {
                 "Giới tính": a.gender,
                 "Giờ xuất phát": cfg.start,
                 "Giờ về đích": a.finishTime,
-                "Thời gian chạy (Phút)": a.status === 'FINISH' ? runInfo.minutesVal : '',
+                "Thời gian chạy (Phút)": a.status === 'FINISH' ? runInfo.minutesVal : (a.status === 'BỊ LOẠI' ? runInfo.minutesVal : ''),
                 "Cut-off quy định (Phút)": cfg.cutoffMinutes,
-                "Đạt Cut-off": a.status === 'FINISH' ? (runInfo.isOverdue ? "QUÁ CUT-OFF" : "HỢP LỆ") : '',
+                "Đạt Cut-off": cutoffDisplay,
                 "Trạng thái": a.status
             };
         });
@@ -9240,21 +9417,21 @@ function showCameraResultPopup(res, raw) {
             nextBtn.innerHTML = '<span>Quét người tiếp theo</span><span>▶</span>';
         }
     } else if (res.type === 'FINISH_LAP_MISSING') {
-        // Cảnh báo: Về đích nhưng CHƯA ĐỦ VÒNG KIỂM SOÁT
+        // Cảnh báo: Về đích nhưng CHƯA ĐỦ VÒNG KIỂM SOÁT -> NỀN VÀNG CẢNH BÁO
         const a = res.athlete;
-        card.style.borderColor = '#f43f5e';
-        card.style.background = 'rgba(30, 10, 20, 0.96)';
-        if (iconEl) iconEl.innerText = '🛑';
+        card.style.borderColor = '#f59e0b';
+        card.style.background = 'rgba(36, 25, 8, 0.96)';
+        if (iconEl) iconEl.innerText = '⚠️';
         if (titleEl) {
-            titleEl.innerText = 'CHƯA ĐỦ VÒNG KIỂM SOÁT (KM 6)!';
-            titleEl.style.color = '#fb7185';
+            titleEl.innerText = 'CẢNH BÁO: THIẾU VÒNG KIỂM SOÁT!';
+            titleEl.style.color = '#fbbf24';
         }
         if (bibEl) bibEl.innerText = `BIB ${a.bib} [${a.distance}]`;
         if (nameEl) {
             nameEl.innerText = a.name;
-            nameEl.style.color = '#fca5a5';
+            nameEl.style.color = '#fef08a';
         }
-        if (unitEl) unitEl.innerHTML = `<span class="text-rose-300 font-bold">${res.warningDesc}</span><div class="text-[11px] text-slate-400 mt-1">Điều lệ: VĐV không đủ dấu xác nhận trạm vòng sẽ không được công nhận hoàn thành!</div>`;
+        if (unitEl) unitEl.innerHTML = `<span class="text-amber-300 font-bold">${res.warningDesc}</span><div class="text-[11px] text-amber-200/90 mt-1 font-semibold">Đã tạm ghi nhận FINISH (${res.finishTime}). Vui lòng bấm xác nhận:</div>`;
         if (timeBox) {
             timeBox.style.display = 'block';
             timeBox.innerHTML = `
@@ -9264,23 +9441,77 @@ function showCameraResultPopup(res, raw) {
                 </div>
                 <div class="flex justify-between items-center text-slate-300">
                     <span>Giờ tới đích:</span>
-                    <span class="font-mono font-bold text-rose-300">${res.finishTime}</span>
+                    <span class="font-mono font-bold text-emerald-300">${res.finishTime}</span>
+                </div>
+                <div class="flex justify-between items-center text-slate-300">
+                    <span>Thời gian chạy:</span>
+                    <span class="font-mono font-bold text-amber-300">${res.runInfo ? res.runInfo.displayStr : '--'}</span>
                 </div>
                 <div class="flex justify-between items-center text-slate-200 pt-1.5 border-t border-white/10 font-bold text-sm">
                     <span>Vòng kiểm soát:</span>
-                    <span class="font-bold text-rose-400">${res.lapInfo.text}</span>
+                    <span class="font-bold text-amber-400">${res.lapInfo.text}</span>
                 </div>
             `;
         }
         if (cancelBtn) {
             cancelBtn.style.display = 'block';
-            cancelBtn.innerText = '⚠️ BTC Đặc Cách Finish';
-            cancelBtn.className = 'flex-1 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-slate-950 font-black text-xs transition shadow-md cursor-pointer';
-            cancelBtn.onclick = () => forceApproveFinish(a.bib, res.finishTime);
+            cancelBtn.innerText = '✕ Từ chối FINISH (Bị loại)';
+            cancelBtn.className = 'flex-1 py-3 rounded-xl bg-rose-700 hover:bg-rose-600 text-white font-black text-xs transition shadow-lg cursor-pointer border border-rose-500/40 active:scale-95';
+            cancelBtn.onclick = () => {
+                rejectAthleteFinish(a.bib);
+                resumeCameraScanning();
+            };
         }
         if (nextBtn) {
-            nextBtn.className = 'w-full py-3.5 rounded-2xl bg-gradient-to-r from-slate-700 to-slate-800 hover:from-slate-600 hover:to-slate-700 text-white font-black text-sm shadow-xl flex items-center justify-center gap-2 cursor-pointer transition active:scale-95';
-            nextBtn.innerHTML = '<span>Từ chối & Quét người tiếp theo</span><span>▶</span>';
+            nextBtn.className = 'w-full py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-sm shadow-xl flex items-center justify-center gap-2 cursor-pointer transition active:scale-95';
+            nextBtn.innerHTML = '<span>✓ Chấp nhận FINISH</span><span>▶</span>';
+            nextBtn.onclick = () => {
+                approveAthleteFinish(a.bib);
+                resumeCameraScanning();
+            };
+        }
+    } else if (res.type === 'DISQUALIFIED') {
+        // VĐV đã bị loại trước đó
+        const a = res.athlete;
+        card.style.borderColor = '#ef4444';
+        card.style.background = 'rgba(38, 12, 12, 0.96)';
+        if (iconEl) iconEl.innerText = '🛑';
+        if (titleEl) {
+            titleEl.innerText = 'VĐV ĐÃ BỊ LOẠI TRƯỚC ĐÓ!';
+            titleEl.style.color = '#f87171';
+        }
+        if (bibEl) bibEl.innerText = `BIB ${a.bib}`;
+        if (nameEl) {
+            nameEl.innerText = a.name;
+            nameEl.style.color = '#fca5a5';
+        }
+        if (unitEl) unitEl.innerText = `${[a.title, a.unit].filter(Boolean).join(' - ')} | VĐV này đã bị loại do không đủ số vòng kiểm soát.`;
+        if (timeBox) {
+            timeBox.style.display = 'block';
+            timeBox.innerHTML = `
+                <div class="flex justify-between items-center text-slate-300">
+                    <span>Nội dung thi:</span>
+                    <span class="font-bold text-amber-400">${a.category || '--'}</span>
+                </div>
+                <div class="flex justify-between items-center text-slate-300">
+                    <span>Trạng thái:</span>
+                    <span class="font-bold text-rose-400">BỊ LOẠI</span>
+                </div>
+            `;
+        }
+        if (cancelBtn) {
+            cancelBtn.style.display = 'block';
+            cancelBtn.innerText = '✓ Xem xét lại & Chấp nhận';
+            cancelBtn.className = 'flex-1 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-slate-950 font-black text-xs transition cursor-pointer';
+            cancelBtn.onclick = () => {
+                approveAthleteFinish(a.bib);
+                resumeCameraScanning();
+            };
+        }
+        if (nextBtn) {
+            nextBtn.className = 'w-full py-3.5 rounded-2xl bg-slate-700 hover:bg-slate-600 text-white font-black text-sm shadow-xl flex items-center justify-center gap-2 cursor-pointer transition active:scale-95';
+            nextBtn.innerHTML = '<span>Quét người tiếp theo</span><span>▶</span>';
+            nextBtn.onclick = resumeCameraScanning;
         }
     } else if (res.type === 'WARNING') {
         // Đã về đích từ trước

@@ -1086,12 +1086,13 @@
             <th style="width: 75px; text-align: center;">Giờ XP</th>
             <th style="width: 95px; text-align: center;">Giờ về đích</th>
             <th style="width: 145px; background: #032b43; color: #38bdf8; text-align: center;">⏱️ Số phút chạy</th>
+            <th style="width: 110px; background: #1e1b4b; color: #a78bfa; text-align: center;">🔄 Vòng kiểm soát</th>
             <th style="width: 85px; text-align: center;">Cut-off</th>
             <th style="width: 80px; text-align: center;">Trạng thái</th>
           </tr>
         </thead>
         <tbody id="athleteTableBody">
-          <tr><td colspan="11" style="text-align: center; color: #94a3b8; padding: 30px;">Chưa nạp danh sách VĐV.</td></tr>
+          <tr><td colspan="12" style="text-align: center; color: #94a3b8; padding: 30px;">Chưa nạp danh sách VĐV.</td></tr>
         </tbody>
       </table>
     </div>
@@ -1129,6 +1130,31 @@
 </div>
 
 <!-- MODAL 2: BẢNG TOP 3 TRAO GIẢI -->
+
+<!-- MODAL CHI TIẾT VÒNG CHẠY CỦA VẬN ĐỘNG VIÊN -->
+<div id="lapDetailModal" style="display: none;" class="modal-overlay">
+  <div class="modal-content checkin-modal-content max-w-md w-full bg-slate-900 border border-slate-700 rounded-3xl p-5 shadow-2xl text-white">
+    <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🔄</span>
+        <h3 class="font-extrabold text-sm sm:text-base text-violet-300">Chi Tiết Vòng Kiểm Soát (Trạm KM 6)</h3>
+      </div>
+      <button onclick="closeLapDetailModal()" class="text-slate-400 hover:text-white font-bold text-sm px-2 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 cursor-pointer">✕</button>
+    </div>
+
+    <!-- Runner Summary -->
+    <div id="lapModalRunnerInfo" class="bg-slate-950/80 rounded-2xl p-3.5 mb-3.5 border border-slate-800 space-y-1">
+    </div>
+
+    <!-- Laps List -->
+    <div id="lapModalLapsList" class="space-y-2 mb-4">
+    </div>
+
+    <!-- Admin actions in modal -->
+    <div id="lapModalAdminActions" class="space-y-2 pt-2 border-t border-slate-800">
+    </div>
+  </div>
+</div>
 <div id="top3Modal" class="checkin-modal">
   <div class="checkin-modal-content">
     <div class="checkin-modal-header">
@@ -1148,7 +1174,7 @@
         <div class="flex items-center gap-2">
             <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
             <span class="font-extrabold text-white text-xs sm:text-sm tracking-wide flex items-center gap-1.5">
-                <span>TRỌNG TÀI QUÉT QR</span>
+                <span id="cam-modal-mode-title">TRỌNG TÀI QUÉT QR</span>
             </span>
             <span id="cam-finished-stat" class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[11px] font-bold border border-emerald-500/30">-- về đích</span>
         </div>
@@ -1176,7 +1202,7 @@
                 <!-- Laser scan animation bar -->
                 <div class="camera-laser-line"></div>
             </div>
-            <div class="mt-4 px-4 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-slate-700/80 text-slate-200 text-xs font-medium tracking-wide shadow-xl">
+            <div id="cam-viewfinder-desc" class="mt-4 px-4 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-slate-700/80 text-slate-200 text-xs font-medium tracking-wide shadow-xl">
                 Hướng khung ngắm vào mã QR trên thẻ BIB
             </div>
         </div>
@@ -4999,7 +5025,10 @@ function exportTransportCsv() {
 // ================================================================
 const DEFAULT_AUTH_ACCOUNTS = [
   { username: 'admin', pass: 'dhmt2026', name: 'Trưởng Ban Tổ Chức', role: 'admin', sports: ['*'] },
-  { username: 'tt_funrun', pass: 'funrun2026', name: 'Tổ Trọng tài Fun Run', role: 'referee', sports: ['Fun Run'] },
+  { username: 'tt_funrun', pass: 'funrun2026', name: 'Tổ Trọng tài Fun Run (Đích)', role: 'referee', sports: ['Fun Run'] },
+  { username: 'tt_vong1', pass: 'vongchay2026', name: 'Trọng tài Kiểm soát Vòng 1', role: 'referee', sports: ['Fun Run'] },
+  { username: 'tt_vong2', pass: 'vongchay2026', name: 'Trọng tài Kiểm soát Vòng 2', role: 'referee', sports: ['Fun Run'] },
+  { username: 'tt_vong3', pass: 'vongchay2026', name: 'Trọng tài Kiểm soát Vòng 3', role: 'referee', sports: ['Fun Run'] },
   { username: 'tt_bongda', pass: 'bongda2026', name: 'Tổ Trọng tài Bóng đá', role: 'referee', sports: ['Bóng đá'] },
   { username: 'tt_keoco', pass: 'keoco2026', name: 'Tổ Trọng tài Kéo co', role: 'referee', sports: ['Kéo co'] },
   { username: 'tt_caulong', pass: 'caulong2026', name: 'Tổ Trọng tài Cầu lông', role: 'referee', sports: ['Cầu lông'] },
@@ -5014,8 +5043,23 @@ function getAuthAccounts() {
     if (saved) {
       const parsed = JSON.parse(saved);
       if (Array.isArray(parsed) && parsed.length > 0) {
+        let hasNew = false;
         if (!parsed.some(a => a.username === 'tt_funrun')) {
-          parsed.push({ username: 'tt_funrun', pass: 'funrun2026', name: 'Tổ Trọng tài Fun Run', role: 'referee', sports: ['Fun Run'] });
+          parsed.push({ username: 'tt_funrun', pass: 'funrun2026', name: 'Tổ Trọng tài Fun Run (Đích)', role: 'referee', sports: ['Fun Run'] });
+          hasNew = true;
+        }
+        const lapAccounts = [
+          { username: 'tt_vong1', pass: 'vongchay2026', name: 'Trọng tài Kiểm soát Vòng 1', role: 'referee', sports: ['Fun Run'] },
+          { username: 'tt_vong2', pass: 'vongchay2026', name: 'Trọng tài Kiểm soát Vòng 2', role: 'referee', sports: ['Fun Run'] },
+          { username: 'tt_vong3', pass: 'vongchay2026', name: 'Trọng tài Kiểm soát Vòng 3', role: 'referee', sports: ['Fun Run'] }
+        ];
+        lapAccounts.forEach(la => {
+          if (!parsed.some(a => a.username === la.username)) {
+            parsed.push(la);
+            hasNew = true;
+          }
+        });
+        if (hasNew) {
           localStorage.setItem('dhmt_auth_accounts', JSON.stringify(parsed));
         }
         return parsed;
@@ -7694,6 +7738,330 @@ function extractAthleteFromRaw(raw) {
 
 let lastScannedAthlete = null;
 
+
+// =============================================================================
+// HỆ THỐNG KIỂM SOÁT VÒNG CHẠY (LAPS) & HAI CHẾ ĐỘ QUÉT (ĐÍCH vs TRẠM VÒNG)
+// =============================================================================
+let currentScanMode = 'FINISH'; // 'FINISH' hoặc 'LAP'
+let activeLapDetailBib = null;
+
+function getRequiredLaps(dist) {
+    dist = String(dist || '').toLowerCase().trim();
+    if (dist.includes('15km') || dist.includes('15')) return 2; // Vòng 2 và Vòng 3
+    if (dist.includes('10km') || dist.includes('10')) return 1; // Vòng 2
+    return 0; // 5km chỉ 1 vòng, không cần qua trạm kiểm soát vòng
+}
+
+function getLapStatusInfo(athlete) {
+    const required = getRequiredLaps(athlete.distance);
+    const laps = athlete.laps || [];
+    const count = laps.length;
+
+    if (required === 0) {
+        return { required: 0, count: count, isCompleted: true, text: '-- (1 vòng)', badgeClass: 'text-slate-500 font-semibold' };
+    }
+    if (count >= required) {
+        return { required: required, count: count, isCompleted: true, text: `✓ ${count}/${required} vòng`, badgeClass: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' };
+    }
+    if (count > 0) {
+        return { required: required, count: count, isCompleted: false, text: `${count}/${required} vòng`, badgeClass: 'bg-amber-500/20 text-amber-400 border-amber-500/30' };
+    }
+    return { required: required, count: 0, isCompleted: false, text: `✕ 0/${required} vòng`, badgeClass: 'bg-rose-500/20 text-rose-400 border-rose-500/30' };
+}
+
+function setScanMode(mode) {
+    currentScanMode = mode;
+    const btnFinish = document.getElementById('mode-btn-finish');
+    const btnLap = document.getElementById('mode-btn-lap');
+    const scanInput = document.getElementById('scanInput');
+    const hint = document.getElementById('scanInputHint');
+    const modalTitle = document.getElementById('cam-modal-mode-title');
+    const viewfinderDesc = document.getElementById('cam-viewfinder-desc');
+    const btnCameraText = document.getElementById('btn-camera-text');
+
+    if (mode === 'LAP') {
+        if (btnFinish) btnFinish.className = 'flex-1 py-2 px-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition cursor-pointer bg-slate-800 text-slate-300 hover:text-white border border-slate-700/60';
+        if (btnLap) btnLap.className = 'flex-1 py-2 px-3 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition cursor-pointer bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg border border-violet-400/40';
+        if (scanInput) scanInput.placeholder = '🔍 Quét mã QR hoặc nhập số BIB xác nhận VÒNG CHẠY (KM 6)...';
+        if (hint) hint.innerHTML = '💡 Chế độ TRẠM VÒNG: Ghi nhận vòng 2 cho cự ly 10km (cần 1 vòng) & vòng 2, 3 cho cự ly 15km (cần 2 vòng).';
+        if (modalTitle) modalTitle.innerText = 'TRẠM KIỂM SOÁT VÒNG (KM 6)';
+        if (viewfinderDesc) viewfinderDesc.innerText = 'Quét mã QR thẻ BIB để ghi nhận Vòng chạy (10km & 15km)';
+        if (btnCameraText) btnCameraText.innerText = 'Bật Camera Quét Trạm Vòng (KM 6)';
+    } else {
+        if (btnFinish) btnFinish.className = 'flex-1 py-2 px-3 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition cursor-pointer bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg border border-emerald-400/40';
+        if (btnLap) btnLap.className = 'flex-1 py-2 px-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition cursor-pointer bg-slate-800 text-slate-300 hover:text-white border border-slate-700/60';
+        if (scanInput) scanInput.placeholder = '🔍 Quét mã QR hoặc nhập số BIB ghi nhận VỀ ĐÍCH (FINISH)...';
+        if (hint) hint.innerHTML = '💡 Chế độ VỀ ĐÍCH: Tự kiểm tra đủ số vòng chạy (10km: 1 vòng kiểm soát, 15km: 2 vòng kiểm soát).';
+        if (modalTitle) modalTitle.innerText = 'TRỌNG TÀI QUÉT VỀ ĐÍCH';
+        if (viewfinderDesc) viewfinderDesc.innerText = 'Hướng khung ngắm vào mã QR trên thẻ BIB để về đích';
+        if (btnCameraText) btnCameraText.innerText = 'Bật Camera Quét Về Đích';
+    }
+}
+
+// XỬ LÝ GHI NHẬN VÒNG TẠI TRẠM KIỂM SOÁT (KM 6)
+function processLapScan(athlete, raw, timeStr) {
+    if (!athlete.laps) athlete.laps = [];
+    const required = getRequiredLaps(athlete.distance);
+
+    if (required === 0) {
+        // Cự ly 5km
+        playCheckinBeep('warning');
+        showBanner('warning', 
+            `ℹ️ BIB ${athlete.bib} - ${athlete.name}`, 
+            `Cự ly: 5km (${athlete.category})`, 
+            `VĐV cự ly 5km chỉ chạy 1 vòng hồ, KHÔNG CẦN dừng quét tại Trạm kiểm soát vòng! VĐV chạy thẳng về đích.`, 
+            `Thời gian: ${timeStr}`
+        );
+        return { success: false, type: 'LAP_5KM_INFO', athlete, raw, message: 'VĐV cự ly 5km không cần qua trạm vòng!' };
+    }
+
+    if (athlete.distance.includes('10km') || athlete.distance.includes('10')) {
+        // Cự ly 10km: cần 1 lần xác nhận (Vòng 2)
+        if (athlete.laps.length === 0) {
+            athlete.laps.push(timeStr);
+            saveAndRender(true);
+            playCheckinBeep('success');
+            showBanner('success', 
+                `🎉 BIB ${athlete.bib} - ${athlete.name}`, 
+                `Cự ly: 10km (${athlete.unit})`, 
+                `XÁC NHẬN VÒNG 2 THÀNH CÔNG! (1/1 vòng kiểm soát). ĐÃ ĐỦ ĐIỀU KIỆN VỀ ĐÍCH! 👉 Hãy trao 01 vòng tay xác nhận cho VĐV.`, 
+                `Mốc giờ qua trạm: ${timeStr}`
+            );
+            return { success: true, type: 'LAP_RECORDED', athlete, lapNumber: 2, currentCount: 1, requiredCount: 1, isEligible: true, timeStr };
+        } else {
+            playCheckinBeep('warning');
+            showBanner('warning', 
+                `⚠️ BIB ${athlete.bib} - ${athlete.name}`, 
+                `Cự ly: 10km (${athlete.unit})`, 
+                `VĐV ĐÃ XÁC NHẬN VÒNG 2 TỪ TRƯỚC! (Lúc: ${athlete.laps[0]}). Đã đủ điều kiện về đích, không cần quét lại!`, 
+                `Thời gian: ${timeStr}`
+            );
+            return { success: false, type: 'LAP_ALREADY_RECORDED', athlete, lapNumber: 2, currentCount: 1, requiredCount: 1, prevTime: athlete.laps[0] };
+        }
+    } else {
+        // Cự ly 15km: cần 2 lần xác nhận (Vòng 2 và Vòng 3)
+        if (athlete.laps.length === 0) {
+            athlete.laps.push(timeStr);
+            saveAndRender(true);
+            playCheckinBeep('success');
+            showBanner('success', 
+                `🎉 BIB ${athlete.bib} - ${athlete.name}`, 
+                `Cự ly: 15km (${athlete.unit})`, 
+                `XÁC NHẬN VÒNG 2 THÀNH CÔNG! (1/2 vòng kiểm soát). 👉 Hãy trao vòng tay đợt 1. VĐV CÒN 01 VÒNG NỮA!`, 
+                `Mốc giờ qua trạm: ${timeStr}`
+            );
+            return { success: true, type: 'LAP_RECORDED', athlete, lapNumber: 2, currentCount: 1, requiredCount: 2, isEligible: false, timeStr };
+        } else if (athlete.laps.length === 1) {
+            athlete.laps.push(timeStr);
+            saveAndRender(true);
+            playCheckinBeep('success');
+            showBanner('success', 
+                `🎉 BIB ${athlete.bib} - ${athlete.name}`, 
+                `Cự ly: 15km (${athlete.unit})`, 
+                `XÁC NHẬN VÒNG 3 THÀNH CÔNG! (2/2 vòng kiểm soát). ĐÃ ĐỦ ĐIỀU KIỆN VỀ ĐÍCH! 👉 Hãy trao vòng tay đợt 2.`, 
+                `Mốc giờ qua trạm: ${timeStr}`
+            );
+            return { success: true, type: 'LAP_RECORDED', athlete, lapNumber: 3, currentCount: 2, requiredCount: 2, isEligible: true, timeStr };
+        } else {
+            playCheckinBeep('warning');
+            showBanner('warning', 
+                `⚠️ BIB ${athlete.bib} - ${athlete.name}`, 
+                `Cự ly: 15km (${athlete.unit})`, 
+                `VĐV ĐÃ HOÀN THÀNH ĐỦ 2 VÒNG KIỂM SOÁT! (Vòng 2: ${athlete.laps[0]} | Vòng 3: ${athlete.laps[1]}). Đã đủ điều kiện về đích!`, 
+                `Thời gian: ${timeStr}`
+            );
+            return { success: false, type: 'LAP_ALREADY_RECORDED', athlete, lapNumber: 3, currentCount: 2, requiredCount: 2, prevTime: athlete.laps[1] };
+        }
+    }
+}
+
+// XỬ LÝ GHI NHẬN VỀ ĐÍCH (FINISH)
+function processFinishScan(athlete, raw, timeStr) {
+    if (!athlete.laps) athlete.laps = [];
+    const required = getRequiredLaps(athlete.distance);
+    let jobUnit = [athlete.title, athlete.unit].filter(Boolean).join(' - ');
+
+    // Kiểm tra VĐV đã Finish từ trước chưa
+    if (athlete.status === 'FINISH') {
+        playCheckinBeep('warning');
+        const info = calculateRunMinutes(athlete.finishTime, athlete.category);
+        showBanner('warning', 
+            `⚠️ BIB ${athlete.bib} - ${athlete.name}`, 
+            jobUnit,
+            `VĐV ĐÃ VỀ ĐÍCH TỪ TRƯỚC! Thời gian: ${info.displayStr}`, 
+            `Giờ về: ${athlete.finishTime} | ${athlete.category}`
+        );
+        return { success: false, type: 'WARNING', athlete: athlete, bib: athlete.bib, runInfo: info, finishTime: athlete.finishTime };
+    }
+
+    // Kiểm tra VĐV 10km hoặc 15km có thiếu vòng chạy không
+    const lapInfo = getLapStatusInfo(athlete);
+    let isLapMissing = !lapInfo.isCompleted;
+
+    if (isLapMissing) {
+        playCheckinBeep('warning');
+        const runInfo = calculateRunMinutes(timeStr, athlete.category);
+        const warningDesc = athlete.distance.includes('10')
+            ? `⚠️ CẢNH BÁO: CHƯA ĐỦ VÒNG KIỂM SOÁT! VĐV cự ly 10km chưa có xác nhận qua trạm vòng 2!`
+            : `⚠️ CẢNH BÁO: THIẾU VÒNG KIỂM SOÁT! VĐV cự ly 15km mới xác nhận ${lapInfo.count}/2 vòng kiểm soát!`;
+
+        showBanner('error', 
+            `⚠️ BIB ${athlete.bib} - ${athlete.name} (${lapInfo.text})`, 
+            jobUnit,
+            warningDesc + ` Theo điều lệ giải: VĐV không đủ số dấu xác nhận vòng sẽ không được công nhận hoàn thành cự ly!`, 
+            `Giờ về: ${timeStr} | ${athlete.category}`
+        );
+        return { success: false, type: 'FINISH_LAP_MISSING', athlete: athlete, bib: athlete.bib, lapInfo: lapInfo, runInfo: runInfo, finishTime: timeStr, warningDesc };
+    }
+
+    // Đủ điều kiện hoàn thành hợp lệ!
+    playCheckinBeep('success');
+    athlete.status = 'FINISH';
+    athlete.finishTime = timeStr;
+    const runInfo = calculateRunMinutes(timeStr, athlete.category);
+
+    showBanner('success', 
+        `🎉 BIB ${athlete.bib} - ${athlete.name}`, 
+        jobUnit,
+        `FINISH! Thời gian chạy: ${runInfo.displayStr} ${runInfo.isOverdue ? '(⚠️ Quá Cut-off)' : ''} [${lapInfo.text}]`, 
+        `Giờ về: ${timeStr} | ${athlete.category}`
+    );
+    saveAndRender(true);
+    return { success: true, type: 'FINISH', athlete: athlete, bib: athlete.bib, lapInfo: lapInfo, runInfo: runInfo, finishTime: timeStr };
+}
+
+// HÀM ĐẶC CÁCH GHI NHẬN FINISH CHO VĐV KHI THIẾU VÒNG (NẾU BTC XÁC NHẬN HỢP LỆ)
+function forceApproveFinish(bib, timeStr) {
+    const athlete = athletes.find(a => String(a.bib) === String(bib));
+    if (!athlete) return;
+    if (confirm(`Ban Tổ Chức xác nhận ĐẶC CÁCH ghi nhận về đích cho VĐV ${athlete.bib} - ${athlete.name} dù thiếu xác nhận trạm vòng?`)) {
+        athlete.status = 'FINISH';
+        athlete.finishTime = timeStr || (new Date().toTimeString().split(' ')[0] + '.0');
+        saveAndRender(true);
+        updateCameraStatsCounter();
+        resumeCameraScanning();
+        showBanner('success', `ĐÃ ĐẶC CÁCH FINISH BIB ${athlete.bib}`, `${athlete.name}`, 'Đã ghi nhận về đích theo quyết định của BTC.', '');
+    }
+}
+
+// POPUP CHI TIẾT VÒNG CHẠY CỦA VĐV
+function openLapDetailModal(bib) {
+    const a = athletes.find(x => String(x.bib) === String(bib));
+    if (!a) return;
+    activeLapDetailBib = bib;
+    if (!a.laps) a.laps = [];
+
+    const modal = document.getElementById('lapDetailModal');
+    const runnerEl = document.getElementById('lapModalRunnerInfo');
+    const lapsListEl = document.getElementById('lapModalLapsList');
+    const actionsEl = document.getElementById('lapModalAdminActions');
+
+    const required = getRequiredLaps(a.distance);
+    const lapInfo = getLapStatusInfo(a);
+
+    runnerEl.innerHTML = `
+        <div class="flex items-center justify-between">
+            <span class="text-xl font-black text-amber-400">BIB ${a.bib}</span>
+            <span class="text-xs px-2.5 py-0.5 rounded-full font-bold ${lapInfo.badgeClass} border">${lapInfo.text}</span>
+        </div>
+        <div class="font-extrabold text-base text-white">${escHtml(a.name)}</div>
+        <div class="text-xs text-slate-400">${escHtml([a.title, a.unit].filter(Boolean).join(' - '))}</div>
+        <div class="text-xs font-semibold text-amber-300">Cự ly: ${escHtml(a.distance)} | ${escHtml(a.category)}</div>
+    `;
+
+    let lapsHtml = '';
+    if (required === 0) {
+        lapsHtml = `
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800 text-center text-xs text-slate-400">
+                VĐV thi đấu cự ly 5km (1 vòng hồ), không áp dụng kiểm soát trạm vòng km số 6.
+            </div>
+        `;
+    } else {
+        lapsHtml += `
+            <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 flex items-center justify-between text-xs">
+                <div>
+                    <span class="font-bold text-slate-300">Vòng 1 (KM 0 - KM 5):</span>
+                    <div class="text-[11px] text-slate-500">Xuất phát đường chạy quanh hồ</div>
+                </div>
+                <span class="text-emerald-400 font-bold">✓ Hoàn thành</span>
+            </div>
+        `;
+
+        // Vòng 2
+        const hasV2 = a.laps.length >= 1;
+        lapsHtml += `
+            <div class="p-2.5 rounded-xl ${hasV2 ? 'bg-emerald-950/30 border-emerald-500/30' : 'bg-slate-950/70 border-slate-800'} border flex items-center justify-between text-xs">
+                <div>
+                    <span class="font-bold ${hasV2 ? 'text-emerald-300' : 'text-slate-400'}">Vòng 2 (Trạm KM 6):</span>
+                    <div class="text-[11px] text-slate-400">${hasV2 ? `Mốc giờ qua trạm: <strong class="text-emerald-400 font-mono">${a.laps[0]}</strong>` : 'Chưa qua trạm'}</div>
+                </div>
+                <span class="${hasV2 ? 'text-emerald-400' : 'text-rose-400'} font-bold">${hasV2 ? '✓ Đã xác nhận' : '✕ Chưa xác nhận'}</span>
+            </div>
+        `;
+
+        // Vòng 3 (nếu 15km)
+        if (required >= 2) {
+            const hasV3 = a.laps.length >= 2;
+            lapsHtml += `
+                <div class="p-2.5 rounded-xl ${hasV3 ? 'bg-emerald-950/30 border-emerald-500/30' : 'bg-slate-950/70 border-slate-800'} border flex items-center justify-between text-xs">
+                    <div>
+                        <span class="font-bold ${hasV3 ? 'text-emerald-300' : 'text-slate-400'}">Vòng 3 (Trạm KM 11):</span>
+                        <div class="text-[11px] text-slate-400">${hasV3 ? `Mốc giờ qua trạm: <strong class="text-emerald-400 font-mono">${a.laps[1]}</strong>` : 'Chưa qua trạm'}</div>
+                    </div>
+                    <span class="${hasV3 ? 'text-emerald-400' : 'text-rose-400'} font-bold">${hasV3 ? '✓ Đã xác nhận' : '✕ Chưa xác nhận'}</span>
+                </div>
+            `;
+        }
+    }
+    lapsListEl.innerHTML = lapsHtml;
+
+    if (canManageCheckin() && required > 0) {
+        actionsEl.innerHTML = `
+            <div class="flex items-center gap-2">
+                <button onclick="manualAddLap('${a.bib}')" class="flex-1 py-2 px-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold text-xs transition cursor-pointer flex items-center justify-center gap-1 shadow-md">
+                    <span>+</span><span>Thêm 1 vòng xác nhận</span>
+                </button>
+                ${a.laps.length > 0 ? `
+                <button onclick="manualRemoveLap('${a.bib}')" class="py-2 px-3 rounded-xl bg-rose-900/60 hover:bg-rose-800 text-rose-200 font-bold text-xs transition border border-rose-500/40 cursor-pointer">
+                    <span>✕ Xóa vòng cuối</span>
+                </button>` : ''}
+            </div>
+        `;
+    } else {
+        actionsEl.innerHTML = '';
+    }
+
+    if (modal) modal.style.display = 'flex';
+}
+
+function closeLapDetailModal() {
+    const modal = document.getElementById('lapDetailModal');
+    if (modal) modal.style.display = 'none';
+    activeLapDetailBib = null;
+    focusScanInput();
+}
+
+function manualAddLap(bib) {
+    const a = athletes.find(x => String(x.bib) === String(bib));
+    if (!a) return;
+    if (!a.laps) a.laps = [];
+    const now = new Date();
+    const timeStr = now.toTimeString().split(' ')[0] + '.' + Math.floor(now.getMilliseconds()/100);
+    a.laps.push(timeStr);
+    saveAndRender(true);
+    openLapDetailModal(bib);
+}
+
+function manualRemoveLap(bib) {
+    const a = athletes.find(x => String(x.bib) === String(bib));
+    if (!a || !a.laps || a.laps.length === 0) return;
+    if (confirm(`Bạn có chắc muốn xóa 1 lượt quét vòng của VĐV ${a.bib} - ${a.name}?`)) {
+        a.laps.pop();
+        saveAndRender(true);
+        openLapDetailModal(bib);
+    }
+}
+
 function processRawData(raw, fromCamera = false) {
     if (!canManageCheckin()) {
         alert('Bạn không có quyền quét mã hoặc ghi nhận kết quả! Vui lòng đăng nhập tài khoản Trọng tài Fun Run hoặc Ban Tổ Chức.');
@@ -7724,33 +8092,12 @@ function processRawData(raw, fromCamera = false) {
     }
 
     lastScannedAthlete = athlete;
-    let jobUnit = [athlete.title, athlete.unit].filter(Boolean).join(' - ');
 
-    if (athlete.status === 'FINISH') {
-        playCheckinBeep('warning');
-        const info = calculateRunMinutes(athlete.finishTime, athlete.category);
-        showBanner('warning', 
-            `⚠️ BIB ${athlete.bib} - ${athlete.name}`, 
-            jobUnit,
-            `VĐV ĐÃ VỀ ĐÍCH TỪ TRƯỚC! Thời gian: ${info.displayStr}`, 
-            `Giờ về: ${athlete.finishTime} | ${athlete.category}`
-        );
-        return { success: false, type: 'WARNING', athlete: athlete, bib: athlete.bib, runInfo: info, finishTime: athlete.finishTime };
+    if (currentScanMode === 'LAP') {
+        return processLapScan(athlete, raw, timeStr);
+    } else {
+        return processFinishScan(athlete, raw, timeStr);
     }
-
-    playCheckinBeep('success');
-    athlete.status = 'FINISH';
-    athlete.finishTime = timeStr;
-    const runInfo = calculateRunMinutes(timeStr, athlete.category);
-
-    showBanner('success', 
-        `🎉 BIB ${athlete.bib} - ${athlete.name}`, 
-        jobUnit,
-        `FINISH! Thời gian chạy: ${runInfo.displayStr} ${runInfo.isOverdue ? '(⚠️ Quá Cut-off)' : ''}`, 
-        `Giờ về: ${timeStr} | ${athlete.category}`
-    );
-    saveAndRender(true);
-    return { success: true, type: 'FINISH', athlete: athlete, bib: athlete.bib, runInfo: runInfo, finishTime: timeStr };
 }
 
 function showBanner(type, title, subtitle, desc, time) {
@@ -7821,7 +8168,7 @@ function renderTableOnly() {
     const tbody = document.getElementById('athleteTableBody');
     if (!tbody) return;
     if (athletes.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="11" style="text-align: center; color: #94a3b8; padding: 30px;">Chưa nạp danh sách VĐV. Hãy nhấn "Nạp từ 433 VĐV Hệ Thống" hoặc tải file Excel lên.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="12" style="text-align: center; color: #94a3b8; padding: 30px;">Chưa nạp danh sách VĐV. Hãy nhấn "Nạp từ 433 VĐV Hệ Thống" hoặc tải file Excel lên.</td></tr>`;
         return;
     }
 
@@ -7874,6 +8221,13 @@ function renderTableOnly() {
             }
         }
 
+        const lapInfo = getLapStatusInfo(a);
+        const requiredLaps = getRequiredLaps(a.distance);
+        let lapBadgeHtml = `<span class="text-slate-500 font-semibold text-xs">-- (1 vòng)</span>`;
+        if (requiredLaps > 0) {
+            lapBadgeHtml = `<button onclick="openLapDetailModal('${a.bib}')" class="px-2 py-0.5 rounded-md ${lapInfo.badgeClass} border font-black text-xs cursor-pointer hover:opacity-80 transition active:scale-95" title="${(a.laps && a.laps.length > 0) ? a.laps.map((t, idx) => `Vòng ${idx+2}: ${t}`).join(' | ') : 'Chưa qua trạm'} (Nhấp xem chi tiết)">${lapInfo.text}</button>`;
+        }
+
         return `
             <tr style="${a.status === 'FINISH' ? 'background: rgba(16, 185, 129, 0.08);' : ''}">
                 <td style="text-align: center;">${rankBadge}</td>
@@ -7885,6 +8239,7 @@ function renderTableOnly() {
                 <td style="color: #94a3b8; font-size: 12px; text-align: center;">${cfg.start}</td>
                 <td style="color: #cbd5e1; text-align: center;">${a.finishTime || '--:--:--'}</td>
                 <td style="font-size: 14px; text-align: center;">${durationHtml}</td>
+                <td style="text-align: center;">${lapBadgeHtml}</td>
                 <td style="color: #94a3b8; font-size: 12px; text-align: center;">${cfg.cutoffMinutes} phút</td>
                 <td style="text-align: center;"><button onclick="toggleAthleteFinish('${a.bib}')" class="${a.status === 'FINISH' ? 'status-finish cursor-pointer hover:opacity-80' : 'status-unfinish'}" title="${a.status === 'FINISH' ? 'Nhấp để HỦY kết quả về đích' : ''}">${a.status || 'CHƯA'}</button></td>
             </tr>
@@ -8265,18 +8620,28 @@ function updateCheckinAuthUI() {
     if (scanContainer) {
         if (canManage) {
             scanContainer.innerHTML = `
+                <!-- THANH CHUYỂN ĐỔI CHẾ ĐỘ QUÉT: ĐÍCH vs TRẠM VÒNG (KM 6) -->
+                <div class="flex items-center gap-2 p-1.5 bg-slate-900/90 rounded-2xl border border-slate-700/80 mb-2.5 shadow-inner">
+                    <button id="mode-btn-finish" onclick="setScanMode('FINISH')" class="flex-1 py-2 px-3 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition cursor-pointer bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg border border-emerald-400/40">
+                        <span>🏁</span><span>QUÉT VỀ ĐÍCH (FINISH)</span>
+                    </button>
+                    <button id="mode-btn-lap" onclick="setScanMode('LAP')" class="flex-1 py-2 px-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition cursor-pointer bg-slate-800 text-slate-300 hover:text-white border border-slate-700/60">
+                        <span>🔄</span><span>TRẠM KIỂM SOÁT VÒNG (KM 6)</span>
+                    </button>
+                </div>
+
                 <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
                     <button id="btn-toggle-camera" onclick="toggleCameraScanner(true)" class="px-4 py-2.5 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-xs sm:text-sm shadow-xl flex items-center gap-2 cursor-pointer transition active:scale-95 border border-emerald-400/30">
-                        <span class="text-base">📷</span><span>Bật Camera Quét Toàn Màn Hình</span>
+                        <span class="text-base">📷</span><span id="btn-camera-text">Bật Camera Quét Toàn Màn Hình</span>
                     </button>
                     <div class="text-[11px] text-emerald-400 font-medium flex items-center gap-1">
                         <span>⚡</span><span>Sẵn sàng: Súng quét Barcode / QR & Camera điện thoại</span>
                     </div>
                 </div>
 
-                <textarea id="scanInput" class="checkin-scan-input" rows="1" placeholder="🔍 Nhập số BIB hoặc quét mã QR... (Nhấp chuột vào đây để quét)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="text" autofocus></textarea>
+                <textarea id="scanInput" class="checkin-scan-input" rows="1" placeholder="🔍 Quét mã QR hoặc nhập số BIB ghi nhận VỀ ĐÍCH (FINISH)..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="text" autofocus></textarea>
                 <div class="flex items-center justify-between text-[11px] text-slate-400 mt-1 px-1">
-                    <span>💡 Tương thích 100% súng quét Barcode/QR & gõ tay: Tự bóc tách số BIB, khử tiền tố mã vạch (]Q1, ]C1), chống nhảy nhầm VĐV.</span>
+                    <span id="scanInputHint">💡 Chế độ VỀ ĐÍCH: Tự kiểm tra đủ số vòng chạy (10km: 1 vòng kiểm soát, 15km: 2 vòng kiểm soát).</span>
                     <span class="italic text-sky-400">Tự động đồng bộ máy chủ Firebase Realtime</span>
                 </div>`;
             initScanInputEvents();
@@ -8487,6 +8852,138 @@ function showCameraResultPopup(res, raw) {
             nextBtn.className = 'w-full py-3.5 rounded-2xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-black text-sm shadow-xl flex items-center justify-center gap-2 cursor-pointer transition active:scale-95';
             nextBtn.innerHTML = '<span>Quét lại mã khác</span><span>▶</span>';
         }
+    } else if (res.type === 'LAP_5KM_INFO') {
+        // 5km không cần qua trạm vòng
+        const a = res.athlete;
+        card.style.borderColor = '#38bdf8';
+        card.style.background = 'rgba(12, 24, 46, 0.96)';
+        if (iconEl) iconEl.innerText = 'ℹ️';
+        if (titleEl) {
+            titleEl.innerText = 'VĐV 5KM (KHÔNG CẦN QUA TRẠM VÒNG)';
+            titleEl.style.color = '#38bdf8';
+        }
+        if (bibEl) bibEl.innerText = `BIB ${a.bib}`;
+        if (nameEl) {
+            nameEl.innerText = a.name;
+            nameEl.style.color = '#7dd3fc';
+        }
+        if (unitEl) unitEl.innerText = `${[a.title, a.unit].filter(Boolean).join(' - ')} | VĐV thi đấu 5km chỉ chạy 1 vòng hồ, chạy thẳng về đích!`;
+        if (timeBox) timeBox.style.display = 'none';
+        if (cancelBtn) cancelBtn.style.display = 'none';
+        if (nextBtn) {
+            nextBtn.className = 'w-full py-3.5 rounded-2xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 text-white font-black text-sm shadow-xl flex items-center justify-center gap-2 cursor-pointer transition active:scale-95';
+            nextBtn.innerHTML = '<span>Quét người tiếp theo</span><span>▶</span>';
+        }
+    } else if (res.type === 'LAP_RECORDED') {
+        // Xác nhận vòng mới thành công!
+        const a = res.athlete;
+        card.style.borderColor = '#a855f7';
+        card.style.background = 'rgba(28, 16, 52, 0.96)';
+        if (iconEl) iconEl.innerText = '🎉';
+        if (titleEl) {
+            titleEl.innerText = res.isEligible ? `XÁC NHẬN VÒNG ${res.lapNumber} THÀNH CÔNG (ĐỦ ĐK VỀ ĐÍCH)` : `XÁC NHẬN VÒNG ${res.lapNumber} THÀNH CÔNG`;
+            titleEl.style.color = '#c084fc';
+        }
+        if (bibEl) bibEl.innerText = `BIB ${a.bib} [${a.distance}]`;
+        if (nameEl) {
+            nameEl.innerText = a.name;
+            nameEl.style.color = '#fde047';
+        }
+        const lapMsg = res.isEligible 
+            ? `Đã hoàn thành ${res.currentCount}/${res.requiredCount} vòng kiểm soát. 👉 HÃY TRAO VÒNG TAY XÁC NHẬN CHO VĐV!` 
+            : `Đã hoàn thành ${res.currentCount}/${res.requiredCount} vòng kiểm soát. 👉 Trao vòng tay đợt 1. VĐV CÒN 01 VÒNG NỮA!`;
+        if (unitEl) unitEl.innerHTML = `<span class="text-violet-300 font-bold">${lapMsg}</span><div class="text-slate-400 mt-1">${[a.title, a.unit].filter(Boolean).join(' - ')}</div>`;
+        
+        if (timeBox) {
+            timeBox.style.display = 'block';
+            timeBox.innerHTML = `
+                <div class="flex justify-between items-center text-slate-300">
+                    <span>Nội dung thi:</span>
+                    <span class="font-bold text-amber-400">${a.category || a.distance}</span>
+                </div>
+                <div class="flex justify-between items-center text-slate-300">
+                    <span>Mốc giờ qua trạm:</span>
+                    <span class="font-mono font-bold text-violet-300">${res.timeStr}</span>
+                </div>
+                <div class="flex justify-between items-center text-slate-200 pt-1.5 border-t border-white/10 font-bold text-sm">
+                    <span>Tổng vòng kiểm soát:</span>
+                    <span class="font-bold text-violet-400">${res.currentCount}/${res.requiredCount} vòng</span>
+                </div>
+            `;
+        }
+        if (cancelBtn) {
+            cancelBtn.style.display = 'block';
+            cancelBtn.innerText = '✕ Hủy lượt quét vòng này';
+        }
+        if (nextBtn) {
+            nextBtn.className = 'w-full py-3.5 rounded-2xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-black text-sm shadow-xl flex items-center justify-center gap-2 cursor-pointer transition active:scale-95';
+            nextBtn.innerHTML = '<span>Quét người tiếp theo</span><span>▶</span>';
+        }
+    } else if (res.type === 'LAP_ALREADY_RECORDED') {
+        // Đã quét vòng trước đó
+        const a = res.athlete;
+        card.style.borderColor = '#f59e0b';
+        card.style.background = 'rgba(28, 16, 52, 0.96)';
+        if (iconEl) iconEl.innerText = '⚠️';
+        if (titleEl) {
+            titleEl.innerText = 'VĐV ĐÃ XÁC NHẬN VÒNG NÀY TRƯỚC ĐÓ!';
+            titleEl.style.color = '#fbbf24';
+        }
+        if (bibEl) bibEl.innerText = `BIB ${a.bib} [${a.distance}]`;
+        if (nameEl) {
+            nameEl.innerText = a.name;
+            nameEl.style.color = '#fde68a';
+        }
+        if (unitEl) unitEl.innerHTML = `<span class="text-amber-300">VĐV đã hoàn thành xác nhận vòng này lúc <strong class="font-mono text-white">${res.prevTime}</strong>. Không cần quét lại!</span><div class="text-slate-400 mt-1">${[a.title, a.unit].filter(Boolean).join(' - ')}</div>`;
+        if (timeBox) timeBox.style.display = 'none';
+        if (cancelBtn) cancelBtn.style.display = 'none';
+        if (nextBtn) {
+            nextBtn.className = 'w-full py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-sm shadow-xl flex items-center justify-center gap-2 cursor-pointer transition active:scale-95';
+            nextBtn.innerHTML = '<span>Quét người tiếp theo</span><span>▶</span>';
+        }
+    } else if (res.type === 'FINISH_LAP_MISSING') {
+        // Cảnh báo: Về đích nhưng CHƯA ĐỦ VÒNG KIỂM SOÁT
+        const a = res.athlete;
+        card.style.borderColor = '#f43f5e';
+        card.style.background = 'rgba(30, 10, 20, 0.96)';
+        if (iconEl) iconEl.innerText = '🛑';
+        if (titleEl) {
+            titleEl.innerText = 'CHƯA ĐỦ VÒNG KIỂM SOÁT (KM 6)!';
+            titleEl.style.color = '#fb7185';
+        }
+        if (bibEl) bibEl.innerText = `BIB ${a.bib} [${a.distance}]`;
+        if (nameEl) {
+            nameEl.innerText = a.name;
+            nameEl.style.color = '#fca5a5';
+        }
+        if (unitEl) unitEl.innerHTML = `<span class="text-rose-300 font-bold">${res.warningDesc}</span><div class="text-[11px] text-slate-400 mt-1">Điều lệ: VĐV không đủ dấu xác nhận trạm vòng sẽ không được công nhận hoàn thành!</div>`;
+        if (timeBox) {
+            timeBox.style.display = 'block';
+            timeBox.innerHTML = `
+                <div class="flex justify-between items-center text-slate-300">
+                    <span>Nội dung thi:</span>
+                    <span class="font-bold text-amber-400">${a.category}</span>
+                </div>
+                <div class="flex justify-between items-center text-slate-300">
+                    <span>Giờ tới đích:</span>
+                    <span class="font-mono font-bold text-rose-300">${res.finishTime}</span>
+                </div>
+                <div class="flex justify-between items-center text-slate-200 pt-1.5 border-t border-white/10 font-bold text-sm">
+                    <span>Vòng kiểm soát:</span>
+                    <span class="font-bold text-rose-400">${res.lapInfo.text}</span>
+                </div>
+            `;
+        }
+        if (cancelBtn) {
+            cancelBtn.style.display = 'block';
+            cancelBtn.innerText = '⚠️ BTC Đặc Cách Finish';
+            cancelBtn.className = 'flex-1 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-slate-950 font-black text-xs transition shadow-md cursor-pointer';
+            cancelBtn.onclick = () => forceApproveFinish(a.bib, res.finishTime);
+        }
+        if (nextBtn) {
+            nextBtn.className = 'w-full py-3.5 rounded-2xl bg-gradient-to-r from-slate-700 to-slate-800 hover:from-slate-600 hover:to-slate-700 text-white font-black text-sm shadow-xl flex items-center justify-center gap-2 cursor-pointer transition active:scale-95';
+            nextBtn.innerHTML = '<span>Từ chối & Quét người tiếp theo</span><span>▶</span>';
+        }
     } else if (res.type === 'WARNING') {
         // Đã về đích từ trước
         const a = res.athlete;
@@ -8503,13 +9000,28 @@ function showCameraResultPopup(res, raw) {
             nameEl.style.color = '#fde68a';
         }
         if (unitEl) unitEl.innerText = [a.title, a.unit].filter(Boolean).join(' - ');
-        if (timeBox) timeBox.style.display = 'block';
-        if (catEl) catEl.innerText = a.category || '--';
-        if (finishEl) finishEl.innerText = a.finishTime || '--:--:--';
-        if (durEl) durEl.innerText = res.runInfo ? res.runInfo.displayStr : '--';
+        if (timeBox) {
+            timeBox.style.display = 'block';
+            timeBox.innerHTML = `
+                <div class="flex justify-between items-center text-slate-300">
+                    <span>Nội dung thi:</span>
+                    <span class="font-bold text-amber-400">${a.category || '--'}</span>
+                </div>
+                <div class="flex justify-between items-center text-slate-300">
+                    <span>Giờ về đích:</span>
+                    <span class="font-mono font-bold text-emerald-300">${a.finishTime || '--:--:--'}</span>
+                </div>
+                <div class="flex justify-between items-center text-slate-200 pt-1.5 border-t border-white/10 font-bold text-sm">
+                    <span>Thời gian chạy:</span>
+                    <span class="font-mono text-emerald-400">${res.runInfo ? res.runInfo.displayStr : '--'}</span>
+                </div>
+            `;
+        }
         if (cancelBtn) {
             cancelBtn.style.display = 'block';
             cancelBtn.innerText = '✕ Hủy kết quả VĐV này';
+            cancelBtn.className = 'flex-1 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-rose-300 hover:text-rose-200 text-xs font-bold transition border border-rose-500/30 cursor-pointer';
+            cancelBtn.onclick = cancelCurrentScanResult;
         }
         if (nextBtn) {
             nextBtn.className = 'w-full py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-sm shadow-xl flex items-center justify-center gap-2 cursor-pointer transition active:scale-95';
@@ -8531,16 +9043,28 @@ function showCameraResultPopup(res, raw) {
             nameEl.style.color = '#fde047';
         }
         if (unitEl) unitEl.innerText = [a.title, a.unit].filter(Boolean).join(' - ');
-        if (timeBox) timeBox.style.display = 'block';
-        if (catEl) catEl.innerText = a.category || '--';
-        if (finishEl) finishEl.innerText = res.finishTime;
-        if (durEl) {
-            durEl.innerText = `${res.runInfo.displayStr} ${res.runInfo.isOverdue ? '(⚠️ Quá Cut-off)' : ''}`;
-            durEl.style.color = res.runInfo.isOverdue ? '#fca5a5' : '#34d399';
+        if (timeBox) {
+            timeBox.style.display = 'block';
+            timeBox.innerHTML = `
+                <div class="flex justify-between items-center text-slate-300">
+                    <span>Nội dung thi:</span>
+                    <span class="font-bold text-amber-400">${a.category || '--'}</span>
+                </div>
+                <div class="flex justify-between items-center text-slate-300">
+                    <span>Giờ về đích:</span>
+                    <span class="font-mono font-bold text-emerald-300">${res.finishTime}</span>
+                </div>
+                <div class="flex justify-between items-center text-slate-200 pt-1.5 border-t border-white/10 font-bold text-sm">
+                    <span>Thời gian chạy:</span>
+                    <span class="font-mono ${res.runInfo.isOverdue ? 'text-rose-400' : 'text-emerald-400'}">${res.runInfo.displayStr} ${res.runInfo.isOverdue ? '(⚠️ Quá Cut-off)' : ''}</span>
+                </div>
+            `;
         }
         if (cancelBtn) {
             cancelBtn.style.display = 'block';
             cancelBtn.innerText = '✕ Hủy kết quả vừa ghi';
+            cancelBtn.className = 'flex-1 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-rose-300 hover:text-rose-200 text-xs font-bold transition border border-rose-500/30 cursor-pointer';
+            cancelBtn.onclick = cancelCurrentScanResult;
         }
         if (nextBtn) {
             nextBtn.className = 'w-full py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-sm shadow-xl flex items-center justify-center gap-2 cursor-pointer transition active:scale-95';
@@ -8604,12 +9128,24 @@ function resumeCameraScanning() {
 function cancelCurrentScanResult() {
     if (!lastScannedAthlete) return;
     const a = lastScannedAthlete;
-    if (confirm(`Bạn có chắc muốn HỦY kết quả của VĐV:\nBIB: ${a.bib} - ${a.name} (${a.unit})\nđể chuyển lại về trạng thái CHƯA không?`)) {
-        a.status = 'CHƯA';
-        a.finishTime = '';
-        saveAndRender(true);
-        updateCameraStatsCounter();
-        resumeCameraScanning();
+    if (currentScanMode === 'LAP') {
+        if (!a.laps || a.laps.length === 0) return resumeCameraScanning();
+        if (confirm(`Bạn có chắc muốn HỦY lượt xác nhận vòng vừa ghi cho VĐV:\nBIB: ${a.bib} - ${a.name} (${a.unit})?`)) {
+            a.laps.pop();
+            saveAndRender(true);
+            updateCameraStatsCounter();
+            resumeCameraScanning();
+            showBanner('warning', `ĐÃ HỦY LƯỢT QUÉT VÒNG BIB ${a.bib}`, `${a.name}`, 'Đã xóa lượt xác nhận vòng vừa ghi.', '');
+        }
+    } else {
+        if (confirm(`Bạn có chắc muốn HỦY kết quả về đích của VĐV:\nBIB: ${a.bib} - ${a.name} (${a.unit})\nđể chuyển lại về trạng thái CHƯA không?`)) {
+            a.status = 'CHƯA';
+            a.finishTime = '';
+            saveAndRender(true);
+            updateCameraStatsCounter();
+            resumeCameraScanning();
+            showBanner('warning', `ĐÃ HỦY KẾT QUẢ VỀ ĐÍCH BIB ${a.bib}`, `${a.name}`, 'Đã đưa VĐV về trạng thái CHƯA về đích.', '');
+        }
     }
 }
 

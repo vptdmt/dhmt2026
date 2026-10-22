@@ -7467,6 +7467,9 @@ STANDARD_CATS.forEach(cat => {
 });
 
 let athletes = JSON.parse(localStorage.getItem('RACE_ATHLETES') || '[]');
+athletes.forEach(a => {
+    if (!a.laps || !Array.isArray(a.laps)) a.laps = [];
+});
 let currentStatusFilter = 'ALL';
 let currentCatFilter = 'ALL';
 let scanTimeout = null;
@@ -7478,18 +7481,26 @@ function loadAthletesFromFunrun(force = false) {
         return;
     }
     if (!DATA.funrun || !DATA.funrun.runners) return;
-    if (!force && athletes && athletes.length > 0) return;
+    if (!force && athletes && athletes.length > 0) {
+        athletes.forEach(a => {
+            if (!a.laps || !Array.isArray(a.laps)) a.laps = [];
+        });
+        return;
+    }
 
     let oldFinishMap = {};
+    let oldLapsMap = {};
     if (athletes && athletes.length > 0) {
         athletes.forEach(a => {
             if (a.status === 'FINISH') oldFinishMap[a.bib] = a.finishTime;
+            if (a.laps && Array.isArray(a.laps) && a.laps.length > 0) oldLapsMap[a.bib] = a.laps;
         });
     }
 
     athletes = DATA.funrun.runners.map(r => {
         const bibVal = String(r.bib);
         const prevTime = oldFinishMap[bibVal];
+        const prevLaps = oldLapsMap[bibVal];
         return {
             bib: bibVal,
             name: r.name,
@@ -7500,7 +7511,8 @@ function loadAthletesFromFunrun(force = false) {
             distance: r.distance || r.dist || '5km',
             category: r.category || '',
             status: prevTime ? 'FINISH' : 'CHƯA',
-            finishTime: prevTime || ''
+            finishTime: prevTime || '',
+            laps: prevLaps ? [...prevLaps] : []
         };
     });
 
@@ -7537,20 +7549,40 @@ function initCheckinFirebaseSync() {
         }
     });
 
-    // 2. Lắng nghe dữ liệu VĐV về đích đồng thời từ nhiều máy quét
+    // 2. Lắng nghe dữ liệu VĐV và Vòng chạy đồng thời từ nhiều máy quét / điện thoại
     firebaseDb.ref('dhmt2026/funrun_checkin/athletes').on('value', snap => {
         const cloudAthletes = snap.val();
         if (cloudAthletes && Array.isArray(cloudAthletes) && cloudAthletes.length > 0) {
             let changed = false;
             if (!athletes || athletes.length === 0) {
-                athletes = cloudAthletes;
+                athletes = cloudAthletes.map(cA => ({
+                    ...cA,
+                    laps: Array.isArray(cA.laps) ? cA.laps : []
+                }));
                 changed = true;
             } else {
                 cloudAthletes.forEach(cA => {
                     let localA = athletes.find(a => String(a.bib) === String(cA.bib));
                     if (localA) {
+                        // Đồng bộ VÒNG CHẠY (LAPS): Hợp nhất mốc thời gian qua trạm từ các máy quét
+                        const cLaps = Array.isArray(cA.laps) ? cA.laps : [];
+                        const lLaps = Array.isArray(localA.laps) ? localA.laps : [];
+                        const mergedLaps = Array.from(new Set([...lLaps, ...cLaps]));
+                        if (mergedLaps.length !== lLaps.length || JSON.stringify(mergedLaps) !== JSON.stringify(lLaps)) {
+                            localA.laps = mergedLaps;
+                            changed = true;
+                        }
+
+                        // Đồng bộ TRẠNG THÁI VỀ ĐÍCH (FINISH / CHƯA)
                         if (cA.status === 'FINISH' && localA.status !== 'FINISH') {
                             localA.status = 'FINISH';
+                            localA.finishTime = cA.finishTime || '';
+                            changed = true;
+                        } else if (cA.status === 'CHƯA' && localA.status === 'FINISH') {
+                            localA.status = 'CHƯA';
+                            localA.finishTime = '';
+                            changed = true;
+                        } else if (cA.status === 'FINISH' && localA.status === 'FINISH' && cA.finishTime && cA.finishTime !== localA.finishTime) {
                             localA.finishTime = cA.finishTime;
                             changed = true;
                         }
@@ -7560,6 +7592,30 @@ function initCheckinFirebaseSync() {
             if (changed) {
                 localStorage.setItem('RACE_ATHLETES', JSON.stringify(athletes));
                 updateStatsCounters();
+                renderTableOnly();
+            }
+        }
+    });
+
+    // 3. Lắng nghe trực tiếp kênh Realtime Vòng chạy theo từng số BIB (tránh ghi đè mảng)
+    firebaseDb.ref('dhmt2026/funrun_checkin/laps').on('value', snap => {
+        const lapsData = snap.val();
+        if (lapsData && typeof lapsData === 'object') {
+            let changed = false;
+            Object.keys(lapsData).forEach(bib => {
+                const localA = athletes.find(a => String(a.bib) === String(bib));
+                if (localA) {
+                    const cLaps = Array.isArray(lapsData[bib]) ? lapsData[bib] : [];
+                    const lLaps = Array.isArray(localA.laps) ? localA.laps : [];
+                    const mergedLaps = Array.from(new Set([...lLaps, ...cLaps]));
+                    if (mergedLaps.length !== lLaps.length) {
+                        localA.laps = mergedLaps;
+                        changed = true;
+                    }
+                }
+            });
+            if (changed) {
+                localStorage.setItem('RACE_ATHLETES', JSON.stringify(athletes));
                 renderTableOnly();
             }
         }
@@ -7820,6 +7876,9 @@ function processLapScan(athlete, raw, timeStr) {
         if (athlete.laps.length === 0) {
             athlete.laps.push(timeStr);
             saveAndRender(true);
+            if (typeof firebaseDb !== 'undefined' && firebaseDb) {
+                firebaseDb.ref(`dhmt2026/funrun_checkin/laps/${athlete.bib}`).set(athlete.laps).catch(() => {});
+            }
             playCheckinBeep('success');
             showBanner('success', 
                 `🎉 BIB ${athlete.bib} - ${athlete.name}`, 
@@ -7843,6 +7902,9 @@ function processLapScan(athlete, raw, timeStr) {
         if (athlete.laps.length === 0) {
             athlete.laps.push(timeStr);
             saveAndRender(true);
+            if (typeof firebaseDb !== 'undefined' && firebaseDb) {
+                firebaseDb.ref(`dhmt2026/funrun_checkin/laps/${athlete.bib}`).set(athlete.laps).catch(() => {});
+            }
             playCheckinBeep('success');
             showBanner('success', 
                 `🎉 BIB ${athlete.bib} - ${athlete.name}`, 
@@ -7854,6 +7916,9 @@ function processLapScan(athlete, raw, timeStr) {
         } else if (athlete.laps.length === 1) {
             athlete.laps.push(timeStr);
             saveAndRender(true);
+            if (typeof firebaseDb !== 'undefined' && firebaseDb) {
+                firebaseDb.ref(`dhmt2026/funrun_checkin/laps/${athlete.bib}`).set(athlete.laps).catch(() => {});
+            }
             playCheckinBeep('success');
             showBanner('success', 
                 `🎉 BIB ${athlete.bib} - ${athlete.name}`, 
@@ -8161,6 +8226,17 @@ function saveAndRender(pushToCloud = true) {
                 console.warn('Firebase athletes sync error:', err);
                 updateCheckinCloudIndicator(false);
             });
+
+        // Đồng bộ song song kênh Laps theo từng BIB để đảm bảo thời gian thực không bao giờ mất vòng
+        const lapsDict = {};
+        athletes.forEach(a => {
+            if (a.laps && Array.isArray(a.laps) && a.laps.length > 0) {
+                lapsDict[a.bib] = a.laps;
+            }
+        });
+        if (Object.keys(lapsDict).length > 0) {
+            firebaseDb.ref('dhmt2026/funrun_checkin/laps').update(lapsDict).catch(() => {});
+        }
     }
 }
 

@@ -291,6 +291,30 @@
   .config-input { background: #030712; border: 1.5px solid #475569; color: #38bdf8; padding: 6px 10px; border-radius: 6px; font-weight: bold; width: 120px; text-align: center; }
   .config-input:focus { border-color: #38bdf8; outline: none; }
 
+
+  /* CAMERA FULLSCREEN & LASER SCAN OVERLAY */
+  @keyframes laserScan {
+    0% { top: 2%; opacity: 0.85; }
+    50% { top: 96%; opacity: 1; }
+    100% { top: 2%; opacity: 0.85; }
+  }
+  .camera-laser-line {
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    height: 3px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, transparent 0%, #34d399 50%, transparent 100%);
+    box-shadow: 0 0 14px 2px #10b981, 0 0 4px #34d399;
+    animation: laserScan 2.4s ease-in-out infinite;
+  }
+  @keyframes popupZoomIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .animate-popup-zoom {
+    animation: popupZoomIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
 </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -1116,6 +1140,111 @@
     <div class="grid-top3" id="top3Grid"></div>
   </div>
 </div>
+
+<!-- MODAL QUÉT CAMERA TOÀN MÀN HÌNH CHUYÊN NGHIỆP CHO TRỌNG TÀI / MOBILE -->
+<div id="camera-fullscreen-modal" style="display: none;" class="fixed inset-0 z-[100] bg-slate-950 flex-col">
+    <!-- TOP BAR: Controls & Header -->
+    <div class="px-3.5 py-2.5 bg-slate-900/95 border-b border-slate-800 flex items-center justify-between z-20 shrink-0 shadow-lg">
+        <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+            <span class="font-extrabold text-white text-xs sm:text-sm tracking-wide flex items-center gap-1.5">
+                <span>TRỌNG TÀI QUÉT QR</span>
+            </span>
+            <span id="cam-finished-stat" class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[11px] font-bold border border-emerald-500/30">-- về đích</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <select id="camera-select-fullscreen" onchange="switchCameraDevice(this.value)" class="hidden border border-slate-700 bg-slate-800 text-slate-200 text-xs rounded-xl px-2 py-1.5 focus:outline-none focus:ring-1 focus:ring-emerald-400 max-w-[120px] truncate">
+            </select>
+            <button onclick="toggleCameraScanner(false)" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-bold transition flex items-center gap-1 cursor-pointer border border-slate-700 active:scale-95">
+                <span>Đóng</span><span>✕</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MIDDLE: Camera Viewport with Viewfinder Overlay -->
+    <div class="relative flex-1 bg-black flex items-center justify-center overflow-hidden">
+        <div id="camera-reader-fullscreen" class="w-full h-full object-cover"></div>
+
+        <!-- Scanning Target Overlay Frame -->
+        <div id="camera-viewfinder-overlay" class="absolute inset-0 pointer-events-none flex flex-col items-center justify-center p-4">
+            <div class="relative w-64 h-64 sm:w-72 sm:h-72 border-2 border-emerald-400/80 rounded-3xl shadow-[0_0_0_9999px_rgba(15,23,42,0.6)]">
+                <!-- Corner markers -->
+                <div class="absolute -top-1 -left-1 w-7 h-7 border-t-4 border-l-4 border-emerald-400 rounded-tl-xl"></div>
+                <div class="absolute -top-1 -right-1 w-7 h-7 border-t-4 border-r-4 border-emerald-400 rounded-tr-xl"></div>
+                <div class="absolute -bottom-1 -left-1 w-7 h-7 border-b-4 border-l-4 border-emerald-400 rounded-bl-xl"></div>
+                <div class="absolute -bottom-1 -right-1 w-7 h-7 border-b-4 border-r-4 border-emerald-400 rounded-br-xl"></div>
+                <!-- Laser scan animation bar -->
+                <div class="camera-laser-line"></div>
+            </div>
+            <div class="mt-4 px-4 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-slate-700/80 text-slate-200 text-xs font-medium tracking-wide shadow-xl">
+                Hướng khung ngắm vào mã QR trên thẻ BIB
+            </div>
+        </div>
+
+        <!-- POPUP KẾT QUẢ NỔI BẬT NGAY TRÊN CAMERA -->
+        <div id="camera-result-popup" class="hidden absolute inset-0 bg-slate-950/80 backdrop-blur-md z-30 flex items-center justify-center p-4">
+            <div id="camera-result-card" class="w-full max-w-sm rounded-3xl p-5 shadow-2xl border-2 animate-popup-zoom bg-slate-900 text-white">
+                <!-- Status icon & title -->
+                <div class="flex items-center gap-2 mb-2 pb-2 border-b border-white/10">
+                    <span id="cam-result-icon" class="text-2xl">🎉</span>
+                    <span id="cam-result-status-title" class="font-black text-xs sm:text-sm tracking-wide uppercase"></span>
+                </div>
+                <!-- BIB & Runner Name -->
+                <div class="mb-2.5">
+                    <div id="cam-result-bib" class="text-3xl sm:text-4xl font-black tracking-tight text-white mb-0.5"></div>
+                    <div id="cam-result-name" class="text-xl sm:text-2xl font-extrabold text-amber-300"></div>
+                </div>
+                <!-- Role & Unit -->
+                <div id="cam-result-unit" class="text-xs text-slate-300 font-medium pb-2.5 mb-2.5 border-b border-white/10 leading-relaxed"></div>
+                
+                <!-- Time & Category Details Box -->
+                <div id="cam-result-time-box" class="bg-black/40 rounded-2xl p-3 mb-4 space-y-1.5 text-xs border border-white/5">
+                    <div class="flex justify-between items-center text-slate-300">
+                        <span>Nội dung thi:</span>
+                        <span id="cam-result-category" class="font-bold text-amber-400"></span>
+                    </div>
+                    <div class="flex justify-between items-center text-slate-300">
+                        <span>Giờ về đích:</span>
+                        <span id="cam-result-finishtime" class="font-mono font-bold text-emerald-300"></span>
+                    </div>
+                    <div class="flex justify-between items-center text-slate-200 pt-1.5 border-t border-white/10 font-bold text-sm">
+                        <span>Thời gian chạy:</span>
+                        <span id="cam-result-duration" class="font-mono text-emerald-400"></span>
+                    </div>
+                </div>
+
+                <!-- Action buttons -->
+                <div class="space-y-2">
+                    <button id="btn-next-scan" onclick="resumeCameraScanning()" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-sm shadow-xl flex items-center justify-center gap-2 cursor-pointer transition active:scale-95">
+                        <span class="text-base">📷</span>
+                        <span>Quét người tiếp theo</span>
+                        <span>▶</span>
+                    </button>
+                    <div class="flex items-center justify-between gap-2 pt-1">
+                        <button id="btn-cancel-scan-result" onclick="cancelCurrentScanResult()" class="flex-1 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-rose-300 hover:text-rose-200 text-xs font-bold transition border border-rose-500/30 cursor-pointer">
+                            ✕ Hủy kết quả vừa ghi
+                        </button>
+                        <button onclick="toggleCameraScanner(false)" class="flex-1 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold transition border border-slate-700 cursor-pointer">
+                            Đóng camera
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Auto-resume countdown progress bar -->
+                <div id="cam-auto-resume-container" class="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-400">
+                    <label class="flex items-center gap-1.5 cursor-pointer select-none">
+                        <input type="checkbox" id="cam-auto-resume-check" checked onchange="toggleAutoResume(this.checked)" class="rounded text-emerald-500 focus:ring-0 cursor-pointer">
+                        <span>Tự động quét tiếp (3s)</span>
+                    </label>
+                    <div class="w-20 bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                        <div id="cam-auto-resume-bar" class="bg-emerald-400 h-1.5 transition-all duration-100" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 <!-- FLOATING LEFT TRIGGER (FOR FAST ACCESS TO DRAWER & CONTROLS) -->
@@ -7467,107 +7596,119 @@ function removeVietnameseTones(str) {
         .trim();
 }
 
-// BỘ BÓC TÁCH BIB THÔNG MINH ĐA TẦNG (CHỐNG LỖI BỘ GÕ & MÃ BIẾN DẠNG)
+function cleanScannerRaw(raw) {
+    if (!raw) return '';
+    let s = String(raw).trim();
+    // 1. Strip AIM Symbology Identifiers: ] followed by single letter and digit/char (e.g. ]Q1, ]C1, ]e0, ]d1)
+    s = s.replace(/^\][a-zA-Z][0-9A-Za-z]/, '');
+    // 2. Strip non-printable ASCII control characters (STX \x02, ETX \x03, NULL, etc.)
+    s = s.replace(/[\x00-\x1F\x7F]/g, '');
+    s = s.replace(/^(?:STX|ETX|\[STX\]|\[ETX\]|\\x02|\\x03)/i, '');
+    // 3. Strip leading/trailing quotes or brackets
+    s = s.replace(/^['"`\[\]\s]+|['"`\[\]\s]+$/g, '');
+    return s.trim();
+}
+
+// BỘ BÓC TÁCH BIB THÔNG MINH ĐỘ CHÍNH XÁC CAO - TUYỆT ĐỐI KHÔNG BẮT NHẦM VĐV
 function extractAthleteFromRaw(raw) {
     if (!raw) return null;
-    raw = String(raw).trim();
-    if (!raw) return null;
+    let clean = cleanScannerRaw(raw);
+    if (!clean) return null;
 
-    // Tầng 1: Số BIB 4-5 chữ số ở đầu chuỗi (VD: "5067_...", "5067-...", "5067 ") hoặc gõ số thuần túy
-    let mStart = raw.match(/^([0-9]{4,5})[_\s\-]/) || raw.match(/^([0-9]{1,5})$/);
+    // TẦNG 1: Khớp chính xác số BIB (4-5 chữ số) ở đầu chuỗi (VD: "5008_...", "5008-...", "5008 ") hoặc chỉ nhập số thuần túy
+    let mStart = clean.match(/^([0-9]{4,5})(?:[_\s\-\/,;]|$)/);
     if (mStart) {
         let bVal = parseInt(mStart[1], 10);
-        let found = athletes.find(a => a.bib === bVal || String(a.bib) === String(bVal));
-        if (found) return { athlete: found, bib: bVal, matchType: 'start_bib' };
+        let found = athletes.find(a => Number(a.bib) === bVal || String(a.bib) === String(bVal));
+        if (found) return { athlete: found, bib: bVal, matchType: 'exact_start_bib' };
     }
 
-    // Tầng 2: Tìm bất kỳ số BIB hợp lệ nào trong chuỗi
-    let allNums = raw.match(/\b([0-9]{4,5})\b/g) || raw.match(/([0-9]{4,5})/g);
-    if (allNums) {
-        for (let numStr of allNums) {
+    // TẦNG 2: Tiền tố ký hiệu trước số BIB (VD: "*5008_*", "BIB5008", "#5008", "No.5008")
+    let mPrefixBib = clean.match(/(?:^|[^0-9])([0-9]{4,5})(?:[_\s\-\/,;]|$)/);
+    if (mPrefixBib) {
+        let bVal = parseInt(mPrefixBib[1], 10);
+        let found = athletes.find(a => Number(a.bib) === bVal || String(a.bib) === String(bVal));
+        if (found) return { athlete: found, bib: bVal, matchType: 'bounded_bib' };
+    }
+
+    // TẦNG 3: Tìm bất kỳ số BIB hợp lệ (4-5 chữ số) xuất hiện trong chuỗi quét
+    let allNumMatches = clean.match(/\d{4,5}/g);
+    if (allNumMatches) {
+        for (let numStr of allNumMatches) {
             let bVal = parseInt(numStr, 10);
-            let found = athletes.find(a => a.bib === bVal || String(a.bib) === String(bVal));
+            let found = athletes.find(a => Number(a.bib) === bVal || String(a.bib) === String(bVal));
             if (found) return { athlete: found, bib: bVal, matchType: 'anywhere_bib' };
         }
     }
 
-    // Tầng 3: Cứu cánh khi bộ gõ tiếng Việt nuốt mất 1 số ở đầu (VD: "506_H Th. anh-ng Thanh Grand Q...")
-    let mPref = raw.match(/^([0-9]{3,4})[_\s\-]/);
-    if (mPref) {
-        let pref = mPref[1];
-        let cands = athletes.filter(a => String(a.bib).startsWith(pref));
-        if (cands.length === 1) {
-            return { athlete: cands[0], bib: cands[0].bib, matchType: 'single_prefix' };
-        } else if (cands.length > 1) {
-            let rawNorm = removeVietnameseTones(raw);
-            let rawWords = rawNorm.match(/\w+/g) || [];
-            let bestCand = null;
-            let bestScore = 0;
+    // TẦNG 4: Tìm theo TÊN VĐV CHÍNH XÁC khi số BIB ở đầu bị bộ gõ tiếng Việt (Unikey/EVKey) nuốt mất
+    let namePart = clean;
+    if (clean.includes('-')) {
+        namePart = clean.split('-')[0];
+    }
+    namePart = namePart.replace(/^[0-9_\s\-\?]+/, '').trim();
 
-            for (let c of cands) {
-                let score = 0;
-                let uNorm = removeVietnameseTones(c.unit || '');
-                let uWords = (uNorm.match(/\w+/g) || []).filter(w => !['muong', 'thanh', 'grand', 'luxury', 'holiday', 'hotel', 'ban', 'dieu', 'sieu', 'thi'].includes(w));
-                
-                for (let uw of uWords) {
-                    if (rawWords.includes(uw)) score += 30;
-                    else if (uw.length >= 4 && rawWords.some(rw => rw.startsWith(uw.slice(0, 3)))) score += 15;
-                }
+    let normNamePart = removeVietnameseTones(namePart);
+    if (normNamePart.length >= 4) {
+        let matchedByName = athletes.filter(a => {
+            let an = removeVietnameseTones(a.name || '');
+            if (an.length < 4) return false;
+            return normNamePart.includes(an) || an.includes(normNamePart);
+        });
 
-                let nNorm = removeVietnameseTones(c.name || '');
-                let nWords = (nNorm.match(/\w+/g) || []).filter(w => w.length >= 2);
-                for (let nw of nWords) {
-                    if (rawWords.includes(nw)) score += 25;
-                    else if (rawWords.some(rw => rw.startsWith(nw) || nw.startsWith(rw))) score += 10;
-                }
-
-                if (rawNorm.includes("grand q") && uNorm.includes("quang")) score += 40;
-                if (uNorm.includes("quang nam") && (rawNorm.includes("quang") || rawNorm.includes("nam"))) score += 40;
-
-                if (score > bestScore) {
-                    bestScore = score;
-                    bestCand = c;
-                }
-            }
-
-            if (bestCand && bestScore >= 30) {
-                return { athlete: bestCand, bib: bestCand.bib, matchType: 'prefix_disambiguated' };
+        if (matchedByName.length === 1) {
+            return { athlete: matchedByName[0], bib: matchedByName[0].bib, matchType: 'unique_full_name' };
+        } else if (matchedByName.length > 1) {
+            let normUnit = removeVietnameseTones(clean);
+            let matchedByUnit = matchedByName.filter(a => {
+                let au = removeVietnameseTones(a.unit || '');
+                return au.length > 4 && normUnit.includes(au);
+            });
+            if (matchedByUnit.length === 1) {
+                return { athlete: matchedByUnit[0], bib: matchedByUnit[0].bib, matchType: 'name_and_unit' };
             }
         }
     }
 
-    // Tầng 4: Tìm theo Tên VĐV đầy đủ xuất hiện trong chuỗi
-    let rawNorm = removeVietnameseTones(raw);
-    for (let a of athletes) {
-        let aNameNorm = removeVietnameseTones(a.name || '');
-        if (aNameNorm.length > 4 && rawNorm.includes(aNameNorm)) {
-            return { athlete: a, bib: a.bib, matchType: 'full_name' };
+    // TẦNG 5: Khớp tên từng từ (ít nhất 2 từ >= 3 ký tự của tên VĐV và phải khớp trọn vẹn họ tên)
+    if (normNamePart.length >= 5) {
+        let nameWords = (normNamePart.match(/[a-z0-9]+/g) || []).filter(w => w.length >= 3);
+        if (nameWords.length >= 2) {
+            let candidateMatches = [];
+            for (let a of athletes) {
+                let anWords = (removeVietnameseTones(a.name || '').match(/[a-z0-9]+/g) || []).filter(w => w.length >= 3);
+                let matchCount = anWords.filter(aw => nameWords.includes(aw)).length;
+                if (matchCount >= 2 && matchCount === anWords.length) {
+                    candidateMatches.push(a);
+                }
+            }
+            if (candidateMatches.length === 1) {
+                return { athlete: candidateMatches[0], bib: candidateMatches[0].bib, matchType: 'distinct_name_words' };
+            }
         }
     }
 
-    // Tầng 5: Thử dạng ngắn (VD: BIB chữ hoặc số ngắn nếu có)
-    let mShort = raw.match(/^([0-9a-zA-Z]+)[_\s\-]/) || raw.match(/^([0-9a-zA-Z]+)/);
-    if (mShort) {
-        let bShort = mShort[1].trim();
-        let found = athletes.find(a => String(a.bib).trim().toLowerCase() === bShort.toLowerCase());
-        if (found) return { athlete: found, bib: found.bib, matchType: 'short_bib' };
-    }
-
+    // NGUYÊN TẮC AN TOÀN: Tuyệt đối không đoán mò theo Tên đơn vị khi chưa xác định được VĐV!
     return null;
 }
 
-function processRawData(raw) {
+let lastScannedAthlete = null;
+
+function processRawData(raw, fromCamera = false) {
     if (!canManageCheckin()) {
         alert('Bạn không có quyền quét mã hoặc ghi nhận kết quả! Vui lòng đăng nhập tài khoản Trọng tài Fun Run hoặc Ban Tổ Chức.');
-        return;
+        return null;
     }
     raw = (raw || '').trim();
-    if (!raw) return;
+    if (!raw) return null;
     const scanInput = document.getElementById('scanInput');
-    if (scanInput) scanInput.value = '';
+    if (scanInput) {
+        scanInput.value = '';
+        setTimeout(() => { if (scanInput) scanInput.value = ''; }, 100);
+    }
 
     // Bỏ qua các chuỗi rác quá ngắn không có số (tránh cảnh báo khó chịu khi bộ gõ gõ dở)
-    if (raw.length <= 2 && !raw.match(/\d/)) return;
+    if (raw.length <= 2 && !raw.match(/\d/)) return null;
 
     let res = extractAthleteFromRaw(raw);
     let athlete = res ? res.athlete : null;
@@ -7578,14 +7719,15 @@ function processRawData(raw) {
 
     if (!athlete) {
         playCheckinBeep('error');
-        showBanner('error', `KHÔNG TÌM THẤY BIB: ${bib}`, '', `Mã "${raw}" không khớp VĐV nào trong danh sách!`, `Thời gian: ${timeStr}`);
-        return;
+        showBanner('error', `KHÔNG TÌM THẤY VĐV TỪ MÃ QUÉT`, '', `Mã quét "${raw}" không khớp chính xác với bất kỳ VĐV nào trong danh sách! Vui lòng quét lại thẻ BIB hoặc gõ trực tiếp 4 số BIB.`, `Thời gian: ${timeStr}`);
+        return { success: false, type: 'ERROR', raw: raw, bib: bib, message: `Mã "${raw}" không khớp VĐV nào!` };
     }
 
-    playCheckinBeep('success');
+    lastScannedAthlete = athlete;
     let jobUnit = [athlete.title, athlete.unit].filter(Boolean).join(' - ');
 
     if (athlete.status === 'FINISH') {
+        playCheckinBeep('warning');
         const info = calculateRunMinutes(athlete.finishTime, athlete.category);
         showBanner('warning', 
             `⚠️ BIB ${athlete.bib} - ${athlete.name}`, 
@@ -7593,9 +7735,10 @@ function processRawData(raw) {
             `VĐV ĐÃ VỀ ĐÍCH TỪ TRƯỚC! Thời gian: ${info.displayStr}`, 
             `Giờ về: ${athlete.finishTime} | ${athlete.category}`
         );
-        return;
+        return { success: false, type: 'WARNING', athlete: athlete, bib: athlete.bib, runInfo: info, finishTime: athlete.finishTime };
     }
 
+    playCheckinBeep('success');
     athlete.status = 'FINISH';
     athlete.finishTime = timeStr;
     const runInfo = calculateRunMinutes(timeStr, athlete.category);
@@ -7607,6 +7750,7 @@ function processRawData(raw) {
         `Giờ về: ${timeStr} | ${athlete.category}`
     );
     saveAndRender(true);
+    return { success: true, type: 'FINISH', athlete: athlete, bib: athlete.bib, runInfo: runInfo, finishTime: timeStr };
 }
 
 function showBanner(type, title, subtitle, desc, time) {
@@ -7742,10 +7886,24 @@ function renderTableOnly() {
                 <td style="color: #cbd5e1; text-align: center;">${a.finishTime || '--:--:--'}</td>
                 <td style="font-size: 14px; text-align: center;">${durationHtml}</td>
                 <td style="color: #94a3b8; font-size: 12px; text-align: center;">${cfg.cutoffMinutes} phút</td>
-                <td style="text-align: center;"><span class="${a.status === 'FINISH' ? 'status-finish' : 'status-unfinish'}">${a.status || 'CHƯA'}</span></td>
+                <td style="text-align: center;"><button onclick="toggleAthleteFinish('${a.bib}')" class="${a.status === 'FINISH' ? 'status-finish cursor-pointer hover:opacity-80' : 'status-unfinish'}" title="${a.status === 'FINISH' ? 'Nhấp để HỦY kết quả về đích' : ''}">${a.status || 'CHƯA'}</button></td>
             </tr>
         `;
     }).join('');
+}
+
+function toggleAthleteFinish(bib) {
+    if (!canManageCheckin()) return;
+    const a = athletes.find(x => String(x.bib) === String(bib));
+    if (!a) return;
+    if (a.status === 'FINISH') {
+        if (confirm(`Bạn có chắc muốn HỦY kết quả về đích của VĐV:\nBIB: ${a.bib} - ${a.name} (${a.unit})\nđể chuyển lại về trạng thái CHƯA không?`)) {
+            a.status = 'CHƯA';
+            a.finishTime = '';
+            saveAndRender(true);
+            showBanner('warning', `ĐÃ HỦY KẾT QUẢ BIB ${a.bib}`, `${a.name} - ${a.unit}`, 'Đã chuyển trạng thái về CHƯA về đích.', '');
+        }
+    }
 }
 
 function focusScanInput() {
@@ -8108,36 +8266,17 @@ function updateCheckinAuthUI() {
         if (canManage) {
             scanContainer.innerHTML = `
                 <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <div class="flex items-center gap-2">
-                        <button id="btn-toggle-camera" onclick="toggleCameraScanner()" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-md flex items-center gap-1.5 cursor-pointer transition">
-                            <span>📷</span><span id="camera-btn-text">Bật Camera Quét Trực Tiếp</span>
-                        </button>
-                        <select id="camera-select" onchange="switchCameraDevice(this.value)" class="hidden border border-slate-700 bg-slate-800 text-slate-200 text-xs rounded-xl px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-emerald-400">
-                        </select>
-                    </div>
-                    <div class="text-[11px] text-emerald-400/90 font-medium">
-                        ⚡ Sẵn sàng: Súng quét Barcode / QR & Camera điện thoại
+                    <button id="btn-toggle-camera" onclick="toggleCameraScanner(true)" class="px-4 py-2.5 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-xs sm:text-sm shadow-xl flex items-center gap-2 cursor-pointer transition active:scale-95 border border-emerald-400/30">
+                        <span class="text-base">📷</span><span>Bật Camera Quét Toàn Màn Hình</span>
+                    </button>
+                    <div class="text-[11px] text-emerald-400 font-medium flex items-center gap-1">
+                        <span>⚡</span><span>Sẵn sàng: Súng quét Barcode / QR & Camera điện thoại</span>
                     </div>
                 </div>
 
-                <!-- CAMERA SCANNER PREVIEW BOX -->
-                <div id="camera-scanner-wrapper" class="hidden mb-3 bg-slate-900 p-3 rounded-2xl border-2 border-emerald-500/80 shadow-2xl relative max-w-md mx-auto text-center">
-                    <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-xs">
-                        <span class="font-bold text-emerald-400 flex items-center gap-1.5">
-                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-                            <span>Camera đang quét QR...</span>
-                        </span>
-                        <button onclick="toggleCameraScanner(false)" class="text-slate-400 hover:text-white text-xs font-bold px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 cursor-pointer">Đóng ✕</button>
-                    </div>
-                    <div id="camera-reader" class="rounded-xl overflow-hidden bg-black mx-auto" style="width: 100%; min-height: 240px;"></div>
-                    <div class="text-[11px] text-slate-400 mt-2">
-                        Hướng camera vào mã QR trên thẻ BIB. Hệ thống quét trực tiếp mã gốc, 100% không bị lỗi bộ gõ tiếng Việt!
-                    </div>
-                </div>
-
-                <textarea id="scanInput" class="checkin-scan-input" rows="1" placeholder="🔍 Nhập số BIB hoặc quét mã QR... (Nhấp chuột vào đây để quét)" autofocus></textarea>
+                <textarea id="scanInput" class="checkin-scan-input" rows="1" placeholder="🔍 Nhập số BIB hoặc quét mã QR... (Nhấp chuột vào đây để quét)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="text" autofocus></textarea>
                 <div class="flex items-center justify-between text-[11px] text-slate-400 mt-1 px-1">
-                    <span>💡 Nhận diện thông minh: Bắt số BIB mọi vị trí, tự khử lỗi gõ nhầm/nuốt số của bộ gõ tiếng Việt.</span>
+                    <span>💡 Tương thích 100% súng quét Barcode/QR & gõ tay: Tự bóc tách số BIB, khử tiền tố mã vạch (]Q1, ]C1), chống nhảy nhầm VĐV.</span>
                     <span class="italic text-sky-400">Tự động đồng bộ máy chủ Firebase Realtime</span>
                 </div>`;
             initScanInputEvents();
@@ -8161,16 +8300,42 @@ function updateCheckinAuthUI() {
     }
 }
 
-// SỰ KIỆN GÕ & QUÉT TRÊN Ô SCANINPUT
-// QUẢN LÝ QUÉT BẰNG CAMERA TRỰC TIẾP
+
+// =============================================================================
+// HỆ THỐNG QUÉT CAMERA TOÀN MÀN HÌNH CHUYÊN NGHIỆP CHO TRỌNG TÀI & MOBILE
+// =============================================================================
 let html5QrScanner = null;
 let isCameraActive = false;
-let lastCameraScanTime = 0;
+let isScannerPaused = false;
 let lastCameraScanRaw = '';
+let lastCameraScanTime = 0;
+let autoResumeTimer = null;
+let autoResumeInterval = null;
+let isAutoResumeEnabled = true;
+
+function toggleAutoResume(checked) {
+    isAutoResumeEnabled = !!checked;
+    if (!isAutoResumeEnabled) {
+        clearAutoResumeTimer();
+        const bar = document.getElementById('cam-auto-resume-bar');
+        if (bar) bar.style.width = '0%';
+    }
+}
+
+function clearAutoResumeTimer() {
+    if (autoResumeTimer) {
+        clearTimeout(autoResumeTimer);
+        autoResumeTimer = null;
+    }
+    if (autoResumeInterval) {
+        clearInterval(autoResumeInterval);
+        autoResumeInterval = null;
+    }
+}
 
 function toggleCameraScanner(forceState) {
     if (!canManageCheckin()) {
-        alert('Bạn không có quyền quét mã!');
+        alert('Bạn không có quyền quét mã! Vui lòng đăng nhập tài khoản Trọng tài Fun Run hoặc Ban Tổ Chức.');
         return;
     }
     const targetState = typeof forceState === 'boolean' ? forceState : !isCameraActive;
@@ -8178,52 +8343,63 @@ function toggleCameraScanner(forceState) {
     else stopCameraScanner();
 }
 
+function updateCameraStatsCounter() {
+    const statEl = document.getElementById('cam-finished-stat');
+    if (!statEl) return;
+    const finCount = athletes.filter(a => a.status === 'FINISH').length;
+    statEl.innerText = `${finCount}/${athletes.length} về đích`;
+}
+
 function startCameraScanner() {
     if (typeof Html5Qrcode === 'undefined') {
-        alert('Thư viện quét camera đang tải hoặc bị chặn kết nối. Vui lòng thử lại sau vài giây!');
+        alert('Thư viện quét camera đang tải hoặc bị chặn kết nối. Vui lòng kiểm tra kết nối mạng và thử lại sau vài giây!');
         return;
     }
-    const wrapper = document.getElementById('camera-scanner-wrapper');
-    const btnText = document.getElementById('camera-btn-text');
-    const btn = document.getElementById('btn-toggle-camera');
-    const cameraSelect = document.getElementById('camera-select');
-
-    if (wrapper) wrapper.classList.remove('hidden');
-    if (btnText) btnText.textContent = 'Tắt Camera Quét';
-    if (btn) btn.className = 'px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 hover:from-rose-500 hover:to-red-500 text-white font-bold text-xs shadow-md flex items-center gap-1.5 cursor-pointer transition';
+    const modal = document.getElementById('camera-fullscreen-modal');
+    const cameraSelect = document.getElementById('camera-select-fullscreen');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Khóa cuộn trang nền
+    }
+    updateCameraStatsCounter();
+    hideCameraResultPopup();
 
     if (!html5QrScanner) {
-        html5QrScanner = new Html5Qrcode("camera-reader");
+        html5QrScanner = new Html5Qrcode("camera-reader-fullscreen");
     }
 
     const config = {
-        fps: 15,
+        fps: 20,
         qrbox: (viewfinderWidth, viewfinderHeight) => {
             const minEdge = Math.min(viewfinderWidth, viewfinderHeight);
-            const qrEdge = Math.floor(minEdge * 0.75);
+            const qrEdge = Math.max(220, Math.floor(minEdge * 0.72));
             return { width: qrEdge, height: qrEdge };
         },
         aspectRatio: 1.0
     };
+
+    isScannerPaused = false;
 
     Html5Qrcode.getCameras().then(devices => {
         if (devices && devices.length > 0) {
             if (cameraSelect) {
                 cameraSelect.innerHTML = devices.map((d, idx) => `<option value="${d.id}">${d.label || 'Camera ' + (idx + 1)}</option>`).join('');
                 if (devices.length > 1) cameraSelect.classList.remove('hidden');
+                else cameraSelect.classList.add('hidden');
             }
-            const backCamera = devices.find(d => d.label.toLowerCase().includes('back') || d.label.toLowerCase().includes('sau') || d.label.toLowerCase().includes('environment'));
+            // Ưu tiên camera sau (Environment/Back)
+            const backCamera = devices.find(d => {
+                const l = (d.label || '').toLowerCase();
+                return l.includes('back') || l.includes('sau') || l.includes('environment') || l.includes('0, facing back');
+            });
             const cameraConfig = backCamera ? backCamera.id : { facingMode: "environment" };
 
             html5QrScanner.start(
                 cameraConfig,
                 config,
                 (decodedText) => {
-                    const now = Date.now();
-                    if (decodedText === lastCameraScanRaw && (now - lastCameraScanTime < 2500)) return;
-                    lastCameraScanRaw = decodedText;
-                    lastCameraScanTime = now;
-                    processRawData(decodedText);
+                    if (isScannerPaused) return;
+                    handleCameraScanSuccess(decodedText);
                 },
                 () => {}
             ).then(() => {
@@ -8242,11 +8418,8 @@ function startCameraScanner() {
             { facingMode: "environment" },
             config,
             (decodedText) => {
-                const now = Date.now();
-                if (decodedText === lastCameraScanRaw && (now - lastCameraScanTime < 2500)) return;
-                lastCameraScanRaw = decodedText;
-                lastCameraScanTime = now;
-                processRawData(decodedText);
+                if (isScannerPaused) return;
+                handleCameraScanSuccess(decodedText);
             },
             () => {}
         ).then(() => {
@@ -8258,50 +8431,243 @@ function startCameraScanner() {
     });
 }
 
-function stopCameraScanner() {
-    const wrapper = document.getElementById('camera-scanner-wrapper');
-    const btnText = document.getElementById('camera-btn-text');
-    const btn = document.getElementById('btn-toggle-camera');
-    const cameraSelect = document.getElementById('camera-select');
+function handleCameraScanSuccess(decodedText) {
+    const now = Date.now();
+    if (decodedText === lastCameraScanRaw && (now - lastCameraScanTime < 2000)) return;
+    lastCameraScanRaw = decodedText;
+    lastCameraScanTime = now;
 
-    if (wrapper) wrapper.classList.add('hidden');
-    if (cameraSelect) cameraSelect.classList.add('hidden');
-    if (btnText) btnText.textContent = 'Bật Camera Quét Trực Tiếp';
-    if (btn) btn.className = 'px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-md flex items-center gap-1.5 cursor-pointer transition';
+    // Tạm dừng quét ngay lập tức
+    isScannerPaused = true;
+    try { if (html5QrScanner && html5QrScanner.pause) html5QrScanner.pause(true); } catch(e) {}
+
+    // Ghi nhận dữ liệu
+    const res = processRawData(decodedText, true);
+    updateCameraStatsCounter();
+    showCameraResultPopup(res, decodedText);
+}
+
+function showCameraResultPopup(res, raw) {
+    const popup = document.getElementById('camera-result-popup');
+    const card = document.getElementById('camera-result-card');
+    if (!popup || !card) return;
+
+    const iconEl = document.getElementById('cam-result-icon');
+    const titleEl = document.getElementById('cam-result-status-title');
+    const bibEl = document.getElementById('cam-result-bib');
+    const nameEl = document.getElementById('cam-result-name');
+    const unitEl = document.getElementById('cam-result-unit');
+    const timeBox = document.getElementById('cam-result-time-box');
+    const catEl = document.getElementById('cam-result-category');
+    const finishEl = document.getElementById('cam-result-finishtime');
+    const durEl = document.getElementById('cam-result-duration');
+    const cancelBtn = document.getElementById('btn-cancel-scan-result');
+    const nextBtn = document.getElementById('btn-next-scan');
+
+    clearAutoResumeTimer();
+
+    if (!res || res.type === 'ERROR') {
+        // Lỗi: Không tìm thấy VĐV
+        card.style.borderColor = '#f43f5e';
+        card.style.background = 'rgba(19, 24, 39, 0.96)';
+        if (iconEl) iconEl.innerText = '❌';
+        if (titleEl) {
+            titleEl.innerText = 'KHÔNG TÌM THẤY VĐV';
+            titleEl.style.color = '#fb7185';
+        }
+        if (bibEl) bibEl.innerText = 'MÃ KHÔNG KHỚP';
+        if (nameEl) {
+            nameEl.innerText = 'Vui lòng quét lại hoặc gõ số BIB';
+            nameEl.style.color = '#cbd5e1';
+        }
+        if (unitEl) unitEl.innerText = `Mã quét được: "${raw || ''}"`;
+        if (timeBox) timeBox.style.display = 'none';
+        if (cancelBtn) cancelBtn.style.display = 'none';
+        if (nextBtn) {
+            nextBtn.className = 'w-full py-3.5 rounded-2xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-black text-sm shadow-xl flex items-center justify-center gap-2 cursor-pointer transition active:scale-95';
+            nextBtn.innerHTML = '<span>Quét lại mã khác</span><span>▶</span>';
+        }
+    } else if (res.type === 'WARNING') {
+        // Đã về đích từ trước
+        const a = res.athlete;
+        card.style.borderColor = '#f59e0b';
+        card.style.background = 'rgba(19, 24, 39, 0.96)';
+        if (iconEl) iconEl.innerText = '⚠️';
+        if (titleEl) {
+            titleEl.innerText = 'VĐV ĐÃ VỀ ĐÍCH TỪ TRƯỚC!';
+            titleEl.style.color = '#fbbf24';
+        }
+        if (bibEl) bibEl.innerText = `BIB ${a.bib}`;
+        if (nameEl) {
+            nameEl.innerText = a.name;
+            nameEl.style.color = '#fde68a';
+        }
+        if (unitEl) unitEl.innerText = [a.title, a.unit].filter(Boolean).join(' - ');
+        if (timeBox) timeBox.style.display = 'block';
+        if (catEl) catEl.innerText = a.category || '--';
+        if (finishEl) finishEl.innerText = a.finishTime || '--:--:--';
+        if (durEl) durEl.innerText = res.runInfo ? res.runInfo.displayStr : '--';
+        if (cancelBtn) {
+            cancelBtn.style.display = 'block';
+            cancelBtn.innerText = '✕ Hủy kết quả VĐV này';
+        }
+        if (nextBtn) {
+            nextBtn.className = 'w-full py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black text-sm shadow-xl flex items-center justify-center gap-2 cursor-pointer transition active:scale-95';
+            nextBtn.innerHTML = '<span>Quét người tiếp theo</span><span>▶</span>';
+        }
+    } else {
+        // Thành công: FINISH mới ghi nhận
+        const a = res.athlete;
+        card.style.borderColor = '#10b981';
+        card.style.background = 'rgba(19, 24, 39, 0.96)';
+        if (iconEl) iconEl.innerText = '🎉';
+        if (titleEl) {
+            titleEl.innerText = 'GHI NHẬN THÀNH CÔNG VỀ ĐÍCH!';
+            titleEl.style.color = '#34d399';
+        }
+        if (bibEl) bibEl.innerText = `BIB ${a.bib}`;
+        if (nameEl) {
+            nameEl.innerText = a.name;
+            nameEl.style.color = '#fde047';
+        }
+        if (unitEl) unitEl.innerText = [a.title, a.unit].filter(Boolean).join(' - ');
+        if (timeBox) timeBox.style.display = 'block';
+        if (catEl) catEl.innerText = a.category || '--';
+        if (finishEl) finishEl.innerText = res.finishTime;
+        if (durEl) {
+            durEl.innerText = `${res.runInfo.displayStr} ${res.runInfo.isOverdue ? '(⚠️ Quá Cut-off)' : ''}`;
+            durEl.style.color = res.runInfo.isOverdue ? '#fca5a5' : '#34d399';
+        }
+        if (cancelBtn) {
+            cancelBtn.style.display = 'block';
+            cancelBtn.innerText = '✕ Hủy kết quả vừa ghi';
+        }
+        if (nextBtn) {
+            nextBtn.className = 'w-full py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-sm shadow-xl flex items-center justify-center gap-2 cursor-pointer transition active:scale-95';
+            nextBtn.innerHTML = '<span>Quét người tiếp theo</span><span>▶</span>';
+        }
+    }
+
+    popup.classList.remove('hidden');
+    popup.classList.add('flex');
+
+    // Khởi động đếm ngược tự động quét tiếp (3 giây)
+    const checkEl = document.getElementById('cam-auto-resume-check');
+    if (checkEl && checkEl.checked) {
+        startAutoResumeCountdown(3000);
+    } else {
+        const bar = document.getElementById('cam-auto-resume-bar');
+        if (bar) bar.style.width = '0%';
+    }
+}
+
+function startAutoResumeCountdown(durationMs) {
+    clearAutoResumeTimer();
+    const bar = document.getElementById('cam-auto-resume-bar');
+    const startTime = Date.now();
+    const intervalMs = 60;
+
+    autoResumeInterval = setInterval(() => {
+        const elapsed = Date.now() - startTime;
+        const remainRatio = Math.max(0, 1 - (elapsed / durationMs));
+        if (bar) bar.style.width = (remainRatio * 100) + '%';
+        if (elapsed >= durationMs) {
+            clearAutoResumeTimer();
+            resumeCameraScanning();
+        }
+    }, intervalMs);
+}
+
+function hideCameraResultPopup() {
+    clearAutoResumeTimer();
+    const popup = document.getElementById('camera-result-popup');
+    if (popup) {
+        popup.classList.add('hidden');
+        popup.classList.remove('flex');
+    }
+}
+
+function resumeCameraScanning() {
+    clearAutoResumeTimer();
+    hideCameraResultPopup();
+    try {
+        if (html5QrScanner && html5QrScanner.resume) {
+            html5QrScanner.resume();
+        }
+    } catch(e) {}
+    // Delay 400ms để tránh camera quét trùng mã QR của người vừa xong
+    setTimeout(() => {
+        isScannerPaused = false;
+    }, 450);
+}
+
+function cancelCurrentScanResult() {
+    if (!lastScannedAthlete) return;
+    const a = lastScannedAthlete;
+    if (confirm(`Bạn có chắc muốn HỦY kết quả của VĐV:\nBIB: ${a.bib} - ${a.name} (${a.unit})\nđể chuyển lại về trạng thái CHƯA không?`)) {
+        a.status = 'CHƯA';
+        a.finishTime = '';
+        saveAndRender(true);
+        updateCameraStatsCounter();
+        resumeCameraScanning();
+    }
+}
+
+function stopCameraScanner() {
+    clearAutoResumeTimer();
+    const modal = document.getElementById('camera-fullscreen-modal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; // Mở khóa cuộn trang
+    }
 
     if (html5QrScanner && isCameraActive) {
         html5QrScanner.stop().then(() => {
             isCameraActive = false;
+            isScannerPaused = false;
         }).catch(() => {
             isCameraActive = false;
+            isScannerPaused = false;
         });
     } else {
         isCameraActive = false;
+        isScannerPaused = false;
     }
+    focusScanInput();
 }
 
 function switchCameraDevice(cameraId) {
     if (html5QrScanner && isCameraActive) {
         html5QrScanner.stop().then(() => {
             isCameraActive = false;
-            const config = { fps: 15, qrbox: { width: 250, height: 250 } };
+            const config = {
+                fps: 20,
+                qrbox: (w, h) => {
+                    const minEdge = Math.min(w, h);
+                    const qrEdge = Math.max(220, Math.floor(minEdge * 0.72));
+                    return { width: qrEdge, height: qrEdge };
+                },
+                aspectRatio: 1.0
+            };
             html5QrScanner.start(cameraId, config, (decodedText) => {
-                const now = Date.now();
-                if (decodedText === lastCameraScanRaw && (now - lastCameraScanTime < 2500)) return;
-                lastCameraScanRaw = decodedText;
-                lastCameraScanTime = now;
-                processRawData(decodedText);
+                if (isScannerPaused) return;
+                handleCameraScanSuccess(decodedText);
             }).then(() => {
                 isCameraActive = true;
+                isScannerPaused = false;
             });
         });
     }
 }
 
-// SỰ KIỆN GÕ & QUÉT TRÊN Ô SCANINPUT (TỐI ƯU 400MS DEBOUNCE CHO SÚNG QUÉT)
+// SỰ KIỆN GÕ & QUÉT TRÊN Ô SCANINPUT (TỐI ƯU CHO SÚNG QUÉT CẦM TAY & GÕ TAY)
 function initScanInputEvents() {
     const scanInput = document.getElementById('scanInput');
     if (!scanInput) return;
+
+    scanInput.addEventListener('focus', function() {
+        this.select();
+    });
 
     scanInput.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
@@ -8316,13 +8682,19 @@ function initScanInputEvents() {
 
     scanInput.addEventListener('input', function() {
         clearTimeout(scanTimeout);
-        // Tăng debounce lên 400ms để súng quét truyền hết chuỗi dài mà không bị ngắt đôi
+        const val = scanInput.value.trim();
+        // Bỏ qua nếu chuỗi quá ngắn (< 4 ký tự) mà không có dấu phân tách để người dùng/máy quét kịp nhập xong số BIB
+        if (val.length < 4 && !val.includes('_') && !val.includes('-')) {
+            return;
+        }
+
+        // Tăng debounce lên 650ms để súng quét truyền hết chuỗi dài (70-90 ký tự) mà không bị ngắt đôi giữa chừng
         scanTimeout = setTimeout(() => {
-            const val = scanInput.value.trim();
-            if (val.length > 0) {
-                processRawData(val);
+            const currentVal = scanInput.value.trim();
+            if (currentVal.length >= 4) {
+                processRawData(currentVal);
             }
-        }, 400);
+        }, 650);
     });
 
     scanInput.addEventListener('paste', function(e) {

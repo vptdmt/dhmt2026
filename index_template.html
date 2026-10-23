@@ -662,11 +662,84 @@
             <span class="text-[11px] text-emerald-200/80 block mt-0.5" id="hero-kpi-15k-gender">15 Nam · 7 Nữ · 2 vòng tay</span>
           </div>
         </div>
+
+        <!-- TỔNG HỢP SIZE ÁO TOÀN GIẢI (434 ÁO) -->
+        <div class="mt-3.5 pt-3 border-t border-white/15 flex flex-wrap items-center justify-between gap-2.5 text-xs">
+          <div class="flex items-center gap-2">
+            <span class="text-amber-300 font-black flex items-center gap-1.5 text-xs">
+              <span>👕</span> <span>TỔNG HỢP SIZE ÁO TOÀN ĐOÀN (434 ÁO):</span>
+            </span>
+            <span class="text-[11px] text-emerald-200/80 hidden sm:inline">(Bấm vào từng size để lọc VĐV)</span>
+          </div>
+          <div id="hero-global-size-pills" class="flex flex-wrap items-center gap-1.5">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- SUB-VIEW 1: DANH SÁCH VĐV CHẠY (MẶC ĐỊNH) -->
     <div id="runners-view-list" class="runners-subview space-y-4">
+      <!-- VÙNG THỐNG KÊ CHI TIẾT THEO ĐƠN VỊ ĐƯỢC CHỌN -->
+      <div id="runners-unit-summary-card" class="hidden bg-gradient-to-r from-emerald-900 via-slate-900 to-teal-950 text-white rounded-2xl p-4 sm:p-5 shadow-md border border-emerald-500/40 slide-in">
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-white/10">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-xl shadow-inner">
+              🏢
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-400 text-slate-900 shadow-2xs">Chi tiết đơn vị</span>
+                <span class="text-xs text-emerald-200/90 font-medium" id="unit-summary-vehicles">Xe di chuyển: ---</span>
+              </div>
+              <h4 class="text-base sm:text-lg font-black text-white mt-0.5 flex items-center gap-2" id="unit-summary-title">
+                Tên đơn vị
+              </h4>
+            </div>
+          </div>
+          <button onclick="clearRunnersUnitFilter()" class="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition flex items-center gap-1.5 border border-white/15 cursor-pointer shadow-2xs" title="Bỏ lọc để xem tất cả đơn vị">
+            <span>✕</span> <span>Xem tất cả đơn vị</span>
+          </button>
+        </div>
+
+        <!-- 4 KPI CARDS FOR SELECTED UNIT -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-3.5">
+          <div class="bg-black/25 backdrop-blur rounded-xl p-3 border border-white/10">
+            <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Tổng VĐV Đơn vị</span>
+            <strong class="text-xl sm:text-2xl font-black text-white block mt-0.5" id="unit-kpi-total">0 <span class="text-xs font-normal text-emerald-200">người</span></strong>
+            <span class="text-[11px] text-emerald-200/80 block mt-0.5" id="unit-kpi-total-sub">Đoàn VĐV tham gia</span>
+          </div>
+          <div class="bg-black/25 backdrop-blur rounded-xl p-3 border border-white/10">
+            <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 5km (1 vòng)</span>
+            <strong class="text-xl sm:text-2xl font-black text-amber-300 block mt-0.5" id="unit-kpi-5k">0 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
+            <span class="text-[11px] text-emerald-200/80 block mt-0.5" id="unit-kpi-5k-sub">0 Nam · 0 Nữ</span>
+          </div>
+          <div class="bg-black/25 backdrop-blur rounded-xl p-3 border border-white/10">
+            <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 10km (2 vòng)</span>
+            <strong class="text-xl sm:text-2xl font-black text-orange-300 block mt-0.5" id="unit-kpi-10k">0 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
+            <span class="text-[11px] text-emerald-200/80 block mt-0.5" id="unit-kpi-10k-sub">0 Nam · 0 Nữ</span>
+          </div>
+          <div class="bg-black/25 backdrop-blur rounded-xl p-3 border border-white/10">
+            <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 15km (3 vòng)</span>
+            <strong class="text-xl sm:text-2xl font-black text-indigo-300 block mt-0.5" id="unit-kpi-15k">0 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
+            <span class="text-[11px] text-emerald-200/80 block mt-0.5" id="unit-kpi-15k-sub">0 Nam · 0 Nữ</span>
+          </div>
+        </div>
+
+        <!-- THỐNG KÊ SIZE ÁO CỦA ĐƠN VỊ -->
+        <div class="mt-3.5 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-2.5 text-xs">
+          <div class="flex items-center gap-2">
+            <span class="text-amber-300 font-black flex items-center gap-1.5 text-xs">
+              <span>👕</span> <span>THỐNG KÊ SIZE ÁO ĐƠN VỊ:</span>
+            </span>
+            <span class="text-[11px] text-emerald-200/80" id="unit-summary-size-total">(Tổng: 0 áo)</span>
+          </div>
+          <div id="unit-summary-size-pills" class="flex flex-wrap items-center gap-1.5">
+            <!-- size pills for this unit -->
+          </div>
+        </div>
+      </div>
+
       <!-- QUICK STATS PILLS -->
       <div class="flex flex-wrap items-center justify-between text-xs text-slate-500 bg-white p-3 rounded-xl border border-slate-200/80 shadow-2xs">
         <div id="runners-list-badge" class="font-bold text-slate-700">Đang hiển thị: 434 VĐV</div>
@@ -6809,6 +6882,73 @@ function renderRunnersTab() {
   switchRunnersSubView(currentRunnersSubView || 'list');
 }
 
+// SIZE PILLS & UNIT FILTERING ENGINE
+function renderRunnersSizePills(sizeCounts, isDarkTheme = false) {
+  const standardSizes = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL'];
+  const extraSizes = Object.keys(sizeCounts).filter(s => !standardSizes.includes(s)).sort();
+  const allSizes = [...standardSizes, ...extraSizes];
+
+  const pills = [];
+  allSizes.forEach(sz => {
+    const cnt = sizeCounts[sz];
+    if (cnt !== undefined && cnt > 0) {
+      if (isDarkTheme) {
+        pills.push(`
+          <button type="button" onclick="filterRunnersBySize('${sz}')" class="cursor-pointer inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white font-mono text-xs border border-white/15 transition shadow-2xs" title="Lọc danh sách VĐV size ${sz}">
+            <span class="text-emerald-300 font-bold">${sz}:</span>
+            <span class="font-black text-amber-300 bg-black/40 px-1.5 py-0.2 rounded">${cnt}</span>
+          </button>
+        `);
+      } else {
+        pills.push(`
+          <button type="button" onclick="filterRunnersBySize('${sz}')" class="cursor-pointer inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-mono text-xs border border-slate-200 transition shadow-2xs" title="Lọc danh sách VĐV size ${sz}">
+            <span class="text-indigo-600 font-bold">${sz}:</span>
+            <span class="font-black text-slate-900 bg-white px-1.5 py-0.2 rounded border border-slate-200">${cnt}</span>
+          </button>
+        `);
+      }
+    }
+  });
+
+  if (pills.length === 0) {
+    return `<span class="text-xs text-slate-400 italic">Không có dữ liệu</span>`;
+  }
+  return pills.join('');
+}
+
+function filterRunnersBySize(sz) {
+  const searchInput = document.getElementById('runner-search');
+  if (searchInput) {
+    const curVal = searchInput.value.trim().toLowerCase();
+    const target = `size:${sz.toLowerCase()}`;
+    if (curVal === target) {
+      searchInput.value = '';
+    } else {
+      searchInput.value = `size:${sz}`;
+    }
+    renderRunnersList();
+  }
+}
+
+function filterRunnersByUnit(unitName) {
+  const unitSel = document.getElementById('runner-filter-unit');
+  if (unitSel) {
+    unitSel.value = unitName;
+    renderRunnersList();
+    if (currentRunnersSubView !== 'list') switchRunnersSubView('list');
+    const unitCard = document.getElementById('runners-unit-summary-card');
+    if (unitCard) unitCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+function clearRunnersUnitFilter() {
+  const unitSel = document.getElementById('runner-filter-unit');
+  if (unitSel) {
+    unitSel.value = 'all';
+    renderRunnersList();
+  }
+}
+
 function initRunnersFilters() {
   if (!DATA.funrun) return;
   const unitSel = document.getElementById('runner-filter-unit');
@@ -6882,15 +7022,31 @@ function initRunnersFilters() {
     if (curCat) catSel.value = curCat;
   }
 
-  if (unitSel && unitSel.options.length <= 1) {
-    const units = [...new Set(DATA.funrun.runners.map(r => r.unit))].filter(Boolean).sort();
-    unitSel.innerHTML = '<option value="all">-- Tất cả đơn vị (' + units.length + ') --</option>';
-    units.forEach(u => {
-      const opt = document.createElement('option');
-      opt.value = u;
-      opt.textContent = u;
-      unitSel.appendChild(opt);
+  // Populate global size stats in hero banner
+  if (DATA.funrun.runners) {
+    const globalSizes = {};
+    DATA.funrun.runners.forEach(r => {
+      const s = (r.size || 'M').trim().toUpperCase();
+      globalSizes[s] = (globalSizes[s] || 0) + 1;
     });
+    const heroGlobalSizeEl = document.getElementById('hero-global-size-pills');
+    if (heroGlobalSizeEl) {
+      heroGlobalSizeEl.innerHTML = renderRunnersSizePills(globalSizes, true);
+    }
+  }
+
+  if (unitSel) {
+    const curUnit = unitSel.value;
+    const units = [...new Set(DATA.funrun.runners.map(r => r.unit))].filter(Boolean).sort((a,b) => a.localeCompare(b, 'vi'));
+    const unitCounts = {};
+    DATA.funrun.runners.forEach(r => {
+      unitCounts[r.unit] = (unitCounts[r.unit] || 0) + 1;
+    });
+    unitSel.innerHTML = '<option value="all">-- Tất cả đơn vị (' + units.length + ') --</option>' +
+      units.map(u => `<option value="${escHtml(u)}">${escHtml(u)} (${unitCounts[u]} VĐV)</option>`).join('');
+    if (curUnit && (curUnit === 'all' || units.includes(curUnit))) {
+      unitSel.value = curUnit;
+    }
   }
 
   if (vehicleSel && vehicleSel.options.length <= 1) {
@@ -6943,14 +7099,83 @@ function renderRunnersList() {
 
   let list = [...DATA.funrun.runners];
 
+  // Update Unit Summary Card (Thống kê theo từng đơn vị được chọn)
+  const unitCard = document.getElementById('runners-unit-summary-card');
+  if (unitCard) {
+    if (unit !== 'all') {
+      const unitAll = (DATA.funrun.runners || []).filter(r => r.unit === unit);
+      const uTitle = document.getElementById('unit-summary-title');
+      if (uTitle) uTitle.textContent = unit;
+
+      const uVehicles = document.getElementById('unit-summary-vehicles');
+      if (uVehicles) {
+        const vehNames = [...new Set(unitAll.map(r => r.vehicleLabel).filter(Boolean))];
+        uVehicles.textContent = vehNames.length > 0 ? `Xe di chuyển: ${vehNames.join(', ')}` : 'Xe di chuyển: ---';
+      }
+
+      const u5k = unitAll.filter(r => r.distance === '5km');
+      const u5k_m = u5k.filter(r => r.gender === 'Nam').length;
+      const u5k_f = u5k.filter(r => r.gender === 'Nữ').length;
+
+      const u10k = unitAll.filter(r => r.distance === '10km');
+      const u10k_m = u10k.filter(r => r.gender === 'Nam').length;
+      const u10k_f = u10k.filter(r => r.gender === 'Nữ').length;
+
+      const u15k = unitAll.filter(r => r.distance === '15km');
+      const u15k_m = u15k.filter(r => r.gender === 'Nam').length;
+      const u15k_f = u15k.filter(r => r.gender === 'Nữ').length;
+
+      const kpiTotal = document.getElementById('unit-kpi-total');
+      if (kpiTotal) kpiTotal.innerHTML = `${unitAll.length} <span class="text-xs font-normal text-emerald-200">người</span>`;
+
+      const kpi5k = document.getElementById('unit-kpi-5k');
+      if (kpi5k) kpi5k.innerHTML = `${u5k.length} <span class="text-xs font-normal text-emerald-200">VĐV</span>`;
+      const kpi5kSub = document.getElementById('unit-kpi-5k-sub');
+      if (kpi5kSub) kpi5kSub.textContent = `${u5k_m} Nam · ${u5k_f} Nữ`;
+
+      const kpi10k = document.getElementById('unit-kpi-10k');
+      if (kpi10k) kpi10k.innerHTML = `${u10k.length} <span class="text-xs font-normal text-emerald-200">VĐV</span>`;
+      const kpi10kSub = document.getElementById('unit-kpi-10k-sub');
+      if (kpi10kSub) kpi10kSub.textContent = `${u10k_m} Nam · ${u10k_f} Nữ`;
+
+      const kpi15k = document.getElementById('unit-kpi-15k');
+      if (kpi15k) kpi15k.innerHTML = `${u15k.length} <span class="text-xs font-normal text-emerald-200">VĐV</span>`;
+      const kpi15kSub = document.getElementById('unit-kpi-15k-sub');
+      if (kpi15kSub) kpi15kSub.textContent = `${u15k_m} Nam · ${u15k_f} Nữ`;
+
+      const sizeCounts = {};
+      unitAll.forEach(r => {
+        const s = (r.size || 'M').trim().toUpperCase();
+        sizeCounts[s] = (sizeCounts[s] || 0) + 1;
+      });
+
+      const sizeTotalEl = document.getElementById('unit-summary-size-total');
+      if (sizeTotalEl) sizeTotalEl.textContent = `(Tổng: ${unitAll.length} áo)`;
+
+      const sizePillsEl = document.getElementById('unit-summary-size-pills');
+      if (sizePillsEl) {
+        sizePillsEl.innerHTML = renderRunnersSizePills(sizeCounts, true);
+      }
+
+      unitCard.classList.remove('hidden');
+    } else {
+      unitCard.classList.add('hidden');
+    }
+  }
+
   if (q) {
-    list = list.filter(r => 
-      String(r.bib).includes(q) ||
-      r.name.toLowerCase().includes(q) ||
-      r.unit.toLowerCase().includes(q) ||
-      r.title.toLowerCase().includes(q) ||
-      r.phone.includes(q)
-    );
+    if (q.startsWith('size:')) {
+      const szTarget = q.replace('size:', '').trim().toLowerCase();
+      list = list.filter(r => (r.size || '').toLowerCase() === szTarget);
+    } else {
+      list = list.filter(r => 
+        String(r.bib).includes(q) ||
+        r.name.toLowerCase().includes(q) ||
+        r.unit.toLowerCase().includes(q) ||
+        r.title.toLowerCase().includes(q) ||
+        r.phone.includes(q)
+      );
+    }
   }
 
   if (dist !== 'all') {
@@ -6982,8 +7207,8 @@ function renderRunnersList() {
 
   runnersFilteredData = list;
 
-  const countBadge = document.getElementById('runner-count-badge');
-  if (countBadge) countBadge.textContent = `Đang hiển thị: ${list.length} / ${DATA.funrun.runners.length} VĐV Chạy`;
+  const countBadge = document.getElementById('runners-list-badge') || document.getElementById('runner-count-badge');
+  if (countBadge) countBadge.textContent = `Đang hiển thị: ${list.length} / ${DATA.funrun.runners.length} VĐV`;
 
   const tbody = document.getElementById('runners-tbody');
   const emptyDiv = document.getElementById('runners-empty');
@@ -7020,8 +7245,8 @@ function renderRunnersList() {
             ${escHtml(r.category || r.distance)}
           </span>
         </td>
-        <td class="px-4 py-3 font-medium text-slate-700">
-          <span class="text-slate-800 font-semibold">${escHtml(r.unit)}</span>
+        <td class="px-4 py-3 font-medium text-slate-700" onclick="event.stopPropagation()">
+          <span onclick="filterRunnersByUnit('${escHtml(r.unit)}')" class="text-slate-800 font-semibold hover:text-emerald-600 hover:underline cursor-pointer" title="Bấm để xem thống kê chi tiết đơn vị ${escHtml(r.unit)}">${escHtml(r.unit)}</span>
         </td>
         <td class="px-3 py-3 text-slate-500 text-[11px]">
           ${escHtml(r.title || '---')}

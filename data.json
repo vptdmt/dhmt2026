@@ -21129,7 +21129,17 @@
         "c15k_m": 15,
         "c15k_f": 7
       },
-      "totalVehicles": 34
+      "totalVehicles": 34,
+      "sizeCounts": {
+        "S": 102,
+        "M": 152,
+        "L": 69,
+        "XS": 44,
+        "XL": 42,
+        "XXL": 21,
+        "3XL": 3,
+        "XXS": 1
+      }
     },
     "categories": [
       {

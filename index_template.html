@@ -563,7 +563,7 @@
     <div class="flex flex-wrap items-center justify-between gap-3">
       <div class="flex flex-wrap items-center gap-1.5" id="runners-subtab-container">
         <button onclick="switchRunnersSubView('list')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-emerald-700 text-white shadow-xs" data-sub="list">📋 Danh sách VĐV</button>
-        <button onclick="switchRunnersSubView('fleet')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="fleet">🚌 Xếp xe (33 Xe)</button>
+        <button onclick="switchRunnersSubView('fleet')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="fleet">🚌 Xếp xe (34 Xe)</button>
         <button onclick="switchRunnersSubView('route')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="route">🗺️ Cung đường & 9 Trạm</button>
         <button onclick="switchRunnersSubView('timeline')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="timeline">⏱️ Lịch trình (17 Mốc)</button>
         <button onclick="switchRunnersSubView('btc')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="btc">👥 Ban Tổ Chức (40)</button>
@@ -707,7 +707,7 @@
       </div>
     </div>
 
-  <!-- SUB-VIEW 2: SƠ ĐỒ XẾP XE (33 XE) -->
+  <!-- SUB-VIEW 2: SƠ ĐỒ XẾP XE (34 XE) -->
   <div id="runners-view-fleet" class="runners-subview hidden space-y-4">
     <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
       <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
@@ -4238,21 +4238,21 @@ function getFleetInfoForSession(day, timeStr = '12:00') {
       return {
         sessionKey: '2026-10-28_AM',
         label: 'Sáng 28/10/2026 (Fun Run Tràng An)',
-        fleetSummary: '6 xe 45 chỗ, 3 xe 16 chỗ, 21 xe 7 chỗ, 1 xe 4 chỗ, 2 đoàn tự túc (Tổng 33 xe)',
-        fleetShort: '6 xe 45 · 3 xe 16 · 21 xe 7 · 1 xe 4 · 2 tự túc (33 xe)',
+        fleetSummary: '6 xe 45 chỗ, 3 xe 16 chỗ, 22 xe 7 chỗ, 1 xe 4 chỗ, 2 đoàn tự túc (Tổng 34 xe)',
+        fleetShort: '6 xe 45 · 3 xe 16 · 22 xe 7 · 1 xe 4 · 2 tự túc (34 xe)',
         has29: false,
         has45: true,
         max45: 6,
         max16: 3,
-        max7: 21,
-        totalCapacity: 474,
+        max7: 22,
+        totalCapacity: 489,
         staff: {
           ks: 'Tập trung tại Sân Golf Tràng An',
           teddy: '---',
           ntd: '---',
           golf: 'Mr. Tiệp, Thu Trang, Dương, Giang, Phương, Nhung, Quốc Anh'
         },
-        note: '474 người (433 VĐV + 28 BTC + 13 Lái xe - Sân Golf Tràng An)'
+        note: '489 người (432 VĐV + 28 BTC + 29 Media & Lái xe - Sân Golf Tràng An)'
       };
     } else {
       return {
@@ -4520,13 +4520,13 @@ function renderFunRunTransportSection(query = '') {
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
         <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10">
           <span class="text-[10px] uppercase font-bold text-emerald-300 block">Tổng đoàn tham gia</span>
-          <strong class="text-xl sm:text-2xl font-black text-white block mt-0.5">474 <span class="text-xs font-normal text-emerald-300">người</span></strong>
-          <span class="text-[10px] text-white/70 block">433 VĐV + 28 BTC + 13 Lái xe</span>
+          <strong class="text-xl sm:text-2xl font-black text-white block mt-0.5">489 <span class="text-xs font-normal text-emerald-300">người</span></strong>
+          <span class="text-[10px] text-white/70 block">432 VĐV + 28 BTC + 29 Media & Lái xe</span>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10">
           <span class="text-[10px] uppercase font-bold text-emerald-300 block">Đội xe phục vụ BTC</span>
           <strong class="text-xl sm:text-2xl font-black text-amber-300 block mt-0.5">6 xe 45 · 3 xe 16</strong>
-          <span class="text-[10px] text-white/70 block">+ 21 xe 7 · 1 xe 4 · 2 tự túc (Tổng 33 xe)</span>
+          <span class="text-[10px] text-white/70 block">+ 22 xe 7 · 1 xe 4 · 2 tự túc (Tổng 34 xe)</span>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-xl p-3 border border-white/10">
           <span class="text-[10px] uppercase font-bold text-emerald-300 block">Quy cách xếp xe</span>
@@ -7013,7 +7013,7 @@ function renderVehicleCardHtml(v, prefix = '') {
   const isVIP = v.isVIP;
   const isSelf = v.isSelfTransport;
   const isCoord = v.isCoordination || (v.num === 33);
-  const isEventTeam = v.isEventTeam || (v.num === 4);
+  const isEventTeam = v.isEventTeam || (v.num === 34);
   const isMedical = v.isMedical || (v.num === 32);
 
   let headerBg = 'bg-slate-900 text-white';
@@ -7021,12 +7021,12 @@ function renderVehicleCardHtml(v, prefix = '') {
   if (isVIP) {
     headerBg = 'bg-gradient-to-r from-amber-600 via-amber-700 to-yellow-800 text-white';
     icon = '⭐';
+  } else if (isEventTeam) {
+    headerBg = 'bg-gradient-to-r from-purple-800 via-pink-700 to-slate-900 text-white';
+    icon = '🎬';
   } else if (isEarly) {
     headerBg = 'bg-gradient-to-r from-red-700 via-rose-700 to-pink-800 text-white';
     icon = '🚨';
-  } else if (isEventTeam) {
-    headerBg = 'bg-gradient-to-r from-purple-800 via-pink-700 to-slate-900 text-white';
-    icon = '🎭';
   } else if (isMedical) {
     headerBg = 'bg-gradient-to-r from-emerald-800 via-teal-700 to-slate-900 text-white';
     icon = '🩺';
@@ -7057,10 +7057,14 @@ function renderVehicleCardHtml(v, prefix = '') {
     </div>
   ` : '';
 
+  const isMediaVehicle = isEventTeam || v.num === 34;
+  const btcBoxBg = isMediaVehicle ? 'bg-purple-50/80 border-purple-200/60' : 'bg-amber-50/80 border-amber-200/60';
+  const btcTextColor = isMediaVehicle ? 'text-purple-900' : 'text-amber-900';
+  const btcTitleText = isMediaVehicle ? '<span>🎬</span> Ekip Truyền Thông, Media & MC Tác Nghiệp trên xe:' : '<span>👑</span> Ban Tổ Chức / Cán bộ Điều hành & Chuyên môn trên xe:';
   const btcHtml = (v.btcStaff && v.btcStaff.length > 0) ? `
-    <div class="p-3 bg-amber-50/80 border-b border-amber-200/60 text-xs">
-      <div class="text-[11px] font-bold text-amber-900 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-        <span>👑</span> Ban Tổ Chức / Cán bộ Điều hành & Chuyên môn trên xe:
+    <div class="p-3 ${btcBoxBg} border-b text-xs">
+      <div class="text-[11px] font-bold ${btcTextColor} uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
+        ${btcTitleText}
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
         ${v.btcStaff.map(b => `
@@ -7134,6 +7138,7 @@ function renderVehicleCardHtml(v, prefix = '') {
               ${isSelf ? '<span class="px-2 py-0.5 rounded-full bg-teal-300 text-slate-950 text-[10px] font-black uppercase">Tự di chuyển</span>' : ''}
               ${isMedical ? '<span class="px-2 py-0.5 rounded-full bg-emerald-300 text-slate-950 text-[10px] font-black uppercase">Tổ Y Tế</span>' : ''}
               ${isCoord ? '<span class="px-2 py-0.5 rounded-full bg-sky-300 text-slate-950 text-[10px] font-black uppercase">Chốt đoàn</span>' : ''}
+              ${isEventTeam ? '<span class="px-2 py-0.5 rounded-full bg-purple-300 text-purple-950 text-[10px] font-black uppercase">Ekip Media & MC</span>' : ''}
             </div>
             <p class="text-xs text-white/80 mt-1">
               ${isSelf ? `Đoàn tự túc phương tiện (${v.paxCount} người)` : `${v.bibRange ? `Dải số: <strong>${v.bibRange}</strong> · ` : ''}Xuất phát: <strong>${v.departTime}</strong>`}

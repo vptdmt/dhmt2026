@@ -353,9 +353,9 @@
             <div class="text-[10px] uppercase tracking-wider text-slate-300 font-semibold">Đơn vị</div>
             <div class="font-bold gold-text text-sm sm:text-base" id="hdr-donvi">56</div>
           </div>
-          <div class="bg-white/10 px-2.5 py-1.5 rounded-lg text-center backdrop-blur border border-emerald-400/30 cursor-pointer" onclick="switchTab('runners')" title="Nhấn xem 433 VĐV Giải chạy Fun Run">
+          <div class="bg-white/10 px-2.5 py-1.5 rounded-lg text-center backdrop-blur border border-emerald-400/30 cursor-pointer" onclick="switchTab('runners')" title="Nhấn xem 434 VĐV Giải chạy Fun Run">
             <div class="text-[10px] uppercase tracking-wider text-emerald-300 font-semibold flex items-center justify-center gap-1"><span>🏃</span><span>Fun Run</span></div>
-            <div class="font-bold text-emerald-400 text-sm sm:text-base">433</div>
+            <div class="font-bold text-emerald-400 text-sm sm:text-base">434</div>
           </div>
         </div>
 
@@ -382,7 +382,7 @@
       <button class="tab-btn active px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="agenda" onclick="switchTab('agenda',this)">📅 Agenda</button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="schedule" onclick="switchTab('schedule',this)">🏆 Lịch thi đấu</button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="athletes" onclick="switchTab('athletes',this)">👤 VĐV và Thí sinh/Nội dung thi</button>
-      <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg flex items-center gap-1.5" data-tab="runners" onclick="switchTab('runners',this)"><span>🏃</span><span>VĐV Chạy</span><span class="px-1.5 py-0.2 rounded-full bg-emerald-400 text-slate-900 text-[10px] font-black shadow-xs">433</span></button>
+      <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg flex items-center gap-1.5" data-tab="runners" onclick="switchTab('runners',this)"><span>🏃</span><span>VĐV Chạy</span><span class="px-1.5 py-0.2 rounded-full bg-emerald-400 text-slate-900 text-[10px] font-black shadow-xs">434</span></button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="venues" onclick="switchTab('venues',this)">📍 Địa điểm & Sân/Bàn</button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg flex items-center gap-1.5" data-tab="transport" onclick="switchTab('transport',this)"><span>🚌</span><span>Lịch di chuyển</span><span class="px-1.5 py-0.2 rounded-full bg-amber-400 text-slate-900 text-[10px] font-black">Mới</span></button>
       <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="results" onclick="switchTab('results',this)">🥇 Kết quả thi đấu</button>
@@ -592,16 +592,16 @@
       <div class="flex flex-wrap items-center gap-2">
         <select id="runner-filter-dist" onchange="renderRunnersList()" class="px-3 py-1.5 text-xs border border-slate-200 rounded-xl bg-slate-50 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-400">
           <option value="all">-- Tất cả cự ly --</option>
-          <option value="5km">5km (373 VĐV)</option>
+          <option value="5km">5km (380 VĐV)</option>
           <option value="10km">10km (32 VĐV)</option>
           <option value="15km">15km (22 VĐV)</option>
         </select>
         <select id="runner-filter-cat" onchange="renderRunnersList()" class="px-3 py-1.5 text-xs border border-slate-200 rounded-xl bg-slate-50 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 max-w-[180px]">
           <option value="all">-- Tất cả nhóm giải --</option>
-          <option value="5km Nam dưới 35 tuổi">5km Nam dưới 35 tuổi (81)</option>
+          <option value="5km Nam dưới 35 tuổi">5km Nam dưới 35 tuổi (82)</option>
           <option value="5km Nam trên 35 tuổi">5km Nam trên 35 tuổi (92)</option>
-          <option value="5km Nữ dưới 35 tuổi">5km Nữ dưới 35 tuổi (99)</option>
-          <option value="5km Nữ trên 35 tuổi">5km Nữ trên 35 tuổi (101)</option>
+          <option value="5km Nữ dưới 35 tuổi">5km Nữ dưới 35 tuổi (102)</option>
+          <option value="5km Nữ trên 35 tuổi">5km Nữ trên 35 tuổi (104)</option>
           <option value="10km Nam">10km Nam (24)</option>
           <option value="10km Nữ">10km Nữ (8)</option>
           <option value="15km Nam">15km Nam (15)</option>
@@ -634,7 +634,7 @@
               <span>🏃 GIẢI CHẠY MƯỜNG THANH FUN RUN 2026</span>
             </h2>
             <p class="text-xs sm:text-sm text-emerald-100 mt-1 max-w-3xl leading-relaxed">
-              📍 <strong>Tràng An Golf & Resort</strong> (Hồ Đồng Chương - 5 km/vòng) · Quy mô: <strong>433 Vận động viên</strong> tranh tài tại 3 cự ly (5km, 10km, 15km) · Khởi hành <strong>05:00</strong> từ KS Mường Thanh Ninh Bình (32 km).
+              📍 <strong>Tràng An Golf & Resort</strong> (Hồ Đồng Chương - 5 km/vòng) · Quy mô: <strong>434 Vận động viên</strong> tranh tài tại 3 cự ly (5km, 10km, 15km) · Khởi hành <strong>05:00</strong> từ KS Mường Thanh Ninh Bình (32 km).
             </p>
           </div>
         </div>
@@ -643,23 +643,23 @@
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 pt-4 border-t border-white/15">
           <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('all')">
             <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Tổng số VĐV Chạy</span>
-            <strong class="text-xl sm:text-2xl font-black text-white block mt-0.5">433 <span class="text-xs font-normal text-emerald-200">người</span></strong>
+            <strong class="text-xl sm:text-2xl font-black text-white block mt-0.5" id="hero-kpi-total-val">434 <span class="text-xs font-normal text-emerald-200">người</span></strong>
             <span class="text-[11px] text-emerald-200/80 block mt-0.5">Toàn tập đoàn & đơn vị</span>
           </div>
           <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('5km')">
             <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 5km (1 vòng)</span>
-            <strong class="text-xl sm:text-2xl font-black text-amber-300 block mt-0.5">373 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
-            <span class="text-[11px] text-emerald-200/80 block mt-0.5">173 Nam · 200 Nữ</span>
+            <strong class="text-xl sm:text-2xl font-black text-amber-300 block mt-0.5" id="hero-kpi-5k-val">380 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
+            <span class="text-[11px] text-emerald-200/80 block mt-0.5" id="hero-kpi-5k-gender">173 Nam · 207 Nữ</span>
           </div>
           <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('10km')">
             <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 10km (2 vòng)</span>
-            <strong class="text-xl sm:text-2xl font-black text-orange-300 block mt-0.5">32 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
-            <span class="text-[11px] text-emerald-200/80 block mt-0.5">24 Nam · 8 Nữ · 1 vòng tay</span>
+            <strong class="text-xl sm:text-2xl font-black text-orange-300 block mt-0.5" id="hero-kpi-10k-val">32 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
+            <span class="text-[11px] text-emerald-200/80 block mt-0.5" id="hero-kpi-10k-gender">24 Nam · 8 Nữ · 1 vòng tay</span>
           </div>
           <div class="bg-black/20 backdrop-blur rounded-xl p-3 border border-white/10 cursor-pointer hover:bg-black/30 transition" onclick="filterRunnersByDistance('15km')">
             <span class="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">Cự ly 15km (3 vòng)</span>
-            <strong class="text-xl sm:text-2xl font-black text-indigo-300 block mt-0.5">22 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
-            <span class="text-[11px] text-emerald-200/80 block mt-0.5">15 Nam · 7 Nữ · 2 vòng tay</span>
+            <strong class="text-xl sm:text-2xl font-black text-indigo-300 block mt-0.5" id="hero-kpi-15k-val">22 <span class="text-xs font-normal text-emerald-200">VĐV</span></strong>
+            <span class="text-[11px] text-emerald-200/80 block mt-0.5" id="hero-kpi-15k-gender">15 Nam · 7 Nữ · 2 vòng tay</span>
           </div>
         </div>
       </div>
@@ -669,7 +669,7 @@
     <div id="runners-view-list" class="runners-subview space-y-4">
       <!-- QUICK STATS PILLS -->
       <div class="flex flex-wrap items-center justify-between text-xs text-slate-500 bg-white p-3 rounded-xl border border-slate-200/80 shadow-2xs">
-        <div id="runners-list-badge" class="font-bold text-slate-700">Đang hiển thị: 433 VĐV</div>
+        <div id="runners-list-badge" class="font-bold text-slate-700">Đang hiển thị: 434 VĐV</div>
         <div class="flex items-center gap-2 text-[11px]">
           <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>5km Nam</span>
           <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-pink-500"></span>5km Nữ</span>
@@ -1046,7 +1046,7 @@
           <span>☁️</span><span>Nạp từ Link Google Drive</span>
         </button>
         <button class="px-3.5 py-2 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs flex items-center gap-1.5 transition cursor-pointer shadow-sm" onclick="loadAthletesFromFunrun(true)" title="Khôi phục/Nạp danh sách VĐV có sẵn từ hệ thống">
-          <span>🔄</span><span>Nạp từ 433 VĐV Hệ Thống</span>
+          <span>🔄</span><span>Nạp từ 434 VĐV Hệ Thống</span>
         </button>
         <button class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center gap-1.5 transition cursor-pointer shadow-sm" onclick="openConfigModal()">
           <span>⏱️</span><span>CÀI GIỜ XUẤT PHÁT & CUT-OFF (PHÚT)</span>
@@ -4511,7 +4511,7 @@ function renderFunRunTransportSection(query = '') {
 
         <div class="flex items-center gap-2">
           <button onclick="switchTab('runners')" class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-            <span>🏃</span><span>Xem 433 VĐV Chạy & Số BIB</span>
+            <span>🏃</span><span>Xem 434 VĐV Chạy & Số BIB</span>
           </button>
         </div>
       </div>
@@ -6813,9 +6813,77 @@ function initRunnersFilters() {
   if (!DATA.funrun) return;
   const unitSel = document.getElementById('runner-filter-unit');
   const vehicleSel = document.getElementById('runner-filter-vehicle');
+  const distSel = document.getElementById('runner-filter-dist');
+  const catSel = document.getElementById('runner-filter-cat');
+
+  // Dynamic KPI updates
+  const ov = DATA.funrun.overview || {};
+  const sc = ov.summaryCounts || {};
+  const totalValEl = document.getElementById('hero-kpi-total-val');
+  if (totalValEl && sc.total) totalValEl.innerHTML = `${sc.total} <span class="text-xs font-normal text-emerald-200">người</span>`;
+  const kpi5kValEl = document.getElementById('hero-kpi-5k-val');
+  if (kpi5kValEl && sc.c5k) kpi5kValEl.innerHTML = `${sc.c5k} <span class="text-xs font-normal text-emerald-200">VĐV</span>`;
+  const kpi5kGenEl = document.getElementById('hero-kpi-5k-gender');
+  if (kpi5kGenEl && sc.c5k_m !== undefined && sc.c5k_f !== undefined) {
+    kpi5kGenEl.textContent = `${sc.c5k_m} Nam · ${sc.c5k_f} Nữ`;
+  }
+  const kpi10kValEl = document.getElementById('hero-kpi-10k-val');
+  if (kpi10kValEl && sc.c10k) kpi10kValEl.innerHTML = `${sc.c10k} <span class="text-xs font-normal text-emerald-200">VĐV</span>`;
+  const kpi10kGenEl = document.getElementById('hero-kpi-10k-gender');
+  if (kpi10kGenEl && sc.c10k_m !== undefined && sc.c10k_f !== undefined) {
+    kpi10kGenEl.textContent = `${sc.c10k_m} Nam · ${sc.c10k_f} Nữ · 1 vòng tay`;
+  }
+  const kpi15kValEl = document.getElementById('hero-kpi-15k-val');
+  if (kpi15kValEl && sc.c15k) kpi15kValEl.innerHTML = `${sc.c15k} <span class="text-xs font-normal text-emerald-200">VĐV</span>`;
+  const kpi15kGenEl = document.getElementById('hero-kpi-15k-gender');
+  if (kpi15kGenEl && sc.c15k_m !== undefined && sc.c15k_f !== undefined) {
+    kpi15kGenEl.textContent = `${sc.c15k_m} Nam · ${sc.c15k_f} Nữ · 2 vòng tay`;
+  }
+
+  // Populate or refresh distance filter options with actual counts
+  if (distSel && DATA.funrun.runners) {
+    const curDist = distSel.value;
+    const c5 = sc.c5k || DATA.funrun.runners.filter(r => r.distance === '5km').length;
+    const c10 = sc.c10k || DATA.funrun.runners.filter(r => r.distance === '10km').length;
+    const c15 = sc.c15k || DATA.funrun.runners.filter(r => r.distance === '15km').length;
+    distSel.innerHTML = `
+      <option value="all">-- Tất cả cự ly (${DATA.funrun.runners.length}) --</option>
+      <option value="5km">5km (${c5} VĐV)</option>
+      <option value="10km">10km (${c10} VĐV)</option>
+      <option value="15km">15km (${c15} VĐV)</option>
+    `;
+    if (curDist) distSel.value = curDist;
+  }
+
+  // Populate or refresh category filter options with actual counts
+  if (catSel && DATA.funrun.runners) {
+    const curCat = catSel.value;
+    const cats = {};
+    DATA.funrun.runners.forEach(r => {
+      if (r.category) cats[r.category] = (cats[r.category] || 0) + 1;
+    });
+    const catOrder = [
+      '5km Nam dưới 35 tuổi',
+      '5km Nam trên 35 tuổi',
+      '5km Nữ dưới 35 tuổi',
+      '5km Nữ trên 35 tuổi',
+      '10km Nam',
+      '10km Nữ',
+      '15km Nam',
+      '15km Nữ'
+    ];
+    let catHtml = '<option value="all">-- Tất cả nhóm giải --</option>';
+    catOrder.forEach(c => {
+      if (cats[c]) {
+        catHtml += `<option value="${c}">${c} (${cats[c]})</option>`;
+      }
+    });
+    catSel.innerHTML = catHtml;
+    if (curCat) catSel.value = curCat;
+  }
 
   if (unitSel && unitSel.options.length <= 1) {
-    const units = [...new Set(DATA.funrun.runners.map(r => r.unit))].sort();
+    const units = [...new Set(DATA.funrun.runners.map(r => r.unit))].filter(Boolean).sort();
     unitSel.innerHTML = '<option value="all">-- Tất cả đơn vị (' + units.length + ') --</option>';
     units.forEach(u => {
       const opt = document.createElement('option');
@@ -7517,11 +7585,11 @@ function showFunRunVenueModal(courtInfo, hubInfo) {
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200 text-center">
               <span class="text-[10px] font-bold text-emerald-800 uppercase">Quy mô</span>
-              <strong class="text-xl font-black text-emerald-950 block">433 VĐV</strong>
+              <strong class="text-xl font-black text-emerald-950 block">434 VĐV</strong>
             </div>
             <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-center">
               <span class="text-[10px] font-bold text-amber-800 uppercase">Cự ly 5km</span>
-              <strong class="text-xl font-black text-amber-950 block">379 VĐV</strong>
+              <strong class="text-xl font-black text-amber-950 block">380 VĐV</strong>
             </div>
             <div class="bg-orange-50 p-3 rounded-xl border border-orange-200 text-center">
               <span class="text-[10px] font-bold text-orange-800 uppercase">Cự ly 10km</span>
@@ -7586,7 +7654,7 @@ function showFunRunVenueModal(courtInfo, hubInfo) {
         <div class="p-4 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2">
           <div class="flex items-center gap-2">
             <button onclick="closeFunRunVenueModal(); switchTab('runners');" class="px-3.5 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition flex items-center gap-1.5 shadow-xs">
-              <span>🏃</span><span>Xem 433 VĐV Chạy & Số BIB ➔</span>
+              <span>🏃</span><span>Xem 434 VĐV Chạy & Số BIB ➔</span>
             </button>
             <button onclick="closeFunRunVenueModal(); switchTab('transport');" class="px-3.5 py-2 rounded-xl bg-indigo-600 text-white font-bold text-xs hover:bg-indigo-700 transition flex items-center gap-1.5 shadow-xs">
               <span>🚌</span><span>Xem Kế hoạch Điều xe Sáng 28/10 ➔</span>
@@ -8578,7 +8646,7 @@ function renderTableOnly() {
     const tbody = document.getElementById('athleteTableBody');
     if (!tbody) return;
     if (athletes.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="12" style="text-align: center; color: #94a3b8; padding: 30px;">Chưa nạp danh sách VĐV. Hãy nhấn "Nạp từ 433 VĐV Hệ Thống" hoặc tải file Excel lên.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="12" style="text-align: center; color: #94a3b8; padding: 30px;">Chưa nạp danh sách VĐV. Hãy nhấn "Nạp từ 434 VĐV Hệ Thống" hoặc tải file Excel lên.</td></tr>`;
         return;
     }
 

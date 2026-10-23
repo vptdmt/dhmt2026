@@ -1026,13 +1026,18 @@
 
     <!-- CONTROL ACTION BUTTONS BAR -->
     <div class="my-3.5 flex flex-wrap items-center gap-2">
-      <!-- ALWAYS VISIBLE FOR GUEST & ADMIN: BẢNG TOP 3 TRAO GIẢI -->
+      <!-- ALWAYS VISIBLE: BẢNG TOP 3 TRAO GIẢI -->
       <button id="checkin-top3-btn" class="px-3.5 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs flex items-center gap-1.5 transition cursor-pointer shadow-sm" onclick="openTop3Modal()">
         <span>🏆</span><span>XEM BẢNG TOP 3 TRAO GIẢI</span>
       </button>
 
-      <!-- ADMIN & REFEREE ONLY ACTION BUTTONS -->
-      <div id="checkin-admin-actions" class="flex flex-wrap items-center gap-2 flex-1">
+      <!-- VISIBLE FOR REFEREE & ADMIN: XUẤT EXCEL 9 SHEET -->
+      <button id="btnExportExcel" class="px-3.5 py-2 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-xs flex items-center gap-1.5 transition cursor-pointer shadow-sm" onclick="exportResultExcel()" style="display: none;">
+        <span>💾</span><span>2. Xuất Excel 9 Sheet</span>
+      </button>
+
+      <!-- ADMIN ONLY ACTION BUTTONS (CHỈ ADMIN MỚI NHÌN THẤY VÀ THAO TÁC ĐƯỢC) -->
+      <div id="checkin-super-admin-actions" class="hidden flex-wrap items-center gap-2 flex-1">
         <input type="file" id="excelFile" accept=".xlsx, .xls, .csv" style="display: none;" onchange="handleFileSelect(event)">
         <button class="px-3.5 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs flex items-center gap-1.5 transition cursor-pointer shadow-sm" onclick="document.getElementById('excelFile').click()">
           <span>📂</span><span>1. Nạp file Excel danh sách</span>
@@ -1049,10 +1054,7 @@
         <button id="btnQuickToggleLapControl" class="px-3.5 py-2 rounded-xl text-white font-bold text-xs flex items-center gap-1.5 transition cursor-pointer shadow-sm" onclick="quickToggleLapControl()" title="Nhấp để BẬT hoặc TẮT tính năng kiểm soát vòng chạy">
           <span>🔄</span><span>Kiểm soát vòng: ĐANG BẬT</span>
         </button>
-        <button class="px-3.5 py-2 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-xs flex items-center gap-1.5 transition cursor-pointer shadow-sm" onclick="exportResultExcel()">
-          <span>💾</span><span>2. Xuất Excel 9 Sheet</span>
-        </button>
-        <button id="btnResetAllCheckin" class="px-3.5 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs flex items-center gap-1.5 transition cursor-pointer shadow-sm sm:ml-auto" onclick="resetAllData()" style="display: none;">
+        <button id="btnResetAllCheckin" class="px-3.5 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs flex items-center gap-1.5 transition cursor-pointer shadow-sm sm:ml-auto" onclick="resetAllData()">
           <span>🗑️</span><span>Xóa làm lại từ đầu</span>
         </button>
       </div>
@@ -7635,6 +7637,11 @@ function isLapControlEnabled() {
     return Boolean(raceConfig && raceConfig.lapControlEnabled !== false);
 }
 
+function isAdmin() {
+    const user = getCurrentUser();
+    return Boolean(user && user.role === 'admin');
+}
+
 let knownLapsMap = {};
 
 function normalizeLaps(raw) {
@@ -7658,8 +7665,8 @@ let scanTimeout = null;
 
 // Khởi tạo danh sách VĐV từ hệ thống DATA.funrun.runners nếu chưa có
 function loadAthletesFromFunrun(force = false) {
-    if (force && !canManageCheckin()) {
-        alert('Chức năng nạp danh sách VĐV chỉ dành riêng cho Ban Tổ Chức & Trọng tài được phân quyền!');
+    if (force && !isAdmin()) {
+        alert('Chức năng nạp lại danh sách VĐV hệ thống chỉ dành riêng cho Quản trị viên Ban Tổ Chức (Admin)!');
         return;
     }
     if (!DATA.funrun || !DATA.funrun.runners) return;
@@ -8777,8 +8784,8 @@ function onLapControlToggleChange(toggle) {
 }
 
 function quickToggleLapControl() {
-    if (!canManageCheckin()) {
-        alert('Chỉ Ban Tổ Chức & Quản trị viên mới có quyền Bật/Tắt tính năng này!');
+    if (!isAdmin()) {
+        alert('Chỉ Quản trị viên Ban Tổ Chức (Admin) mới có quyền Bật/Tắt tính năng này!');
         return;
     }
     const current = isLapControlEnabled();
@@ -8806,8 +8813,8 @@ function quickToggleLapControl() {
 
 // CÀI ĐẶT GIỜ XUẤT PHÁT & CUT-OFF
 function openConfigModal() {
-    if (!canManageCheckin()) {
-        alert('Chức năng cài đặt Giờ xuất phát và Cut-off chỉ dành riêng cho Ban Tổ Chức & Trọng tài được phân quyền!');
+    if (!isAdmin()) {
+        alert('Chức năng cài đặt Giờ xuất phát và Cut-off chỉ dành riêng cho Quản trị viên Ban Tổ Chức (Admin)!');
         return;
     }
     const tbody = document.getElementById('configTableBody');
@@ -8841,8 +8848,8 @@ function closeConfigModal() {
 }
 
 function saveConfigData() {
-    if (!canManageCheckin()) {
-        alert('Bạn không có quyền lưu cài đặt giải chạy!');
+    if (!isAdmin()) {
+        alert('Chỉ Quản trị viên Ban Tổ Chức (Admin) mới có quyền lưu cài đặt giải chạy!');
         return;
     }
     const lapToggle = document.getElementById('configLapControlToggle');
@@ -8919,8 +8926,8 @@ function closeTop3Modal() {
 
 // NẠP FILE EXCEL DANH SÁCH
 function handleFileSelect(e) {
-    if (!canManageCheckin()) {
-        alert('Chức năng nạp file Excel danh sách chỉ dành riêng cho Ban Tổ Chức & Trọng tài được phân quyền!');
+    if (!isAdmin()) {
+        alert('Chức năng nạp file Excel danh sách chỉ dành riêng cho Quản trị viên Ban Tổ Chức (Admin)!');
         return;
     }
     const file = e.target.files[0];
@@ -8947,8 +8954,8 @@ function handleFileSelect(e) {
 // NẠP DANH SÁCH TỪ LINK GOOGLE DRIVE HOẶC GOOGLE SHEET
 // ================================================================
 function openDriveImportModal() {
-    if (!canManageCheckin()) {
-        alert('Chức năng nạp file chỉ dành riêng cho Ban Tổ Chức & Trọng tài được phân quyền!');
+    if (!isAdmin()) {
+        alert('Chức năng nạp danh sách từ Google Drive chỉ dành riêng cho Quản trị viên Ban Tổ Chức (Admin)!');
         return;
     }
     const modal = document.getElementById('driveImportModal');
@@ -8990,8 +8997,8 @@ async function pasteFromClipboard(inputId) {
 }
 
 async function executeDriveImport() {
-    if (!canManageCheckin()) {
-        alert('Chỉ Ban Tổ Chức & Trọng tài được phân quyền mới có thể nạp file danh sách!');
+    if (!isAdmin()) {
+        alert('Chức năng nạp danh sách từ Google Drive chỉ dành riêng cho Quản trị viên Ban Tổ Chức (Admin)!');
         return;
     }
     const input = document.getElementById('driveImportUrl');
@@ -9331,7 +9338,7 @@ function updateCheckinAuthUI() {
                 roleIcon = '🔄';
             } else if (canFinish && !canLap) {
                 roleLabel = 'Tổ Trọng tài Fun Run (Quét Về Đích)';
-                roleDesc = 'Chuyên trách quét mã ghi nhận Về Đích (FINISH) và xếp hạng trao giải. Không có chức năng trạm kiểm soát vòng.';
+                roleDesc = 'Chuyên trách quét mã ghi nhận Về Đích (FINISH), xem bảng Top 3 và xuất file Excel kết quả.';
                 bannerBg = 'from-emerald-950/80 via-teal-900/60 to-slate-900 border-emerald-500/50 text-emerald-200';
                 roleIcon = '🏁';
             }
@@ -9365,24 +9372,27 @@ function updateCheckinAuthUI() {
         }
     }
 
-    // 2. Nút Thao Tác Quản Trị (Chỉ hiển thị khi có quyền quản trị hoặc trọng tài đích)
-    if (adminActions) {
-        if (user && (user.role === 'admin' || canFinish)) {
-            adminActions.classList.remove('hidden');
-            adminActions.classList.add('flex');
+    // 2. Nút Thao Tác: Phân chia rõ ràng giữa Admin và Trọng tài
+    // 2.1. Nút Xuất Excel: Trọng tài & Admin đều có quyền sử dụng
+    const exportBtn = document.getElementById('btnExportExcel');
+    if (exportBtn) {
+        if (user && (user.role === 'admin' || canManage)) {
+            exportBtn.style.display = 'inline-flex';
         } else {
-            adminActions.classList.remove('flex');
-            adminActions.classList.add('hidden');
+            exportBtn.style.display = 'none';
         }
+    }
 
-        // NÚT "XÓA LÀM LẠI TỪ ĐẦU": CHỈ ADMIN MỚI ĐƯỢC PHÉP NHÌN THẤY VÀ THAO TÁC
-        const resetBtn = document.getElementById('btnResetAllCheckin');
-        if (resetBtn) {
-            if (user && user.role === 'admin') {
-                resetBtn.style.display = 'inline-flex';
-            } else {
-                resetBtn.style.display = 'none';
-            }
+    // 2.2. Các nút Quản trị chuyên sâu (Nạp file, Nạp hệ thống, Cài giờ XP, Bật/Tắt vòng, Xóa làm lại):
+    // CHỈ ADMIN MỚI NHÌN THẤY VÀ SỬ DỤNG ĐƯỢC (Trọng tài không có các quyền này)
+    const superAdminActions = document.getElementById('checkin-super-admin-actions');
+    if (superAdminActions) {
+        if (user && user.role === 'admin') {
+            superAdminActions.classList.remove('hidden');
+            superAdminActions.classList.add('flex');
+        } else {
+            superAdminActions.classList.remove('flex');
+            superAdminActions.classList.add('hidden');
         }
     }
 

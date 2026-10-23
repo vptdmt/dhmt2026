@@ -21416,7 +21416,7 @@
         "name": "Khu vực Xuất phát / Về đích (Start / Finish)",
         "location": "Quảng trường khu nhà điều hành Tràng An Golf & Resort",
         "km": "Km 0 (Start) & Km 5 (Finish)",
-        "staff": "Vũ Minh Tuấn, Nguyễn Tuấn Long, Nguyễn Huy Nhân, Võ Thị Mai Trang, Vũ Chiến Thắng, Phạm Hà An, BS Lê Kim Vũ, Đoàn Thế Cương",
+        "staff": "Vũ Minh Tuấn, Nguyễn Tuấn Long, Nguyễn Huy Nhân, Võ Thị Mai Trang, Vũ Chiến Thắng, Phạm Hà An, BS Bùi Sỹ Tư, Đoàn Thế Cương",
         "desc": "Khu vực cổng hơi Start/Finish, sân khấu khai mạc & trao giải, trạm tiếp nhận VĐV về đích, trạm y tế trung tâm, bàn thư ký đối soát kết quả"
       },
       {
@@ -21425,7 +21425,7 @@
         "name": "Trạm Kiểm soát vòng chạy (Check-point)",
         "location": "Khu nhà Homestay 5 - hồ Đồng Chương",
         "km": "Km 1,1",
-        "staff": "Phạm Văn Nhất, Đào Minh Anh, Nguyễn Thu Mai, Nguyễn Thái Mỹ",
+        "staff": "Phạm Văn Nhất, Nguyễn Thu Mai, Nguyễn Thái Mỹ",
         "desc": "Đóng dấu / phát vòng đeo tay kiểm soát vòng chạy: Cự ly 10km (1 vòng đeo tay - vòng 2); Cự ly 15km (2 vòng đeo tay - vòng 2, 3) trước khi về đích. Thiếu dấu không công nhận kết quả."
       },
       {
@@ -21441,7 +21441,7 @@
         "id": "station_3",
         "code": "Trạm 3",
         "name": "Điểm Điều hướng & Giám sát 2",
-        "location": "Khu vực trả khách C (đầu cung đường rừng thông)",
+        "location": "Khu vực trà khách C (đầu cung đường rừng thông)",
         "km": "Km 2,1",
         "staff": "Nguyễn Duy Hoạt (Giám sát CNTT)",
         "desc": "Điều tiết giao thông, cảnh báo khúc cua khu vực hồ và đồi thông"
@@ -21479,17 +21479,17 @@
         "name": "Trạm Tiếp nước & Y tế số 2",
         "location": "Trạm nghỉ khu trượt cỏ (Bus stop VII)",
         "km": "Km 4,1",
-        "staff": "Dương Thị Hải Anh (Giám đốc Pháp chế - tiếp nước), BS Quang Tuấn Anh (BV Phủ Diễn - Y tế)",
+        "staff": "Đào Minh Anh (Ban Nhân sự - tiếp nước), BS Quang Tuấn Anh (BV Phủ Diễn - Y tế)",
         "desc": "Tiếp nước và sơ cứu khẩn cấp cho đoạn dốc trượt cỏ trước khi vào chặng nước rút về đích"
       },
       {
         "id": "station_8",
         "code": "Trạm 8",
         "name": "Điểm Điều hướng & Giám sát 4",
-        "location": "Khu vực lối xuống hố tập H",
+        "location": "Khu vực lối xuống hồ tập H",
         "km": "Km 4,6",
         "staff": "Trần Đình Thông (Chuyên viên Quản trị CSDL)",
-        "desc": "Chốt chặn đường sang khu vực thi đấu golf chuyên nghiệp, dẫn luồng runner tiến thẳng về vạch Finish"
+        "desc": "Hướng dẫn runner rẽ vào đoạn thẳng cuối ven hồ hướng về khu quảng trường trung tâm"
       }
     ],
     "btcStaff": [
@@ -21686,13 +21686,25 @@
         "radio": ""
       },
       {
+        "stt": 17,
+        "dept": "MC",
+        "name": "MC Sự kiện",
+        "title": "MC Dẫn chương trình",
+        "reg": "BTC giải chạy (không chạy)",
+        "duty": "MC khai mạc và trao giải",
+        "note": "Sân khấu chính",
+        "phone": "",
+        "early": false,
+        "radio": ""
+      },
+      {
         "stt": 18,
         "dept": "CNTT",
         "name": "Lưu Quốc Việt",
         "title": "Giám đốc Công nghệ thông tin",
         "reg": "Đăng ký chạy",
         "duty": "Hậu cần di chuyển",
-        "note": "Điiều phối VĐV di chuyển từ KS tới Tràng An và ngược lại",
+        "note": "Điều phối VĐV di chuyển từ KS tới Tràng An và ngược lại",
         "phone": "0948 154 816",
         "early": false,
         "radio": ""
@@ -21704,7 +21716,7 @@
         "title": "Chánh văn phòng",
         "reg": "Đăng ký chạy",
         "duty": "Hậu cần di chuyển",
-        "note": "Điiều phối VĐV di chuyển từ KS tới Tràng An và ngược lại",
+        "note": "Điều phối VĐV di chuyển từ KS tới Tràng An và ngược lại",
         "phone": "0376 327 988",
         "early": false,
         "radio": ""
@@ -21716,7 +21728,7 @@
         "title": "Giám sát Hành chính",
         "reg": "Đăng ký chạy",
         "duty": "Hậu cần di chuyển",
-        "note": "Điiều phối VĐV di chuyển từ KS tới Tràng An và ngược lại",
+        "note": "Điều phối VĐV di chuyển từ KS tới Tràng An và ngược lại",
         "phone": "0977 752 089",
         "early": false,
         "radio": ""
@@ -21735,13 +21747,13 @@
       },
       {
         "stt": 22,
-        "dept": "Pháp chế",
-        "name": "Dương Thị Hải Anh",
-        "title": "Giám đốc Pháp chế",
+        "dept": "Nhân sự",
+        "name": "Đào Minh Anh",
+        "title": "Chuyên viên Dữ liệu nhân sự",
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Trạm tiếp nước",
         "note": "Điểm số 7 - Trạm 4,2km (chung với Y tế 2)",
-        "phone": "0982 821 654",
+        "phone": "0366 700 935",
         "early": false,
         "radio": ""
       },
@@ -21761,7 +21773,7 @@
         "stt": 24,
         "dept": "Đào tạo & KSCL",
         "name": "Nguyễn Tuấn Long",
-        "title": "Trưởng phòng Đào tạo và KSCL",
+        "title": "Phó Giám đốc Đào tạo và KSCL",
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Điều phối xuất phát & về đích",
         "note": "Điểm số 0 - XP trạm 0km",
@@ -21784,20 +21796,8 @@
       {
         "stt": 26,
         "dept": "Nhân sự",
-        "name": "Đào Minh Anh",
-        "title": "Chuyên viên Dữ liệu nhân sự",
-        "reg": "BTC giải chạy (không chạy)",
-        "duty": "Kiểm soát/đóng dấu vòng chạy",
-        "note": "Điểm số 1 - 1 điểm Checkpoint, trạm 1,1km - nhà homestay 5 trên sơ đồ",
-        "phone": "0366 700 935",
-        "early": false,
-        "radio": ""
-      },
-      {
-        "stt": 27,
-        "dept": "Nhân sự",
         "name": "Nguyễn Thu Mai",
-        "title": "Giám sát Chế độ chính sách",
+        "title": "Chuyên viên Chế độ chính sách",
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Kiểm soát/đóng dấu vòng chạy",
         "note": "Điểm số 1 - 1 điểm Checkpoint, trạm 1,1km - nhà homestay 5 trên sơ đồ",
@@ -21806,7 +21806,7 @@
         "radio": ""
       },
       {
-        "stt": 28,
+        "stt": 27,
         "dept": "CNTT",
         "name": "Nguyễn Thái Mỹ",
         "title": "Chuyên viên Thiết kế báo cáo",
@@ -21818,7 +21818,7 @@
         "radio": ""
       },
       {
-        "stt": 29,
+        "stt": 28,
         "dept": "CNTT",
         "name": "Lê Hoàng",
         "title": "Phó phòng Hạ tầng",
@@ -21830,7 +21830,7 @@
         "radio": "1"
       },
       {
-        "stt": 30,
+        "stt": 29,
         "dept": "CNTT",
         "name": "Nguyễn Duy Hoạt",
         "title": "Giám sát Công nghệ thông tin",
@@ -21842,10 +21842,10 @@
         "radio": "1"
       },
       {
-        "stt": 31,
+        "stt": 30,
         "dept": "CNTT",
         "name": "Phạm Minh Hiếu",
-        "title": "Giám sát Lập trình cơ sở dữ liệu cấp cao",
+        "title": "Giám sát Lập trình cơ sở dữ liệu cấp cao",
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Điều hướng, giám sát trên đường chạy",
         "note": "Điểm số 6 - Điều hướng 3 - ngã ba rộng giữa điểm chụp ảnh D và khu V trên sơ đồ",
@@ -21854,7 +21854,7 @@
         "radio": "1"
       },
       {
-        "stt": 32,
+        "stt": 31,
         "dept": "CNTT",
         "name": "Trần Đình Thông",
         "title": "Chuyên viên Quản trị cơ sở dữ liệu",
@@ -21866,19 +21866,19 @@
         "radio": "1"
       },
       {
-        "stt": 33,
+        "stt": 32,
         "dept": "Đào tạo & KSCL",
         "name": "Nguyễn Huy Nhân",
         "title": "Giảng viên Đào tạo cấp cao",
         "reg": "BTC giải chạy (không chạy)",
-        "duty": "Kiểm soát về đích cự ly 5km (nữ)",
+        "duty": "Kiểm soát về đích cự ly 15km",
         "note": "Điểm số 0 - Đích trạm 5km",
         "phone": "0913 334 345",
         "early": true,
         "radio": "1"
       },
       {
-        "stt": 34,
+        "stt": 33,
         "dept": "Đào tạo & KSCL",
         "name": "Võ Thị Mai Trang",
         "title": "Giám sát Điều phối",
@@ -21887,10 +21887,10 @@
         "note": "Điểm số 0 - Đích trạm 5km",
         "phone": "0974 899 868",
         "early": false,
-        "radio": ""
+        "radio": "1"
       },
       {
-        "stt": 35,
+        "stt": 34,
         "dept": "CNTT",
         "name": "Vũ Chiến Thắng",
         "title": "Giám sát Lập trình phần mềm",
@@ -21902,10 +21902,10 @@
         "radio": ""
       },
       {
-        "stt": 36,
+        "stt": 35,
         "dept": "Nhân sự",
         "name": "Phạm Hà An",
-        "title": "Giám sát Chế độ chính sách",
+        "title": "Giám sát Chế độ chính sách",
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Thư ký tổng hợp kết quả, xác nhận Finisher",
         "note": "Điểm số 0 - Đích trạm 5km",
@@ -21914,7 +21914,7 @@
         "radio": ""
       },
       {
-        "stt": 37,
+        "stt": 36,
         "dept": "Operation",
         "name": "Đoàn Thế Cương",
         "title": "Quản lý nghiệp vụ An ninh an toàn",
@@ -21926,22 +21926,22 @@
         "radio": "1"
       },
       {
-        "stt": 38,
+        "stt": 37,
         "dept": "Y tế",
-        "name": "Lê Kim Vũ",
-        "title": "Bác sỹ Bệnh viên Phủ Diễn",
+        "name": "Bùi Sỹ Tư",
+        "title": "Bác sỹ Bệnh viện Phủ Diễn",
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Trạm y tế 0",
-        "note": "Điểm số 0 - XP trạm 0km = Đích trạm 5km",
+        "note": "Điểm số 0 - XP trạm 0km - Đích trạm 5km",
         "phone": "",
         "early": false,
         "radio": "1"
       },
       {
-        "stt": 39,
+        "stt": 38,
         "dept": "Y tế",
         "name": "Võ Thị Mai Anh",
-        "title": "Bác sỹ Bệnh viên Phủ Diễn",
+        "title": "Bác sỹ Bệnh viện Phủ Diễn",
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Trạm y tế 1",
         "note": "Điểm số 4 - Trạm 2,3km - bus stop 8 trên sơ đồ",
@@ -21950,25 +21950,25 @@
         "radio": "1"
       },
       {
-        "stt": 40,
+        "stt": 39,
         "dept": "Y tế",
         "name": "Quang Tuấn Anh",
-        "title": "Bác sỹ Bệnh viên Phủ Diễn",
+        "title": "Bác sỹ Bệnh viện Phủ Diễn",
         "reg": "BTC giải chạy (không chạy)",
         "duty": "Trạm y tế 2",
-        "note": "Điểm số 7 - Trạm 4.2km - bus stop VII trên sơ đồ",
+        "note": "Điểm số 7 - Trạm 4,2km - bus stop VII trên sơ đồ",
         "phone": "",
         "early": false,
         "radio": "1"
       },
       {
         "stt": 40,
-        "dept": "Ban Tài chính",
+        "dept": "Tài chính",
         "name": "Lương Tú Anh",
         "title": "Giám sát Kiểm soát chi phí cấp cao",
-        "reg": "BTC",
-        "duty": "Giám sát hợp đồng, chốt số lượng vào cửa, nghiệm thu hợp đồng (Xe chốt đoàn)",
-        "note": "Xe chốt đoàn",
+        "reg": "BTC giải chạy (không chạy)",
+        "duty": "Thủ tục hợp đồng & nghiệm thu",
+        "note": "Giám sát hợp đồng, chốt số lượng vào cửa, nghiệm thu hợp đồng",
         "phone": "0974 951 992",
         "early": false,
         "radio": ""

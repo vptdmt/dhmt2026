@@ -7402,24 +7402,24 @@ function openRunnerModal(bib) {
   let bracelet = 'Không yêu cầu vòng tay';
 
   if (r.distance === '15km') {
-    startTime = '06:30 (Đợt 1)';
+    startTime = '06:30 (Đợt 1 - Cùng 10km)';
     laps = 3;
     cutoff = '150 phút (09:00)';
     bracelet = 'Bắt buộc 02 vòng đeo tay (vòng 2 & vòng 3 tại Trạm homestay 5 km 1.1)';
   } else if (r.distance === '10km') {
-    startTime = '06:35 (Đợt 2)';
+    startTime = '06:30 (Đợt 1 - Cùng 15km)';
     laps = 2;
-    cutoff = '120 phút (08:35)';
+    cutoff = '120 phút (08:30)';
     bracelet = 'Bắt buộc 01 vòng đeo tay (vòng 2 tại Trạm homestay 5 km 1.1)';
   } else if (r.gender === 'Nam') {
+    startTime = '06:35 (Đợt 2)';
+    laps = 1;
+    cutoff = '75 phút (07:50)';
+    bracelet = 'Chạy 1 vòng về đích trực tiếp';
+  } else {
     startTime = '06:40 (Đợt 3)';
     laps = 1;
     cutoff = '75 phút (07:55)';
-    bracelet = 'Chạy 1 vòng về đích trực tiếp';
-  } else {
-    startTime = '06:45 (Đợt 4)';
-    laps = 1;
-    cutoff = '75 phút (08:00)';
     bracelet = 'Chạy 1 vòng về đích trực tiếp';
   }
 

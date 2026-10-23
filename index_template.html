@@ -565,7 +565,7 @@
         <button onclick="switchRunnersSubView('list')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-emerald-700 text-white shadow-xs" data-sub="list">📋 Danh sách VĐV</button>
         <button onclick="switchRunnersSubView('fleet')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="fleet">🚌 Xếp xe (34 Xe)</button>
         <button onclick="switchRunnersSubView('route')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="route">🗺️ Cung đường & 9 Trạm</button>
-        <button onclick="switchRunnersSubView('timeline')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="timeline">⏱️ Lịch trình (17 Mốc)</button>
+        <button onclick="switchRunnersSubView('timeline')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="timeline">⏱️ Lịch trình (16 Mốc)</button>
         <button onclick="switchRunnersSubView('btc')" class="runners-subtab-btn px-3 py-1.5 rounded-xl text-xs font-bold transition bg-slate-100 text-slate-700 hover:bg-slate-200" data-sub="btc">👥 Ban Tổ Chức (40)</button>
       </div>
 
@@ -744,14 +744,14 @@
     </div>
   </div>
 
-  <!-- SUB-VIEW 4: TIMELINE (17 MỐC VẬN HÀNH) -->
+  <!-- SUB-VIEW 4: TIMELINE (16 MỐC VẬN HÀNH) -->
   <div id="runners-view-timeline" class="runners-subview hidden space-y-4">
     <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
       <h3 class="font-black text-slate-900 text-base mb-1 flex items-center gap-2">
         <span>⏱️ KỊCH BẢN VẬN HÀNH CHI TIẾT NGÀY SỰ KIỆN (28/10/2026)</span>
       </h3>
       <p class="text-xs text-slate-500 mb-4">
-        Lịch trình chính xác từ công tác setup hiện trường 04h30, xuất phát từng cự ly 06h30 đến khi kết thúc và di chuyển đoàn về khách sạn lúc 11h45.
+        Lịch trình chính xác từ công tác setup hiện trường 04h30, xuất phát từng cự ly 06h30 đến khi kết thúc và di chuyển đoàn về khách sạn lúc 11h00.
       </p>
 
       <div class="space-y-2.5" id="runners-timeline-container"></div>
@@ -7302,7 +7302,7 @@ function renderRunnersRouteView() {
 }
 
 // ================================================================
-// SUB-VIEW 4: TIMELINE 17 MỐC VẬN HÀNH
+// SUB-VIEW 4: TIMELINE 16 MỐC VẬN HÀNH
 // ================================================================
 function renderRunnersTimelineView() {
   if (!DATA.funrun) return;
@@ -7601,10 +7601,10 @@ function showFunRunVenueModal(courtInfo, hubInfo) {
             </div>
           </div>
 
-          <!-- SECTION 1: TIMELINE 17 MỐC VẬN HÀNH -->
+          <!-- SECTION 1: TIMELINE 16 MỐC VẬN HÀNH -->
           <div>
             <h4 class="font-extrabold text-xs uppercase tracking-wider text-slate-700 mb-3 flex items-center gap-2">
-              <span>⏱️</span> KỊCH BẢN VẬN HÀNH CHI TIẾT NGÀY SỰ KIỆN (17 MỐC THỜI GIAN):
+              <span>⏱️</span> KỊCH BẢN VẬN HÀNH CHI TIẾT NGÀY SỰ KIỆN (16 MỐC THỜI GIAN):
             </h4>
             <div class="space-y-2">
               ${fr.timeline.map((item, idx) => {

@@ -377,16 +377,38 @@
       </div>
     </div>
     
-    <!-- TABS NAVIGATION -->
-    <nav id="header-nav" class="flex gap-1 mt-3 border-t border-white/10 pt-2 overflow-x-auto pb-1 text-sm transition-all">
-      <button class="tab-btn active px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="agenda" onclick="switchTab('agenda',this)">📅 Agenda</button>
-      <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="schedule" onclick="switchTab('schedule',this)">🏆 Lịch thi đấu</button>
-      <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="athletes" onclick="switchTab('athletes',this)">👤 VĐV và Thí sinh/Nội dung thi</button>
-      <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg flex items-center gap-1.5" data-tab="runners" onclick="switchTab('runners',this)"><span>🏃</span><span>VĐV Chạy</span><span class="px-1.5 py-0.2 rounded-full bg-emerald-400 text-slate-900 text-[10px] font-black shadow-xs">434</span></button>
-      <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="venues" onclick="switchTab('venues',this)">📍 Địa điểm & Sân/Bàn</button>
-      <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg flex items-center gap-1.5" data-tab="transport" onclick="switchTab('transport',this)"><span>🚌</span><span>Lịch di chuyển</span><span class="px-1.5 py-0.2 rounded-full bg-amber-400 text-slate-900 text-[10px] font-black">Mới</span></button>
-      <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg" data-tab="results" onclick="switchTab('results',this)">🥇 Kết quả thi đấu</button>
-      <button class="tab-btn px-3.5 py-1.5 font-semibold text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg flex items-center gap-1.5" data-tab="checkin" onclick="switchTab('checkin',this)"><span>🏁</span><span>Ghi nhận kết quả Chạy</span><span class="px-1.5 py-0.2 rounded-full bg-emerald-400 text-slate-900 text-[10px] font-black">QR</span></button>
+    <!-- TABS NAVIGATION (COMPACT & RESPONSIVE - KHÔNG BỊ TRÀN CUỘN TRÊN MÀN HÌNH MÁY TÍNH) -->
+    <nav id="header-nav" class="flex items-center gap-0.5 sm:gap-1 mt-3 border-t border-white/10 pt-2 overflow-x-auto pb-1 text-xs lg:text-[13px] font-bold transition-all scrollbar-none">
+      <button class="tab-btn active px-2 sm:px-2.5 lg:px-3 py-1.5 text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg transition flex items-center gap-1" data-tab="agenda" onclick="switchTab('agenda',this)">
+        <span>📅</span> <span>Agenda</span>
+      </button>
+      <button class="tab-btn px-2 sm:px-2.5 lg:px-3 py-1.5 text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg transition flex items-center gap-1" data-tab="schedule" onclick="switchTab('schedule',this)">
+        <span>🏆</span> <span>Lịch thi đấu</span>
+      </button>
+      <button class="tab-btn px-2 sm:px-2.5 lg:px-3 py-1.5 text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg transition flex items-center gap-1" data-tab="athletes" onclick="switchTab('athletes',this)">
+        <span>👤</span> <span>VĐV & Thí sinh</span>
+      </button>
+      <button class="tab-btn px-2 sm:px-2.5 lg:px-3 py-1.5 text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg transition flex items-center gap-1" data-tab="runners" onclick="switchTab('runners',this)">
+        <span>🏃</span> <span>Fun Run</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-emerald-400 text-slate-900 text-[10px] font-black shadow-xs">434</span>
+      </button>
+      <button class="tab-btn px-2 sm:px-2.5 lg:px-3 py-1.5 text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg transition flex items-center gap-1" data-tab="venues" onclick="switchTab('venues',this)">
+        <span>📍</span> <span>Địa điểm</span>
+      </button>
+      <button class="tab-btn px-2 sm:px-2.5 lg:px-3 py-1.5 text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg transition flex items-center gap-1" data-tab="transport" onclick="switchTab('transport',this)">
+        <span>🚌</span> <span>Di chuyển</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-amber-400 text-slate-900 text-[10px] font-black">Mới</span>
+      </button>
+      <button class="tab-btn px-2 sm:px-2.5 lg:px-3 py-1.5 text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg transition flex items-center gap-1" data-tab="results" onclick="switchTab('results',this)">
+        <span>🥇</span> <span>Kết quả</span>
+      </button>
+      <button class="tab-btn px-2 sm:px-2.5 lg:px-3 py-1.5 text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg transition flex items-center gap-1" data-tab="checkin" onclick="switchTab('checkin',this)">
+        <span>🏁</span> <span>Quét QR Đích</span>
+        <span class="px-1.5 py-0.2 rounded-full bg-emerald-400 text-slate-900 text-[10px] font-black">QR</span>
+      </button>
+      <button class="tab-btn px-2 sm:px-2.5 lg:px-3 py-1.5 text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg transition flex items-center gap-1" data-tab="contacts" onclick="switchTab('contacts',this)">
+        <span>📞</span> <span>Danh bạ NBI</span>
+      </button>
     </nav>
   </div>
 </header>
@@ -1435,6 +1457,85 @@
     </div>
 </div>
 
+<!-- ================================================================ -->
+<!-- TAB 9: DANH BẠ NỘI BỘ MƯỜNG THANH LUXURY NINH BÌNH -->
+<!-- ================================================================ -->
+<div id="tab-contacts" class="tab-content hidden slide-in tab-layout-container space-y-4">
+  <!-- HERO BANNER -->
+  <div class="rounded-2xl p-5 sm:p-6 text-white shadow-lg relative overflow-hidden" style="background: linear-gradient(135deg, #78521a 0%, #a17833 50%, #5c3e12 100%);">
+    <div class="relative z-10 flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class="px-2.5 py-0.5 rounded-full bg-amber-300 text-amber-950 font-black text-xs uppercase tracking-wider">Mường Thanh Luxury Ninh Bình</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-bold text-xs">Khách sạn Đăng Cai</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black tracking-tight flex items-center gap-2">
+          <span>📞 DANH BẠ NỘI BỘ ĐIỀU HÀNH & HỖ TRỢ</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-amber-100 mt-1 max-w-2xl leading-relaxed">
+          📍 <strong>Đường Trần Nhân Tông, KĐT Tân An, P. Phúc Thành, TP. Ninh Bình</strong> · Danh bạ liên hệ nhanh các Trưởng/Phó bộ phận hỗ trợ Lưu trú, Nhà hàng, Phòng tiệc & Hậu cần Đại hội Mường Thanh 2026.
+        </p>
+      </div>
+
+      <!-- HOTLINE & QUICK STATS -->
+      <div class="flex flex-wrap items-center gap-2.5">
+        <a href="tel:02293898888" class="bg-white/15 hover:bg-white/25 border border-white/20 px-3.5 py-2 rounded-xl backdrop-blur transition flex items-center gap-2.5 text-white shadow-xs">
+          <span class="text-xl">☎️</span>
+          <div>
+            <div class="text-[10px] text-amber-200 uppercase font-bold">Tổng đài Khách sạn</div>
+            <div class="font-black text-sm font-mono tracking-wider">0229 3 898 888</div>
+          </div>
+        </a>
+        <div class="bg-black/25 border border-white/10 px-3.5 py-2 rounded-xl backdrop-blur text-center shadow-xs">
+          <div class="text-[10px] text-amber-200 uppercase font-bold">Nhân sự</div>
+          <div class="font-black text-amber-300 text-base" id="contacts-total-count">20</div>
+        </div>
+        <div class="bg-black/25 border border-white/10 px-3.5 py-2 rounded-xl backdrop-blur text-center shadow-xs">
+          <div class="text-[10px] text-amber-200 uppercase font-bold">Bộ phận</div>
+          <div class="font-black text-white text-base">7</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEARCH & FILTER BAR -->
+  <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs space-y-3">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <!-- SEARCH BOX -->
+      <div class="flex-1 min-w-[260px] relative">
+        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">🔍</span>
+        <input type="text" id="contacts-search" oninput="renderContactsList()" placeholder="Tìm theo tên nhân sự, chức vụ, bộ phận, số điện thoại..." class="w-full pl-10 pr-9 py-2 text-xs sm:text-sm border border-slate-200 rounded-xl bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500 transition">
+        <button id="contacts-clear-btn" onclick="clearContactsSearch()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 hidden cursor-pointer font-bold">✕</button>
+      </div>
+
+      <!-- BADGE FOUND -->
+      <div id="contacts-result-badge" class="text-xs font-bold text-slate-600 bg-slate-100 px-3 py-2 rounded-xl">
+        Đang hiển thị: 20 nhân sự
+      </div>
+    </div>
+
+    <!-- DEPARTMENT FILTER PILLS -->
+    <div class="flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-100" id="contacts-dept-pills">
+      <!-- Dynamically generated -->
+    </div>
+  </div>
+
+  <!-- DIRECTORY CONTAINER -->
+  <div id="contacts-directory-container" class="space-y-6">
+    <!-- Rendered dynamically -->
+  </div>
+
+  <!-- EMPTY STATE -->
+  <div id="contacts-empty" class="hidden p-12 text-center text-slate-400 bg-white rounded-2xl border border-slate-200">
+    <span class="text-4xl block mb-2">🔍📞</span>
+    <p class="font-bold text-slate-700 text-sm">Không tìm thấy nhân sự phù hợp</p>
+    <p class="text-xs text-slate-400 mt-1">Vui lòng thử tìm kiếm với từ khóa khác hoặc bấm nút bên dưới</p>
+    <button onclick="clearContactsSearch()" class="mt-3 px-3.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs transition shadow-xs cursor-pointer">
+      Xem tất cả 20 nhân sự
+    </button>
+  </div>
+</div>
+
 
 
 <!-- FLOATING LEFT TRIGGER (FOR FAST ACCESS TO DRAWER & CONTROLS) -->
@@ -1508,6 +1609,9 @@
         </button>
         <button onclick="switchTabFromDrawer('checkin')" class="w-full text-left px-3 py-2 rounded-xl bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 font-bold flex items-center justify-between transition">
           <span>🏁 8. Ghi nhận kết quả Chạy</span> <span>➔</span>
+        </button>
+        <button onclick="switchTabFromDrawer('contacts')" class="w-full text-left px-3 py-2 rounded-xl bg-slate-100 hover:bg-amber-50 hover:text-amber-800 font-bold flex items-center justify-between transition">
+          <span>📞 9. Danh bạ Luxury Ninh Bình</span> <span>➔</span>
         </button>
       </div>
     </div>
@@ -2709,6 +2813,7 @@ function switchTab(name, btn) {
   else if (name === 'transport') renderTransportTab();
   else if (name === 'results') renderResults();
   else if (name === 'checkin') renderCheckinTab();
+  else if (name === 'contacts') renderContactsTab();
 
   setTimeout(updateSubnavMetrics, 60);
 }
@@ -10501,6 +10606,205 @@ function initCheckinInputListeners() {
             e.preventDefault();
         }
     }, true);
+}
+
+
+// ================================================================
+// TAB 9: DANH BẠ NỘI BỘ MƯỜNG THANH LUXURY NINH BÌNH
+// ================================================================
+let currentContactsDept = 'all';
+
+function renderContactsTab() {
+  populateContactsDeptPills();
+  renderContactsList();
+}
+
+function populateContactsDeptPills() {
+  const container = document.getElementById('contacts-dept-pills');
+  if (!container || !DATA.contacts) return;
+
+  const totalMembers = DATA.contacts.reduce((acc, g) => acc + (g.members ? g.members.length : 0), 0);
+  const totalCountEl = document.getElementById('contacts-total-count');
+  if (totalCountEl) totalCountEl.textContent = totalMembers;
+
+  let html = `
+    <button onclick="filterContactsByDept('all')" class="contacts-dept-pill px-3 py-1 rounded-xl text-xs font-bold transition cursor-pointer shadow-2xs ${currentContactsDept === 'all' ? 'bg-amber-600 text-white font-extrabold shadow-xs' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'}">
+      Tất cả (${totalMembers})
+    </button>
+  `;
+
+  DATA.contacts.forEach(g => {
+    const isAct = (currentContactsDept === g.dept);
+    const cnt = g.members ? g.members.length : 0;
+    html += `
+      <button onclick="filterContactsByDept('${escHtml(g.dept)}')" class="contacts-dept-pill px-3 py-1 rounded-xl text-xs font-bold transition cursor-pointer shadow-2xs ${isAct ? 'bg-amber-600 text-white font-extrabold shadow-xs' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'}">
+        <span>${g.icon || '📋'}</span> <span>${escHtml(g.dept)} (${cnt})</span>
+      </button>
+    `;
+  });
+
+  container.innerHTML = html;
+}
+
+function filterContactsByDept(dept) {
+  currentContactsDept = dept;
+  populateContactsDeptPills();
+  renderContactsList();
+}
+
+function clearContactsSearch() {
+  const inp = document.getElementById('contacts-search');
+  if (inp) {
+    inp.value = '';
+    inp.focus();
+  }
+  currentContactsDept = 'all';
+  populateContactsDeptPills();
+  renderContactsList();
+}
+
+function renderContactsList() {
+  if (!DATA.contacts) return;
+  const searchInput = document.getElementById('contacts-search');
+  const clearBtn = document.getElementById('contacts-clear-btn');
+  const q = (searchInput ? searchInput.value : '').trim().toLowerCase();
+
+  if (clearBtn) {
+    if (q) clearBtn.classList.remove('hidden');
+    else clearBtn.classList.add('hidden');
+  }
+
+  const norm = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase().trim();
+  const qNorm = norm(q);
+
+  let totalFound = 0;
+  const filteredGroups = [];
+
+  DATA.contacts.forEach(g => {
+    if (currentContactsDept !== 'all' && g.dept !== currentContactsDept) return;
+
+    let matchedMembers = g.members || [];
+    if (q) {
+      matchedMembers = matchedMembers.filter(p => {
+        const fullStr = `${p.name} ${p.title} ${p.phone} ${p.formatted || ''} ${g.dept}`.toLowerCase();
+        return fullStr.includes(q) || norm(fullStr).includes(qNorm);
+      });
+    }
+
+    if (matchedMembers.length > 0) {
+      totalFound += matchedMembers.length;
+      filteredGroups.push({
+        dept: g.dept,
+        icon: g.icon || '📋',
+        members: matchedMembers
+      });
+    }
+  });
+
+  const badge = document.getElementById('contacts-result-badge');
+  if (badge) {
+    badge.textContent = (q || currentContactsDept !== 'all')
+      ? `Tìm thấy: ${totalFound} nhân sự`
+      : `Đang hiển thị: ${totalFound} nhân sự`;
+  }
+
+  const container = document.getElementById('contacts-directory-container');
+  const emptyDiv = document.getElementById('contacts-empty');
+
+  if (totalFound === 0) {
+    if (container) container.innerHTML = '';
+    if (emptyDiv) emptyDiv.classList.remove('hidden');
+    return;
+  }
+
+  if (emptyDiv) emptyDiv.classList.add('hidden');
+
+  if (container) {
+    container.innerHTML = filteredGroups.map(g => `
+      <section class="space-y-3">
+        <div class="flex items-center justify-between gap-3 border-b border-amber-200/60 pb-2">
+          <h3 class="text-sm sm:text-base font-black text-amber-900 flex items-center gap-2">
+            <span class="text-xl">${g.icon}</span>
+            <span>${escHtml(g.dept)}</span>
+          </h3>
+          <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-[11px] font-bold">
+            ${g.members.length} nhân sự
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+          ${g.members.map(p => `
+            <div class="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-xs hover:border-amber-400 hover:shadow-md transition flex flex-col justify-between group">
+              <div>
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/50">
+                    ${escHtml(g.dept)}
+                  </span>
+                </div>
+                <h4 class="text-base font-black text-slate-900 group-hover:text-amber-900 transition">${escHtml(p.name)}</h4>
+                <p class="text-xs text-slate-500 font-medium mt-1 leading-snug min-h-[28px]">${escHtml(p.title)}</p>
+              </div>
+
+              <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+                <a href="tel:${p.phone}" class="inline-flex items-center gap-1.5 font-mono font-extrabold text-amber-800 hover:text-amber-950 text-xs sm:text-sm bg-amber-50 hover:bg-amber-100 px-2.5 py-1.5 rounded-xl border border-amber-200/80 transition" title="Bấm để gọi ${escHtml(p.name)}">
+                  <span>📞</span> <span>${escHtml(p.formatted || p.phone)}</span>
+                </a>
+
+                <div class="flex items-center gap-1.5">
+                  <a href="tel:${p.phone}" class="w-8 h-8 rounded-xl bg-amber-500 hover:bg-amber-600 text-white flex items-center justify-center font-bold text-xs transition shadow-2xs" title="Gọi điện cho ${escHtml(p.name)}">
+                    📞
+                  </a>
+                  <button type="button" onclick="copyPhoneNumber('${p.phone}', '${escHtml(p.name)}')" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-xs transition border border-slate-200 cursor-pointer" title="Sao chép số điện thoại">
+                    📋
+                  </button>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+    `).join('');
+  }
+}
+
+function copyPhoneNumber(phone, name) {
+  if (!phone) return;
+  const cleanPhone = phone.replace(/\s+/g, '');
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(cleanPhone).catch(() => copyPhoneFallback(cleanPhone));
+  } else {
+    copyPhoneFallback(cleanPhone);
+  }
+  showContactsToast(`Đã sao chép SĐT: ${phone} (${name})`);
+}
+
+function copyPhoneFallback(text) {
+  const el = document.createElement('textarea');
+  el.value = text;
+  el.style.position = 'fixed';
+  el.style.opacity = '0';
+  document.body.appendChild(el);
+  el.select();
+  try { document.execCommand('copy'); } catch(e) {}
+  el.remove();
+}
+
+function showContactsToast(msg) {
+  let toast = document.getElementById('contacts-floating-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'contacts-floating-toast';
+    toast.className = 'fixed bottom-16 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-50 bg-slate-900 text-amber-300 border border-amber-400/50 px-4 py-2.5 rounded-2xl shadow-2xl text-xs font-bold transition-all duration-300 opacity-0 pointer-events-none translate-y-3 flex items-center gap-2';
+    document.body.appendChild(toast);
+  }
+  toast.innerHTML = `<span>📋</span> <span>${msg}</span>`;
+  toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+  toast.classList.add('opacity-100', 'translate-y-0');
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => {
+    toast.classList.remove('opacity-100', 'translate-y-0');
+    toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+  }, 2200);
 }
 
 </script>

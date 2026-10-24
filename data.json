@@ -56108,5 +56108,169 @@
         "plate": "37B - 007.70"
       }
     ]
-  }
+  },
+  "contacts": [
+    {
+      "dept": "Ban Giám đốc",
+      "icon": "👑",
+      "members": [
+        {
+          "name": "Đoàn Thị Kim Liên",
+          "title": "Giám đốc điều hành",
+          "phone": "0986447328",
+          "formatted": "0986 447 328"
+        },
+        {
+          "name": "Nguyễn Anh Dũng",
+          "title": "Phó Giám đốc",
+          "phone": "0373182151",
+          "formatted": "0373 182 151"
+        },
+        {
+          "name": "Trần Thị Thuỳ",
+          "title": "Phó Giám đốc",
+          "phone": "0963989869",
+          "formatted": "0963 989 869"
+        }
+      ]
+    },
+    {
+      "dept": "Kế toán - Nhân sự",
+      "icon": "💼",
+      "members": [
+        {
+          "name": "Phan Thị Hải Yến",
+          "title": "Kế toán trưởng",
+          "phone": "0915038298",
+          "formatted": "0915 038 298"
+        },
+        {
+          "name": "Trương Thị Kim Oanh",
+          "title": "Giám sát kế toán",
+          "phone": "0963233015",
+          "formatted": "0963 233 015"
+        },
+        {
+          "name": "Phạm Thị Lan Anh",
+          "title": "Giám sát kế toán",
+          "phone": "0919718494",
+          "formatted": "0919 718 494"
+        },
+        {
+          "name": "Đinh Văn Việt Anh",
+          "title": "Nhân viên Kế toán",
+          "phone": "0328217408",
+          "formatted": "0328 217 408"
+        },
+        {
+          "name": "Bùi Phương Hà",
+          "title": "Nhân viên Kế toán",
+          "phone": "0915626380",
+          "formatted": "0915 626 380"
+        }
+      ]
+    },
+    {
+      "dept": "Kinh doanh - Lễ tân",
+      "icon": "🛎️",
+      "members": [
+        {
+          "name": "Đinh Thị Dung",
+          "title": "TBP Kinh doanh và Tiếp thị - Lễ tân",
+          "phone": "0338260495",
+          "formatted": "0338 260 495"
+        },
+        {
+          "name": "Bùi Thị Diễm Hương",
+          "title": "Phó bộ phận",
+          "phone": "0962328655",
+          "formatted": "0962 328 655"
+        },
+        {
+          "name": "Đặng Duy Quang",
+          "title": "Giám sát",
+          "phone": "0969862666",
+          "formatted": "0969 862 666"
+        },
+        {
+          "name": "Trần Thị Vân Anh",
+          "title": "Nhân viên Kinh doanh",
+          "phone": "0866441659",
+          "formatted": "0866 441 659"
+        },
+        {
+          "name": "Vũ Thị Thùy Linh",
+          "title": "Nhân viên Đặt phòng",
+          "phone": "0339195275",
+          "formatted": "0339 195 275"
+        }
+      ]
+    },
+    {
+      "dept": "Bộ phận Buồng phòng",
+      "icon": "🛏️",
+      "members": [
+        {
+          "name": "Phan Văn Diệm",
+          "title": "TBP Buồng",
+          "phone": "0986630196",
+          "formatted": "0986 630 196"
+        },
+        {
+          "name": "Bùi Thị Hoa",
+          "title": "PBP Buồng",
+          "phone": "0978930182",
+          "formatted": "0978 930 182"
+        }
+      ]
+    },
+    {
+      "dept": "Bộ phận Nhà hàng - Ẩm thực",
+      "icon": "🍽️",
+      "members": [
+        {
+          "name": "Nguyễn Mạnh Đông",
+          "title": "TBP Nhà hàng",
+          "phone": "0917453135",
+          "formatted": "0917 453 135"
+        }
+      ]
+    },
+    {
+      "dept": "Bộ phận Bếp",
+      "icon": "👨‍🍳",
+      "members": [
+        {
+          "name": "Nguyễn Đức Danh",
+          "title": "Bếp trưởng",
+          "phone": "0984466357",
+          "formatted": "0984 466 357"
+        },
+        {
+          "name": "Nguyễn Văn Hạnh",
+          "title": "Bếp phó",
+          "phone": "0866115269",
+          "formatted": "0866 115 269"
+        }
+      ]
+    },
+    {
+      "dept": "An ninh - Kỹ thuật - IT",
+      "icon": "🛡️",
+      "members": [
+        {
+          "name": "Đinh Ngọc Hữu",
+          "title": "TBP An ninh- Kỹ thuật - IT",
+          "phone": "0904616279",
+          "formatted": "0904 616 279"
+        },
+        {
+          "name": "Tô Văn Hùng",
+          "title": "PBP An ninh- Kỹ thuật - IT",
+          "phone": "0972083445",
+          "formatted": "0972 083 445"
+        }
+      ]
+    }
+  ]
 }

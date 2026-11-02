@@ -1195,8 +1195,8 @@
             <th>Đơn vị</th>
             <th>Nội dung thi đấu</th>
             <th style="width: 75px; text-align: center;">Giờ XP</th>
-            <th style="width: 95px; text-align: center;">Giờ về đích</th>
-            <th style="width: 145px; background: #032b43; color: #38bdf8; text-align: center;">⏱️ Số phút chạy</th>
+            <th style="width: 105px; text-align: center;" title="Nhấn vào giờ để chỉnh sửa">Giờ về đích ✏️</th>
+            <th style="width: 145px; background: #032b43; color: #38bdf8; text-align: center;" title="Nhấn vào số phút để chỉnh sửa">⏱️ Số phút chạy ✏️</th>
             <th style="width: 110px; background: #1e1b4b; color: #a78bfa; text-align: center;">🔄 Vòng kiểm soát</th>
             <th style="width: 85px; text-align: center;">Cut-off</th>
             <th style="width: 80px; text-align: center;">Trạng thái</th>
@@ -1350,6 +1350,93 @@
       <button class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition cursor-pointer" onclick="closeTop3Modal()">Đóng [X]</button>
     </div>
     <div class="grid-top3" id="top3Grid"></div>
+  </div>
+</div>
+
+<!-- MODAL ĐIỀU CHỈNH THỜI GIAN VỀ ĐÍCH / SỐ PHÚT CHẠY (CĂN CỨ XẾP HẠNG TOP 3) -->
+<div id="editTimeModal" class="checkin-modal" style="display: none;">
+  <div class="checkin-modal-content" style="max-width: 580px;">
+    <div class="checkin-modal-header">
+      <h2 style="color: #38bdf8; font-weight: 800; font-size: 17px;" class="flex items-center gap-2">
+        <span>⏱️</span><span>ĐIỀU CHỈNH THỜI GIAN VỀ ĐÍCH (TOP 3)</span>
+      </h2>
+      <button class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs transition cursor-pointer" onclick="closeEditTimeModal()">Đóng [X]</button>
+    </div>
+
+    <!-- THÔNG TIN VẬN ĐỘNG VIÊN -->
+    <div class="bg-slate-900/90 rounded-xl p-3.5 border border-slate-700/80 mb-4 space-y-2">
+      <div class="flex items-center justify-between flex-wrap gap-2">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded bg-sky-500/20 text-sky-400 font-mono font-black text-sm border border-sky-500/30" id="editModalBib">BIB 5370</span>
+          <strong class="text-white text-base font-bold" id="editModalName">Đặng Duy Quang</strong>
+        </div>
+        <span class="px-2.5 py-0.5 rounded text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30" id="editModalCat">5km Nam dưới 35 tuổi</span>
+      </div>
+      <div class="text-xs text-slate-400 flex flex-wrap gap-x-4 gap-y-1">
+        <span>🏢 Đơn vị: <strong class="text-slate-200" id="editModalUnit">Mường Thanh Luxury Ninh Bình</strong></span>
+        <span>🚩 Giờ XP: <strong class="text-emerald-400 font-mono font-bold" id="editModalStartTime">06:36:00</strong></span>
+      </div>
+      <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-xs flex-wrap gap-1">
+        <span class="text-slate-400">Thời gian quét ban đầu (gốc - luôn bảo tồn):</span>
+        <strong class="font-mono text-emerald-300 bg-slate-950 px-2.5 py-1 rounded border border-slate-700" id="editModalRawTime">07:08:21.9 (32.4 phút)</strong>
+      </div>
+    </div>
+
+    <!-- KHUNG QUY ĐỔI 2 CHIỀU THÔNG MINH -->
+    <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700/80 mb-4 space-y-3.5">
+      <div class="text-xs text-sky-300 font-bold uppercase tracking-wider flex items-center gap-1.5">
+        <span>🔄</span><span>Quy đổi 2 chiều tự động (Sửa ô nào, ô kia tự động tính theo):</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <!-- Ô 1: GIỜ VỀ ĐÍCH MỚI -->
+        <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-700/60">
+          <label class="block text-xs font-bold text-slate-200 mb-1 flex items-center justify-between">
+            <span class="flex items-center gap-1"><span>🏁</span><span>Giờ về đích mới</span></span>
+            <span class="text-[10px] text-sky-400 font-mono font-normal">HH:mm:ss.s</span>
+          </label>
+          <input type="text" id="editFinishTimeInput" class="w-full bg-slate-950 border-2 border-slate-600 focus:border-sky-400 rounded-lg px-3 py-2 text-sky-300 font-mono text-base font-bold outline-none transition" placeholder="07:07:30.0" oninput="onFinishTimeInputChange()">
+          <div class="text-[11px] text-slate-400 mt-1 flex items-center justify-between">
+            <span>Ví dụ: <code>07:07:30.0</code></span>
+            <span id="hintFinishSec" class="text-sky-400/80 font-mono text-[10px]"></span>
+          </div>
+        </div>
+
+        <!-- Ô 2: SỐ PHÚT CHẠY MỚI -->
+        <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-700/60">
+          <label class="block text-xs font-bold text-slate-200 mb-1 flex items-center justify-between">
+            <span class="flex items-center gap-1"><span>⏱️</span><span>Số phút chạy mới</span></span>
+            <span class="text-[10px] text-emerald-400 font-mono font-normal">Phút (thập phân)</span>
+          </label>
+          <input type="number" step="0.1" id="editRunMinutesInput" class="w-full bg-slate-950 border-2 border-slate-600 focus:border-emerald-400 rounded-lg px-3 py-2 text-emerald-300 font-mono text-base font-bold outline-none transition" placeholder="31.5" oninput="onRunMinutesInputChange()">
+          <div class="text-[11px] text-slate-400 mt-1 flex items-center justify-between">
+            <span>Ví dụ: <code>31.5</code> hoặc <code>29.2</code></span>
+            <span id="hintDiffSec" class="text-emerald-400/80 font-mono text-[10px]"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ô 3: LÝ DO ĐIỀU CHỈNH / NHẬT KÝ -->
+      <div>
+        <label class="block text-xs font-bold text-slate-300 mb-1 flex items-center gap-1">
+          <span>📝</span><span>Lý do điều chỉnh (Lưu biên bản / nhật ký minh bạch):</span>
+        </label>
+        <input type="text" id="editAdjustNoteInput" class="w-full bg-slate-950 border border-slate-700 focus:border-sky-400 rounded-lg px-3 py-2 text-slate-200 text-xs outline-none transition" placeholder="Ví dụ: Về trước BIB 5068 nhưng bị quét QR sau...">
+      </div>
+    </div>
+
+    <!-- NÚT THAO TÁC -->
+    <div class="flex flex-wrap items-center justify-between gap-2.5 pt-2 border-t border-slate-800">
+      <button id="btnRestoreOriginalTime" onclick="restoreOriginalTime()" class="px-3.5 py-2 rounded-lg bg-rose-950/60 hover:bg-rose-900 border border-rose-700/60 text-rose-300 font-bold text-xs transition cursor-pointer flex items-center gap-1.5" style="display: none;">
+        <span>🔄</span><span>Khôi phục giờ quét gốc</span>
+      </button>
+      <div class="flex items-center gap-2 ml-auto">
+        <button onclick="closeEditTimeModal()" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition cursor-pointer">Hủy</button>
+        <button onclick="saveAdjustedTime()" class="px-5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black transition cursor-pointer shadow-md flex items-center gap-1.5">
+          <span>💾</span><span>LƯU & CẬP NHẬT THỨ HẠNG</span>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -8188,6 +8275,24 @@ function initCheckinFirebaseSync() {
                             localA.finishTime = cA.finishTime;
                             changed = true;
                         }
+
+                        // Đồng bộ dữ liệu điều chỉnh thành tích (Giờ quét ban đầu & Ghi chú)
+                        if (cA.rawFinishTime !== undefined && cA.rawFinishTime !== localA.rawFinishTime) {
+                            localA.rawFinishTime = cA.rawFinishTime;
+                            changed = true;
+                        }
+                        if (cA.isAdjusted !== undefined && cA.isAdjusted !== localA.isAdjusted) {
+                            localA.isAdjusted = cA.isAdjusted;
+                            changed = true;
+                        }
+                        if (cA.adjustNote !== undefined && cA.adjustNote !== localA.adjustNote) {
+                            localA.adjustNote = cA.adjustNote;
+                            changed = true;
+                        }
+                        if (cA.adjustedAt !== undefined && cA.adjustedAt !== localA.adjustedAt) {
+                            localA.adjustedAt = cA.adjustedAt;
+                            changed = true;
+                        }
                     }
                 });
             }
@@ -8258,6 +8363,7 @@ function calculateRunMinutes(finishTime, cat) {
 
     return {
         minutesVal: totalMin,
+        diffSec: diffSec,
         displayStr: `${totalMin} phút`,
         isOverdue: isOverdue,
         cutoffLimit: cutoffMin
@@ -8984,7 +9090,7 @@ function renderTableOnly() {
     STANDARD_CATS.forEach(cat => {
         let finishedInCat = athletes.filter(a => a.category === cat && a.status === 'FINISH')
             .map(a => ({ ...a, ...calculateRunMinutes(a.finishTime, a.category) }))
-            .sort((a,b) => (a.minutesVal || 999999) - (b.minutesVal || 999999));
+            .sort((a,b) => (a.diffSec != null ? a.diffSec : (a.minutesVal || 999999) * 60) - (b.diffSec != null ? b.diffSec : (b.minutesVal || 999999) * 60));
 
         finishedInCat.forEach((a, idx) => {
             rankMap[a.bib] = idx + 1;
@@ -9012,7 +9118,7 @@ function renderTableOnly() {
         if (a.status === 'FINISH' && b.status === 'FINISH') {
             const infoA = calculateRunMinutes(a.finishTime, a.category);
             const infoB = calculateRunMinutes(b.finishTime, b.category);
-            return (infoA.minutesVal || 999999) - (infoB.minutesVal || 999999);
+            return (infoA.diffSec != null ? infoA.diffSec : (infoA.minutesVal || 999999) * 60) - (infoB.diffSec != null ? infoB.diffSec : (infoB.minutesVal || 999999) * 60);
         }
         return 0;
     });
@@ -9081,11 +9187,29 @@ function renderTableOnly() {
                 <td style="color: #94a3b8;">${escHtml(a.unit || '')}</td>
                 <td style="font-weight: 600; color: #f59e0b;">${escHtml(a.category || '')}</td>
                 <td style="color: #94a3b8; font-size: 12px; text-align: center;">${cfg.start}</td>
-                <td style="color: #cbd5e1; text-align: center;">${a.finishTime || '--:--:--'}</td>
-                <td style="font-size: 14px; text-align: center;">${durationHtml}</td>
+                <td style="color: #cbd5e1; text-align: center;">
+                    <div onclick="openEditTimeModal('${a.bib}')" class="inline-flex flex-col items-center justify-center cursor-pointer hover:bg-slate-800/80 px-2 py-1 rounded transition group" title="Nhấn để sửa thời gian về đích / số phút chạy">
+                        <div class="flex items-center gap-1 font-mono text-xs sm:text-sm ${a.isAdjusted ? 'text-amber-300 font-bold' : ''}">
+                            <span>${a.finishTime || '--:--:--'}</span>
+                            <span class="text-[11px] text-sky-400 opacity-50 group-hover:opacity-100 transition">✏️</span>
+                        </div>
+                        ${a.isAdjusted && a.rawFinishTime ? `<div class="text-[9px] text-amber-400 font-mono" title="Thời gian quét ban đầu: ${a.rawFinishTime}">Gốc: ${a.rawFinishTime}</div>` : ''}
+                    </div>
+                </td>
+                <td style="font-size: 14px; text-align: center;">
+                    <div onclick="openEditTimeModal('${a.bib}')" class="inline-flex flex-col items-center justify-center cursor-pointer hover:bg-slate-800/80 px-2 py-1 rounded transition group" title="Nhấn để sửa thời gian về đích / số phút chạy">
+                        ${durationHtml}
+                        ${a.isAdjusted ? `<div class="text-[9px] text-amber-400 font-semibold mt-0.5 flex items-center gap-0.5"><span>✏️</span><span>Đã chỉnh</span></div>` : ''}
+                    </div>
+                </td>
                 <td style="text-align: center;">${lapBadgeHtml}</td>
                 <td style="color: #94a3b8; font-size: 12px; text-align: center;">${cfg.cutoffMinutes} phút</td>
-                <td style="text-align: center;">${statusBtnHtml}</td>
+                <td style="text-align: center;">
+                    <div class="flex items-center justify-center gap-1">
+                        ${statusBtnHtml}
+                        <button onclick="event.stopPropagation(); openEditTimeModal('${a.bib}')" class="px-1.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-sky-400 border border-slate-700 text-xs cursor-pointer transition" title="Sửa thời gian về đích / số phút">✏️</button>
+                    </div>
+                </td>
             </tr>
         `;
     }).join('');
@@ -9287,7 +9411,7 @@ function openTop3Modal() {
     grid.innerHTML = STANDARD_CATS.map(cat => {
         let finished = athletes.filter(a => a.category === cat && a.status === 'FINISH')
             .map(a => ({ ...a, ...calculateRunMinutes(a.finishTime, a.category) }))
-            .sort((a,b) => (a.minutesVal || 999999) - (b.minutesVal || 999999));
+            .sort((a,b) => (a.diffSec != null ? a.diffSec : (a.minutesVal || 999999) * 60) - (b.diffSec != null ? b.diffSec : (b.minutesVal || 999999) * 60));
 
         const top1 = finished[0];
         const top2 = finished[1];
@@ -9295,23 +9419,32 @@ function openTop3Modal() {
 
         const cfg = raceConfig[cat] || { start: '06:40', cutoffMinutes: 75 };
 
+        const renderTopItem = (icon, label, item) => {
+            if (!item) return `<div class="top3-item"><span>${icon} ${label}: <b>---</b></span><span style="color:#94a3b8;">--</span></div>`;
+            return `
+                <div class="top3-item cursor-pointer hover:bg-slate-800/80 p-1 rounded transition" onclick="openEditTimeModal('${item.bib}')" title="Nhấn để xem / điều chỉnh thời gian thành tích">
+                    <span class="flex items-center gap-1 flex-wrap">
+                        <span>${icon} ${label}: <b>${escHtml(item.name)}</b></span>
+                        <span class="font-mono text-xs text-sky-400 font-bold">(BIB ${item.bib})</span>
+                        ${item.isAdjusted ? '<span class="text-amber-400 text-[10px]" title="Đã điều chỉnh thành tích">✏️</span>' : ''}
+                    </span>
+                    <span style="color:#10b981;font-weight:bold;font-size:13px;" class="font-mono">${item.displayStr}</span>
+                </div>
+            `;
+        };
+
         return `
             <div class="top3-card">
-                <h3>🏃 ${cat} <span style="font-size:11px;color:#94a3b8;font-weight:normal;">(Cut-off: ${cfg.cutoffMinutes}p)</span></h3>
-                <div class="top3-item">
-                    <span>🥇 Nhất: <b>${top1 ? escHtml(top1.name) : '---'}</b> ${top1 ? `(BIB ${top1.bib})` : ''}</span>
-                    <span style="color:#10b981;font-weight:bold;font-size:13px;">${top1 ? top1.displayStr : '--'}</span>
+                <div class="flex items-center justify-between border-b border-slate-700/80 pb-2 mb-2.5">
+                    <h3 style="font-size:13px;color:#38bdf8;font-weight:800;margin:0;border:none;padding:0;">🏃 ${cat}</h3>
+                    <span style="font-size:11px;color:#94a3b8;font-weight:normal;">(Cut-off: ${cfg.cutoffMinutes}p)</span>
                 </div>
-                <div class="top3-item">
-                    <span>🥈 Nhì: <b>${top2 ? escHtml(top2.name) : '---'}</b> ${top2 ? `(BIB ${top2.bib})` : ''}</span>
-                    <span style="color:#10b981;font-weight:bold;font-size:13px;">${top2 ? top2.displayStr : '--'}</span>
-                </div>
-                <div class="top3-item">
-                    <span>🥉 Ba: <b>${top3 ? escHtml(top3.name) : '---'}</b> ${top3 ? `(BIB ${top3.bib})` : ''}</span>
-                    <span style="color:#10b981;font-weight:bold;font-size:13px;">${top3 ? top3.displayStr : '--'}</span>
-                </div>
-                <div style="font-size: 11px; color: #94a3b8; margin-top: 6px; border-top: 1px dashed #334155; padding-top: 4px;">
-                    Đã về đích: ${finished.length} VĐV
+                ${renderTopItem('🥇', 'Nhất', top1)}
+                ${renderTopItem('🥈', 'Nhì', top2)}
+                ${renderTopItem('🥉', 'Ba', top3)}
+                <div style="font-size: 11px; color: #94a3b8; margin-top: 6px; border-top: 1px dashed #334155; padding-top: 4px; display: flex; justify-content: space-between; align-items: center;">
+                    <span>Đã về đích: ${finished.length} VĐV</span>
+                    <span class="text-[10px] text-sky-400">Nhấn VĐV để sửa ✏️</span>
                 </div>
             </div>
         `;
@@ -9325,6 +9458,267 @@ function closeTop3Modal() {
     const modal = document.getElementById('top3Modal');
     if (modal) modal.style.display = 'none';
     focusScanInput();
+}
+
+// =========================================================================
+// TÍNH NĂNG ĐIỀU CHỈNH THỜI GIAN VỀ ĐÍCH / SỐ PHÚT CHẠY (QUY ĐỔI 2 CHIỀU)
+// =========================================================================
+window._currentEditingBib = null;
+window._isUpdatingTimeInput = false;
+
+function formatSecondsToTime(sec) {
+    if (sec == null || isNaN(sec)) return '';
+    sec = Math.round(sec * 10) / 10;
+    const h = Math.floor(sec / 3600) % 24;
+    const rem = sec % 3600;
+    const m = Math.floor(rem / 60);
+    const s = Math.floor(rem % 60);
+    const frac = Math.round((sec - Math.floor(sec)) * 10);
+    const timeStr = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    return frac > 0 ? `${timeStr}.${frac}` : `${timeStr}.0`;
+}
+
+function openEditTimeModal(bib) {
+    if (!canScanFinish()) {
+        alert('Chỉ Trọng tài Quét Về Đích hoặc Ban Tổ Chức (Admin) mới có quyền chỉnh sửa thời gian về đích!');
+        return;
+    }
+    const a = athletes.find(x => String(x.bib) === String(bib));
+    if (!a) {
+        alert('Không tìm thấy thông tin VĐV có số BIB ' + bib);
+        return;
+    }
+
+    window._currentEditingBib = String(bib);
+    const cfg = raceConfig[a.category] || { start: "06:40", cutoffMinutes: 75 };
+    const startSec = parseToSeconds(cfg.start) || 0;
+
+    // Hiển thị thông tin VĐV
+    const elBib = document.getElementById('editModalBib');
+    const elName = document.getElementById('editModalName');
+    const elCat = document.getElementById('editModalCat');
+    const elUnit = document.getElementById('editModalUnit');
+    const elStartTime = document.getElementById('editModalStartTime');
+    const elRawTime = document.getElementById('editModalRawTime');
+    const inputFinish = document.getElementById('editFinishTimeInput');
+    const inputMinutes = document.getElementById('editRunMinutesInput');
+    const inputNote = document.getElementById('editAdjustNoteInput');
+    const btnRestore = document.getElementById('btnRestoreOriginalTime');
+    const hintFinishSec = document.getElementById('hintFinishSec');
+    const hintDiffSec = document.getElementById('hintDiffSec');
+
+    if (elBib) elBib.innerText = `BIB ${a.bib}`;
+    if (elName) elName.innerText = a.name || '---';
+    if (elCat) elCat.innerText = a.category || '---';
+    if (elUnit) elUnit.innerText = a.unit || '---';
+    if (elStartTime) elStartTime.innerText = `${cfg.start} (Cut-off: ${cfg.cutoffMinutes} phút)`;
+
+    // Xác định thời gian quét ban đầu (gốc)
+    const rawTime = a.rawFinishTime || (a.status === 'FINISH' ? a.finishTime : '');
+    if (elRawTime) {
+        if (rawTime) {
+            const rawInfo = calculateRunMinutes(rawTime, a.category);
+            elRawTime.innerText = `${rawTime} (${rawInfo.displayStr})`;
+        } else {
+            elRawTime.innerText = 'Chưa quét (Chưa có dữ liệu gốc)';
+        }
+    }
+
+    // Điền dữ liệu hiện tại
+    window._isUpdatingTimeInput = true;
+    if (inputFinish) inputFinish.value = a.finishTime || '';
+    if (inputMinutes) {
+        if (a.finishTime) {
+            const curInfo = calculateRunMinutes(a.finishTime, a.category);
+            inputMinutes.value = curInfo.minutesVal != null ? curInfo.minutesVal : '';
+        } else {
+            inputMinutes.value = '';
+        }
+    }
+    if (inputNote) inputNote.value = a.adjustNote || '';
+    window._isUpdatingTimeInput = false;
+
+    if (hintFinishSec) hintFinishSec.innerText = '';
+    if (hintDiffSec) hintDiffSec.innerText = '';
+
+    // Nút khôi phục chỉ hiển thị khi đã từng chỉnh sửa
+    if (btnRestore) {
+        if (a.rawFinishTime && (a.isAdjusted || a.rawFinishTime !== a.finishTime)) {
+            btnRestore.style.display = 'inline-flex';
+        } else {
+            btnRestore.style.display = 'none';
+        }
+    }
+
+    const modal = document.getElementById('editTimeModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        setTimeout(() => {
+            if (inputFinish) inputFinish.focus();
+        }, 100);
+    }
+}
+
+function closeEditTimeModal() {
+    const modal = document.getElementById('editTimeModal');
+    if (modal) modal.style.display = 'none';
+    window._currentEditingBib = null;
+    focusScanInput();
+}
+
+function onFinishTimeInputChange() {
+    if (window._isUpdatingTimeInput) return;
+    const a = athletes.find(x => String(x.bib) === String(window._currentEditingBib));
+    if (!a) return;
+    const cfg = raceConfig[a.category] || { start: "06:40", cutoffMinutes: 75 };
+    const startSec = parseToSeconds(cfg.start);
+    const inputFinish = document.getElementById('editFinishTimeInput');
+    const inputMinutes = document.getElementById('editRunMinutesInput');
+    const hintFinishSec = document.getElementById('hintFinishSec');
+    const hintDiffSec = document.getElementById('hintDiffSec');
+
+    if (!inputFinish || !inputMinutes) return;
+    const val = inputFinish.value.trim();
+    const finishSec = parseToSeconds(val);
+
+    if (finishSec !== null && startSec !== null) {
+        let diffSec = finishSec - startSec;
+        if (diffSec < 0) diffSec += 86400;
+        const totalMin = Number((diffSec / 60).toFixed(1));
+        
+        window._isUpdatingTimeInput = true;
+        inputMinutes.value = totalMin;
+        window._isUpdatingTimeInput = false;
+
+        if (hintFinishSec) hintFinishSec.innerText = `✓ Hợp lệ (${diffSec}s)`;
+        if (hintDiffSec) hintDiffSec.innerText = `= ${totalMin} phút`;
+    } else {
+        if (hintFinishSec) hintFinishSec.innerText = val ? '⚠️ Sai định dạng' : '';
+        if (hintDiffSec) hintDiffSec.innerText = '';
+    }
+}
+
+function onRunMinutesInputChange() {
+    if (window._isUpdatingTimeInput) return;
+    const a = athletes.find(x => String(x.bib) === String(window._currentEditingBib));
+    if (!a) return;
+    const cfg = raceConfig[a.category] || { start: "06:40", cutoffMinutes: 75 };
+    const startSec = parseToSeconds(cfg.start);
+    const inputFinish = document.getElementById('editFinishTimeInput');
+    const inputMinutes = document.getElementById('editRunMinutesInput');
+    const hintFinishSec = document.getElementById('hintFinishSec');
+    const hintDiffSec = document.getElementById('hintDiffSec');
+
+    if (!inputFinish || !inputMinutes) return;
+    const minVal = parseFloat(inputMinutes.value);
+
+    if (!isNaN(minVal) && minVal >= 0 && startSec !== null) {
+        const finishSec = startSec + minVal * 60;
+        const timeStr = formatSecondsToTime(finishSec);
+
+        window._isUpdatingTimeInput = true;
+        inputFinish.value = timeStr;
+        window._isUpdatingTimeInput = false;
+
+        if (hintFinishSec) hintFinishSec.innerText = `✓ Quy ngược: ${timeStr}`;
+        if (hintDiffSec) hintDiffSec.innerText = `✓ ${minVal} phút`;
+    } else {
+        if (hintFinishSec) hintFinishSec.innerText = '';
+        if (hintDiffSec) hintDiffSec.innerText = inputMinutes.value ? '⚠️ Số không hợp lệ' : '';
+    }
+}
+
+function saveAdjustedTime() {
+    if (!canScanFinish()) {
+        alert('Chỉ Trọng tài Quét Về Đích hoặc Ban Tổ Chức (Admin) mới có quyền chỉnh sửa thời gian về đích!');
+        return;
+    }
+    const a = athletes.find(x => String(x.bib) === String(window._currentEditingBib));
+    if (!a) {
+        alert('Không tìm thấy thông tin VĐV đang điều chỉnh!');
+        return;
+    }
+
+    const inputFinish = document.getElementById('editFinishTimeInput');
+    const inputNote = document.getElementById('editAdjustNoteInput');
+    const newFinishTime = inputFinish ? inputFinish.value.trim() : '';
+
+    if (!newFinishTime) {
+        alert('Vui lòng nhập giờ về đích hợp lệ (Ví dụ: 07:07:30.0) hoặc nhập số phút chạy!');
+        return;
+    }
+
+    const sec = parseToSeconds(newFinishTime);
+    if (sec === null) {
+        alert('Định dạng thời gian về đích không hợp lệ! Vui lòng nhập dạng HH:mm:ss hoặc HH:mm:ss.s (Ví dụ: 07:08:21.9)');
+        return;
+    }
+
+    // Bảo tồn thời gian quét gốc ban đầu nếu chưa được lưu
+    if (!a.rawFinishTime && a.finishTime) {
+        a.rawFinishTime = a.finishTime;
+    } else if (!a.rawFinishTime && !a.finishTime) {
+        a.rawFinishTime = 'Nhập bổ sung thủ công';
+    }
+
+    const note = inputNote ? inputNote.value.trim() : '';
+    const user = getCurrentUser();
+    const modifier = (user && user.name) ? user.name : 'Ban Tổ Chức';
+
+    a.finishTime = newFinishTime;
+    a.status = 'FINISH';
+    a.isAdjusted = true;
+    a.adjustNote = note || 'Điều chỉnh thứ tự về đích theo thực tế';
+    a.adjustedAt = new Date().toISOString();
+    a.adjustedBy = modifier;
+
+    saveAndRender(true);
+    closeEditTimeModal();
+
+    const runInfo = calculateRunMinutes(a.finishTime, a.category);
+    showBanner('success', 
+        `ĐÃ CẬP NHẬT THÀNH TÍCH BIB ${a.bib}!`, 
+        `${a.name} - ${a.unit}`, 
+        `⏱️ Thành tích mới: ${runInfo.displayStr} (Giờ về: ${a.finishTime})`, 
+        `Thời gian quét gốc: ${a.rawFinishTime || '---'}`
+    );
+}
+
+function restoreOriginalTime() {
+    if (!canScanFinish()) {
+        alert('Chỉ Trọng tài Quét Về Đích hoặc Ban Tổ Chức (Admin) mới có quyền khôi phục thời gian gốc!');
+        return;
+    }
+    const a = athletes.find(x => String(x.bib) === String(window._currentEditingBib));
+    if (!a) return;
+
+    if (!a.rawFinishTime || a.rawFinishTime === 'Nhập bổ sung thủ công') {
+        alert('Không có thời gian quét ban đầu để khôi phục!');
+        return;
+    }
+
+    if (!confirm(`Bạn có chắc chắn muốn khôi phục lại thời gian quét gốc ban đầu (${a.rawFinishTime}) cho BIB ${a.bib} - ${a.name} không?
+
+Thành tích sẽ được tính lại theo giờ quét gốc ban đầu.`)) {
+        return;
+    }
+
+    a.finishTime = a.rawFinishTime;
+    a.isAdjusted = false;
+    a.adjustNote = '';
+    delete a.adjustedAt;
+    delete a.adjustedBy;
+
+    saveAndRender(true);
+    closeEditTimeModal();
+
+    const runInfo = calculateRunMinutes(a.finishTime, a.category);
+    showBanner('warning', 
+        `ĐÃ KHÔI PHỤC GIỜ QUÉT GỐC BIB ${a.bib}!`, 
+        `${a.name} - ${a.unit}`, 
+        `⏱️ Thành tích: ${runInfo.displayStr} (Giờ về gốc: ${a.finishTime})`, 
+        'Đã hủy bỏ điều chỉnh thành tích.'
+    );
 }
 
 // NẠP FILE EXCEL DANH SÁCH
@@ -9611,6 +10005,9 @@ function exportResultExcel() {
             "Giờ xuất phát": cfg.start,
             "Giờ về đích": a.finishTime,
             "Thời gian chạy (Phút)": a.status === 'FINISH' ? runInfo.minutesVal : (a.status === 'BỊ LOẠI' ? runInfo.minutesVal : ''),
+            "Thời gian quét ban đầu": a.rawFinishTime || '',
+            "Điều chỉnh": a.isAdjusted ? "Đã điều chỉnh" : "",
+            "Lý do điều chỉnh": a.adjustNote || "",
             "Cut-off quy định (Phút)": cfg.cutoffMinutes,
             "Đạt Cut-off": cutoffDisplay,
             "Trạng thái": a.status
@@ -9660,6 +10057,9 @@ function exportResultExcel() {
                 "Giờ xuất phát": cfg.start,
                 "Giờ về đích": a.finishTime,
                 "Thời gian chạy (Phút)": a.status === 'FINISH' ? runInfo.minutesVal : (a.status === 'BỊ LOẠI' ? runInfo.minutesVal : ''),
+                "Thời gian quét ban đầu": a.rawFinishTime || '',
+                "Điều chỉnh": a.isAdjusted ? "Đã điều chỉnh" : "",
+                "Lý do điều chỉnh": a.adjustNote || "",
                 "Cut-off quy định (Phút)": cfg.cutoffMinutes,
                 "Đạt Cut-off": cutoffDisplay,
                 "Trạng thái": a.status

@@ -21111,7 +21111,7 @@
       "location": "Tràng An Golf & Resort (Quanh hồ Đồng Chương)",
       "distanceKm": 32,
       "lapDistance": "5 km / vòng",
-      "totalRunners": 433,
+      "totalRunners": 434,
       "categoriesCount": 8,
       "summaryCounts": {
         "total": 433,
@@ -44847,7 +44847,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Vũ Đức Thịnh",
         "driverPhone": "0912 438 755",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:27:46.6",
+        "rawFinishTime": "07:27:46.6",
+        "runMinutes": 47.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 28
       },
       {
         "stt": 2,
@@ -44873,7 +44879,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Phạm Chí Dũng",
         "driverPhone": "0903 255 595",
-        "plate": "30L 218.10"
+        "plate": "30L 218.10",
+        "status": "FINISH",
+        "finishTime": "07:35:14.1",
+        "rawFinishTime": "07:35:14.1",
+        "runMinutes": 59.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 60
       },
       {
         "stt": 3,
@@ -44899,7 +44911,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Phạm Chí Dũng",
         "driverPhone": "0903 255 595",
-        "plate": "30L 218.10"
+        "plate": "30L 218.10",
+        "status": "FINISH",
+        "finishTime": "07:32:33.3",
+        "rawFinishTime": "07:32:33.3",
+        "runMinutes": 52.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 47
       },
       {
         "stt": 4,
@@ -44925,7 +44943,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Đặng Văn Thắng",
         "driverPhone": "0988 857 563",
-        "plate": "30L 211.60"
+        "plate": "30L 211.60",
+        "status": "FINISH",
+        "finishTime": "07:20:31.5",
+        "rawFinishTime": "07:20:31.5",
+        "runMinutes": 40.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 10
       },
       {
         "stt": 5,
@@ -44951,7 +44975,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Đặng Văn Thắng",
         "driverPhone": "0988 857 563",
-        "plate": "30L 211.60"
+        "plate": "30L 211.60",
+        "status": "FINISH",
+        "finishTime": "07:35:45.9",
+        "rawFinishTime": "07:35:45.9",
+        "runMinutes": 55.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 57
       },
       {
         "stt": 6,
@@ -44977,7 +45007,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hà Tiến Mạnh",
         "driverPhone": "0332 870 111",
-        "plate": "19A 647.63"
+        "plate": "19A 647.63",
+        "status": "FINISH",
+        "finishTime": "07:29:12.1",
+        "rawFinishTime": "07:29:12.1",
+        "runMinutes": 49.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 34
       },
       {
         "stt": 7,
@@ -45003,7 +45039,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hà Văn Thành",
         "driverPhone": "0973 493 099",
-        "plate": "29A 926.18"
+        "plate": "29A 926.18",
+        "status": "FINISH",
+        "finishTime": "07:33:23.5",
+        "rawFinishTime": "07:33:23.5",
+        "runMinutes": 53.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 49
       },
       {
         "stt": 8,
@@ -45029,7 +45071,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Xuân Khánh",
         "driverPhone": "0396 633 058",
-        "plate": "30L 337.90"
+        "plate": "30L 337.90",
+        "status": "FINISH",
+        "finishTime": "07:30:59.2",
+        "rawFinishTime": "07:30:59.2",
+        "runMinutes": 55,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 56
       },
       {
         "stt": 9,
@@ -45055,7 +45103,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Văn Bình",
         "driverPhone": "0948 922 344",
-        "plate": "75A-334.40"
+        "plate": "75A-334.40",
+        "status": "FINISH",
+        "finishTime": "07:50:47.3",
+        "rawFinishTime": "07:50:47.3",
+        "runMinutes": 70.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 70
       },
       {
         "stt": 10,
@@ -45081,7 +45135,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Phạm Chí Dũng",
         "driverPhone": "0903 255 595",
-        "plate": "30L 218.10"
+        "plate": "30L 218.10",
+        "status": "FINISH",
+        "finishTime": "07:31:26.8",
+        "rawFinishTime": "07:31:26.8",
+        "runMinutes": 51.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 44
       },
       {
         "stt": 11,
@@ -45107,7 +45167,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Đặng Văn Thắng",
         "driverPhone": "0988 857 563",
-        "plate": "30L 211.60"
+        "plate": "30L 211.60",
+        "status": "FINISH",
+        "finishTime": "07:29:19.8",
+        "rawFinishTime": "07:29:19.8",
+        "runMinutes": 53.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 53
       },
       {
         "stt": 12,
@@ -45133,7 +45199,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Văn Hiệp",
         "driverPhone": "0972 885 815",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:22:03.7",
+        "rawFinishTime": "07:22:03.7",
+        "runMinutes": 46.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 33
       },
       {
         "stt": 13,
@@ -45159,7 +45231,13 @@
         "captainUnit": "Ban Kiểm toán nội bộ",
         "driverName": "Lê Bá Ngọc",
         "driverPhone": "0903 434 375",
-        "plate": "30L 187.76"
+        "plate": "30L 187.76",
+        "status": "FINISH",
+        "finishTime": "07:28:32.6",
+        "rawFinishTime": "07:28:32.6",
+        "runMinutes": 52.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 52
       },
       {
         "stt": 14,
@@ -45185,7 +45263,13 @@
         "captainUnit": "Ban Kiểm toán nội bộ",
         "driverName": "Lê Bá Ngọc",
         "driverPhone": "0903 434 375",
-        "plate": "30L 187.76"
+        "plate": "30L 187.76",
+        "status": "FINISH",
+        "finishTime": "07:49:58.5",
+        "rawFinishTime": "07:49:58.5",
+        "runMinutes": 70,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 88
       },
       {
         "stt": 15,
@@ -45211,7 +45295,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Lại Trung Việt",
         "driverPhone": "0983 638 327",
-        "plate": "90A 229.87"
+        "plate": "90A 229.87",
+        "status": "FINISH",
+        "finishTime": "07:41:35.7",
+        "rawFinishTime": "07:41:35.7",
+        "runMinutes": 65.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 55
       },
       {
         "stt": 16,
@@ -45237,7 +45327,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Phạm Ngọc Hưng",
         "driverPhone": "0987 888 394",
-        "plate": "36A 991.46"
+        "plate": "36A 991.46",
+        "status": "FINISH",
+        "finishTime": "07:32:30.7",
+        "rawFinishTime": "07:32:30.7",
+        "runMinutes": 52.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 46
       },
       {
         "stt": 17,
@@ -45263,7 +45359,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hoàng Hữu Dũng",
         "driverPhone": "0979 628 818",
-        "plate": "37K-336.27"
+        "plate": "37K-336.27",
+        "status": "FINISH",
+        "finishTime": "07:40:35.5",
+        "rawFinishTime": "07:40:35.5",
+        "runMinutes": 64.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 73
       },
       {
         "stt": 18,
@@ -45289,7 +45391,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Nguyễn Văn Hưng",
         "driverPhone": "0973 588 031",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:28:09.3",
+        "rawFinishTime": "07:28:09.3",
+        "runMinutes": 48.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 31
       },
       {
         "stt": 19,
@@ -45315,7 +45423,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Trương Nhật Minh",
         "driverPhone": "0938 090 413",
-        "plate": "24A 280.49"
+        "plate": "24A 280.49",
+        "status": "FINISH",
+        "finishTime": "07:39:54.4",
+        "rawFinishTime": "07:39:54.4",
+        "runMinutes": 59.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 77
       },
       {
         "stt": 20,
@@ -45341,7 +45455,13 @@
         "captainUnit": "Văn Phòng Tập Đoàn Mường Thanh",
         "driverName": "Trần Xuân Hoàng",
         "driverPhone": "0847 897 474",
-        "plate": "74A-258.46"
+        "plate": "74A-258.46",
+        "status": "FINISH",
+        "finishTime": "07:20:35.6",
+        "rawFinishTime": "07:20:35.6",
+        "runMinutes": 44.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 24
       },
       {
         "stt": 21,
@@ -45367,7 +45487,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hoàng Vân",
         "driverPhone": "0912 362 343",
-        "plate": "73A-048.52"
+        "plate": "73A-048.52",
+        "status": "FINISH",
+        "finishTime": "07:27:52.9",
+        "rawFinishTime": "07:27:52.9",
+        "runMinutes": 51.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 36
       },
       {
         "stt": 22,
@@ -45393,7 +45519,13 @@
         "captainUnit": "Ban Kiểm toán nội bộ",
         "driverName": "Lê Bá Ngọc",
         "driverPhone": "0903 434 375",
-        "plate": "30L 187.76"
+        "plate": "30L 187.76",
+        "status": "FINISH",
+        "finishTime": "07:27:57.0",
+        "rawFinishTime": "07:27:57.0",
+        "runMinutes": 52,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 51
       },
       {
         "stt": 23,
@@ -45419,7 +45551,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trọng Vinh",
         "driverPhone": "0387 934 944",
-        "plate": "37K-228.43"
+        "plate": "37K-228.43",
+        "status": "FINISH",
+        "finishTime": "07:27:07.8",
+        "rawFinishTime": "07:27:07.8",
+        "runMinutes": 47.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 24
       },
       {
         "stt": 24,
@@ -45445,7 +45583,13 @@
         "captainUnit": "Ban Kiểm toán nội bộ",
         "driverName": "Lê Bá Ngọc",
         "driverPhone": "0903 434 375",
-        "plate": "30L 187.76"
+        "plate": "30L 187.76",
+        "status": "FINISH",
+        "finishTime": "07:49:12.3",
+        "rawFinishTime": "07:49:12.3",
+        "runMinutes": 69.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 87
       },
       {
         "stt": 25,
@@ -45471,7 +45615,13 @@
         "captainUnit": "Ban Kiểm toán nội bộ",
         "driverName": "Lê Bá Ngọc",
         "driverPhone": "0903 434 375",
-        "plate": "30L 187.76"
+        "plate": "30L 187.76",
+        "status": "FINISH",
+        "finishTime": "07:35:21.9",
+        "rawFinishTime": "07:35:21.9",
+        "runMinutes": 59.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 62
       },
       {
         "stt": 26,
@@ -45497,7 +45647,13 @@
         "captainUnit": "Ban Kiểm toán nội bộ",
         "driverName": "Lê Bá Ngọc",
         "driverPhone": "0903 434 375",
-        "plate": "30L 187.76"
+        "plate": "30L 187.76",
+        "status": "FINISH",
+        "finishTime": "07:27:02.8",
+        "rawFinishTime": "07:27:02.8",
+        "runMinutes": 47,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 23
       },
       {
         "stt": 27,
@@ -45523,7 +45679,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Văn Huy",
         "driverPhone": "0904 734 567",
-        "plate": "14A-89642"
+        "plate": "14A-89642",
+        "status": "FINISH",
+        "finishTime": "07:35:42.1",
+        "rawFinishTime": "07:35:42.1",
+        "runMinutes": 55.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 56
       },
       {
         "stt": 28,
@@ -45549,7 +45711,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Văn Huy",
         "driverPhone": "0904 734 567",
-        "plate": "14A-89642"
+        "plate": "14A-89642",
+        "status": "FINISH",
+        "finishTime": "07:49:07.9",
+        "rawFinishTime": "07:49:07.9",
+        "runMinutes": 69.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 86
       },
       {
         "stt": 29,
@@ -45575,7 +45743,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Văn Huy",
         "driverPhone": "0904 734 567",
-        "plate": "14A-89642"
+        "plate": "14A-89642",
+        "status": "FINISH",
+        "finishTime": "07:14:54.7",
+        "rawFinishTime": "07:14:54.7",
+        "runMinutes": 34.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 4
       },
       {
         "stt": 30,
@@ -45601,7 +45775,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Văn Huy",
         "driverPhone": "0904 734 567",
-        "plate": "14A-89642"
+        "plate": "14A-89642",
+        "status": "FINISH",
+        "finishTime": "07:45:12.5",
+        "rawFinishTime": "07:45:12.5",
+        "runMinutes": 65.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 58
       },
       {
         "stt": 31,
@@ -45627,7 +45807,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Văn Huy",
         "driverPhone": "0904 734 567",
-        "plate": "14A-89642"
+        "plate": "14A-89642",
+        "status": "FINISH",
+        "finishTime": "07:39:43.3",
+        "rawFinishTime": "07:39:43.3",
+        "runMinutes": 59.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 73
       },
       {
         "stt": 32,
@@ -45653,7 +45839,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Văn Huy",
         "driverPhone": "0904 734 567",
-        "plate": "14A-89642"
+        "plate": "14A-89642",
+        "status": "FINISH",
+        "finishTime": "07:49:59.8",
+        "rawFinishTime": "07:49:59.8",
+        "runMinutes": 70,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 89
       },
       {
         "stt": 33,
@@ -45679,7 +45871,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hà Tiến Mạnh",
         "driverPhone": "0332 870 111",
-        "plate": "19A 647.63"
+        "plate": "19A 647.63",
+        "status": "FINISH",
+        "finishTime": "07:05:17.0",
+        "rawFinishTime": "07:05:17.0",
+        "runMinutes": 29.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 3
       },
       {
         "stt": 34,
@@ -45705,7 +45903,13 @@
         "captainUnit": "Công ty CP Phát triển Địa ốc Cienco5",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:23:10.7",
+        "rawFinishTime": "07:23:10.7",
+        "runMinutes": 43.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 22
       },
       {
         "stt": 35,
@@ -45731,7 +45935,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hà Tiến Mạnh",
         "driverPhone": "0332 870 111",
-        "plate": "19A 647.63"
+        "plate": "19A 647.63",
+        "status": "FINISH",
+        "finishTime": "07:24:25.0",
+        "rawFinishTime": "07:24:25.0",
+        "runMinutes": 48.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 33
       },
       {
         "stt": 36,
@@ -45757,7 +45967,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hà Tiến Mạnh",
         "driverPhone": "0332 870 111",
-        "plate": "19A 647.63"
+        "plate": "19A 647.63",
+        "status": "FINISH",
+        "finishTime": "07:56:22.3",
+        "rawFinishTime": "07:56:22.3",
+        "runMinutes": 76.4,
+        "cutoffStatus": "QUÁ CUT-OFF",
+        "rankCat": 94
       },
       {
         "stt": 37,
@@ -45783,7 +45999,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hà Tiến Mạnh",
         "driverPhone": "0332 870 111",
-        "plate": "19A 647.63"
+        "plate": "19A 647.63",
+        "status": "FINISH",
+        "finishTime": "07:40:03.7",
+        "rawFinishTime": "07:40:03.7",
+        "runMinutes": 60.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 78
       },
       {
         "stt": 38,
@@ -45809,7 +46031,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hà Tiến Mạnh",
         "driverPhone": "0332 870 111",
-        "plate": "19A 647.63"
+        "plate": "19A 647.63",
+        "status": "FINISH",
+        "finishTime": "07:20:48.7",
+        "rawFinishTime": "07:20:48.7",
+        "runMinutes": 40.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 12
       },
       {
         "stt": 39,
@@ -45835,7 +46063,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hà Văn Thành",
         "driverPhone": "0973 493 099",
-        "plate": "29A 926.18"
+        "plate": "29A 926.18",
+        "status": "FINISH",
+        "finishTime": "07:22:13.6",
+        "rawFinishTime": "07:22:13.6",
+        "runMinutes": 46.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 30
       },
       {
         "stt": 40,
@@ -45861,7 +46095,13 @@
         "captainUnit": "Ban Điều hành Siêu thị Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:31:13.2",
+        "rawFinishTime": "07:31:13.2",
+        "runMinutes": 51.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 41
       },
       {
         "stt": 41,
@@ -45887,7 +46127,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hà Văn Thành",
         "driverPhone": "0973 493 099",
-        "plate": "29A 926.18"
+        "plate": "29A 926.18",
+        "status": "FINISH",
+        "finishTime": "07:27:34.1",
+        "rawFinishTime": "07:27:34.1",
+        "runMinutes": 51.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 50
       },
       {
         "stt": 42,
@@ -45913,7 +46159,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hà Văn Thành",
         "driverPhone": "0973 493 099",
-        "plate": "29A 926.18"
+        "plate": "29A 926.18",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 43,
@@ -45939,7 +46191,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hà Văn Thành",
         "driverPhone": "0973 493 099",
-        "plate": "29A 926.18"
+        "plate": "29A 926.18",
+        "status": "FINISH",
+        "finishTime": "07:24:20.6",
+        "rawFinishTime": "07:24:20.6",
+        "runMinutes": 44.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 19
       },
       {
         "stt": 44,
@@ -45965,7 +46223,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hà Văn Thành",
         "driverPhone": "0973 493 099",
-        "plate": "29A 926.18"
+        "plate": "29A 926.18",
+        "status": "FINISH",
+        "finishTime": "07:38:31.1",
+        "rawFinishTime": "07:38:31.1",
+        "runMinutes": 58.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 66
       },
       {
         "stt": 45,
@@ -45991,7 +46255,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Xuân Khánh",
         "driverPhone": "0396 633 058",
-        "plate": "30L 337.90"
+        "plate": "30L 337.90",
+        "status": "FINISH",
+        "finishTime": "07:27:54.0",
+        "rawFinishTime": "07:27:54.0",
+        "runMinutes": 47.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 29
       },
       {
         "stt": 46,
@@ -46017,7 +46287,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Xuân Khánh",
         "driverPhone": "0396 633 058",
-        "plate": "30L 337.90"
+        "plate": "30L 337.90",
+        "status": "FINISH",
+        "finishTime": "07:36:19.3",
+        "rawFinishTime": "07:36:19.3",
+        "runMinutes": 60.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 50
       },
       {
         "stt": 47,
@@ -46043,7 +46319,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Xuân Khánh",
         "driverPhone": "0396 633 058",
-        "plate": "30L 337.90"
+        "plate": "30L 337.90",
+        "status": "FINISH",
+        "finishTime": "07:34:29.2",
+        "rawFinishTime": "07:34:29.2",
+        "runMinutes": 54.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 53
       },
       {
         "stt": 48,
@@ -46069,7 +46351,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Xuân Khánh",
         "driverPhone": "0396 633 058",
-        "plate": "30L 337.90"
+        "plate": "30L 337.90",
+        "status": "FINISH",
+        "finishTime": "07:05:20.7",
+        "rawFinishTime": "07:05:20.7",
+        "runMinutes": 29.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 4
       },
       {
         "stt": 49,
@@ -46095,7 +46383,13 @@
         "captainUnit": "Ban Điều hành Siêu thị Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:20:07.3",
+        "rawFinishTime": "07:20:07.3",
+        "runMinutes": 40.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 8
       },
       {
         "stt": 50,
@@ -46121,7 +46415,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Xuân Khánh",
         "driverPhone": "0396 633 058",
-        "plate": "30L 337.90"
+        "plate": "30L 337.90",
+        "status": "FINISH",
+        "finishTime": "07:34:13.6",
+        "rawFinishTime": "07:34:13.6",
+        "runMinutes": 54.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 49
       },
       {
         "stt": 51,
@@ -46147,7 +46447,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Lại Trung Việt",
         "driverPhone": "0983 638 327",
-        "plate": "90A 229.87"
+        "plate": "90A 229.87",
+        "status": "FINISH",
+        "finishTime": "07:33:55.5",
+        "rawFinishTime": "07:33:55.5",
+        "runMinutes": 57.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 47
       },
       {
         "stt": 52,
@@ -46173,7 +46479,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Lại Trung Việt",
         "driverPhone": "0983 638 327",
-        "plate": "90A 229.87"
+        "plate": "90A 229.87",
+        "status": "FINISH",
+        "finishTime": "07:33:53.9",
+        "rawFinishTime": "07:33:53.9",
+        "runMinutes": 57.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 48
       },
       {
         "stt": 53,
@@ -46199,7 +46511,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Lại Trung Việt",
         "driverPhone": "0983 638 327",
-        "plate": "90A 229.87"
+        "plate": "90A 229.87",
+        "status": "FINISH",
+        "finishTime": "07:30:01.7",
+        "rawFinishTime": "07:30:01.7",
+        "runMinutes": 54,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 54
       },
       {
         "stt": 54,
@@ -46225,7 +46543,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Lại Trung Việt",
         "driverPhone": "0983 638 327",
-        "plate": "90A 229.87"
+        "plate": "90A 229.87",
+        "status": "FINISH",
+        "finishTime": "07:20:42.6",
+        "rawFinishTime": "07:20:42.6",
+        "runMinutes": 40.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 11
       },
       {
         "stt": 55,
@@ -46251,7 +46575,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Lại Trung Việt",
         "driverPhone": "0983 638 327",
-        "plate": "90A 229.87"
+        "plate": "90A 229.87",
+        "status": "FINISH",
+        "finishTime": "07:13:01.2",
+        "rawFinishTime": "07:13:01.2",
+        "runMinutes": 37,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 12
       },
       {
         "stt": 56,
@@ -46277,7 +46607,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Phạm Ngọc Hưng",
         "driverPhone": "0987 888 394",
-        "plate": "36A 991.46"
+        "plate": "36A 991.46",
+        "status": "FINISH",
+        "finishTime": "07:32:44.7",
+        "rawFinishTime": "07:32:44.7",
+        "runMinutes": 52.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 44
       },
       {
         "stt": 57,
@@ -46303,7 +46639,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Phạm Ngọc Hưng",
         "driverPhone": "0987 888 394",
-        "plate": "36A 991.46"
+        "plate": "36A 991.46",
+        "status": "FINISH",
+        "finishTime": "07:20:03.1",
+        "rawFinishTime": "07:20:03.1",
+        "runMinutes": 40.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 9
       },
       {
         "stt": 58,
@@ -46329,7 +46671,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Phạm Ngọc Hưng",
         "driverPhone": "0987 888 394",
-        "plate": "36A 991.46"
+        "plate": "36A 991.46",
+        "status": "FINISH",
+        "finishTime": "07:09:29.3",
+        "rawFinishTime": "07:09:29.3",
+        "runMinutes": 33.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 10
       },
       {
         "stt": 59,
@@ -46355,7 +46703,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Phạm Ngọc Hưng",
         "driverPhone": "0987 888 394",
-        "plate": "36A 991.46"
+        "plate": "36A 991.46",
+        "status": "FINISH",
+        "finishTime": "07:30:46.3",
+        "rawFinishTime": "07:30:46.3",
+        "runMinutes": 50.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 35
       },
       {
         "stt": 60,
@@ -46381,7 +46735,13 @@
         "captainUnit": "Ban Điều hành Siêu thị Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:26:46.8",
+        "rawFinishTime": "07:26:46.8",
+        "runMinutes": 46.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 22
       },
       {
         "stt": 61,
@@ -46407,7 +46767,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Phạm Ngọc Hưng",
         "driverPhone": "0987 888 394",
-        "plate": "36A 991.46"
+        "plate": "36A 991.46",
+        "status": "FINISH",
+        "finishTime": "07:37:48.3",
+        "rawFinishTime": "07:37:48.3",
+        "runMinutes": 61.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 68
       },
       {
         "stt": 62,
@@ -46433,7 +46799,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Trương Nhật Minh",
         "driverPhone": "0938 090 413",
-        "plate": "24A 280.49"
+        "plate": "24A 280.49",
+        "status": "FINISH",
+        "finishTime": "07:12:57.2",
+        "rawFinishTime": "07:12:57.2",
+        "runMinutes": 37,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 13
       },
       {
         "stt": 63,
@@ -46459,7 +46831,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Trương Nhật Minh",
         "driverPhone": "0938 090 413",
-        "plate": "24A 280.49"
+        "plate": "24A 280.49",
+        "status": "FINISH",
+        "finishTime": "07:30:50.4",
+        "rawFinishTime": "07:30:50.4",
+        "runMinutes": 50.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 36
       },
       {
         "stt": 64,
@@ -46485,7 +46863,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Trương Nhật Minh",
         "driverPhone": "0938 090 413",
-        "plate": "24A 280.49"
+        "plate": "24A 280.49",
+        "status": "FINISH",
+        "finishTime": "07:23:19.3",
+        "rawFinishTime": "07:23:19.3",
+        "runMinutes": 43.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 23
       },
       {
         "stt": 65,
@@ -46511,7 +46895,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Trương Nhật Minh",
         "driverPhone": "0938 090 413",
-        "plate": "24A 280.49"
+        "plate": "24A 280.49",
+        "status": "FINISH",
+        "finishTime": "07:10:37.6",
+        "rawFinishTime": "07:10:37.6",
+        "runMinutes": 30.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 1
       },
       {
         "stt": 66,
@@ -46537,7 +46927,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Trương Nhật Minh",
         "driverPhone": "0938 090 413",
-        "plate": "24A 280.49"
+        "plate": "24A 280.49",
+        "status": "FINISH",
+        "finishTime": "07:14:45.7",
+        "rawFinishTime": "07:14:45.7",
+        "runMinutes": 34.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 3
       },
       {
         "stt": 67,
@@ -46563,7 +46959,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hoàng Vân",
         "driverPhone": "0912 362 343",
-        "plate": "73A-048.52"
+        "plate": "73A-048.52",
+        "status": "FINISH",
+        "finishTime": "07:16:07.7",
+        "rawFinishTime": "07:16:07.7",
+        "runMinutes": 36.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 5
       },
       {
         "stt": 68,
@@ -46589,7 +46991,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hoàng Vân",
         "driverPhone": "0912 362 343",
-        "plate": "73A-048.52"
+        "plate": "73A-048.52",
+        "status": "FINISH",
+        "finishTime": "07:08:42.3",
+        "rawFinishTime": "07:08:42.3",
+        "runMinutes": 32.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 3
       },
       {
         "stt": 69,
@@ -46615,7 +47023,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hoàng Vân",
         "driverPhone": "0912 362 343",
-        "plate": "73A-048.52"
+        "plate": "73A-048.52",
+        "status": "FINISH",
+        "finishTime": "07:34:16.8",
+        "rawFinishTime": "07:34:16.8",
+        "runMinutes": 54.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 50
       },
       {
         "stt": 70,
@@ -46641,7 +47055,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hoàng Vân",
         "driverPhone": "0912 362 343",
-        "plate": "73A-048.52"
+        "plate": "73A-048.52",
+        "status": "FINISH",
+        "finishTime": "07:18:04.8",
+        "rawFinishTime": "07:18:04.8",
+        "runMinutes": 42.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 29
       },
       {
         "stt": 71,
@@ -46667,7 +47087,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hoàng Vân",
         "driverPhone": "0912 362 343",
-        "plate": "73A-048.52"
+        "plate": "73A-048.52",
+        "status": "FINISH",
+        "finishTime": "07:35:49.1",
+        "rawFinishTime": "07:35:49.1",
+        "runMinutes": 59.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 63
       },
       {
         "stt": 72,
@@ -46693,7 +47119,13 @@
         "captainUnit": "Văn Phòng Tập Đoàn Mường Thanh",
         "driverName": "Trần Xuân Hoàng",
         "driverPhone": "0847 897 474",
-        "plate": "74A-258.46"
+        "plate": "74A-258.46",
+        "status": "FINISH",
+        "finishTime": "07:26:05.5",
+        "rawFinishTime": "07:26:05.5",
+        "runMinutes": 46.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 28
       },
       {
         "stt": 73,
@@ -46719,7 +47151,13 @@
         "captainUnit": "Văn Phòng Tập Đoàn Mường Thanh",
         "driverName": "Trần Xuân Hoàng",
         "driverPhone": "0847 897 474",
-        "plate": "74A-258.46"
+        "plate": "74A-258.46",
+        "status": "FINISH",
+        "finishTime": "07:28:57.2",
+        "rawFinishTime": "07:28:57.2",
+        "runMinutes": 49,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 32
       },
       {
         "stt": 74,
@@ -46745,7 +47183,13 @@
         "captainUnit": "Ban Điều hành Siêu thị Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:16:20.9",
+        "rawFinishTime": "07:16:20.9",
+        "runMinutes": 36.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 5
       },
       {
         "stt": 75,
@@ -46771,7 +47215,13 @@
         "captainUnit": "Văn Phòng Tập Đoàn Mường Thanh",
         "driverName": "Trần Xuân Hoàng",
         "driverPhone": "0847 897 474",
-        "plate": "74A-258.46"
+        "plate": "74A-258.46",
+        "status": "FINISH",
+        "finishTime": "07:23:44.6",
+        "rawFinishTime": "07:23:44.6",
+        "runMinutes": 47.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 37
       },
       {
         "stt": 76,
@@ -46797,7 +47247,13 @@
         "captainUnit": "Văn Phòng Tập Đoàn Mường Thanh",
         "driverName": "Trần Xuân Hoàng",
         "driverPhone": "0847 897 474",
-        "plate": "74A-258.46"
+        "plate": "74A-258.46",
+        "status": "FINISH",
+        "finishTime": "07:30:55.3",
+        "rawFinishTime": "07:30:55.3",
+        "runMinutes": 50.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 37
       },
       {
         "stt": 77,
@@ -46823,7 +47279,13 @@
         "captainUnit": "Văn Phòng Tập Đoàn Mường Thanh",
         "driverName": "Trần Xuân Hoàng",
         "driverPhone": "0847 897 474",
-        "plate": "74A-258.46"
+        "plate": "74A-258.46",
+        "status": "FINISH",
+        "finishTime": "07:25:23.2",
+        "rawFinishTime": "07:25:23.2",
+        "runMinutes": 45.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 26
       },
       {
         "stt": 78,
@@ -46849,7 +47311,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trọng Vinh",
         "driverPhone": "0387 934 944",
-        "plate": "37K-228.43"
+        "plate": "37K-228.43",
+        "status": "FINISH",
+        "finishTime": "07:37:46.3",
+        "rawFinishTime": "07:37:46.3",
+        "runMinutes": 61.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 51
       },
       {
         "stt": 79,
@@ -46875,7 +47343,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trọng Vinh",
         "driverPhone": "0387 934 944",
-        "plate": "37K-228.43"
+        "plate": "37K-228.43",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 80,
@@ -46901,7 +47375,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trọng Vinh",
         "driverPhone": "0387 934 944",
-        "plate": "37K-228.43"
+        "plate": "37K-228.43",
+        "status": "FINISH",
+        "finishTime": "07:16:35.0",
+        "rawFinishTime": "07:16:35.0",
+        "runMinutes": 36.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 7
       },
       {
         "stt": 81,
@@ -46927,7 +47407,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trọng Vinh",
         "driverPhone": "0387 934 944",
-        "plate": "37K-228.43"
+        "plate": "37K-228.43",
+        "status": "FINISH",
+        "finishTime": "07:33:50.5",
+        "rawFinishTime": "07:33:50.5",
+        "runMinutes": 53.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 47
       },
       {
         "stt": 82,
@@ -46953,7 +47439,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trọng Vinh",
         "driverPhone": "0387 934 944",
-        "plate": "37K-228.43"
+        "plate": "37K-228.43",
+        "status": "FINISH",
+        "finishTime": "07:08:14.8",
+        "rawFinishTime": "07:08:14.8",
+        "runMinutes": 32.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 6
       },
       {
         "stt": 83,
@@ -46979,7 +47471,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Văn Bình",
         "driverPhone": "0948 922 344",
-        "plate": "75A-334.40"
+        "plate": "75A-334.40",
+        "status": "FINISH",
+        "finishTime": "07:36:31.9",
+        "rawFinishTime": "07:36:31.9",
+        "runMinutes": 56.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 61
       },
       {
         "stt": 84,
@@ -47005,7 +47503,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Văn Bình",
         "driverPhone": "0948 922 344",
-        "plate": "75A-334.40"
+        "plate": "75A-334.40",
+        "status": "FINISH",
+        "finishTime": "07:14:33.9",
+        "rawFinishTime": "07:14:33.9",
+        "runMinutes": 34.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 2
       },
       {
         "stt": 85,
@@ -47031,7 +47535,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Văn Bình",
         "driverPhone": "0948 922 344",
-        "plate": "75A-334.40"
+        "plate": "75A-334.40",
+        "status": "FINISH",
+        "finishTime": "07:25:25.2",
+        "rawFinishTime": "07:25:25.2",
+        "runMinutes": 45.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 27
       },
       {
         "stt": 86,
@@ -47057,7 +47567,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Văn Bình",
         "driverPhone": "0948 922 344",
-        "plate": "75A-334.40"
+        "plate": "75A-334.40",
+        "status": "FINISH",
+        "finishTime": "07:30:36.5",
+        "rawFinishTime": "07:30:36.5",
+        "runMinutes": 54.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 44
       },
       {
         "stt": 87,
@@ -47083,7 +47599,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Văn Bình",
         "driverPhone": "0948 922 344",
-        "plate": "75A-334.40"
+        "plate": "75A-334.40",
+        "status": "FINISH",
+        "finishTime": "07:56:25.8",
+        "rawFinishTime": "07:56:25.8",
+        "runMinutes": 76.4,
+        "cutoffStatus": "QUÁ CUT-OFF",
+        "rankCat": 95
       },
       {
         "stt": 88,
@@ -47109,7 +47631,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hoàng Hữu Dũng",
         "driverPhone": "0979 628 818",
-        "plate": "37K-336.27"
+        "plate": "37K-336.27",
+        "status": "FINISH",
+        "finishTime": "07:55:16.5",
+        "rawFinishTime": "07:55:16.5",
+        "runMinutes": 75.3,
+        "cutoffStatus": "QUÁ CUT-OFF",
+        "rankCat": 92
       },
       {
         "stt": 89,
@@ -47135,7 +47663,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hoàng Hữu Dũng",
         "driverPhone": "0979 628 818",
-        "plate": "37K-336.27"
+        "plate": "37K-336.27",
+        "status": "FINISH",
+        "finishTime": "07:13:49.1",
+        "rawFinishTime": "07:13:49.1",
+        "runMinutes": 37.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 20
       },
       {
         "stt": 90,
@@ -47161,7 +47695,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hoàng Hữu Dũng",
         "driverPhone": "0979 628 818",
-        "plate": "37K-336.27"
+        "plate": "37K-336.27",
+        "status": "FINISH",
+        "finishTime": "07:10:04.8",
+        "rawFinishTime": "07:10:04.8",
+        "runMinutes": 30.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 1
       },
       {
         "stt": 91,
@@ -47187,7 +47727,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hoàng Hữu Dũng",
         "driverPhone": "0979 628 818",
-        "plate": "37K-336.27"
+        "plate": "37K-336.27",
+        "status": "FINISH",
+        "finishTime": "07:22:25.2",
+        "rawFinishTime": "07:22:25.2",
+        "runMinutes": 46.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 35
       },
       {
         "stt": 92,
@@ -47213,7 +47759,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hoàng Hữu Dũng",
         "driverPhone": "0979 628 818",
-        "plate": "37K-336.27"
+        "plate": "37K-336.27",
+        "status": "FINISH",
+        "finishTime": "07:17:14.2",
+        "rawFinishTime": "07:17:14.2",
+        "runMinutes": 41.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 28
       },
       {
         "stt": 93,
@@ -47239,7 +47791,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:34:19.8",
+        "rawFinishTime": "07:34:19.8",
+        "runMinutes": 54.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 51
       },
       {
         "stt": 94,
@@ -47265,7 +47823,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 95,
@@ -47291,7 +47855,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:31:54.3",
+        "rawFinishTime": "07:31:54.3",
+        "runMinutes": 55.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 46
       },
       {
         "stt": 96,
@@ -47317,7 +47887,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 97,
@@ -47343,7 +47919,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:13:32.3",
+        "rawFinishTime": "07:13:32.3",
+        "runMinutes": 33.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 2
       },
       {
         "stt": 98,
@@ -47369,7 +47951,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:34:23.3",
+        "rawFinishTime": "07:34:23.3",
+        "runMinutes": 54.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 51
       },
       {
         "stt": 99,
@@ -47395,7 +47983,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:22:19.3",
+        "rawFinishTime": "07:22:19.3",
+        "runMinutes": 42.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 14
       },
       {
         "stt": 100,
@@ -47421,7 +48015,13 @@
         "captainUnit": "Ban Điều hành Siêu thị Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:27:10.4",
+        "rawFinishTime": "07:27:10.4",
+        "runMinutes": 47.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 25
       },
       {
         "stt": 101,
@@ -47447,7 +48047,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:11:10.8",
+        "rawFinishTime": "07:11:10.8",
+        "runMinutes": 35.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 9
       },
       {
         "stt": 102,
@@ -47473,7 +48079,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:56:58.3",
+        "rawFinishTime": "07:56:58.3",
+        "runMinutes": 81,
+        "cutoffStatus": "QUÁ CUT-OFF",
+        "rankCat": 62
       },
       {
         "stt": 103,
@@ -47499,7 +48111,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:56:28.5",
+        "rawFinishTime": "07:56:28.5",
+        "runMinutes": 76.5,
+        "cutoffStatus": "QUÁ CUT-OFF",
+        "rankCat": 96
       },
       {
         "stt": 104,
@@ -47525,7 +48143,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:28:06.1",
+        "rawFinishTime": "07:28:06.1",
+        "runMinutes": 48.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 30
       },
       {
         "stt": 105,
@@ -47551,7 +48175,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:36:24.9",
+        "rawFinishTime": "07:36:24.9",
+        "runMinutes": 56.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 59
       },
       {
         "stt": 106,
@@ -47577,7 +48207,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:32:43.0",
+        "rawFinishTime": "07:32:43.0",
+        "runMinutes": 52.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 45
       },
       {
         "stt": 107,
@@ -47603,7 +48239,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 108,
@@ -47629,7 +48271,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:35:36.4",
+        "rawFinishTime": "07:35:36.4",
+        "runMinutes": 55.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 55
       },
       {
         "stt": 109,
@@ -47655,7 +48303,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 110,
@@ -47681,7 +48335,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:22:10.5",
+        "rawFinishTime": "07:22:10.5",
+        "runMinutes": 42.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 16
       },
       {
         "stt": 111,
@@ -47707,7 +48367,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:53:09.3",
+        "rawFinishTime": "07:53:09.3",
+        "runMinutes": 73.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 75
       },
       {
         "stt": 112,
@@ -47733,7 +48399,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:14:15.3",
+        "rawFinishTime": "07:14:15.3",
+        "runMinutes": 38.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 24
       },
       {
         "stt": 113,
@@ -47759,7 +48431,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:18:25.4",
+        "rawFinishTime": "07:18:25.4",
+        "runMinutes": 42.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 17
       },
       {
         "stt": 114,
@@ -47785,7 +48463,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:25:16.7",
+        "rawFinishTime": "07:25:16.7",
+        "runMinutes": 45.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 20
       },
       {
         "stt": 115,
@@ -47811,7 +48495,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:53:52.9",
+        "rawFinishTime": "07:53:52.9",
+        "runMinutes": 73.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 79
       },
       {
         "stt": 116,
@@ -47837,7 +48527,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:30:05.6",
+        "rawFinishTime": "07:30:05.6",
+        "runMinutes": 54.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 40
       },
       {
         "stt": 117,
@@ -47863,7 +48559,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:56:53.0",
+        "rawFinishTime": "07:56:53.0",
+        "runMinutes": 76.9,
+        "cutoffStatus": "QUÁ CUT-OFF",
+        "rankCat": 83
       },
       {
         "stt": 118,
@@ -47889,7 +48591,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 119,
@@ -47915,7 +48623,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:09:08.7",
+        "rawFinishTime": "07:09:08.7",
+        "runMinutes": 33.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 8
       },
       {
         "stt": 120,
@@ -47941,7 +48655,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:24:15.8",
+        "rawFinishTime": "07:24:15.8",
+        "runMinutes": 48.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 40
       },
       {
         "stt": 121,
@@ -47967,7 +48687,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:13:15.7",
+        "rawFinishTime": "07:13:15.7",
+        "runMinutes": 37.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 14
       },
       {
         "stt": 122,
@@ -47993,7 +48719,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 123,
@@ -48019,7 +48751,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:45:04.4",
+        "rawFinishTime": "07:45:04.4",
+        "runMinutes": 69.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 74
       },
       {
         "stt": 124,
@@ -48045,7 +48783,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:27:05.9",
+        "rawFinishTime": "07:27:05.9",
+        "runMinutes": 47.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 32
       },
       {
         "stt": 125,
@@ -48071,7 +48815,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:38:11.5",
+        "rawFinishTime": "07:38:11.5",
+        "runMinutes": 62.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 52
       },
       {
         "stt": 126,
@@ -48097,7 +48847,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 127,
@@ -48123,7 +48879,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:20:55.7",
+        "rawFinishTime": "07:20:55.7",
+        "runMinutes": 44.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 25
       },
       {
         "stt": 128,
@@ -48149,7 +48911,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:37:05.9",
+        "rawFinishTime": "07:37:05.9",
+        "runMinutes": 57.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 65
       },
       {
         "stt": 129,
@@ -48175,7 +48943,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:23:53.0",
+        "rawFinishTime": "07:23:53.0",
+        "runMinutes": 47.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 32
       },
       {
         "stt": 130,
@@ -48201,7 +48975,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:10:17.2",
+        "rawFinishTime": "07:10:17.2",
+        "runMinutes": 34.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 14
       },
       {
         "stt": 131,
@@ -48227,7 +49007,13 @@
         "captainUnit": "Ban Điều hành Siêu thị Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:27:14.5",
+        "rawFinishTime": "07:27:14.5",
+        "runMinutes": 47.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 26
       },
       {
         "stt": 132,
@@ -48253,7 +49039,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:13:20.6",
+        "rawFinishTime": "07:13:20.6",
+        "runMinutes": 37.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 15
       },
       {
         "stt": 133,
@@ -48279,7 +49071,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 134,
@@ -48305,7 +49103,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 135,
@@ -48331,7 +49135,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:22:16.4",
+        "rawFinishTime": "07:22:16.4",
+        "runMinutes": 42.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 17
       },
       {
         "stt": 136,
@@ -48357,7 +49167,13 @@
         "captainUnit": "Ban Điều hành Siêu thị Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:31:21.9",
+        "rawFinishTime": "07:31:21.9",
+        "runMinutes": 51.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 45
       },
       {
         "stt": 137,
@@ -48383,7 +49199,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:19:09.0",
+        "rawFinishTime": "07:19:09.0",
+        "runMinutes": 39.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 9
       },
       {
         "stt": 138,
@@ -48409,7 +49231,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:30:22.9",
+        "rawFinishTime": "07:30:22.9",
+        "runMinutes": 50.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 38
       },
       {
         "stt": 139,
@@ -48435,7 +49263,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:56:55.7",
+        "rawFinishTime": "07:56:55.7",
+        "runMinutes": 76.9,
+        "cutoffStatus": "QUÁ CUT-OFF",
+        "rankCat": 84
       },
       {
         "stt": 140,
@@ -48461,7 +49295,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:45:01.6",
+        "rawFinishTime": "07:45:01.6",
+        "runMinutes": 65,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 82
       },
       {
         "stt": 141,
@@ -48487,7 +49327,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 142,
@@ -48513,7 +49359,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:35:52.5",
+        "rawFinishTime": "07:35:52.5",
+        "runMinutes": 55.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 58
       },
       {
         "stt": 143,
@@ -48539,7 +49391,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:38:08.8",
+        "rawFinishTime": "07:38:08.8",
+        "runMinutes": 62.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 69
       },
       {
         "stt": 144,
@@ -48565,7 +49423,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:18:59.1",
+        "rawFinishTime": "07:18:59.1",
+        "runMinutes": 43,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 18
       },
       {
         "stt": 145,
@@ -48591,7 +49455,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:44:38.8",
+        "rawFinishTime": "07:44:38.8",
+        "runMinutes": 64.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 56
       },
       {
         "stt": 146,
@@ -48617,7 +49487,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:53:48.9",
+        "rawFinishTime": "07:53:48.9",
+        "runMinutes": 73.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 78
       },
       {
         "stt": 147,
@@ -48643,7 +49519,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:13:59.6",
+        "rawFinishTime": "07:13:59.6",
+        "runMinutes": 34,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 3
       },
       {
         "stt": 148,
@@ -48669,7 +49551,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:30:57.2",
+        "rawFinishTime": "07:30:57.2",
+        "runMinutes": 51,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 38
       },
       {
         "stt": 149,
@@ -48695,7 +49583,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:36:27.5",
+        "rawFinishTime": "07:36:27.5",
+        "runMinutes": 56.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 62
       },
       {
         "stt": 150,
@@ -48721,7 +49615,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:21:49.6",
+        "rawFinishTime": "07:21:49.6",
+        "runMinutes": 41.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 15
       },
       {
         "stt": 151,
@@ -48747,7 +49647,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:44:57.8",
+        "rawFinishTime": "07:44:57.8",
+        "runMinutes": 65,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 83
       },
       {
         "stt": 152,
@@ -48773,7 +49679,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:21:19.6",
+        "rawFinishTime": "07:21:19.6",
+        "runMinutes": 41.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 13
       },
       {
         "stt": 153,
@@ -48799,7 +49711,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 154,
@@ -48825,7 +49743,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:20:09.5",
+        "rawFinishTime": "07:20:09.5",
+        "runMinutes": 40.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 13
       },
       {
         "stt": 155,
@@ -48851,7 +49775,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:34:25.3",
+        "rawFinishTime": "07:34:25.3",
+        "runMinutes": 54.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 52
       },
       {
         "stt": 156,
@@ -48877,7 +49807,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:28:52.8",
+        "rawFinishTime": "07:28:52.8",
+        "runMinutes": 48.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 36
       },
       {
         "stt": 157,
@@ -48903,7 +49839,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:26:25.9",
+        "rawFinishTime": "07:26:25.9",
+        "runMinutes": 46.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 21
       },
       {
         "stt": 158,
@@ -48929,7 +49871,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:20:11.9",
+        "rawFinishTime": "07:20:11.9",
+        "runMinutes": 40.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 14
       },
       {
         "stt": 159,
@@ -48955,7 +49903,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:40:30.3",
+        "rawFinishTime": "07:40:30.3",
+        "runMinutes": 60.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 79
       },
       {
         "stt": 160,
@@ -48981,7 +49935,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:44:36.9",
+        "rawFinishTime": "07:44:36.9",
+        "runMinutes": 64.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 57
       },
       {
         "stt": 161,
@@ -49007,7 +49967,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:46:47.5",
+        "rawFinishTime": "07:46:47.5",
+        "runMinutes": 66.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 67
       },
       {
         "stt": 162,
@@ -49033,7 +49999,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:40:38.4",
+        "rawFinishTime": "07:40:38.4",
+        "runMinutes": 60.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 80
       },
       {
         "stt": 163,
@@ -49059,7 +50031,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:23:42.4",
+        "rawFinishTime": "07:23:42.4",
+        "runMinutes": 47.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 31
       },
       {
         "stt": 164,
@@ -49085,7 +50063,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 165,
@@ -49111,7 +50095,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:30:25.6",
+        "rawFinishTime": "07:30:25.6",
+        "runMinutes": 50.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 39
       },
       {
         "stt": 166,
@@ -49137,7 +50127,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:39:27.7",
+        "rawFinishTime": "07:39:27.7",
+        "runMinutes": 59.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 71
       },
       {
         "stt": 167,
@@ -49163,7 +50159,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 168,
@@ -49189,7 +50191,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:31:02.1",
+        "rawFinishTime": "07:31:02.1",
+        "runMinutes": 51,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 39
       },
       {
         "stt": 169,
@@ -49215,7 +50223,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 170,
@@ -49241,7 +50255,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:45:30.0",
+        "rawFinishTime": "07:45:30.0",
+        "runMinutes": 69.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 56
       },
       {
         "stt": 171,
@@ -49267,7 +50287,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:17:20.7",
+        "rawFinishTime": "07:17:20.7",
+        "runMinutes": 37.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 8
       },
       {
         "stt": 172,
@@ -49293,7 +50319,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:32:37.5",
+        "rawFinishTime": "07:32:37.5",
+        "runMinutes": 56.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 59
       },
       {
         "stt": 173,
@@ -49319,7 +50351,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:45:32.6",
+        "rawFinishTime": "07:45:32.6",
+        "runMinutes": 69.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 57
       },
       {
         "stt": 174,
@@ -49345,7 +50383,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:33:12.5",
+        "rawFinishTime": "07:33:12.5",
+        "runMinutes": 53.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 46
       },
       {
         "stt": 175,
@@ -49371,7 +50415,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:25:03.9",
+        "rawFinishTime": "07:25:03.9",
+        "runMinutes": 45.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 25
       },
       {
         "stt": 176,
@@ -49397,7 +50447,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:33:10.6",
+        "rawFinishTime": "07:33:10.6",
+        "runMinutes": 53.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 48
       },
       {
         "stt": 177,
@@ -49423,7 +50479,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:20:17.3",
+        "rawFinishTime": "07:20:17.3",
+        "runMinutes": 44.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 21
       },
       {
         "stt": 178,
@@ -49449,7 +50511,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 179,
@@ -49475,7 +50543,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:23:15.0",
+        "rawFinishTime": "07:23:15.0",
+        "runMinutes": 43.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 16
       },
       {
         "stt": 180,
@@ -49501,7 +50575,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:39:25.9",
+        "rawFinishTime": "07:39:25.9",
+        "runMinutes": 59.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 70
       },
       {
         "stt": 181,
@@ -49527,7 +50607,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:10:41.1",
+        "rawFinishTime": "07:10:41.1",
+        "runMinutes": 34.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 6
       },
       {
         "stt": 182,
@@ -49553,7 +50639,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:53:11.8",
+        "rawFinishTime": "07:53:11.8",
+        "runMinutes": 73.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 76
       },
       {
         "stt": 183,
@@ -49579,7 +50671,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:45:27.7",
+        "rawFinishTime": "07:45:27.7",
+        "runMinutes": 69.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 58
       },
       {
         "stt": 184,
@@ -49605,7 +50703,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:39:22.9",
+        "rawFinishTime": "07:39:22.9",
+        "runMinutes": 63.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 71
       },
       {
         "stt": 185,
@@ -49631,7 +50735,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:39:47.2",
+        "rawFinishTime": "07:39:47.2",
+        "runMinutes": 63.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 72
       },
       {
         "stt": 186,
@@ -49657,7 +50767,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:39:32.3",
+        "rawFinishTime": "07:39:32.3",
+        "runMinutes": 63.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 54
       },
       {
         "stt": 187,
@@ -49683,7 +50799,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 188,
@@ -49709,7 +50831,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:28:13.4",
+        "rawFinishTime": "07:28:13.4",
+        "runMinutes": 52.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 37
       },
       {
         "stt": 189,
@@ -49735,7 +50863,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:36:22.0",
+        "rawFinishTime": "07:36:22.0",
+        "runMinutes": 56.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 60
       },
       {
         "stt": 190,
@@ -49761,7 +50895,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 191,
@@ -49787,7 +50927,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:26:27.9",
+        "rawFinishTime": "07:26:27.9",
+        "runMinutes": 50.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 44
       },
       {
         "stt": 192,
@@ -49813,7 +50959,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:26:19.1",
+        "rawFinishTime": "07:26:19.1",
+        "runMinutes": 46.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 29
       },
       {
         "stt": 193,
@@ -49839,7 +50991,13 @@
         "captainUnit": "Công ty CP Phát triển Địa ốc Cienco5",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 194,
@@ -49865,7 +51023,13 @@
         "captainUnit": "Ban Operation",
         "driverName": "Trần Văn Tuân",
         "driverPhone": "0869 535 169",
-        "plate": "14A-89663"
+        "plate": "14A-89663",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 195,
@@ -49891,7 +51055,13 @@
         "captainUnit": "Công ty CP Phát triển Địa ốc Cienco5",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:23:32.4",
+        "rawFinishTime": "07:23:32.4",
+        "runMinutes": 43.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 17
       },
       {
         "stt": 196,
@@ -49917,7 +51087,13 @@
         "captainUnit": "Công ty CP Phát triển Địa ốc Cienco5",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:16:17.3",
+        "rawFinishTime": "07:16:17.3",
+        "runMinutes": 36.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 6
       },
       {
         "stt": 197,
@@ -49943,7 +51119,13 @@
         "captainUnit": "Công ty CP Phát triển Địa ốc Cienco5",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:23:34.3",
+        "rawFinishTime": "07:23:34.3",
+        "runMinutes": 43.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 18
       },
       {
         "stt": 198,
@@ -49969,7 +51151,13 @@
         "captainUnit": "Công ty CP Phát triển Địa ốc Cienco5",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:46:01.2",
+        "rawFinishTime": "07:46:01.2",
+        "runMinutes": 66,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 85
       },
       {
         "stt": 199,
@@ -49995,7 +51183,13 @@
         "captainUnit": "Công ty CP Phát triển Địa ốc Cienco5",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:21:37.8",
+        "rawFinishTime": "07:21:37.8",
+        "runMinutes": 45.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 32
       },
       {
         "stt": 200,
@@ -50021,7 +51215,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:26:59.6",
+        "rawFinishTime": "07:26:59.6",
+        "runMinutes": 47,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 31
       },
       {
         "stt": 201,
@@ -50047,7 +51247,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:30:11.4",
+        "rawFinishTime": "07:30:11.4",
+        "runMinutes": 54.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 42
       },
       {
         "stt": 202,
@@ -50073,7 +51279,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:22:45.0",
+        "rawFinishTime": "07:22:45.0",
+        "runMinutes": 42.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 19
       },
       {
         "stt": 203,
@@ -50099,7 +51311,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:30:08.2",
+        "rawFinishTime": "07:30:08.2",
+        "runMinutes": 54.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 41
       },
       {
         "stt": 204,
@@ -50125,7 +51343,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 205,
@@ -50151,7 +51375,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 206,
@@ -50177,7 +51407,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 207,
@@ -50203,7 +51439,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:46:52.9",
+        "rawFinishTime": "07:46:52.9",
+        "runMinutes": 70.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 61
       },
       {
         "stt": 208,
@@ -50229,7 +51471,13 @@
         "captainUnit": "Công ty CP Phát triển Địa ốc Cienco5",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:21:30.8",
+        "rawFinishTime": "07:21:30.8",
+        "runMinutes": 45.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 26
       },
       {
         "stt": 209,
@@ -50255,7 +51503,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "06:57:52.8",
+        "rawFinishTime": "06:57:52.8",
+        "runMinutes": 21.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 1
       },
       {
         "stt": 210,
@@ -50281,7 +51535,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 211,
@@ -50307,7 +51567,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 212,
@@ -50333,7 +51599,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:33:34.5",
+        "rawFinishTime": "07:33:34.5",
+        "runMinutes": 53.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 50
       },
       {
         "stt": 213,
@@ -50359,7 +51631,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:39:03.2",
+        "rawFinishTime": "07:39:03.2",
+        "runMinutes": 59.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 68
       },
       {
         "stt": 214,
@@ -50385,7 +51663,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 215,
@@ -50411,7 +51695,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:35:31.2",
+        "rawFinishTime": "07:35:31.2",
+        "runMinutes": 55.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 54
       },
       {
         "stt": 216,
@@ -50437,7 +51727,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 217,
@@ -50463,7 +51759,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:39:08.0",
+        "rawFinishTime": "07:39:08.0",
+        "runMinutes": 59.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 53
       },
       {
         "stt": 218,
@@ -50489,7 +51791,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:39:39.5",
+        "rawFinishTime": "07:39:39.5",
+        "runMinutes": 59.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 74
       },
       {
         "stt": 219,
@@ -50515,7 +51823,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:39:35.4",
+        "rawFinishTime": "07:39:35.4",
+        "runMinutes": 59.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 72
       },
       {
         "stt": 220,
@@ -50541,7 +51855,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:22:29.1",
+        "rawFinishTime": "07:22:29.1",
+        "runMinutes": 42.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 18
       },
       {
         "stt": 221,
@@ -50567,7 +51887,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:26:01.6",
+        "rawFinishTime": "07:26:01.6",
+        "runMinutes": 50,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 35
       },
       {
         "stt": 222,
@@ -50593,7 +51919,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:19:55.0",
+        "rawFinishTime": "07:19:55.0",
+        "runMinutes": 39.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 7
       },
       {
         "stt": 223,
@@ -50619,7 +51951,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:23:39.1",
+        "rawFinishTime": "07:23:39.1",
+        "runMinutes": 47.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 38
       },
       {
         "stt": 224,
@@ -50645,7 +51983,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:09:15.3",
+        "rawFinishTime": "07:09:15.3",
+        "runMinutes": 33.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 9
       },
       {
         "stt": 225,
@@ -50671,7 +52015,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:53:14.7",
+        "rawFinishTime": "07:53:14.7",
+        "runMinutes": 73.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 77
       },
       {
         "stt": 226,
@@ -50697,7 +52047,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 227,
@@ -50723,7 +52079,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:24:28.7",
+        "rawFinishTime": "07:24:28.7",
+        "runMinutes": 48.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 41
       },
       {
         "stt": 228,
@@ -50749,7 +52111,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:09:51.2",
+        "rawFinishTime": "07:09:51.2",
+        "runMinutes": 33.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 13
       },
       {
         "stt": 229,
@@ -50775,7 +52143,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:28:11.8",
+        "rawFinishTime": "07:28:11.8",
+        "runMinutes": 52.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 38
       },
       {
         "stt": 230,
@@ -50801,7 +52175,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:28:23.3",
+        "rawFinishTime": "07:28:23.3",
+        "runMinutes": 52.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 39
       },
       {
         "stt": 231,
@@ -50827,7 +52207,13 @@
         "captainUnit": "Công ty CP Phát triển Địa ốc Cienco5",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 232,
@@ -50853,7 +52239,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:26:31.9",
+        "rawFinishTime": "07:26:31.9",
+        "runMinutes": 50.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 45
       },
       {
         "stt": 233,
@@ -50879,7 +52271,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:19:33.9",
+        "rawFinishTime": "07:19:33.9",
+        "runMinutes": 43.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 19
       },
       {
         "stt": 234,
@@ -50905,7 +52303,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 235,
@@ -50931,7 +52335,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 236,
@@ -50957,7 +52367,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:26:35.6",
+        "rawFinishTime": "07:26:35.6",
+        "runMinutes": 46.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 30
       },
       {
         "stt": 237,
@@ -50983,7 +52399,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:30:40.8",
+        "rawFinishTime": "07:30:40.8",
+        "runMinutes": 50.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 42
       },
       {
         "stt": 238,
@@ -51009,7 +52431,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:22:01.5",
+        "rawFinishTime": "07:22:01.5",
+        "runMinutes": 46,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 28
       },
       {
         "stt": 239,
@@ -51035,7 +52463,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 240,
@@ -51061,7 +52495,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:28:40.6",
+        "rawFinishTime": "07:28:40.6",
+        "runMinutes": 48.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 35
       },
       {
         "stt": 241,
@@ -51087,7 +52527,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:21:57.8",
+        "rawFinishTime": "07:21:57.8",
+        "runMinutes": 46,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 29
       },
       {
         "stt": 242,
@@ -51113,7 +52559,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:19:36.3",
+        "rawFinishTime": "07:19:36.3",
+        "runMinutes": 43.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 20
       },
       {
         "stt": 243,
@@ -51139,7 +52591,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:30:28.7",
+        "rawFinishTime": "07:30:28.7",
+        "runMinutes": 50.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 40
       },
       {
         "stt": 244,
@@ -51165,7 +52623,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:08:27.4",
+        "rawFinishTime": "07:08:27.4",
+        "runMinutes": 32.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 7
       },
       {
         "stt": 245,
@@ -51191,7 +52655,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 246,
@@ -51217,7 +52687,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:45:36.9",
+        "rawFinishTime": "07:45:36.9",
+        "runMinutes": 65.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 84
       },
       {
         "stt": 247,
@@ -51243,7 +52719,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:35:19.3",
+        "rawFinishTime": "07:35:19.3",
+        "runMinutes": 59.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 61
       },
       {
         "stt": 248,
@@ -51269,7 +52751,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:14:17.3",
+        "rawFinishTime": "07:14:17.3",
+        "runMinutes": 38.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 25
       },
       {
         "stt": 249,
@@ -51295,7 +52783,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:23:49.4",
+        "rawFinishTime": "07:23:49.4",
+        "runMinutes": 43.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 24
       },
       {
         "stt": 250,
@@ -51321,7 +52815,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:30:15.1",
+        "rawFinishTime": "07:30:15.1",
+        "runMinutes": 54.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 43
       },
       {
         "stt": 251,
@@ -51347,7 +52847,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "08:00:36.9",
+        "rawFinishTime": "08:00:36.9",
+        "runMinutes": 80.6,
+        "cutoffStatus": "QUÁ CUT-OFF",
+        "rankCat": 85
       },
       {
         "stt": 252,
@@ -51373,7 +52879,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:54:39.0",
+        "rawFinishTime": "07:54:39.0",
+        "runMinutes": 74.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 80
       },
       {
         "stt": 253,
@@ -51399,7 +52911,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "08:00:34.2",
+        "rawFinishTime": "08:00:34.2",
+        "runMinutes": 80.6,
+        "cutoffStatus": "QUÁ CUT-OFF",
+        "rankCat": 86
       },
       {
         "stt": 254,
@@ -51425,7 +52943,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:55:14.7",
+        "rawFinishTime": "07:55:14.7",
+        "runMinutes": 75.2,
+        "cutoffStatus": "QUÁ CUT-OFF",
+        "rankCat": 91
       },
       {
         "stt": 255,
@@ -51451,7 +52975,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:45:43.9",
+        "rawFinishTime": "07:45:43.9",
+        "runMinutes": 65.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 59
       },
       {
         "stt": 256,
@@ -51477,7 +53007,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:45:42.3",
+        "rawFinishTime": "07:45:42.3",
+        "runMinutes": 69.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 59
       },
       {
         "stt": 257,
@@ -51503,7 +53039,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:07:59.1",
+        "rawFinishTime": "07:07:59.1",
+        "runMinutes": 32,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 5
       },
       {
         "stt": 258,
@@ -51529,7 +53071,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:12:06.2",
+        "rawFinishTime": "07:12:06.2",
+        "runMinutes": 36.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 18
       },
       {
         "stt": 259,
@@ -51555,7 +53103,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:21:14.2",
+        "rawFinishTime": "07:21:14.2",
+        "runMinutes": 45.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 30
       },
       {
         "stt": 260,
@@ -51581,7 +53135,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:09:42.0",
+        "rawFinishTime": "07:09:42.0",
+        "runMinutes": 33.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 5
       },
       {
         "stt": 261,
@@ -51607,7 +53167,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:31:30.6",
+        "rawFinishTime": "07:31:30.6",
+        "runMinutes": 55.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 45
       },
       {
         "stt": 262,
@@ -51633,7 +53199,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:28:28.3",
+        "rawFinishTime": "07:28:28.3",
+        "runMinutes": 48.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 34
       },
       {
         "stt": 263,
@@ -51659,7 +53231,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 264,
@@ -51685,7 +53263,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 265,
@@ -51711,7 +53295,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "08:00:39.0",
+        "rawFinishTime": "08:00:39.0",
+        "runMinutes": 80.7,
+        "cutoffStatus": "QUÁ CUT-OFF",
+        "rankCat": 87
       },
       {
         "stt": 266,
@@ -51737,7 +53327,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:54:44.0",
+        "rawFinishTime": "07:54:44.0",
+        "runMinutes": 74.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 81
       },
       {
         "stt": 267,
@@ -51763,7 +53359,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 268,
@@ -51789,7 +53391,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:26:49.6",
+        "rawFinishTime": "07:26:49.6",
+        "runMinutes": 50.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 49
       },
       {
         "stt": 269,
@@ -51815,7 +53423,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 270,
@@ -51841,7 +53455,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:31:24.8",
+        "rawFinishTime": "07:31:24.8",
+        "runMinutes": 55.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 57
       },
       {
         "stt": 271,
@@ -51867,7 +53487,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 272,
@@ -51893,7 +53519,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:20:00.9",
+        "rawFinishTime": "07:20:00.9",
+        "runMinutes": 40,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 12
       },
       {
         "stt": 273,
@@ -51919,7 +53551,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:46:25.2",
+        "rawFinishTime": "07:46:25.2",
+        "runMinutes": 66.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 64
       },
       {
         "stt": 274,
@@ -51945,7 +53583,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:11:49.0",
+        "rawFinishTime": "07:11:49.0",
+        "runMinutes": 35.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 16
       },
       {
         "stt": 275,
@@ -51971,7 +53615,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:51:17.5",
+        "rawFinishTime": "07:51:17.5",
+        "runMinutes": 71.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 90
       },
       {
         "stt": 276,
@@ -51997,7 +53647,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:10:52.5",
+        "rawFinishTime": "07:10:52.5",
+        "runMinutes": 34.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 7
       },
       {
         "stt": 277,
@@ -52023,7 +53679,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:52:54.9",
+        "rawFinishTime": "07:52:54.9",
+        "runMinutes": 72.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 72
       },
       {
         "stt": 278,
@@ -52049,7 +53711,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:38:14.1",
+        "rawFinishTime": "07:38:14.1",
+        "runMinutes": 58.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 52
       },
       {
         "stt": 279,
@@ -52075,7 +53743,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:38:32.5",
+        "rawFinishTime": "07:38:32.5",
+        "runMinutes": 58.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 67
       },
       {
         "stt": 280,
@@ -52101,7 +53775,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:11:07.6",
+        "rawFinishTime": "07:11:07.6",
+        "runMinutes": 35.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 15
       },
       {
         "stt": 281,
@@ -52127,7 +53807,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:16:10.9",
+        "rawFinishTime": "07:16:10.9",
+        "runMinutes": 40.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 26
       },
       {
         "stt": 282,
@@ -52153,7 +53839,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:37:19.0",
+        "rawFinishTime": "07:37:19.0",
+        "runMinutes": 61.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 65
       },
       {
         "stt": 283,
@@ -52179,7 +53871,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:21:36.2",
+        "rawFinishTime": "07:21:36.2",
+        "runMinutes": 45.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 27
       },
       {
         "stt": 284,
@@ -52205,7 +53903,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Lương Trung Thành",
         "driverPhone": "0915 854 837",
-        "plate": "11A-11772"
+        "plate": "11A-11772",
+        "status": "FINISH",
+        "finishTime": "07:13:45.5",
+        "rawFinishTime": "07:13:45.5",
+        "runMinutes": 37.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 21
       },
       {
         "stt": 285,
@@ -52231,7 +53935,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:38:18.3",
+        "rawFinishTime": "07:38:18.3",
+        "runMinutes": 62.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 53
       },
       {
         "stt": 286,
@@ -52257,7 +53967,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:03:52.4",
+        "rawFinishTime": "07:03:52.4",
+        "runMinutes": 27.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 2
       },
       {
         "stt": 287,
@@ -52283,7 +53999,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:20:23.6",
+        "rawFinishTime": "07:20:23.6",
+        "runMinutes": 44.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 22
       },
       {
         "stt": 288,
@@ -52309,7 +54031,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:30:19.8",
+        "rawFinishTime": "07:30:19.8",
+        "runMinutes": 54.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 55
       },
       {
         "stt": 289,
@@ -52335,7 +54063,13 @@
         "captainUnit": "Công ty CP Phát triển Địa ốc Cienco5",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:45:55.6",
+        "rawFinishTime": "07:45:55.6",
+        "runMinutes": 65.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 62
       },
       {
         "stt": 290,
@@ -52361,7 +54095,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 291,
@@ -52387,7 +54127,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:09:00.0",
+        "rawFinishTime": "07:09:00.0",
+        "runMinutes": 33,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 4
       },
       {
         "stt": 292,
@@ -52413,7 +54159,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:14:30.4",
+        "rawFinishTime": "07:14:30.4",
+        "runMinutes": 38.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 16
       },
       {
         "stt": 293,
@@ -52439,7 +54191,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:12:03.7",
+        "rawFinishTime": "07:12:03.7",
+        "runMinutes": 36.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 10
       },
       {
         "stt": 294,
@@ -52465,7 +54223,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:24:06.4",
+        "rawFinishTime": "07:24:06.4",
+        "runMinutes": 48.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 39
       },
       {
         "stt": 295,
@@ -52491,7 +54255,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:53:00.4",
+        "rawFinishTime": "07:53:00.4",
+        "runMinutes": 73,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 73
       },
       {
         "stt": 296,
@@ -52517,7 +54287,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:20:21.8",
+        "rawFinishTime": "07:20:21.8",
+        "runMinutes": 44.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 23
       },
       {
         "stt": 297,
@@ -52543,7 +54319,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:52:57.1",
+        "rawFinishTime": "07:52:57.1",
+        "runMinutes": 73,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 74
       },
       {
         "stt": 298,
@@ -52569,7 +54351,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 299,
@@ -52595,7 +54383,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:39:44.6",
+        "rawFinishTime": "07:39:44.6",
+        "runMinutes": 59.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 75
       },
       {
         "stt": 300,
@@ -52621,7 +54415,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 301,
@@ -52647,7 +54447,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:09:48.4",
+        "rawFinishTime": "07:09:48.4",
+        "runMinutes": 33.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 12
       },
       {
         "stt": 302,
@@ -52673,7 +54479,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Lê Văn Chiến",
         "driverPhone": "0368 308 626",
-        "plate": "37K-281.42"
+        "plate": "37K-281.42",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 303,
@@ -52699,7 +54511,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:36:39.9",
+        "rawFinishTime": "07:36:39.9",
+        "runMinutes": 56.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 64
       },
       {
         "stt": 304,
@@ -52725,7 +54543,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:36:35.7",
+        "rawFinishTime": "07:36:35.7",
+        "runMinutes": 56.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 63
       },
       {
         "stt": 305,
@@ -52751,7 +54575,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:31:07.2",
+        "rawFinishTime": "07:31:07.2",
+        "runMinutes": 51.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 40
       },
       {
         "stt": 306,
@@ -52777,7 +54607,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Phạm Chí Dũng",
         "driverPhone": "0903 255 595",
-        "plate": "30L 218.10"
+        "plate": "30L 218.10",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 307,
@@ -52803,7 +54639,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Hoàng Hữu Dũng",
         "driverPhone": "0979 628 818",
-        "plate": "37K-336.27"
+        "plate": "37K-336.27",
+        "status": "FINISH",
+        "finishTime": "07:13:35.9",
+        "rawFinishTime": "07:13:35.9",
+        "runMinutes": 37.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 19
       },
       {
         "stt": 308,
@@ -52829,7 +54671,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:37:23.0",
+        "rawFinishTime": "07:37:23.0",
+        "runMinutes": 61.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 67
       },
       {
         "stt": 309,
@@ -52855,7 +54703,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:22:58.2",
+        "rawFinishTime": "07:22:58.2",
+        "runMinutes": 43,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 21
       },
       {
         "stt": 310,
@@ -52881,7 +54735,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:12:11.7",
+        "rawFinishTime": "07:12:11.7",
+        "runMinutes": 36.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 11
       },
       {
         "stt": 311,
@@ -52907,7 +54767,13 @@
         "captainUnit": "Ban Điều hành Siêu thị Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:16:01.9",
+        "rawFinishTime": "07:16:01.9",
+        "runMinutes": 36,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 4
       },
       {
         "stt": 312,
@@ -52933,7 +54799,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:37:16.7",
+        "rawFinishTime": "07:37:16.7",
+        "runMinutes": 61.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 66
       },
       {
         "stt": 313,
@@ -52959,7 +54831,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:46:14.7",
+        "rawFinishTime": "07:46:14.7",
+        "runMinutes": 70.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 75
       },
       {
         "stt": 314,
@@ -52985,7 +54863,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:55:03.7",
+        "rawFinishTime": "07:55:03.7",
+        "runMinutes": 75.1,
+        "cutoffStatus": "QUÁ CUT-OFF",
+        "rankCat": 82
       },
       {
         "stt": 315,
@@ -53011,7 +54895,13 @@
         "captainUnit": "Ban Tài chính",
         "driverName": "Đoàn Công Anh Tú",
         "driverPhone": "0915 492 496",
-        "plate": "73A-319.98"
+        "plate": "73A-319.98",
+        "status": "FINISH",
+        "finishTime": "07:46:46.1",
+        "rawFinishTime": "07:46:46.1",
+        "runMinutes": 70.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 60
       },
       {
         "stt": 316,
@@ -53037,7 +54927,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:46:23.1",
+        "rawFinishTime": "07:46:23.1",
+        "runMinutes": 66.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 65
       },
       {
         "stt": 317,
@@ -53063,7 +54959,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 318,
@@ -53089,7 +54991,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:39:41.8",
+        "rawFinishTime": "07:39:41.8",
+        "runMinutes": 59.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 76
       },
       {
         "stt": 319,
@@ -53115,7 +55023,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 320,
@@ -53141,7 +55055,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:22:47.6",
+        "rawFinishTime": "07:22:47.6",
+        "runMinutes": 42.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 20
       },
       {
         "stt": 321,
@@ -53167,7 +55087,13 @@
         "captainUnit": "Ban CNTT",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:05:12.2",
+        "rawFinishTime": "07:05:12.2",
+        "runMinutes": 29.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 1
       },
       {
         "stt": 322,
@@ -53193,7 +55119,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Trần Quang Lợi",
         "driverPhone": "0867 331 963",
-        "plate": "ກດ5103"
+        "plate": "ກດ5103",
+        "status": "FINISH",
+        "finishTime": "07:31:34.9",
+        "rawFinishTime": "07:31:34.9",
+        "runMinutes": 55.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 58
       },
       {
         "stt": 323,
@@ -53219,7 +55151,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:36:38.6",
+        "rawFinishTime": "07:36:38.6",
+        "runMinutes": 60.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 64
       },
       {
         "stt": 324,
@@ -53245,7 +55183,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:50:44.4",
+        "rawFinishTime": "07:50:44.4",
+        "runMinutes": 70.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 69
       },
       {
         "stt": 325,
@@ -53271,7 +55215,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Văn Huy",
         "driverPhone": "0904 734 567",
-        "plate": "14A-89642"
+        "plate": "14A-89642",
+        "status": "FINISH",
+        "finishTime": "07:14:09.4",
+        "rawFinishTime": "07:14:09.4",
+        "runMinutes": 38.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 23
       },
       {
         "stt": 326,
@@ -53297,7 +55247,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:40:53.3",
+        "rawFinishTime": "07:40:53.3",
+        "runMinutes": 60.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 81
       },
       {
         "stt": 327,
@@ -53323,7 +55279,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:51:15.6",
+        "rawFinishTime": "07:51:15.6",
+        "runMinutes": 71.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 71
       },
       {
         "stt": 328,
@@ -53349,7 +55311,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:11:54.1",
+        "rawFinishTime": "07:11:54.1",
+        "runMinutes": 35.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 17
       },
       {
         "stt": 329,
@@ -53375,7 +55343,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:50:30.7",
+        "rawFinishTime": "07:50:30.7",
+        "runMinutes": 70.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 68
       },
       {
         "stt": 330,
@@ -53401,7 +55375,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:46:42.0",
+        "rawFinishTime": "07:46:42.0",
+        "runMinutes": 66.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 66
       },
       {
         "stt": 331,
@@ -53427,7 +55407,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:22:41.0",
+        "rawFinishTime": "07:22:41.0",
+        "runMinutes": 42.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 15
       },
       {
         "stt": 332,
@@ -53453,7 +55439,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:29:58.6",
+        "rawFinishTime": "07:29:58.6",
+        "runMinutes": 50,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 37
       },
       {
         "stt": 333,
@@ -53479,7 +55471,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:26:37.7",
+        "rawFinishTime": "07:26:37.7",
+        "runMinutes": 50.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 46
       },
       {
         "stt": 334,
@@ -53505,7 +55503,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:09:36.9",
+        "rawFinishTime": "07:09:36.9",
+        "runMinutes": 33.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 11
       },
       {
         "stt": 335,
@@ -53531,7 +55535,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Xuân Khánh",
         "driverPhone": "0396 633 058",
-        "plate": "30L 337.90"
+        "plate": "30L 337.90",
+        "status": "FINISH",
+        "finishTime": "07:21:24.2",
+        "rawFinishTime": "07:21:24.2",
+        "runMinutes": 45.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 31
       },
       {
         "stt": 336,
@@ -53557,7 +55567,13 @@
         "captainUnit": "Ban Điều hành Siêu thị Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:31:20.7",
+        "rawFinishTime": "07:31:20.7",
+        "runMinutes": 51.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 43
       },
       {
         "stt": 337,
@@ -53583,7 +55599,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:38:34.2",
+        "rawFinishTime": "07:38:34.2",
+        "runMinutes": 62.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 70
       },
       {
         "stt": 338,
@@ -53609,7 +55631,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:27:16.8",
+        "rawFinishTime": "07:27:16.8",
+        "runMinutes": 47.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 27
       },
       {
         "stt": 339,
@@ -53635,7 +55663,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:18:17.1",
+        "rawFinishTime": "07:18:17.1",
+        "runMinutes": 38.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 6
       },
       {
         "stt": 340,
@@ -53661,7 +55695,13 @@
         "captainUnit": "Công ty CP Phát triển Địa ốc Cienco5",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 341,
@@ -53687,7 +55727,13 @@
         "captainUnit": "Công ty CP Phát triển Địa ốc Cienco5",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:23:08.2",
+        "rawFinishTime": "07:23:08.2",
+        "runMinutes": 47.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 36
       },
       {
         "stt": 342,
@@ -53713,7 +55759,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:55:20.0",
+        "rawFinishTime": "07:55:20.0",
+        "runMinutes": 75.3,
+        "cutoffStatus": "QUÁ CUT-OFF",
+        "rankCat": 93
       },
       {
         "stt": 343,
@@ -53739,7 +55791,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:31:14.7",
+        "rawFinishTime": "07:31:14.7",
+        "runMinutes": 51.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 42
       },
       {
         "stt": 344,
@@ -53765,7 +55823,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 345,
@@ -53791,7 +55855,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:39:05.6",
+        "rawFinishTime": "07:39:05.6",
+        "runMinutes": 59.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 54
       },
       {
         "stt": 346,
@@ -53817,7 +55887,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Lại Trung Việt",
         "driverPhone": "0983 638 327",
-        "plate": "90A 229.87"
+        "plate": "90A 229.87",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 347,
@@ -53843,7 +55919,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:24:36.3",
+        "rawFinishTime": "07:24:36.3",
+        "runMinutes": 48.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 42
       },
       {
         "stt": 348,
@@ -53869,7 +55951,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Trương Nhật Minh",
         "driverPhone": "0938 090 413",
-        "plate": "24A 280.49"
+        "plate": "24A 280.49",
+        "status": "FINISH",
+        "finishTime": "07:22:05.9",
+        "rawFinishTime": "07:22:05.9",
+        "runMinutes": 46.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 34
       },
       {
         "stt": 349,
@@ -53895,7 +55983,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 350,
@@ -53921,7 +56015,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 351,
@@ -53947,7 +56047,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:45:53.7",
+        "rawFinishTime": "07:45:53.7",
+        "runMinutes": 65.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 63
       },
       {
         "stt": 352,
@@ -53973,7 +56079,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:25:33.6",
+        "rawFinishTime": "07:25:33.6",
+        "runMinutes": 49.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 43
       },
       {
         "stt": 353,
@@ -53999,7 +56111,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:14:05.5",
+        "rawFinishTime": "07:14:05.5",
+        "runMinutes": 38.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 22
       },
       {
         "stt": 354,
@@ -54025,7 +56143,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:25:19.7",
+        "rawFinishTime": "07:25:19.7",
+        "runMinutes": 49.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 34
       },
       {
         "stt": 355,
@@ -54051,7 +56175,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:45:49.8",
+        "rawFinishTime": "07:45:49.8",
+        "runMinutes": 65.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 61
       },
       {
         "stt": 356,
@@ -54077,7 +56207,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Đặng Văn Thắng",
         "driverPhone": "0988 857 563",
-        "plate": "30L 211.60"
+        "plate": "30L 211.60",
+        "status": "FINISH",
+        "finishTime": "07:16:41.2",
+        "rawFinishTime": "07:16:41.2",
+        "runMinutes": 40.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 27
       },
       {
         "stt": 357,
@@ -54103,7 +56239,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:29:08.5",
+        "rawFinishTime": "07:29:08.5",
+        "runMinutes": 49.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 33
       },
       {
         "stt": 358,
@@ -54129,7 +56271,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 359,
@@ -54155,7 +56303,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:28:18.8",
+        "rawFinishTime": "07:28:18.8",
+        "runMinutes": 48.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 33
       },
       {
         "stt": 360,
@@ -54181,7 +56335,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:30:32.2",
+        "rawFinishTime": "07:30:32.2",
+        "runMinutes": 50.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 41
       },
       {
         "stt": 361,
@@ -54207,7 +56367,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:33:57.3",
+        "rawFinishTime": "07:33:57.3",
+        "runMinutes": 58,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 49
       },
       {
         "stt": 362,
@@ -54233,7 +56399,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:26:40.5",
+        "rawFinishTime": "07:26:40.5",
+        "runMinutes": 50.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 47
       },
       {
         "stt": 363,
@@ -54259,7 +56431,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 364,
@@ -54285,7 +56463,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:34:08.3",
+        "rawFinishTime": "07:34:08.3",
+        "runMinutes": 54.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 48
       },
       {
         "stt": 365,
@@ -54311,7 +56495,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:39:12.2",
+        "rawFinishTime": "07:39:12.2",
+        "runMinutes": 59.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 69
       },
       {
         "stt": 366,
@@ -54337,7 +56527,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 367,
@@ -54363,7 +56559,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:39:17.0",
+        "rawFinishTime": "07:39:17.0",
+        "runMinutes": 59.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 55
       },
       {
         "stt": 368,
@@ -54389,7 +56591,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:31:46.2",
+        "rawFinishTime": "07:31:46.2",
+        "runMinutes": 51.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 43
       },
       {
         "stt": 369,
@@ -54415,7 +56623,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:08:21.9",
+        "rawFinishTime": "07:08:21.9",
+        "runMinutes": 32.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 2
       },
       {
         "stt": 370,
@@ -54441,7 +56655,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:19:06.3",
+        "rawFinishTime": "07:19:06.3",
+        "runMinutes": 39.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 10
       },
       {
         "stt": 371,
@@ -54467,7 +56687,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 372,
@@ -54493,7 +56719,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Văn Hiệp",
         "driverPhone": "0972 885 815",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:19:29.8",
+        "rawFinishTime": "07:19:29.8",
+        "runMinutes": 39.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 11
       },
       {
         "stt": 373,
@@ -54519,7 +56751,13 @@
         "captainUnit": "Ban Điều hành Siêu thị Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:45:40.6",
+        "rawFinishTime": "07:45:40.6",
+        "runMinutes": 65.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 60
       },
       {
         "stt": 374,
@@ -54545,7 +56783,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Văn Hiệp",
         "driverPhone": "0972 885 815",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:26:43.9",
+        "rawFinishTime": "07:26:43.9",
+        "runMinutes": 50.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 48
       },
       {
         "stt": 375,
@@ -54571,7 +56815,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Văn Hiệp",
         "driverPhone": "0972 885 815",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 376,
@@ -54597,7 +56847,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Văn Hiệp",
         "driverPhone": "0972 885 815",
-        "plate": ""
+        "plate": "",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 377,
@@ -54623,7 +56879,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Văn Hiệp",
         "driverPhone": "0972 885 815",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:11:03.9",
+        "rawFinishTime": "07:11:03.9",
+        "runMinutes": 35.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 8
       },
       {
         "stt": 378,
@@ -54649,7 +56911,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Lê Văn Chiến",
         "driverPhone": "0368 308 626",
-        "plate": "37K-281.42"
+        "plate": "37K-281.42",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 379,
@@ -54675,7 +56943,13 @@
         "captainUnit": "Ban Đào tạo & KSCL",
         "driverName": "Nguyễn Viết Tiệp",
         "driverPhone": "0397 461 163",
-        "plate": "30E 412.72"
+        "plate": "30E 412.72",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 380,
@@ -54701,7 +56975,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Đặng Văn Thắng",
         "driverPhone": "0988 857 563",
-        "plate": "30L 211.60"
+        "plate": "30L 211.60",
+        "status": "FINISH",
+        "finishTime": "07:50:22.1",
+        "rawFinishTime": "07:50:22.1",
+        "runMinutes": 77.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 14
       },
       {
         "stt": 381,
@@ -54727,7 +57007,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Trần Quang Lợi",
         "driverPhone": "0867 331 963",
-        "plate": "ກດ5103"
+        "plate": "ກດ5103",
+        "status": "FINISH",
+        "finishTime": "07:51:21.0",
+        "rawFinishTime": "07:51:21.0",
+        "runMinutes": 78.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 15
       },
       {
         "stt": 382,
@@ -54753,7 +57039,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Trần Quang Lợi",
         "driverPhone": "0867 331 963",
-        "plate": "ກດ5103"
+        "plate": "ກດ5103",
+        "status": "FINISH",
+        "finishTime": "07:47:43.6",
+        "rawFinishTime": "07:47:43.6",
+        "runMinutes": 74.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 2
       },
       {
         "stt": 383,
@@ -54779,7 +57071,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Trần Quang Lợi",
         "driverPhone": "0867 331 963",
-        "plate": "ກດ5103"
+        "plate": "ກດ5103",
+        "status": "FINISH",
+        "finishTime": "08:02:08.0",
+        "rawFinishTime": "08:02:08.0",
+        "runMinutes": 89.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 20
       },
       {
         "stt": 384,
@@ -54805,7 +57103,13 @@
         "captainUnit": "Ban Điều hành Siêu thị Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:32:57.0",
+        "rawFinishTime": "07:32:57.0",
+        "runMinutes": 60,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 4
       },
       {
         "stt": 385,
@@ -54831,7 +57135,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Trần Quang Lợi",
         "driverPhone": "0867 331 963",
-        "plate": "ກດ5103"
+        "plate": "ກດ5103",
+        "status": "FINISH",
+        "finishTime": "07:54:06.8",
+        "rawFinishTime": "07:54:06.8",
+        "runMinutes": 81.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 4
       },
       {
         "stt": 386,
@@ -54857,7 +57167,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Trần Quang Lợi",
         "driverPhone": "0867 331 963",
-        "plate": "ກດ5103"
+        "plate": "ກດ5103",
+        "status": "FINISH",
+        "finishTime": "07:48:34.3",
+        "rawFinishTime": "07:48:34.3",
+        "runMinutes": 75.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 12
       },
       {
         "stt": 387,
@@ -54883,7 +57199,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Trần Quang Lợi",
         "driverPhone": "0867 331 963",
-        "plate": "ກດ5103"
+        "plate": "ກດ5103",
+        "status": "FINISH",
+        "finishTime": "07:47:51.1",
+        "rawFinishTime": "07:47:51.1",
+        "runMinutes": 74.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 9
       },
       {
         "stt": 388,
@@ -54909,7 +57231,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Trần Quang Lợi",
         "driverPhone": "0867 331 963",
-        "plate": "ກດ5103"
+        "plate": "ກດ5103",
+        "status": "FINISH",
+        "finishTime": "07:54:08.6",
+        "rawFinishTime": "07:54:08.6",
+        "runMinutes": 81.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 5
       },
       {
         "stt": 389,
@@ -54935,7 +57263,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Trần Quang Lợi",
         "driverPhone": "0867 331 963",
-        "plate": "ກດ5103"
+        "plate": "ກດ5103",
+        "status": "FINISH",
+        "finishTime": "08:25:42.5",
+        "rawFinishTime": "08:25:42.5",
+        "runMinutes": 112.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 7
       },
       {
         "stt": 390,
@@ -54961,7 +57295,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Trần Quang Lợi",
         "driverPhone": "0867 331 963",
-        "plate": "ກດ5103"
+        "plate": "ກດ5103",
+        "status": "FINISH",
+        "finishTime": "07:48:31.0",
+        "rawFinishTime": "07:48:31.0",
+        "runMinutes": 75.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 11
       },
       {
         "stt": 391,
@@ -54987,7 +57327,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Trần Quang Lợi",
         "driverPhone": "0867 331 963",
-        "plate": "ກດ5103"
+        "plate": "ກດ5103",
+        "status": "BỊ LOẠI",
+        "finishTime": "07:19:12.8",
+        "rawFinishTime": "07:19:12.8",
+        "runMinutes": 46.2,
+        "cutoffStatus": "BỊ LOẠI (THIẾU VÒNG)",
+        "rankCat": "BỊ LOẠI"
       },
       {
         "stt": 392,
@@ -55013,7 +57359,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Trần Quang Lợi",
         "driverPhone": "0867 331 963",
-        "plate": "ກດ5103"
+        "plate": "ກດ5103",
+        "status": "FINISH",
+        "finishTime": "07:32:12.0",
+        "rawFinishTime": "07:32:12.0",
+        "runMinutes": 59.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 2
       },
       {
         "stt": 393,
@@ -55039,7 +57391,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Trần Quang Lợi",
         "driverPhone": "0867 331 963",
-        "plate": "ກດ5103"
+        "plate": "ກດ5103",
+        "status": "FINISH",
+        "finishTime": "07:32:09.9",
+        "rawFinishTime": "07:32:09.9",
+        "runMinutes": 59.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 3
       },
       {
         "stt": 394,
@@ -55065,7 +57423,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Trần Quang Lợi",
         "driverPhone": "0867 331 963",
-        "plate": "ກດ5103"
+        "plate": "ກດ5103",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 395,
@@ -55091,7 +57455,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Trần Quang Lợi",
         "driverPhone": "0867 331 963",
-        "plate": "ກດ5103"
+        "plate": "ກດ5103",
+        "status": "FINISH",
+        "finishTime": "07:48:25.0",
+        "rawFinishTime": "07:48:25.0",
+        "runMinutes": 75.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 10
       },
       {
         "stt": 396,
@@ -55117,7 +57487,13 @@
         "captainUnit": "Công ty CP Phát triển Địa ốc Cienco5",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:57:29.8",
+        "rawFinishTime": "07:57:29.8",
+        "runMinutes": 84.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 6
       },
       {
         "stt": 397,
@@ -55143,7 +57519,13 @@
         "captainUnit": "Ban Điều hành Siêu thị Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "07:57:26.8",
+        "rawFinishTime": "07:57:26.8",
+        "runMinutes": 84.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 17
       },
       {
         "stt": 398,
@@ -55169,7 +57551,13 @@
         "captainUnit": "Ban Operation",
         "driverName": "Trần Văn Tuân",
         "driverPhone": "0869 535 169",
-        "plate": "14A-89663"
+        "plate": "14A-89663",
+        "status": "FINISH",
+        "finishTime": "08:02:06.2",
+        "rawFinishTime": "08:02:06.2",
+        "runMinutes": 89.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 21
       },
       {
         "stt": 399,
@@ -55195,7 +57583,13 @@
         "captainUnit": "Ban Operation",
         "driverName": "Trần Văn Tuân",
         "driverPhone": "0869 535 169",
-        "plate": "14A-89663"
+        "plate": "14A-89663",
+        "status": "FINISH",
+        "finishTime": "07:41:56.8",
+        "rawFinishTime": "07:41:56.8",
+        "runMinutes": 68.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 6
       },
       {
         "stt": 400,
@@ -55221,7 +57615,13 @@
         "captainUnit": "Ban Operation",
         "driverName": "Trần Văn Tuân",
         "driverPhone": "0869 535 169",
-        "plate": "14A-89663"
+        "plate": "14A-89663",
+        "status": "FINISH",
+        "finishTime": "07:29:01.9",
+        "rawFinishTime": "07:29:01.9",
+        "runMinutes": 56,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 1
       },
       {
         "stt": 401,
@@ -55247,7 +57647,13 @@
         "captainUnit": "Ban Operation",
         "driverName": "Trần Văn Tuân",
         "driverPhone": "0869 535 169",
-        "plate": "14A-89663"
+        "plate": "14A-89663",
+        "status": "FINISH",
+        "finishTime": "07:48:54.0",
+        "rawFinishTime": "07:48:54.0",
+        "runMinutes": 75.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 3
       },
       {
         "stt": 402,
@@ -55273,7 +57679,13 @@
         "captainUnit": "Ban Operation",
         "driverName": "Trần Văn Tuân",
         "driverPhone": "0869 535 169",
-        "plate": "14A-89663"
+        "plate": "14A-89663",
+        "status": "FINISH",
+        "finishTime": "07:37:01.2",
+        "rawFinishTime": "07:37:01.2",
+        "runMinutes": 64,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 5
       },
       {
         "stt": 403,
@@ -55299,7 +57711,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trung Nghĩa",
         "driverPhone": "0966 157 708",
-        "plate": "37B - 007.70"
+        "plate": "37B - 007.70",
+        "status": "FINISH",
+        "finishTime": "08:42:42.5",
+        "rawFinishTime": "08:42:42.5",
+        "runMinutes": 129.7,
+        "cutoffStatus": "QUÁ CUT-OFF",
+        "rankCat": 23
       },
       {
         "stt": 404,
@@ -55325,7 +57743,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trung Nghĩa",
         "driverPhone": "0966 157 708",
-        "plate": "37B - 007.70"
+        "plate": "37B - 007.70",
+        "status": "FINISH",
+        "finishTime": "07:59:46.2",
+        "rawFinishTime": "07:59:46.2",
+        "runMinutes": 86.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 19
       },
       {
         "stt": 405,
@@ -55351,7 +57775,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Lương Trung Thành",
         "driverPhone": "0915 854 837",
-        "plate": "11A-11772"
+        "plate": "11A-11772",
+        "status": "FINISH",
+        "finishTime": "07:49:15.6",
+        "rawFinishTime": "07:49:15.6",
+        "runMinutes": 76.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 13
       },
       {
         "stt": 406,
@@ -55377,7 +57807,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Lương Trung Thành",
         "driverPhone": "0915 854 837",
-        "plate": "11A-11772"
+        "plate": "11A-11772",
+        "status": "FINISH",
+        "finishTime": "07:35:24.6",
+        "rawFinishTime": "07:35:24.6",
+        "runMinutes": 62.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 1
       },
       {
         "stt": 407,
@@ -55403,7 +57839,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Lương Trung Thành",
         "driverPhone": "0915 854 837",
-        "plate": "11A-11772"
+        "plate": "11A-11772",
+        "status": "FINISH",
+        "finishTime": "07:59:41.6",
+        "rawFinishTime": "07:59:41.6",
+        "runMinutes": 86.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 18
       },
       {
         "stt": 408,
@@ -55429,7 +57871,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Lương Trung Thành",
         "driverPhone": "0915 854 837",
-        "plate": "11A-11772"
+        "plate": "11A-11772",
+        "status": "FINISH",
+        "finishTime": "07:55:08.3",
+        "rawFinishTime": "07:55:08.3",
+        "runMinutes": 82.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 16
       },
       {
         "stt": 409,
@@ -55455,7 +57903,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Lương Trung Thành",
         "driverPhone": "0915 854 837",
-        "plate": "11A-11772"
+        "plate": "11A-11772",
+        "status": "FINISH",
+        "finishTime": "07:45:15.5",
+        "rawFinishTime": "07:45:15.5",
+        "runMinutes": 72.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 8
       },
       {
         "stt": 410,
@@ -55481,7 +57935,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trung Nghĩa",
         "driverPhone": "0966 157 708",
-        "plate": "37B - 007.70"
+        "plate": "37B - 007.70",
+        "status": "FINISH",
+        "finishTime": "07:42:03.5",
+        "rawFinishTime": "07:42:03.5",
+        "runMinutes": 69.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 7
       },
       {
         "stt": 411,
@@ -55507,7 +57967,13 @@
         "captainUnit": "Ban Điều hành Siêu thị Mường Thanh",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "08:02:11.0",
+        "rawFinishTime": "08:02:11.0",
+        "runMinutes": 89.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 22
       },
       {
         "stt": 412,
@@ -55533,7 +57999,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Lê Văn Chiến",
         "driverPhone": "0368 308 626",
-        "plate": "37K-281.42"
+        "plate": "37K-281.42",
+        "status": "FINISH",
+        "finishTime": "07:59:31.5",
+        "rawFinishTime": "07:59:31.5",
+        "runMinutes": 86.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 1
       },
       {
         "stt": 413,
@@ -55559,7 +58031,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Lê Văn Chiến",
         "driverPhone": "0368 308 626",
-        "plate": "37K-281.42"
+        "plate": "37K-281.42",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 414,
@@ -55585,7 +58063,13 @@
         "captainUnit": "Công ty CP Phát triển Địa ốc Cienco5",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "08:04:05.0",
+        "rawFinishTime": "08:04:05.0",
+        "runMinutes": 91.1,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 5
       },
       {
         "stt": 415,
@@ -55611,7 +58095,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Lê Văn Chiến",
         "driverPhone": "0368 308 626",
-        "plate": "37K-281.42"
+        "plate": "37K-281.42",
+        "status": "FINISH",
+        "finishTime": "08:32:36.5",
+        "rawFinishTime": "08:32:36.5",
+        "runMinutes": 119.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 6
       },
       {
         "stt": 416,
@@ -55637,7 +58127,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Phạm Chí Dũng",
         "driverPhone": "0903 255 595",
-        "plate": "30L 218.10"
+        "plate": "30L 218.10",
+        "status": "FINISH",
+        "finishTime": "08:15:58.2",
+        "rawFinishTime": "08:15:58.2",
+        "runMinutes": 103,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 4
       },
       {
         "stt": 417,
@@ -55663,7 +58159,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Lê Văn Chiến",
         "driverPhone": "0368 308 626",
-        "plate": "37K-281.42"
+        "plate": "37K-281.42",
+        "status": "FINISH",
+        "finishTime": "08:06:27.6",
+        "rawFinishTime": "08:06:27.6",
+        "runMinutes": 93.5,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 2
       },
       {
         "stt": 418,
@@ -55689,7 +58191,13 @@
         "captainUnit": "Ban Nhân sự",
         "driverName": "Lê Văn Chiến",
         "driverPhone": "0368 308 626",
-        "plate": "37K-281.42"
+        "plate": "37K-281.42",
+        "status": "FINISH",
+        "finishTime": "08:03:56.7",
+        "rawFinishTime": "08:03:56.7",
+        "runMinutes": 90.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 4
       },
       {
         "stt": 419,
@@ -55715,7 +58223,13 @@
         "captainUnit": "Công ty CP Phát triển Địa ốc Cienco5",
         "driverName": "",
         "driverPhone": "",
-        "plate": ""
+        "plate": "",
+        "status": "FINISH",
+        "finishTime": "08:02:46.7",
+        "rawFinishTime": "08:02:46.7",
+        "runMinutes": 89.8,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 1
       },
       {
         "stt": 420,
@@ -55741,7 +58255,13 @@
         "captainUnit": "Ban Tài chính",
         "driverName": "Đoàn Công Anh Tú",
         "driverPhone": "0915 492 496",
-        "plate": "73A-319.98"
+        "plate": "73A-319.98",
+        "status": "FINISH",
+        "finishTime": "08:25:18.1",
+        "rawFinishTime": "08:25:18.1",
+        "runMinutes": 112.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 8
       },
       {
         "stt": 421,
@@ -55767,7 +58287,13 @@
         "captainUnit": "Ban Tài chính",
         "driverName": "Đoàn Công Anh Tú",
         "driverPhone": "0915 492 496",
-        "plate": "73A-319.98"
+        "plate": "73A-319.98",
+        "status": "FINISH",
+        "finishTime": "08:19:55.8",
+        "rawFinishTime": "08:19:55.8",
+        "runMinutes": 106.9,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 7
       },
       {
         "stt": 422,
@@ -55793,7 +58319,13 @@
         "captainUnit": "Ban Tài chính",
         "driverName": "Đoàn Công Anh Tú",
         "driverPhone": "0915 492 496",
-        "plate": "73A-319.98"
+        "plate": "73A-319.98",
+        "status": "FINISH",
+        "finishTime": "08:08:43.2",
+        "rawFinishTime": "08:08:43.2",
+        "runMinutes": 95.7,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 3
       },
       {
         "stt": 423,
@@ -55819,7 +58351,13 @@
         "captainUnit": "Ban Tài chính",
         "driverName": "Đoàn Công Anh Tú",
         "driverPhone": "0915 492 496",
-        "plate": "73A-319.98"
+        "plate": "73A-319.98",
+        "status": "FINISH",
+        "finishTime": "08:25:35.1",
+        "rawFinishTime": "08:25:35.1",
+        "runMinutes": 112.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 10
       },
       {
         "stt": 424,
@@ -55845,7 +58383,13 @@
         "captainUnit": "Ban Tài chính",
         "driverName": "Đoàn Công Anh Tú",
         "driverPhone": "0915 492 496",
-        "plate": "73A-319.98"
+        "plate": "73A-319.98",
+        "status": "FINISH",
+        "finishTime": "08:25:22.7",
+        "rawFinishTime": "08:25:22.7",
+        "runMinutes": 112.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 9
       },
       {
         "stt": 425,
@@ -55871,7 +58415,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trung Nghĩa",
         "driverPhone": "0966 157 708",
-        "plate": "37B - 007.70"
+        "plate": "37B - 007.70",
+        "status": "FINISH",
+        "finishTime": "08:39:26.2",
+        "rawFinishTime": "08:39:26.2",
+        "runMinutes": 126.4,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 12
       },
       {
         "stt": 426,
@@ -55897,7 +58447,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trung Nghĩa",
         "driverPhone": "0966 157 708",
-        "plate": "37B - 007.70"
+        "plate": "37B - 007.70",
+        "status": "FINISH",
+        "finishTime": "08:11:38.3",
+        "rawFinishTime": "08:11:38.3",
+        "runMinutes": 98.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 6
       },
       {
         "stt": 427,
@@ -55923,7 +58479,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trung Nghĩa",
         "driverPhone": "0966 157 708",
-        "plate": "37B - 007.70"
+        "plate": "37B - 007.70",
+        "status": "FINISH",
+        "finishTime": "08:38:20.4",
+        "rawFinishTime": "08:38:20.4",
+        "runMinutes": 125.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 11
       },
       {
         "stt": 428,
@@ -55949,7 +58511,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trung Nghĩa",
         "driverPhone": "0966 157 708",
-        "plate": "37B - 007.70"
+        "plate": "37B - 007.70",
+        "status": "FINISH",
+        "finishTime": "08:02:36.5",
+        "rawFinishTime": "08:02:36.5",
+        "runMinutes": 89.6,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 3
       },
       {
         "stt": 429,
@@ -55975,7 +58543,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trung Nghĩa",
         "driverPhone": "0966 157 708",
-        "plate": "37B - 007.70"
+        "plate": "37B - 007.70",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 430,
@@ -56001,7 +58575,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trung Nghĩa",
         "driverPhone": "0966 157 708",
-        "plate": "37B - 007.70"
+        "plate": "37B - 007.70",
+        "status": "FINISH",
+        "finishTime": "08:43:16.3",
+        "rawFinishTime": "08:43:16.3",
+        "runMinutes": 130.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 13
       },
       {
         "stt": 431,
@@ -56027,7 +58607,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trung Nghĩa",
         "driverPhone": "0966 157 708",
-        "plate": "37B - 007.70"
+        "plate": "37B - 007.70",
+        "status": "FINISH",
+        "finishTime": "08:01:15.0",
+        "rawFinishTime": "08:01:15.0",
+        "runMinutes": 88.3,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 2
       },
       {
         "stt": 432,
@@ -56053,7 +58639,13 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trung Nghĩa",
         "driverPhone": "0966 157 708",
-        "plate": "37B - 007.70"
+        "plate": "37B - 007.70",
+        "status": "CHƯA",
+        "finishTime": "",
+        "rawFinishTime": "",
+        "runMinutes": "",
+        "cutoffStatus": "",
+        "rankCat": ""
       },
       {
         "stt": 433,
@@ -56079,7 +58671,45 @@
         "captainUnit": "Văn phòng Tập đoàn Mường Thanh",
         "driverName": "Nguyễn Trung Nghĩa",
         "driverPhone": "0966 157 708",
-        "plate": "37B - 007.70"
+        "plate": "37B - 007.70",
+        "status": "FINISH",
+        "finishTime": "08:18:09.7",
+        "rawFinishTime": "08:18:09.7",
+        "runMinutes": 105.2,
+        "cutoffStatus": "HỢP LỆ",
+        "rankCat": 5
+      },
+      {
+        "stt": 345,
+        "bib": 5345,
+        "name": "Trần Nam Anh",
+        "gender": "Nam",
+        "title": "Giám sát lễ tân",
+        "unit": "Mường Thanh Luxury Hà Nam",
+        "distance": "5km",
+        "dist": "Chạy 5km",
+        "category": "5km Nam dưới 35 tuổi",
+        "size": "L",
+        "phone": "",
+        "role": "Vận động viên",
+        "btc": "",
+        "note": "Hủy không chạy",
+        "vehicleId": "",
+        "vehicleNum": null,
+        "vehicleLabel": "Không đi xe",
+        "captainName": "",
+        "captainPhone": "",
+        "captainTitle": "",
+        "captainUnit": "",
+        "driverName": "",
+        "driverPhone": "",
+        "plate": "",
+        "status": "BỊ LOẠI",
+        "finishTime": "06:48:09.1",
+        "rawFinishTime": "06:48:09.1",
+        "runMinutes": 12.2,
+        "cutoffStatus": "BỊ LOẠI (THIẾU VÒNG)",
+        "rankCat": "BỊ LOẠI"
       }
     ]
   },

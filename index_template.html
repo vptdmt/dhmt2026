@@ -8142,6 +8142,28 @@ function normalizeLaps(raw) {
 }
 
 let athletes = JSON.parse(localStorage.getItem('RACE_ATHLETES') || '[]');
+// BẢO VỆ KHỞI TẠO: Nếu localStorage rỗng hoặc chưa có kết quả FINISH, nạp ngay từ DATA hệ thống (đã có kết quả thực tế)
+if (!athletes || athletes.length === 0 || athletes.filter(x => x.status === 'FINISH').length === 0) {
+    if (typeof DATA !== 'undefined' && DATA.funrun && DATA.funrun.runners) {
+        athletes = DATA.funrun.runners.map(r => ({
+            bib: String(r.bib),
+            name: r.name,
+            title: r.title || '',
+            unit: r.unit || '',
+            phone: r.phone || '',
+            gender: r.gender || '',
+            distance: r.distance || r.dist || '5km',
+            category: r.category || '',
+            status: r.status || (r.finishTime ? 'FINISH' : 'CHƯA'),
+            finishTime: r.finishTime || '',
+            rawFinishTime: r.rawFinishTime || r.finishTime || '',
+            isAdjusted: r.isAdjusted || false,
+            adjustNote: r.adjustNote || '',
+            laps: []
+        }));
+        localStorage.setItem('RACE_ATHLETES', JSON.stringify(athletes));
+    }
+}
 athletes.forEach(a => {
     a.laps = normalizeLaps(a.laps);
     if (a.laps.length > 0) knownLapsMap[String(a.bib)] = [...a.laps];
@@ -8179,8 +8201,9 @@ function loadAthletesFromFunrun(force = false) {
 
     athletes = DATA.funrun.runners.map(r => {
         const bibVal = String(r.bib);
-        const prevTime = oldFinishMap[bibVal];
+        const prevTime = oldFinishMap[bibVal] || r.finishTime || '';
         const prevLaps = oldLapsMap[bibVal];
+        const statusVal = oldFinishMap[bibVal] ? 'FINISH' : (r.status || (prevTime ? 'FINISH' : 'CHƯA'));
         return {
             bib: bibVal,
             name: r.name,
@@ -8190,15 +8213,21 @@ function loadAthletesFromFunrun(force = false) {
             gender: r.gender || '',
             distance: r.distance || r.dist || '5km',
             category: r.category || '',
-            status: prevTime ? 'FINISH' : 'CHƯA',
-            finishTime: prevTime || '',
+            status: statusVal,
+            finishTime: prevTime,
+            rawFinishTime: r.rawFinishTime || prevTime,
+            isAdjusted: r.isAdjusted || false,
+            adjustNote: r.adjustNote || '',
             laps: prevLaps ? [...prevLaps] : (knownLapsMap[bibVal] ? [...knownLapsMap[bibVal]] : [])
         };
     });
 
-    saveAndRender(true);
+    // CHỐT CHẶN AN TOÀN: Khi chỉ khởi tạo thông thường (!force), TUYỆT ĐỐI KHÔNG đẩy đè lên Cloud
     if (force) {
+        saveAndRender(true);
         showBanner('success', 'ĐÃ ĐỒNG BỘ TỪ HỆ THỐNG', '', `Đã nạp thành công ${athletes.length} VĐV Giải chạy Fun Run vào bảng ghi nhận!`, `Thời gian: ${new Date().toLocaleTimeString('vi-VN')}`);
+    } else {
+        saveAndRender(false);
     }
 }
 
@@ -9057,6 +9086,14 @@ function saveAndRender(pushToCloud = true) {
     renderTableOnly();
 
     if (pushToCloud && typeof firebaseDb !== 'undefined' && firebaseDb) {
+        // CHỐT CHẶN AN TOÀN BẢO VỆ DỮ LIỆU CLOUD:
+        // Đếm số lượng VĐV FINISH trong danh sách định đẩy lên
+        const currentFinishCount = athletes.filter(a => a.status === 'FINISH').length;
+        if (currentFinishCount === 0 && athletes.length > 50) {
+            console.warn('[BẢO VỆ DỮ LIỆU] Chặn ghi đè Firebase vì danh sách gửi lên không có kết quả FINISH nào!');
+            return;
+        }
+
         // Ghi lên cloud với dữ liệu laps đã được bảo toàn đầy đủ
         firebaseDb.ref('dhmt2026/funrun_checkin/athletes').set(athletes)
             .then(() => updateCheckinCloudIndicator(true))

@@ -1195,8 +1195,8 @@
             <th>Đơn vị</th>
             <th>Nội dung thi đấu</th>
             <th style="width: 75px; text-align: center;">Giờ XP</th>
-            <th style="width: 105px; text-align: center;" title="Nhấn vào giờ để chỉnh sửa">Giờ về đích ✏️</th>
-            <th style="width: 145px; background: #032b43; color: #38bdf8; text-align: center;" title="Nhấn vào số phút để chỉnh sửa">⏱️ Số phút chạy ✏️</th>
+            <th id="th-finish-time" style="width: 105px; text-align: center;">Giờ về đích</th>
+            <th id="th-run-minutes" style="width: 145px; background: #032b43; color: #38bdf8; text-align: center;">⏱️ Số phút chạy</th>
             <th style="width: 110px; background: #1e1b4b; color: #a78bfa; text-align: center;">🔄 Vòng kiểm soát</th>
             <th style="width: 85px; text-align: center;">Cut-off</th>
             <th style="width: 80px; text-align: center;">Trạng thái</th>
@@ -2419,12 +2419,17 @@ function computeGroupStandings(group, tourId, isFootball = false) {
   const matches = group.matches || [];
   matches.forEach(m => {
     const scores = (tourScores[tourId] && tourScores[tourId][m.id]) || {};
-    if (scores.s1 !== null && scores.s1 !== undefined && scores.s2 !== null && scores.s2 !== undefined) {
+    if (scores.s1 !== null && scores.s1 !== undefined && scores.s1 !== '' &&
+        scores.s2 !== null && scores.s2 !== undefined && scores.s2 !== '') {
       const s1 = Number(scores.s1);
       const s2 = Number(scores.s2);
+      if (isNaN(s1) || isNaN(s2)) return;
       
-      const t1 = standings.find(x => x.id === m.team1);
-      const t2 = standings.find(x => x.id === m.team2);
+      const t1Ref = (m.team1 && typeof m.team1 === 'object') ? (m.team1.id || m.team1.code || m.team1.name) : m.team1;
+      const t2Ref = (m.team2 && typeof m.team2 === 'object') ? (m.team2.id || m.team2.code || m.team2.name) : m.team2;
+      
+      const t1 = standings.find(x => x.id === t1Ref || x.code === t1Ref || x.name === t1Ref);
+      const t2 = standings.find(x => x.id === t2Ref || x.code === t2Ref || x.name === t2Ref);
       
       if (t1 && t2) {
         t1.played++;
@@ -9123,6 +9128,20 @@ function renderTableOnly() {
         return;
     }
 
+    const canEditTime = canScanFinish();
+    
+    // Cập nhật tiêu đề bảng theo quyền: Admin thấy bút chì ✏️, Guest thấy tiêu đề bình thường
+    const thFinish = document.getElementById('th-finish-time');
+    const thMin = document.getElementById('th-run-minutes');
+    if (thFinish) {
+        thFinish.innerHTML = canEditTime ? 'Giờ về đích ✏️' : 'Giờ về đích';
+        thFinish.title = canEditTime ? 'Nhấn vào giờ để chỉnh sửa' : 'Giờ về đích';
+    }
+    if (thMin) {
+        thMin.innerHTML = canEditTime ? '⏱️ Số phút chạy ✏️' : '⏱️ Số phút chạy';
+        thMin.title = canEditTime ? 'Nhấn vào số phút để chỉnh sửa' : 'Số phút chạy';
+    }
+
     let rankMap = {};
     STANDARD_CATS.forEach(cat => {
         let finishedInCat = athletes.filter(a => a.category === cat && a.status === 'FINISH')
@@ -9225,6 +9244,7 @@ function renderTableOnly() {
                 <td style="font-weight: 600; color: #f59e0b;">${escHtml(a.category || '')}</td>
                 <td style="color: #94a3b8; font-size: 12px; text-align: center;">${cfg.start}</td>
                 <td style="color: #cbd5e1; text-align: center;">
+                    ${canEditTime ? `
                     <div onclick="openEditTimeModal('${a.bib}')" class="inline-flex flex-col items-center justify-center cursor-pointer hover:bg-slate-800/80 px-2 py-1 rounded transition group" title="Nhấn để sửa thời gian về đích / số phút chạy">
                         <div class="flex items-center gap-1 font-mono text-xs sm:text-sm ${a.isAdjusted ? 'text-amber-300 font-bold' : ''}">
                             <span>${a.finishTime || '--:--:--'}</span>
@@ -9232,20 +9252,31 @@ function renderTableOnly() {
                         </div>
                         ${a.isAdjusted && a.rawFinishTime ? `<div class="text-[9px] text-amber-400 font-mono" title="Thời gian quét ban đầu: ${a.rawFinishTime}">Gốc: ${a.rawFinishTime}</div>` : ''}
                     </div>
+                    ` : `
+                    <span class="font-mono text-xs sm:text-sm text-slate-300 font-medium">${a.finishTime || '--:--:--'}</span>
+                    `}
                 </td>
                 <td style="font-size: 14px; text-align: center;">
+                    ${canEditTime ? `
                     <div onclick="openEditTimeModal('${a.bib}')" class="inline-flex flex-col items-center justify-center cursor-pointer hover:bg-slate-800/80 px-2 py-1 rounded transition group" title="Nhấn để sửa thời gian về đích / số phút chạy">
                         ${durationHtml}
                         ${a.isAdjusted ? `<div class="text-[9px] text-amber-400 font-semibold mt-0.5 flex items-center gap-0.5"><span>✏️</span><span>Đã chỉnh</span></div>` : ''}
                     </div>
+                    ` : `
+                    ${durationHtml}
+                    `}
                 </td>
                 <td style="text-align: center;">${lapBadgeHtml}</td>
                 <td style="color: #94a3b8; font-size: 12px; text-align: center;">${cfg.cutoffMinutes} phút</td>
                 <td style="text-align: center;">
+                    ${canEditTime ? `
                     <div class="flex items-center justify-center gap-1">
                         ${statusBtnHtml}
                         <button onclick="event.stopPropagation(); openEditTimeModal('${a.bib}')" class="px-1.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-sky-400 border border-slate-700 text-xs cursor-pointer transition" title="Sửa thời gian về đích / số phút">✏️</button>
                     </div>
+                    ` : `
+                    ${statusBtnHtml}
+                    `}
                 </td>
             </tr>
         `;
@@ -9445,6 +9476,8 @@ function saveConfigData() {
 function openTop3Modal() {
     const grid = document.getElementById('top3Grid');
     if (!grid) return;
+    const canEditTime = canScanFinish();
+    
     grid.innerHTML = STANDARD_CATS.map(cat => {
         let finished = athletes.filter(a => a.category === cat && a.status === 'FINISH')
             .map(a => ({ ...a, ...calculateRunMinutes(a.finishTime, a.category) }))
@@ -9458,16 +9491,28 @@ function openTop3Modal() {
 
         const renderTopItem = (icon, label, item) => {
             if (!item) return `<div class="top3-item"><span>${icon} ${label}: <b>---</b></span><span style="color:#94a3b8;">--</span></div>`;
-            return `
-                <div class="top3-item cursor-pointer hover:bg-slate-800/80 p-1 rounded transition" onclick="openEditTimeModal('${item.bib}')" title="Nhấn để xem / điều chỉnh thời gian thành tích">
-                    <span class="flex items-center gap-1 flex-wrap">
-                        <span>${icon} ${label}: <b>${escHtml(item.name)}</b></span>
-                        <span class="font-mono text-xs text-sky-400 font-bold">(BIB ${item.bib})</span>
-                        ${item.isAdjusted ? '<span class="text-amber-400 text-[10px]" title="Đã điều chỉnh thành tích">✏️</span>' : ''}
-                    </span>
-                    <span style="color:#10b981;font-weight:bold;font-size:13px;" class="font-mono">${item.displayStr}</span>
-                </div>
-            `;
+            if (canEditTime) {
+                return `
+                    <div class="top3-item cursor-pointer hover:bg-slate-800/80 p-1 rounded transition" onclick="openEditTimeModal('${item.bib}')" title="Nhấn để xem / điều chỉnh thời gian thành tích">
+                        <span class="flex items-center gap-1 flex-wrap">
+                            <span>${icon} ${label}: <b>${escHtml(item.name)}</b></span>
+                            <span class="font-mono text-xs text-sky-400 font-bold">(BIB ${item.bib})</span>
+                            ${item.isAdjusted ? '<span class="text-amber-400 text-[10px]" title="Đã điều chỉnh thành tích">✏️</span>' : ''}
+                        </span>
+                        <span style="color:#10b981;font-weight:bold;font-size:13px;" class="font-mono">${item.displayStr}</span>
+                    </div>
+                `;
+            } else {
+                return `
+                    <div class="top3-item p-1">
+                        <span class="flex items-center gap-1 flex-wrap">
+                            <span>${icon} ${label}: <b>${escHtml(item.name)}</b></span>
+                            <span class="font-mono text-xs text-sky-400 font-bold">(BIB ${item.bib})</span>
+                        </span>
+                        <span style="color:#10b981;font-weight:bold;font-size:13px;" class="font-mono">${item.displayStr}</span>
+                    </div>
+                `;
+            }
         };
 
         return `
@@ -9481,7 +9526,7 @@ function openTop3Modal() {
                 ${renderTopItem('🥉', 'Ba', top3)}
                 <div style="font-size: 11px; color: #94a3b8; margin-top: 6px; border-top: 1px dashed #334155; padding-top: 4px; display: flex; justify-content: space-between; align-items: center;">
                     <span>Đã về đích: ${finished.length} VĐV</span>
-                    <span class="text-[10px] text-sky-400">Nhấn VĐV để sửa ✏️</span>
+                    ${canEditTime ? '<span class="text-[10px] text-sky-400">Nhấn VĐV để sửa ✏️</span>' : ''}
                 </div>
             </div>
         `;

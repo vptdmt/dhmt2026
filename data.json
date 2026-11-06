@@ -12839,7 +12839,7 @@
               },
               "team2": {
                 "code": "LCH",
-                "name": "Trần Thị Lập - Lò Thị Bình",
+                "name": "Hà Thị Lập - Vũ Thanh Bình",
                 "sub": "MT Lai Châu"
               },
               "time": "18:00 28/10",
@@ -12852,12 +12852,12 @@
               "name": "Tứ kết 2",
               "team1": {
                 "code": "Cienco5",
-                "name": "Hồ Thị Hồng Nhung - Nguyễn Thị Cẩm Vân",
+                "name": "Dương Thị Nhung - Trần Khánh Vân",
                 "sub": "Cienco5 và DHE"
               },
               "team2": {
                 "code": "BGI",
-                "name": "Dương Thị Phương Thảo - Trương Thị Thu Hạnh",
+                "name": "Nguyễn Thị Thu Thảo - Trần Thị Hạnh",
                 "sub": "MT Bắc Giang"
               },
               "time": "18:00 28/10",
@@ -12870,13 +12870,13 @@
               "name": "Tứ kết 3",
               "team1": {
                 "code": "Cienco5",
-                "name": "Phạm Thị Hương - Hoàng Thị Xuốt",
+                "name": "Hoàng Thị Thu Hương - Đặng Thị Xuốt",
                 "sub": "Cienco5 và DHE"
               },
               "team2": {
                 "code": "PDO",
-                "name": "Trương Thị Thu Nguyệt - Lê Thị Tình",
-                "sub": "MT Phú Quốc"
+                "name": "Nguyễn Thị Nguyệt - Đoàn Thị Thanh Tình",
+                "sub": "MT Grand Phương Đông"
               },
               "time": "18:30 28/10",
               "venue": "PK.Sân 01",
@@ -12888,13 +12888,13 @@
               "name": "Tứ kết 4",
               "team1": {
                 "code": "VPTĐ",
-                "name": "Lê Diệp Anh - Trần Thị Thu Nguyệt",
+                "name": "Tạ Diệp Anh - Lê Thị Thu Nguyệt",
                 "sub": "Văn phòng Tập đoàn"
               },
               "team2": {
                 "code": "LDN",
-                "name": "Thân Ngọc Thúy An - Nguyễn Thị Hòa",
-                "sub": "MT Đà Lạt"
+                "name": "Nguyễn Thị Thái An - Trần Thị Thu Hòa",
+                "sub": "MT Luxury Đà Nẵng"
               },
               "time": "18:30 28/10",
               "venue": "PK.Sân 02",
@@ -13037,8 +13037,8 @@
               },
               "team2": {
                 "code": "PQU",
-                "name": "Lương Văn Linh - Trần Thị Lê",
-                "sub": "MT Phú Quốc"
+                "name": "Nguyễn Vũ Linh - Phan Thị Lê",
+                "sub": "MT Luxury Phú Quốc"
               },
               "time": "20:30 28/10",
               "venue": "PK.Sân 02",

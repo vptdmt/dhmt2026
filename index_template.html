@@ -127,13 +127,13 @@
     flex-direction: row;
     align-items: stretch;
     gap: 1.75rem;
-    min-width: 950px;
+    min-width: 1080px;
   }
   .bracket-col {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    min-width: 260px;
+    min-width: 290px;
     flex: 1;
     position: relative;
   }
@@ -1954,6 +1954,137 @@
   </div>
 </div>
 
+<!-- MODAL: DANH SÁCH VĐV ĐĂNG KÝ THEO NỘI DUNG -->
+<div class="modal-overlay" id="tour-athletes-modal" onclick="closeTourAthletesModal(event)">
+  <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full mx-4 overflow-hidden border border-slate-200 flex flex-col max-h-[88vh]" onclick="event.stopPropagation()">
+    <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">👥</span>
+        <div>
+          <h3 class="text-base font-extrabold leading-tight flex items-center gap-2">
+            <span>Danh sách VĐV đăng ký:</span>
+            <span id="tour-athletes-modal-title" class="text-amber-400"></span>
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">Tổng cộng: <strong id="tour-athletes-modal-count" class="text-emerald-400 font-mono">0</strong> VĐV chính thức theo danh sách BTC</p>
+        </div>
+      </div>
+      <button onclick="document.getElementById('tour-athletes-modal').classList.remove('show')" class="text-slate-400 hover:text-white text-2xl leading-none">&times;</button>
+    </div>
+    
+    <!-- Filter bar -->
+    <div class="p-4 bg-slate-100 border-b border-slate-200 flex flex-wrap gap-2.5 items-center justify-between">
+      <div class="flex-1 min-w-[220px]">
+        <input type="text" id="tour-athletes-search-input" oninput="renderTourAthletesList(currentTourId)"
+          placeholder="🔍 Tìm nhanh VĐV, đơn vị, STT..."
+          class="w-full px-3 py-1.5 text-xs rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium">
+      </div>
+      <div class="w-full sm:w-60">
+        <select id="tour-athletes-unit-filter" onchange="renderTourAthletesList(currentTourId)"
+          class="w-full px-3 py-1.5 text-xs rounded-xl border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium">
+          <option value="">-- Tất cả đơn vị --</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Athletes list -->
+    <div id="tour-athletes-list-container" class="p-4 overflow-y-auto flex-1 space-y-3">
+      <!-- Generated via JS -->
+    </div>
+
+    <div class="px-6 py-3 border-t border-slate-200 bg-slate-50 flex items-center justify-between">
+      <span class="text-[11px] text-slate-500">💡 Bấm nút <strong>Copy</strong> để sao chép họ tên VĐV dán vào ô sửa tên.</span>
+      <button onclick="document.getElementById('tour-athletes-modal').classList.remove('show')" class="px-4 py-2 bg-slate-800 text-white rounded-xl text-xs font-bold hover:bg-slate-900 transition">Đóng</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: SỬA TÊN ĐỘI / VĐV TỪNG TRẬN -->
+<div class="modal-overlay" id="edit-team-modal" onclick="closeEditTeamModal(event)">
+  <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 overflow-hidden border border-slate-200" onclick="event.stopPropagation()">
+    <div class="px-5 py-4 bg-indigo-900 text-white flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <span class="text-xl">✏️</span>
+        <div>
+          <h3 class="text-sm font-extrabold leading-tight">Chỉnh sửa tên Đội / VĐV</h3>
+          <p class="text-[11px] text-indigo-200 mt-0.5" id="edit-team-modal-match-title">Trận đấu</p>
+        </div>
+      </div>
+      <button onclick="closeEditTeamModal()" class="text-indigo-200 hover:text-white text-2xl leading-none">&times;</button>
+    </div>
+
+    <div class="p-5 space-y-4">
+      <div class="bg-amber-50 rounded-xl p-3 border border-amber-200 text-amber-900 text-xs flex items-start gap-2">
+        <span class="text-base shrink-0">🛡️</span>
+        <div>
+          <strong class="font-bold">Bảo lưu kết quả thi đấu:</strong>
+          <p class="mt-0.5 text-[11px] text-amber-800 leading-relaxed">Việc sửa tên chỉ thay đổi hiển thị tên VĐV/Đội và thứ hạng vinh quang. <strong>Toàn bộ tỉ số, séc thắng và kết quả đã nhập sẽ được giữ nguyên 100%.</strong></p>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <div>
+          <label class="block text-xs font-bold uppercase text-slate-600 mb-1">
+            Mã đội thi: <span id="edit-team-modal-team-code" class="text-indigo-700 font-mono font-black"></span>
+          </label>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Họ và tên VĐV / Cặp VĐV <span class="text-rose-500">*</span></label>
+          <input type="text" id="edit-team-input-name" placeholder="Ví dụ: Tạ Diệp Anh - Lê Thị Thu Nguyệt"
+            class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          <p class="text-[10px] text-slate-400 mt-1">Đối với đôi: nhập tên 2 VĐV cách nhau bởi dấu gạch ngang (vd: Nguyễn Văn A - Trần Văn B).</p>
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Tên đơn vị / Khách sạn</label>
+          <input type="text" id="edit-team-input-sub" placeholder="Ví dụ: Văn phòng Tập đoàn"
+            class="w-full px-3.5 py-2 rounded-xl border border-slate-300 text-xs font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        </div>
+
+        <!-- Suggestion box -->
+        <div class="space-y-1.5 pt-2 border-t border-slate-100">
+          <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-500">💡 Gợi ý nhanh từ danh sách VĐV đăng ký:</label>
+          <div id="edit-team-suggestions" class="max-h-36 overflow-y-auto space-y-1.5 pr-1">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-5 py-3.5 border-t border-slate-200 bg-slate-50 flex items-center justify-end gap-2.5">
+      <button onclick="closeEditTeamModal()" class="px-4 py-2 bg-slate-200 text-slate-700 hover:bg-slate-300 rounded-xl text-xs font-bold transition">Hủy bỏ</button>
+      <button onclick="submitSingleTeamEdit()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold transition shadow-xs flex items-center gap-1.5">
+        <span>💾</span> <span>Lưu tên VĐV</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: SỬA TOÀN BỘ DANH SÁCH ĐỘI / VĐV GIẢI ĐẤU -->
+<div class="modal-overlay" id="edit-all-teams-modal" onclick="closeEditAllTeamsModal(event)">
+  <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full mx-4 overflow-hidden border border-slate-200 flex flex-col max-h-[88vh]" onclick="event.stopPropagation()">
+    <div class="px-6 py-4 bg-indigo-900 text-white flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <span class="text-xl">✏️</span>
+        <div>
+          <h3 class="text-sm font-extrabold leading-tight" id="edit-all-teams-modal-title">Chỉnh sửa toàn bộ danh sách Đội / VĐV</h3>
+          <p class="text-[11px] text-indigo-200 mt-0.5">Sửa đổi tên trực tiếp - Toàn bộ kết quả thi đấu và tỉ số vẫn được bảo toàn nguyên vẹn</p>
+        </div>
+      </div>
+      <button onclick="closeEditAllTeamsModal()" class="text-indigo-200 hover:text-white text-2xl leading-none">&times;</button>
+    </div>
+
+    <div id="edit-all-teams-container" class="p-5 overflow-y-auto flex-1 space-y-3">
+      <!-- Generated via JS -->
+    </div>
+
+    <div class="px-6 py-3.5 border-t border-slate-200 bg-slate-50 flex items-center justify-end gap-2.5">
+      <button onclick="closeEditAllTeamsModal()" class="px-4 py-2 bg-slate-200 text-slate-700 hover:bg-slate-300 rounded-xl text-xs font-bold transition">Hủy</button>
+      <button onclick="submitAllTourTeamsEdit()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition shadow-xs flex items-center gap-1.5">
+        <span>💾</span> <span>Lưu toàn bộ thay đổi</span>
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
 // ================================================================
 // EMBEDDED DATA
@@ -2207,6 +2338,76 @@ function closeModal(e) {
 // LIVE TOURNAMENT BRACKET & SCHEDULE SYNCHRONIZATION ENGINE
 // ================================================================
 let tourScores = JSON.parse(localStorage.getItem('dhmt2026_scores') || '{}');
+let tourTeamOverrides = JSON.parse(localStorage.getItem('dhmt2026_team_overrides') || '{}');
+
+// Master Team Overrides Applicator (Preserves all match scores while correcting team labels)
+function applyTeamOverrides() {
+  if (!DATA || !DATA.tournaments) return;
+  DATA.tournaments.forEach(tour => {
+    const tOverrides = tourTeamOverrides[tour.id] || {};
+    
+    // Knockout tournaments
+    if (tour.rounds && tour.rounds[0] && tour.rounds[0].matches) {
+      tour.rounds[0].matches.forEach(m => {
+        const k1 = m.id + '_1';
+        const k2 = m.id + '_2';
+        if (tOverrides[k1] && m.team1) {
+          m.team1.name = tOverrides[k1].name;
+          if (tOverrides[k1].sub !== undefined) m.team1.sub = tOverrides[k1].sub;
+          if (tOverrides[k1].code) m.team1.code = tOverrides[k1].code;
+        }
+        if (tOverrides[k2] && m.team2) {
+          m.team2.name = tOverrides[k2].name;
+          if (tOverrides[k2].sub !== undefined) m.team2.sub = tOverrides[k2].sub;
+          if (tOverrides[k2].code) m.team2.code = tOverrides[k2].code;
+        }
+      });
+    }
+    
+    // Group tournaments
+    if (tour.groups) {
+      tour.groups.forEach(g => {
+        (g.teams || []).forEach(tm => {
+          const k = tm.id || tm.code;
+          if (tOverrides[k]) {
+            tm.name = tOverrides[k].name;
+            if (tOverrides[k].sub !== undefined) tm.sub = tOverrides[k].sub;
+          }
+        });
+        (g.matches || []).forEach(m => {
+          const k1 = m.id + '_1';
+          const k2 = m.id + '_2';
+          if (tOverrides[k1] && m.team1 && typeof m.team1 === 'object') {
+            m.team1.name = tOverrides[k1].name;
+            if (tOverrides[k1].sub !== undefined) m.team1.sub = tOverrides[k1].sub;
+          }
+          if (tOverrides[k2] && m.team2 && typeof m.team2 === 'object') {
+            m.team2.name = tOverrides[k2].name;
+            if (tOverrides[k2].sub !== undefined) m.team2.sub = tOverrides[k2].sub;
+          }
+        });
+      });
+    }
+
+    // Playoffs
+    if (tour.playoffs) {
+      tour.playoffs.forEach(po => {
+        const k1 = po.id + '_1';
+        const k2 = po.id + '_2';
+        if (tOverrides[k1] && po.team1) {
+          po.team1.name = tOverrides[k1].name;
+          if (tOverrides[k1].sub !== undefined) po.team1.sub = tOverrides[k1].sub;
+          if (tOverrides[k1].code) po.team1.code = tOverrides[k1].code;
+        }
+        if (tOverrides[k2] && po.team2) {
+          po.team2.name = tOverrides[k2].name;
+          if (tOverrides[k2].sub !== undefined) po.team2.sub = tOverrides[k2].sub;
+          if (tOverrides[k2].code) po.team2.code = tOverrides[k2].code;
+        }
+      });
+    }
+  });
+}
 
 
 // ================================================================
@@ -2326,6 +2527,30 @@ function initFirebaseSync() {
     }, (err) => {
       console.warn('Firebase scores listener error:', err);
       updateCloudSyncStatus('offline', 'Ngoại tuyến');
+    });
+
+    // 2.5 Realtime listener for tournament team name overrides
+    const teamOverridesRef = firebaseDb.ref('dhmt2026/team_overrides');
+    teamOverridesRef.on('value', (snapshot) => {
+      const cloudData = snapshot.val();
+      if (cloudData && typeof cloudData === 'object') {
+        const cloudStr = JSON.stringify(cloudData);
+        const localStr = JSON.stringify(tourTeamOverrides);
+        if (cloudStr !== localStr) {
+          tourTeamOverrides = cloudData;
+          localStorage.setItem('dhmt2026_team_overrides', cloudStr);
+          applyTeamOverrides();
+          updateAllTournamentsLiveState();
+          if (typeof renderTournamentView === 'function') renderTournamentView();
+          if (typeof renderSchedule === 'function') renderSchedule();
+        }
+      } else if (cloudData === null) {
+        if (tourTeamOverrides && Object.keys(tourTeamOverrides).length > 0) {
+          teamOverridesRef.set(tourTeamOverrides);
+        }
+      }
+    }, (err) => {
+      console.warn('Firebase teamOverrides listener error:', err);
     });
 
     // 3. Realtime listener for accounts
@@ -2471,6 +2696,9 @@ function computeGroupStandings(group, tourId, isFootball = false) {
 
 // Master Live State Progression: updates live teams for ALL tournaments based on scores
 function updateAllTournamentsLiveState() {
+  // Apply any team name overrides first before calculating progression
+  applyTeamOverrides();
+
   const tournaments = DATA.tournaments || [];
   tournaments.forEach(tour => {
     const tScores = tourScores[tour.id] || {};
@@ -6003,6 +6231,385 @@ function parseSwimTime(str) {
   return isNaN(secs) ? 999999 : secs;
 }
 
+
+// ================================================================
+// TOURNAMENT ATHLETE REGISTRATION & TEAM EDITING ENGINE
+// ================================================================
+
+function getAthletesForTour(tourId) {
+  if (!DATA || !DATA.athletes) return [];
+  const map = {
+    'bd_m': ['Bóng đá Nam'],
+    'bd_f': ['Bóng đá Nữ'],
+    'cl_2m': ['Cầu lông đôi Nam'],
+    'cl_2f': ['Cầu lông đôi Nữ'],
+    'cl_mf': ['Cầu lông đôi Nam-Nữ'],
+    'cl_m': ['Cầu lông đơn Nam'],
+    'cl_f': ['Cầu lông đơn Nữ'],
+    'pk_2m': ['Pickleball đôi Nam'],
+    'pk_2f': ['Pickleball đôi Nữ'],
+    'pk_mf': ['Pickleball đôi Nam-Nữ'],
+    'kc': ['Kéo co'],
+    'bb_m': ['Bóng bàn đơn Nam'],
+    'bb_f': ['Bóng bàn đơn Nữ'],
+    'swimming': ['Bơi tự do Nam 40m', 'Bơi tự do Nam 80m', 'Bơi tự do Nữ 40m', 'Bơi ếch Nam 40m', 'Bơi ếch Nam 80m', 'Bơi ếch Nữ 40m']
+  };
+  const targetMons = map[tourId] || [];
+  return DATA.athletes.filter(a => {
+    const mons = a.monThi || [];
+    return targetMons.some(tm => mons.some(m => m.toLowerCase().trim() === tm.toLowerCase().trim()));
+  });
+}
+
+function openTourAthletesModal(tourId) {
+  const tour = (DATA.tournaments || []).find(t => t.id === tourId) || { id: tourId, name: 'Giải đấu' };
+  const athletes = getAthletesForTour(tourId);
+  
+  const modal = document.getElementById('tour-athletes-modal');
+  if (!modal) return;
+  
+  document.getElementById('tour-athletes-modal-title').innerText = tour.name;
+  document.getElementById('tour-athletes-modal-count').innerText = athletes.length;
+  document.getElementById('tour-athletes-search-input').value = '';
+  
+  const units = Array.from(new Set(athletes.map(a => a.donVi).filter(Boolean))).sort();
+  const select = document.getElementById('tour-athletes-unit-filter');
+  select.innerHTML = '<option value="">-- Tất cả đơn vị (' + units.length + ') --</option>' +
+    units.map(u => `<option value="${escHtml(u)}">${escHtml(u)}</option>`).join('');
+    
+  renderTourAthletesList(tourId);
+  modal.classList.add('show');
+}
+
+function renderTourAthletesList(tourId) {
+  const container = document.getElementById('tour-athletes-list-container');
+  if (!container) return;
+  
+  const athletes = getAthletesForTour(tourId);
+  const q = (document.getElementById('tour-athletes-search-input').value || '').trim().toLowerCase();
+  const uFilter = document.getElementById('tour-athletes-unit-filter').value;
+  
+  let filtered = athletes;
+  if (uFilter) {
+    filtered = filtered.filter(a => a.donVi === uFilter);
+  }
+  if (q) {
+    filtered = filtered.filter(a => 
+      (a.hoVaTen || '').toLowerCase().includes(q) ||
+      (a.donVi || '').toLowerCase().includes(q) ||
+      String(a.stt || '').includes(q)
+    );
+  }
+  
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="py-12 text-center text-slate-400">
+        <span class="text-3xl block mb-2">🔍</span>
+        <p class="text-sm font-semibold">Không tìm thấy vận động viên nào phù hợp</p>
+      </div>`;
+    return;
+  }
+  
+  const grouped = {};
+  filtered.forEach(a => {
+    const u = a.donVi || 'Chưa xác định';
+    if (!grouped[u]) grouped[u] = [];
+    grouped[u].push(a);
+  });
+  
+  const html = Object.keys(grouped).sort().map(unit => {
+    const list = grouped[unit];
+    return `
+      <div class="bg-slate-50 rounded-xl p-3 border border-slate-200 space-y-2">
+        <div class="flex items-center justify-between border-b border-slate-200/80 pb-1.5">
+          <div class="flex items-center gap-2">
+            <span class="text-base">🏢</span>
+            <strong class="text-xs text-slate-800 font-extrabold">${escHtml(unit)}</strong>
+          </div>
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-200 text-slate-700">${list.length} VĐV</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          ${list.map(a => `
+            <div class="bg-white p-2.5 rounded-lg border border-slate-200/90 shadow-2xs flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2 min-w-0">
+                <span class="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black ${a.gioiTinh === 'Nữ' ? 'bg-rose-100 text-rose-700' : 'bg-blue-100 text-blue-700'}">
+                  ${a.gioiTinh === 'Nữ' ? '♀' : '♂'}
+                </span>
+                <div class="min-w-0">
+                  <p class="font-bold text-xs text-slate-900 leading-tight">${escHtml(a.hoVaTen)}</p>
+                  <p class="text-[10px] text-slate-400">STT #${a.stt} · ${escHtml((a.monThi || []).join(', '))}</p>
+                </div>
+              </div>
+              <button onclick="navigator.clipboard.writeText('${escHtml(a.hoVaTen)}'); showRealtimeToast('📋 Đã sao chép: ${escHtml(a.hoVaTen)}');"
+                class="px-2 py-1 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 text-[10px] font-semibold transition shrink-0" title="Sao chép họ tên">
+                Copy
+              </button>
+            </div>
+          `).join('')}
+        </div>
+      </div>`;
+  }).join('');
+  
+  container.innerHTML = html;
+}
+
+function closeTourAthletesModal(e) {
+  if (!e || e.target.id === 'tour-athletes-modal' || (e.target && e.target.closest && e.target.closest('.close-modal-btn'))) {
+    const m = document.getElementById('tour-athletes-modal');
+    if (m) m.classList.remove('show');
+  }
+}
+
+let currentEditTarget = null;
+
+function openEditMatchTeamModal(tourId, matchId, teamNum) {
+  const tour = (DATA.tournaments || []).find(t => t.id === tourId);
+  if (!tour) return;
+  
+  let match = null;
+  let team = null;
+  let key = `${matchId}_${teamNum}`;
+  
+  if (tour.rounds) {
+    for (const r of tour.rounds) {
+      const m = (r.matches || []).find(x => x.id === matchId);
+      if (m) {
+        match = m;
+        team = teamNum === 1 ? m.team1 : m.team2;
+        break;
+      }
+    }
+  }
+  
+  if (!match && tour.groups) {
+    for (const g of tour.groups) {
+      const m = (g.matches || []).find(x => x.id === matchId);
+      if (m) {
+        match = m;
+        team = teamNum === 1 ? m.team1 : m.team2;
+        break;
+      }
+    }
+  }
+  
+  if (!match && tour.playoffs) {
+    const po = tour.playoffs.find(x => x.id === matchId);
+    if (po) {
+      match = po;
+      team = teamNum === 1 ? po.team1 : po.team2;
+    }
+  }
+  
+  if (!match || !team) {
+    alert('Không tìm thấy thông tin trận đấu!');
+    return;
+  }
+  
+  currentEditTarget = {
+    tourId: tourId,
+    matchId: matchId,
+    teamNum: teamNum,
+    key: key,
+    teamCode: team.code || '',
+    teamId: team.id || '',
+    initialName: team.name || '',
+    initialSub: team.sub || ''
+  };
+  
+  document.getElementById('edit-team-modal-match-title').innerText = `${match.name || match.id} (${tour.name})`;
+  document.getElementById('edit-team-modal-team-code').innerText = team.code || `#${teamNum}`;
+  document.getElementById('edit-team-input-name').value = team.name || '';
+  document.getElementById('edit-team-input-sub').value = team.sub || '';
+  
+  const athletes = getAthletesForTour(tourId);
+  const suggestionContainer = document.getElementById('edit-team-suggestions');
+  
+  const subLower = (team.sub || '').toLowerCase();
+  const codeLower = (team.code || '').toLowerCase();
+  
+  let matchedAthletes = athletes.filter(a => {
+    const dLower = (a.donVi || '').toLowerCase();
+    return (subLower && (dLower.includes(subLower) || subLower.includes(dLower))) ||
+           (codeLower && dLower.includes(codeLower));
+  });
+  
+  if (matchedAthletes.length === 0) matchedAthletes = athletes;
+  
+  suggestionContainer.innerHTML = matchedAthletes.map(a => `
+    <button type="button" onclick="selectAthleteForEdit('${escHtml(a.hoVaTen)}', '${escHtml(a.donVi)}')"
+      class="px-2.5 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-900 border border-indigo-200 text-xs font-semibold text-left transition flex items-center justify-between gap-2">
+      <span>${escHtml(a.hoVaTen)} <span class="text-[10px] text-slate-500 font-normal">(${escHtml(a.donVi)})</span></span>
+      <span class="text-[10px] text-indigo-600 font-bold shrink-0">+ Chọn</span>
+    </button>
+  `).join('');
+  
+  document.getElementById('edit-team-modal').classList.add('show');
+}
+
+function selectAthleteForEdit(name, unit) {
+  const nameInput = document.getElementById('edit-team-input-name');
+  const subInput = document.getElementById('edit-team-input-sub');
+  
+  const curName = nameInput.value.trim();
+  if (!curName || curName === 'Chờ xác định') {
+    nameInput.value = name;
+  } else if (!curName.includes(name)) {
+    if (!curName.includes(' - ')) {
+      nameInput.value = curName + ' - ' + name;
+    } else {
+      nameInput.value = name;
+    }
+  }
+  
+  if (unit && (!subInput.value.trim() || subInput.value.trim() === 'None')) {
+    subInput.value = unit;
+  }
+}
+
+function submitSingleTeamEdit() {
+  if (!currentEditTarget) return;
+  const newName = document.getElementById('edit-team-input-name').value.trim();
+  const newSub = document.getElementById('edit-team-input-sub').value.trim();
+  
+  if (!newName) {
+    alert('Vui lòng nhập tên VĐV hoặc đội thi!');
+    return;
+  }
+  
+  saveSingleTeamEdit(currentEditTarget.tourId, currentEditTarget.key, newName, newSub, currentEditTarget.teamCode);
+  
+  if (currentEditTarget.teamId) {
+    saveSingleTeamEdit(currentEditTarget.tourId, currentEditTarget.teamId, newName, newSub, currentEditTarget.teamCode);
+  }
+  
+  closeEditTeamModal();
+}
+
+function saveSingleTeamEdit(tourId, key, newName, newSub, teamCode) {
+  if (!tourTeamOverrides[tourId]) tourTeamOverrides[tourId] = {};
+  tourTeamOverrides[tourId][key] = {
+    name: newName.trim(),
+    sub: (newSub || '').trim(),
+    code: teamCode || ''
+  };
+  localStorage.setItem('dhmt2026_team_overrides', JSON.stringify(tourTeamOverrides));
+  if (typeof firebaseDb !== 'undefined' && firebaseDb) {
+    firebaseDb.ref('dhmt2026/team_overrides').set(tourTeamOverrides).catch(err => {
+      console.warn('Firebase save team override error:', err);
+    });
+  }
+  applyTeamOverrides();
+  updateAllTournamentsLiveState();
+  if (typeof renderTournamentView === 'function') renderTournamentView();
+  if (typeof renderSchedule === 'function') renderSchedule();
+  showRealtimeToast('✅ Đã cập nhật tên VĐV/Đội thành công!');
+}
+
+function closeEditTeamModal(e) {
+  if (!e || e.target.id === 'edit-team-modal' || (e.target && e.target.closest && e.target.closest('.close-modal-btn'))) {
+    const m = document.getElementById('edit-team-modal');
+    if (m) m.classList.remove('show');
+    currentEditTarget = null;
+  }
+}
+
+function openEditAllTourTeamsModal(tourId) {
+  const tour = (DATA.tournaments || []).find(t => t.id === tourId);
+  if (!tour) return;
+  
+  document.getElementById('edit-all-teams-modal-title').innerText = `✏️ Chỉnh sửa danh sách Đội / VĐV - ${tour.name}`;
+  const container = document.getElementById('edit-all-teams-container');
+  if (!container) return;
+  
+  let teamsList = [];
+  
+  if (tour.rounds && tour.rounds[0] && tour.rounds[0].matches) {
+    tour.rounds[0].matches.forEach(m => {
+      if (m.team1) teamsList.push({ key: `${m.id}_1`, matchName: m.name || m.id, code: m.team1.code, name: m.team1.name, sub: m.team1.sub });
+      if (m.team2) teamsList.push({ key: `${m.id}_2`, matchName: m.name || m.id, code: m.team2.code, name: m.team2.name, sub: m.team2.sub });
+    });
+  } else if (tour.groups) {
+    tour.groups.forEach(g => {
+      (g.teams || []).forEach(tm => {
+        teamsList.push({ key: tm.id || tm.code, matchName: g.name, code: tm.code || tm.id, name: tm.name, sub: tm.sub });
+      });
+    });
+  }
+  
+  if (teamsList.length === 0) {
+    container.innerHTML = '<p class="text-sm text-slate-500 text-center py-6">Không có danh sách đội ban đầu để chỉnh sửa.</p>';
+  } else {
+    container.innerHTML = `
+      <div class="space-y-3">
+        ${teamsList.map((t, idx) => `
+          <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 flex flex-wrap sm:flex-nowrap items-center gap-3">
+            <span class="w-14 px-2 py-1 rounded bg-slate-200 text-slate-800 text-[10px] font-mono font-bold text-center shrink-0">
+              ${escHtml(t.code || '#' + (idx + 1))}
+            </span>
+            <div class="flex-1 min-w-[200px] space-y-1">
+              <label class="text-[10px] font-bold uppercase text-slate-500 block">Họ và tên VĐV / Cặp VĐV (${escHtml(t.matchName)})</label>
+              <input type="text" data-key="${escHtml(t.key)}" data-code="${escHtml(t.code || '')}" class="bulk-team-name w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-bold text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-500 bg-white" value="${escHtml(t.name || '')}">
+            </div>
+            <div class="w-full sm:w-48 space-y-1">
+              <label class="text-[10px] font-bold uppercase text-slate-500 block">Đơn vị / Phụ chú</label>
+              <input type="text" data-key="${escHtml(t.key)}" class="bulk-team-sub w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs text-slate-600 focus:outline-none focus:ring-1 focus:ring-indigo-500 bg-white" value="${escHtml(t.sub || '')}">
+            </div>
+          </div>
+        `).join('')}
+      </div>`;
+  }
+  
+  document.getElementById('edit-all-teams-modal').setAttribute('data-tour-id', tourId);
+  document.getElementById('edit-all-teams-modal').classList.add('show');
+}
+
+function submitAllTourTeamsEdit() {
+  const modal = document.getElementById('edit-all-teams-modal');
+  const tourId = modal.getAttribute('data-tour-id');
+  if (!tourId) return;
+  
+  const nameInputs = modal.querySelectorAll('.bulk-team-name');
+  const subInputs = modal.querySelectorAll('.bulk-team-sub');
+  
+  if (!tourTeamOverrides[tourId]) tourTeamOverrides[tourId] = {};
+  
+  nameInputs.forEach((nInput, idx) => {
+    const key = nInput.getAttribute('data-key');
+    const code = nInput.getAttribute('data-code');
+    const sInput = subInputs[idx];
+    const newName = nInput.value.trim();
+    const newSub = sInput ? sInput.value.trim() : '';
+    
+    tourTeamOverrides[tourId][key] = {
+      name: newName,
+      sub: newSub,
+      code: code || ''
+    };
+  });
+  
+  localStorage.setItem('dhmt2026_team_overrides', JSON.stringify(tourTeamOverrides));
+  if (typeof firebaseDb !== 'undefined' && firebaseDb) {
+    firebaseDb.ref('dhmt2026/team_overrides').set(tourTeamOverrides).catch(err => {
+      console.warn('Firebase bulk save error:', err);
+    });
+  }
+  
+  applyTeamOverrides();
+  updateAllTournamentsLiveState();
+  if (typeof renderTournamentView === 'function') renderTournamentView();
+  if (typeof renderSchedule === 'function') renderSchedule();
+  
+  modal.classList.remove('show');
+  showRealtimeToast('✅ Đã cập nhật tất cả tên VĐV thành công!');
+}
+
+function closeEditAllTeamsModal(e) {
+  if (!e || e.target.id === 'edit-all-teams-modal' || (e.target && e.target.closest && e.target.closest('.close-modal-btn'))) {
+    const m = document.getElementById('edit-all-teams-modal');
+    if (m) m.classList.remove('show');
+  }
+}
+
 // Universal match card renderer
 function renderMatchCard(tourId, match, options = {}) {
   const tour = (DATA.tournaments || []).find(t => t.id === tourId);
@@ -6044,10 +6651,17 @@ function renderMatchCard(tourId, match, options = {}) {
         <!-- TEAM 1 -->
         <div class="bracket-team-row ${win1 ? 'winner' : win2 ? 'loser' : ''}">
           <div class="flex items-center gap-1.5 min-w-0 flex-1">
-            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold ${win1 ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-700'}">${escHtml(t1.code || '1')}</span>
+            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold shrink-0 ${win1 ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-700'}">${escHtml(t1.code || '1')}</span>
             <div class="min-w-0 flex-1">
-              <p class="font-bold text-xs truncate leading-tight ${t1.isPlaceholder ? 'text-slate-400 italic font-normal' : 'text-slate-900'}">${escHtml(t1.name)}</p>
-              ${t1.sub ? `<p class="text-[10px] text-slate-400 truncate">${escHtml(t1.sub)}</p>` : ''}
+              <div class="flex items-center gap-1 flex-wrap">
+                <p class="font-bold text-xs leading-snug break-words ${t1.isPlaceholder ? 'text-slate-400 italic font-normal' : 'text-slate-900'}" title="${escHtml(t1.name)}">${escHtml(t1.name)}</p>
+                ${canEdit && !t1.isPlaceholder && (!match.isFinal && !match.isThirdPlace && !match.id.includes('.BK')) ? `
+                  <button type="button" onclick="openEditMatchTeamModal('${tourId}', '${match.id}', 1)" class="text-slate-400 hover:text-indigo-600 p-0.5 rounded hover:bg-slate-100 transition inline-flex items-center shrink-0 cursor-pointer" title="Chỉnh sửa tên VĐV/Đội">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                  </button>
+                ` : ''}
+              </div>
+              ${t1.sub ? `<p class="text-[10px] text-slate-400 leading-tight break-words mt-0.5" title="${escHtml(t1.sub)}">${escHtml(t1.sub)}</p>` : ''}
             </div>
           </div>
           ${canEdit ? `
@@ -6065,10 +6679,17 @@ function renderMatchCard(tourId, match, options = {}) {
         <!-- TEAM 2 -->
         <div class="bracket-team-row ${win2 ? 'winner' : win1 ? 'loser' : ''}">
           <div class="flex items-center gap-1.5 min-w-0 flex-1">
-            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold ${win2 ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-700'}">${escHtml(t2.code || '2')}</span>
+            <span class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold shrink-0 ${win2 ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-700'}">${escHtml(t2.code || '2')}</span>
             <div class="min-w-0 flex-1">
-              <p class="font-bold text-xs truncate leading-tight ${t2.isPlaceholder ? 'text-slate-400 italic font-normal' : 'text-slate-900'}">${escHtml(t2.name)}</p>
-              ${t2.sub ? `<p class="text-[10px] text-slate-400 truncate">${escHtml(t2.sub)}</p>` : ''}
+              <div class="flex items-center gap-1 flex-wrap">
+                <p class="font-bold text-xs leading-snug break-words ${t2.isPlaceholder ? 'text-slate-400 italic font-normal' : 'text-slate-900'}" title="${escHtml(t2.name)}">${escHtml(t2.name)}</p>
+                ${canEdit && !t2.isPlaceholder && (!match.isFinal && !match.isThirdPlace && !match.id.includes('.BK')) ? `
+                  <button type="button" onclick="openEditMatchTeamModal('${tourId}', '${match.id}', 2)" class="text-slate-400 hover:text-indigo-600 p-0.5 rounded hover:bg-slate-100 transition inline-flex items-center shrink-0 cursor-pointer" title="Chỉnh sửa tên VĐV/Đội">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                  </button>
+                ` : ''}
+              </div>
+              ${t2.sub ? `<p class="text-[10px] text-slate-400 leading-tight break-words mt-0.5" title="${escHtml(t2.sub)}">${escHtml(t2.sub)}</p>` : ''}
             </div>
           </div>
           ${canEdit ? `
@@ -6108,8 +6729,8 @@ function renderPodiumBox(gold, silver, bronze, fourth) {
           <div class="min-w-0 flex-1">
             <span class="text-[10px] font-black uppercase text-amber-600 block">VÔ ĐỊCH (HCV)</span>
             ${isGoldValid ? `
-              <strong class="text-slate-900 text-sm truncate block font-black">${escHtml(gold.name)}</strong>
-              ${gold.sub ? `<span class="text-[10px] text-slate-500 block truncate">${escHtml(gold.sub)}</span>` : ''}
+              <strong class="text-slate-900 text-sm break-words block font-black leading-snug" title="${escHtml(gold.name)}">${escHtml(gold.name)}</strong>
+              ${gold.sub ? `<span class="text-[10px] text-slate-500 block break-words mt-0.5 leading-tight" title="${escHtml(gold.sub)}">${escHtml(gold.sub)}</span>` : ''}
             ` : '<span class="text-slate-400 italic font-normal text-xs">Chờ chung kết</span>'}
           </div>
         </div>
@@ -6120,7 +6741,8 @@ function renderPodiumBox(gold, silver, bronze, fourth) {
           <div class="min-w-0 flex-1">
             <span class="text-[10px] font-black uppercase text-slate-500 block">Á QUÂN (HCB)</span>
             ${isSilverValid ? `
-              <strong class="text-slate-800 text-xs truncate block font-bold">${escHtml(silver.name)}</strong>
+              <strong class="text-slate-800 text-xs break-words block font-bold leading-snug" title="${escHtml(silver.name)}">${escHtml(silver.name)}</strong>
+              ${silver.sub ? `<span class="text-[10px] text-slate-500 block break-words mt-0.5 leading-tight" title="${escHtml(silver.sub)}">${escHtml(silver.sub)}</span>` : ''}
             ` : '<span class="text-slate-400 italic font-normal text-xs">Chờ chung kết</span>'}
           </div>
         </div>
@@ -6131,7 +6753,8 @@ function renderPodiumBox(gold, silver, bronze, fourth) {
           <div class="min-w-0 flex-1">
             <span class="text-[10px] font-black uppercase text-amber-700 block">HẠNG BA (HCĐ)</span>
             ${isBronzeValid ? `
-              <strong class="text-slate-800 text-xs truncate block font-bold">${escHtml(bronze.name)}</strong>
+              <strong class="text-slate-800 text-xs break-words block font-bold leading-snug" title="${escHtml(bronze.name)}">${escHtml(bronze.name)}</strong>
+              ${bronze.sub ? `<span class="text-[10px] text-slate-500 block break-words mt-0.5 leading-tight" title="${escHtml(bronze.sub)}">${escHtml(bronze.sub)}</span>` : ''}
             ` : '<span class="text-slate-400 italic font-normal text-xs">Chờ tranh 3-4</span>'}
           </div>
         </div>
@@ -6140,7 +6763,7 @@ function renderPodiumBox(gold, silver, bronze, fourth) {
         ${fourth ? `
         <div class="bg-white/50 p-1.5 px-2.5 rounded-lg border border-slate-200/60 flex items-center gap-2 text-[11px]">
           <span class="font-bold text-slate-400">4️⃣</span>
-          <span class="text-slate-500 truncate flex-1 font-semibold">Hạng Tư: <strong>${escHtml(fourth.name)}</strong></span>
+          <span class="text-slate-600 break-words flex-1 font-semibold" title="${escHtml(fourth.name)}">Hạng Tư: <strong>${escHtml(fourth.name)}</strong></span>
         </div>` : ''}
       </div>
     </div>`;
@@ -6719,8 +7342,8 @@ function renderSwimmingTournament(tour) {
                         <div class="flex items-center justify-between text-xs p-1.5 bg-slate-50 rounded-lg">
                           <div class="flex items-center gap-1.5 min-w-0 flex-1">
                             <span class="px-1.5 py-0.5 rounded text-[9px] font-black bg-sky-100 text-sky-800">Làn ${l.lan}</span>
-                            <span class="font-bold text-slate-800 truncate">${escHtml(l.hoVaTen)}</span>
-                            <span class="text-slate-400 text-[10px] truncate">(${escHtml(l.donVi)})</span>
+                            <span class="font-bold text-slate-800 break-words" title="${escHtml(l.hoVaTen)}">${escHtml(l.hoVaTen)}</span>
+                            <span class="text-slate-400 text-[10px] break-words" title="${escHtml(l.donVi)}">(${escHtml(l.donVi)})</span>
                           </div>
                           ${canEditSwim ? `
                           <input type="text" placeholder="vd 32.5s" value="${escHtml(curVal)}"
@@ -6751,8 +7374,8 @@ function renderSwimmingTournament(tour) {
                     <div class="flex items-center justify-between text-xs p-1.5 rounded-lg ${isTop6 ? 'bg-emerald-50 border border-emerald-200' : 'bg-slate-50'}">
                       <div class="flex items-center gap-1.5 min-w-0 flex-1">
                         <span class="w-4 h-4 rounded-full text-center text-[10px] font-black ${isTop6 ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-600'}">${idx + 1}</span>
-                        <span class="font-bold text-slate-800 truncate">${escHtml(sw.hoVaTen)}</span>
-                        <span class="text-slate-400 text-[10px] truncate">(${escHtml(sw.donVi)})</span>
+                        <span class="font-bold text-slate-800 break-words" title="${escHtml(sw.hoVaTen)}">${escHtml(sw.hoVaTen)}</span>
+                        <span class="text-slate-400 text-[10px] break-words" title="${escHtml(sw.donVi)}">(${escHtml(sw.donVi)})</span>
                       </div>
                       <span class="font-mono font-bold ${isTop6 ? 'text-emerald-700' : 'text-slate-400'}">${sw.timeStr || '--'}</span>
                     </div>`;
@@ -6826,6 +7449,8 @@ function renderTournamentView() {
     return;
   }
 
+  const tourAthletes = getAthletesForTour(tour.id);
+  const canEditTour = canEditSport(tour.sport);
   const bannerHtml = `
     <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs flex flex-wrap items-center justify-between gap-3">
       <div class="flex items-center gap-3">
@@ -6837,7 +7462,19 @@ function renderTournamentView() {
           <p class="text-xs text-slate-500 mt-0.5">📌 Thể lệ: ${escHtml(tour.rules)}</p>
         </div>
       </div>
-      <div class="flex items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2">
+        <button type="button" onclick="openTourAthletesModal('${tour.id}')"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50 text-sky-700 hover:bg-sky-100 border border-sky-200 text-xs font-bold transition shadow-2xs cursor-pointer"
+          title="Xem danh sách vận động viên đăng ký môn này">
+          <span>👥</span> <span>DS VĐV đăng ký (${tourAthletes.length})</span>
+        </button>
+        ${canEditTour ? `
+        <button type="button" onclick="openEditAllTourTeamsModal('${tour.id}')"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-50 text-amber-800 hover:bg-amber-100 border border-amber-200 text-xs font-bold transition shadow-2xs cursor-pointer"
+          title="Sửa tên đội/cặp VĐV thi đấu trong giải">
+          <span>✏️</span> <span>Sửa tên Đội / VĐV</span>
+        </button>
+        ` : ''}
         <span class="tag-badge bg-indigo-50 text-indigo-700 border border-indigo-200 font-bold text-xs">
           ${tour.format === 'knockout8' ? 'Loại trực tiếp 8 đội' : tour.format === 'group2_cross' ? '2 Bảng + Bán kết chéo' : tour.format === 'group2_final' ? '2 Bảng + Chung kết' : tour.format === 'tabletennis_men' ? 'Play-off + 2 Bảng' : tour.format === 'group3_roundrobin' ? '3 Bảng + Vòng tròn CK' : 'Vòng loại + Chung kết'}
         </span>

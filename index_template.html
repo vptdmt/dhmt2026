@@ -6,7 +6,692 @@
 <title>Đại Hội Mường Thanh 2026 - Quản Lý Lịch Thi Đấu & Lịch Trình</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com">
+// ================================================================
+// TAB 10: BẢNG TỔNG SẮP HUY CHƯƠNG & KHEN THƯỞNG TOÀN ĐOÀN
+// ================================================================
+let medalsViewMode = 'standings'; // 'standings' | 'details'
+let medalsCategoryFilter = 'all'; // 'all' | 'Thể thao' | 'Fun Run' | 'Nghiệp vụ' | 'Văn nghệ' | 'Miss MT' | 'Golf'
+let medalsRankFilter = 'all'; // 'all' | 'gold' | 'silver' | 'bronze' | 'other'
+let medalsSearchQuery = '';
+let medalsSortBy = 'olympic'; // 'olympic' | 'total' | 'money' | 'name'
+let medalsExpandedUnits = {}; // map of unitName -> boolean
+
+function renderMedalsTab() {
+  updateMedalsKpis();
+  if (medalsViewMode === 'standings') {
+    renderMedalsStandingsView();
+  } else {
+    renderMedalsDetailsView();
+  }
+}
+
+function updateMedalsKpis() {
+  if (!DATA.awards) return;
+  const awards = DATA.awards;
+  const gold = awards.filter(a => a.rankType === 'gold').length;
+  const silver = awards.filter(a => a.rankType === 'silver').length;
+  const bronze = awards.filter(a => a.rankType === 'bronze').length;
+  const other = awards.filter(a => a.rankType === 'other').length;
+  const total = awards.length;
+
+  const elG = document.getElementById('kpi-gold-count');
+  const elS = document.getElementById('kpi-silver-count');
+  const elB = document.getElementById('kpi-bronze-count');
+  const elO = document.getElementById('kpi-other-count');
+  const elT = document.getElementById('kpi-total-count');
+
+  if (elG) elG.textContent = gold;
+  if (elS) elS.textContent = silver;
+  if (elB) elB.textContent = bronze;
+  if (elO) elO.textContent = other;
+  if (elT) elT.textContent = total;
+}
+
+function setMedalsView(mode) {
+  medalsViewMode = mode;
+  const btnStandings = document.getElementById('btn-view-standings');
+  const btnDetails = document.getElementById('btn-view-details');
+  const viewStandings = document.getElementById('medals-standings-view');
+  const viewDetails = document.getElementById('medals-details-view');
+  const sortContainer = document.getElementById('standings-sort-container');
+
+  if (mode === 'standings') {
+    if (btnStandings) {
+      btnStandings.className = 'px-3 py-1.5 rounded-lg text-xs font-black transition cursor-pointer flex items-center gap-1.5 bg-indigo-600 text-white shadow-xs';
+    }
+    if (btnDetails) {
+      btnDetails.className = 'px-3 py-1.5 rounded-lg text-xs font-black transition cursor-pointer flex items-center gap-1.5 text-slate-600 hover:text-slate-900';
+    }
+    if (viewStandings) viewStandings.classList.remove('hidden');
+    if (viewDetails) viewDetails.classList.add('hidden');
+    if (sortContainer) sortContainer.classList.remove('hidden');
+    renderMedalsStandingsView();
+  } else {
+    if (btnStandings) {
+      btnStandings.className = 'px-3 py-1.5 rounded-lg text-xs font-black transition cursor-pointer flex items-center gap-1.5 text-slate-600 hover:text-slate-900';
+    }
+    if (btnDetails) {
+      btnDetails.className = 'px-3 py-1.5 rounded-lg text-xs font-black transition cursor-pointer flex items-center gap-1.5 bg-indigo-600 text-white shadow-xs';
+    }
+    if (viewStandings) viewStandings.classList.add('hidden');
+    if (viewDetails) viewDetails.classList.remove('hidden');
+    if (sortContainer) sortContainer.classList.add('hidden');
+    renderMedalsDetailsView();
+  }
+}
+
+function filterMedalsCategory(cat, btn) {
+  medalsCategoryFilter = cat;
+  document.querySelectorAll('.medal-cat-btn').forEach(b => {
+    b.className = 'medal-cat-btn tag-badge px-3 py-1 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200';
+  });
+  if (btn) {
+    btn.className = 'medal-cat-btn tag-badge px-3 py-1 rounded-full text-xs font-bold transition cursor-pointer bg-slate-800 text-white shadow-xs';
+  }
+  renderMedalsTab();
+}
+
+function filterMedalsRank(rank, btn) {
+  medalsRankFilter = rank;
+  document.querySelectorAll('.medal-rank-btn').forEach(b => {
+    b.className = 'medal-rank-btn px-2.5 py-1 rounded-lg text-xs font-bold transition cursor-pointer bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-slate-800';
+  });
+  if (btn) {
+    btn.className = 'medal-rank-btn px-2.5 py-1 rounded-lg text-xs font-bold transition cursor-pointer bg-indigo-50 text-indigo-700 border border-indigo-200';
+  }
+  renderMedalsTab();
+}
+
+function handleMedalsSearch(val) {
+  medalsSearchQuery = val || '';
+  const clearBtn = document.getElementById('medals-search-clear');
+  if (clearBtn) {
+    if (medalsSearchQuery.trim().length > 0) clearBtn.classList.remove('hidden');
+    else clearBtn.classList.add('hidden');
+  }
+  renderMedalsTab();
+}
+
+function clearMedalsSearch() {
+  medalsSearchQuery = '';
+  const inp = document.getElementById('medals-search-input');
+  if (inp) inp.value = '';
+  const clearBtn = document.getElementById('medals-search-clear');
+  if (clearBtn) clearBtn.classList.add('hidden');
+  renderMedalsTab();
+}
+
+function sortMedalsStandings(sortBy) {
+  medalsSortBy = sortBy;
+  renderMedalsStandingsView();
+}
+
+function toggleMedalUnitExpand(unitKey) {
+  medalsExpandedUnits[unitKey] = !medalsExpandedUnits[unitKey];
+  renderMedalsStandingsView();
+}
+
+function getFilteredAwards() {
+  if (!DATA.awards) return [];
+  return DATA.awards.filter(a => {
+    // 1. Category filter
+    if (medalsCategoryFilter !== 'all') {
+      if (medalsCategoryFilter === 'Golf') {
+        if (a.group !== 'Golf' && !(a.event && a.event.includes('Golf'))) return false;
+      } else if (a.group !== medalsCategoryFilter) {
+        return false;
+      }
+    }
+    // 2. Rank filter
+    if (medalsRankFilter !== 'all') {
+      if (a.rankType !== medalsRankFilter) return false;
+    }
+    // 3. Search query
+    if (medalsSearchQuery && medalsSearchQuery.trim()) {
+      const q = medalsSearchQuery.toLowerCase().trim();
+      const match = (a.athlete && a.athlete.toLowerCase().includes(q)) ||
+                    (a.unit && a.unit.toLowerCase().includes(q)) ||
+                    (a.event && a.event.toLowerCase().includes(q)) ||
+                    (a.rank && a.rank.toLowerCase().includes(q)) ||
+                    (a.group && a.group.toLowerCase().includes(q));
+      if (!match) return false;
+    }
+    return true;
+  });
+}
+
+function renderMedalsStandingsView() {
+  const container = document.getElementById('medals-standings-view');
+  if (!container) return;
+
+  const filteredAwards = getFilteredAwards();
+
+  // Aggregate by unit
+  const unitMap = {};
+  filteredAwards.forEach(a => {
+    const u = a.unit || 'Chưa xác định';
+    if (!unitMap[u]) {
+      unitMap[u] = {
+        unit: u,
+        gold: 0,
+        silver: 0,
+        bronze: 0,
+        other: 0,
+        total: 0,
+        money: 0,
+        awards: []
+      };
+    }
+    if (a.rankType === 'gold') unitMap[u].gold++;
+    else if (a.rankType === 'silver') unitMap[u].silver++;
+    else if (a.rankType === 'bronze') unitMap[u].bronze++;
+    else unitMap[u].other++;
+
+    unitMap[u].total++;
+    unitMap[u].money += (a.prizeMoney || 0);
+    unitMap[u].awards.push(a);
+  });
+
+  const list = Object.values(unitMap);
+
+  list.sort((a, b) => {
+    if (medalsSortBy === 'olympic') {
+      if (b.gold !== a.gold) return b.gold - a.gold;
+      if (b.silver !== a.silver) return b.silver - a.silver;
+      if (b.bronze !== a.bronze) return b.bronze - a.bronze;
+      if (b.total !== a.total) return b.total - a.total;
+      if (b.money !== a.money) return b.money - a.money;
+      return a.unit.localeCompare(b.unit, 'vi');
+    } else if (medalsSortBy === 'total') {
+      if (b.total !== a.total) return b.total - a.total;
+      if (b.gold !== a.gold) return b.gold - a.gold;
+      if (b.silver !== a.silver) return b.silver - a.silver;
+      return b.money - a.money;
+    } else if (medalsSortBy === 'money') {
+      if (b.money !== a.money) return b.money - a.money;
+      return b.total - a.total;
+    } else if (medalsSortBy === 'name') {
+      return a.unit.localeCompare(b.unit, 'vi');
+    }
+    return 0;
+  });
+
+  if (list.length === 0) {
+    container.innerHTML = `
+      <div class="p-12 text-center text-slate-400 bg-white rounded-2xl border border-slate-200">
+        <span class="text-4xl block mb-2">🔍🏅</span>
+        <p class="font-bold text-slate-700 text-sm">Không tìm thấy đoàn / đơn vị nào phù hợp bộ lọc</p>
+        <p class="text-xs text-slate-400 mt-1">Vui lòng thử chọn lại phân loại hoặc xóa từ khóa tìm kiếm</p>
+        <button onclick="clearMedalsSearch(); filterMedalsCategory('all', null); filterMedalsRank('all', null);" class="mt-3 px-3.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs transition shadow-xs cursor-pointer">
+          Đặt lại toàn bộ bộ lọc
+        </button>
+      </div>
+    `;
+    return;
+  }
+
+  // Summary header bar
+  const totalGold = list.reduce((acc, u) => acc + u.gold, 0);
+  const totalSilver = list.reduce((acc, u) => acc + u.silver, 0);
+  const totalBronze = list.reduce((acc, u) => acc + u.bronze, 0);
+  const totalOther = list.reduce((acc, u) => acc + u.other, 0);
+  const totalAwards = list.reduce((acc, u) => acc + u.total, 0);
+  const totalMoney = list.reduce((acc, u) => acc + u.money, 0);
+
+  let html = `
+    <div class="flex items-center justify-between text-xs font-bold text-slate-500 px-1">
+      <div>Đang hiển thị <strong>${list.length}</strong> đoàn / đơn vị (${totalAwards} giải thưởng)</div>
+      <div class="text-indigo-600 font-extrabold">💡 Bấm vào từng đơn vị để xem chi tiết giải thưởng</div>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-slate-900 text-white font-black uppercase text-[11px] tracking-wider border-b border-slate-800">
+              <th class="py-3 px-3 sm:px-4 text-center w-14 sm:w-16">Hạng</th>
+              <th class="py-3 px-3 sm:px-4">Đoàn / Đơn vị / Liên quân</th>
+              <th class="py-3 px-2 sm:px-3 text-center text-amber-300 w-16 sm:w-20" title="Huy chương Vàng">🥇 Vàng</th>
+              <th class="py-3 px-2 sm:px-3 text-center text-slate-300 w-16 sm:w-20" title="Huy chương Bạc">🥈 Bạc</th>
+              <th class="py-3 px-2 sm:px-3 text-center text-amber-400 w-16 sm:w-20" title="Huy chương Đồng">🥉 Đồng</th>
+              <th class="py-3 px-2 sm:px-3 text-center text-indigo-300 w-16 sm:w-20" title="Giải phụ / Khuyến khích">🎖️ Khác</th>
+              <th class="py-3 px-2 sm:px-3 text-center text-white w-16 sm:w-20">Tổng</th>
+              <th class="py-3 px-3 sm:px-4 text-right text-emerald-300 w-28 sm:w-36">Tiền thưởng</th>
+              <th class="py-3 px-2 sm:px-3 text-center w-16 sm:w-20">Chi tiết</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 font-medium">
+  `;
+
+  list.forEach((item, idx) => {
+    const rank = idx + 1;
+    const isExpanded = !!medalsExpandedUnits[item.unit];
+
+    // Rank badge styling
+    let rankBadge = '';
+    let rowBg = (idx % 2 === 0) ? 'bg-white' : 'bg-slate-50/50';
+
+    if (rank === 1) {
+      rankBadge = `<span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-300 text-amber-950 font-black text-xs shadow-md border border-amber-200">🥇 1</span>`;
+      rowBg = 'bg-amber-50/40 hover:bg-amber-50/70';
+    } else if (rank === 2) {
+      rankBadge = `<span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-tr from-slate-300 to-slate-200 text-slate-900 font-black text-xs shadow-md border border-slate-300">🥈 2</span>`;
+      rowBg = 'bg-slate-50/60 hover:bg-slate-100/70';
+    } else if (rank === 3) {
+      rankBadge = `<span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-tr from-amber-700 to-amber-600 text-amber-100 font-black text-xs shadow-md border border-amber-500">🥉 3</span>`;
+      rowBg = 'bg-orange-50/30 hover:bg-orange-50/60';
+    } else {
+      rankBadge = `<span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-slate-100 text-slate-600 font-bold text-xs border border-slate-200">${rank}</span>`;
+      rowBg = 'hover:bg-indigo-50/40';
+    }
+
+    // Unit icon logic
+    let unitIcon = '🏨';
+    if (item.unit.includes('Golf')) unitIcon = '⛳';
+    else if (item.unit.includes('VRC') || item.unit.includes('Trung tâm')) unitIcon = '🎪';
+    else if (item.unit.includes('Văn phòng') || item.unit.includes('VPTĐ')) unitIcon = '🏢';
+    else if (item.unit.includes('Cienco5') || item.unit.includes('DHE')) unitIcon = '🏗️';
+    else if (item.unit.includes('Liên quân')) unitIcon = '🤝';
+    else if (item.unit.includes('Chung cư') || item.unit.includes('DVNO')) unitIcon = '🏘️';
+
+    html += `
+      <tr class="${rowBg} transition cursor-pointer" onclick="toggleMedalUnitExpand('${escHtml(item.unit)}')">
+        <td class="py-3 px-3 sm:px-4 text-center font-bold">${rankBadge}</td>
+        <td class="py-3 px-3 sm:px-4">
+          <div class="flex items-center gap-2">
+            <span class="text-base sm:text-lg">${unitIcon}</span>
+            <div>
+              <span class="font-extrabold text-slate-800 text-xs sm:text-sm hover:text-indigo-600 transition">${escHtml(item.unit)}</span>
+              ${item.awards.length > 0 ? `<div class="text-[11px] text-slate-400 font-normal sm:hidden">${item.awards.length} giải thưởng</div>` : ''}
+            </div>
+          </div>
+        </td>
+        <td class="py-3 px-2 sm:px-3 text-center">
+          ${item.gold > 0 ? `<span class="inline-flex items-center justify-center min-w-[26px] px-1.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 font-black text-xs">${item.gold}</span>` : '<span class="text-slate-300 font-mono text-xs">-</span>'}
+        </td>
+        <td class="py-3 px-2 sm:px-3 text-center">
+          ${item.silver > 0 ? `<span class="inline-flex items-center justify-center min-w-[26px] px-1.5 py-0.5 rounded-full bg-slate-200 text-slate-800 border border-slate-300 font-black text-xs">${item.silver}</span>` : '<span class="text-slate-300 font-mono text-xs">-</span>'}
+        </td>
+        <td class="py-3 px-2 sm:px-3 text-center">
+          ${item.bronze > 0 ? `<span class="inline-flex items-center justify-center min-w-[26px] px-1.5 py-0.5 rounded-full bg-orange-100 text-orange-950 border border-orange-300 font-black text-xs">${item.bronze}</span>` : '<span class="text-slate-300 font-mono text-xs">-</span>'}
+        </td>
+        <td class="py-3 px-2 sm:px-3 text-center">
+          ${item.other > 0 ? `<span class="inline-flex items-center justify-center min-w-[26px] px-1.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200 font-bold text-xs">${item.other}</span>` : '<span class="text-slate-300 font-mono text-xs">-</span>'}
+        </td>
+        <td class="py-3 px-2 sm:px-3 text-center">
+          <span class="inline-flex items-center justify-center min-w-[28px] px-2 py-0.5 rounded-full bg-slate-800 text-white font-black text-xs">${item.total}</span>
+        </td>
+        <td class="py-3 px-3 sm:px-4 text-right font-mono font-black text-emerald-700 text-xs sm:text-sm">
+          ${item.money > 0 ? item.money.toLocaleString('vi-VN') + 'đ' : '0đ'}
+        </td>
+        <td class="py-3 px-2 sm:px-3 text-center">
+          <button type="button" class="w-6 h-6 rounded-lg bg-slate-100 hover:bg-indigo-100 text-slate-600 hover:text-indigo-700 flex items-center justify-center text-xs transition cursor-pointer font-bold">
+            ${isExpanded ? '▲' : '▼'}
+          </button>
+        </td>
+      </tr>
+    `;
+
+    // EXPANDED ACCORDION ROW FOR THIS UNIT
+    if (isExpanded) {
+      html += `
+        <tr class="bg-indigo-50/50 border-t border-b border-indigo-100">
+          <td colspan="9" class="p-3 sm:p-4">
+            <div class="bg-white rounded-xl border border-indigo-100 p-3 shadow-xs space-y-2">
+              <div class="flex items-center justify-between text-xs font-black text-indigo-900 border-b border-indigo-50 pb-2">
+                <span>📋 Danh sách giải thưởng của ${escHtml(item.unit)} (${item.awards.length} giải)</span>
+                <span class="text-emerald-700 font-mono">Tổng thưởng: ${item.money.toLocaleString('vi-VN')} VNĐ</span>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
+                ${item.awards.map(a => {
+                  let badge = '';
+                  if (a.rankType === 'gold') {
+                    badge = `<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 font-black text-[11px] whitespace-nowrap">🥇 ${escHtml(a.rank)}</span>`;
+                  } else if (a.rankType === 'silver') {
+                    badge = `<span class="px-2 py-0.5 rounded-full bg-slate-200 text-slate-800 border border-slate-300 font-black text-[11px] whitespace-nowrap">🥈 ${escHtml(a.rank)}</span>`;
+                  } else if (a.rankType === 'bronze') {
+                    badge = `<span class="px-2 py-0.5 rounded-full bg-orange-100 text-orange-950 border border-orange-300 font-black text-[11px] whitespace-nowrap">🥉 ${escHtml(a.rank)}</span>`;
+                  } else {
+                    badge = `<span class="px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200 font-bold text-[11px] whitespace-nowrap">🎖️ ${escHtml(a.rank)}</span>`;
+                  }
+
+                  let groupTag = '';
+                  if (a.group === 'Thể thao') groupTag = '<span class="text-[10px] px-1.5 py-0.2 rounded bg-sky-100 text-sky-800 font-bold">Thể thao</span>';
+                  else if (a.group === 'Fun Run') groupTag = '<span class="text-[10px] px-1.5 py-0.2 rounded bg-emerald-100 text-emerald-800 font-bold">Fun Run</span>';
+                  else if (a.group === 'Nghiệp vụ') groupTag = '<span class="text-[10px] px-1.5 py-0.2 rounded bg-amber-100 text-amber-800 font-bold">Nghiệp vụ</span>';
+                  else if (a.group === 'Văn nghệ') groupTag = '<span class="text-[10px] px-1.5 py-0.2 rounded bg-purple-100 text-purple-800 font-bold">Văn nghệ</span>';
+                  else if (a.group === 'Miss MT') groupTag = '<span class="text-[10px] px-1.5 py-0.2 rounded bg-pink-100 text-pink-800 font-bold">Miss MT</span>';
+                  else if (a.group === 'Golf') groupTag = '<span class="text-[10px] px-1.5 py-0.2 rounded bg-teal-100 text-teal-800 font-bold">Golf</span>';
+
+                  return `
+                    <div class="flex items-center justify-between gap-2 p-2 rounded-lg bg-slate-50 border border-slate-100">
+                      <div class="min-w-0">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                          ${badge}
+                          ${groupTag}
+                          <span class="font-bold text-slate-800 truncate">${escHtml(a.event)}</span>
+                        </div>
+                        <div class="text-[11px] text-slate-600 mt-1 flex items-center gap-1">
+                          <span>👤</span> <strong class="text-slate-800">${escHtml(a.athlete || 'Tập thể')}</strong>
+                        </div>
+                      </div>
+                      <div class="text-right font-mono font-black text-emerald-700 text-xs whitespace-nowrap">
+                        ${(a.prizeMoney || 0).toLocaleString('vi-VN')}đ
+                      </div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          </td>
+        </tr>
+      `;
+    }
+  });
+
+  // Table Footer
+  html += `
+          </tbody>
+          <tfoot>
+            <tr class="bg-slate-900 text-white font-black text-xs sm:text-sm border-t-2 border-slate-800">
+              <td colspan="2" class="py-3 px-3 sm:px-4 text-right uppercase tracking-wider">TỔNG CỘNG TOÀN ĐOÀN:</td>
+              <td class="py-3 px-2 sm:px-3 text-center text-amber-300 font-mono font-black">${totalGold}</td>
+              <td class="py-3 px-2 sm:px-3 text-center text-slate-300 font-mono font-black">${totalSilver}</td>
+              <td class="py-3 px-2 sm:px-3 text-center text-amber-400 font-mono font-black">${totalBronze}</td>
+              <td class="py-3 px-2 sm:px-3 text-center text-indigo-300 font-mono font-black">${totalOther}</td>
+              <td class="py-3 px-2 sm:px-3 text-center text-white font-mono font-black">${totalAwards}</td>
+              <td class="py-3 px-3 sm:px-4 text-right text-emerald-400 font-mono font-black text-sm">${totalMoney.toLocaleString('vi-VN')}đ</td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  `;
+
+  container.innerHTML = html;
+}
+
+function renderMedalsDetailsView() {
+  const container = document.getElementById('medals-details-view');
+  if (!container) return;
+
+  const filteredAwards = getFilteredAwards();
+
+  if (filteredAwards.length === 0) {
+    container.innerHTML = `
+      <div class="p-12 text-center text-slate-400 bg-white rounded-2xl border border-slate-200">
+        <span class="text-4xl block mb-2">🔍📋</span>
+        <p class="font-bold text-slate-700 text-sm">Không tìm thấy giải thưởng nào phù hợp bộ lọc</p>
+        <p class="text-xs text-slate-400 mt-1">Vui lòng thử chọn lại phân loại hoặc xóa từ khóa tìm kiếm</p>
+        <button onclick="clearMedalsSearch(); filterMedalsCategory('all', null); filterMedalsRank('all', null);" class="mt-3 px-3.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs transition shadow-xs cursor-pointer">
+          Đặt lại toàn bộ bộ lọc
+        </button>
+      </div>
+    `;
+    return;
+  }
+
+  const totalMoney = filteredAwards.reduce((acc, a) => acc + (a.prizeMoney || 0), 0);
+
+  let html = `
+    <div class="flex items-center justify-between text-xs font-bold text-slate-500 px-1">
+      <div>Đang hiển thị <strong>${filteredAwards.length}</strong> giải thưởng</div>
+      <div class="text-emerald-700 font-mono font-black">Tổng tiền thưởng: ${totalMoney.toLocaleString('vi-VN')} VNĐ</div>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-slate-900 text-white font-black uppercase text-[11px] tracking-wider border-b border-slate-800">
+              <th class="py-3 px-3 text-center w-12">STT</th>
+              <th class="py-3 px-3 w-32 sm:w-40">Giải thưởng</th>
+              <th class="py-3 px-3 w-24">Phân nhóm</th>
+              <th class="py-3 px-3">Nội dung thi đấu</th>
+              <th class="py-3 px-3">VĐV / Tập thể</th>
+              <th class="py-3 px-3">Đơn vị / Khách sạn</th>
+              <th class="py-3 px-3 sm:px-4 text-right text-emerald-300 w-28 sm:w-32">Tiền thưởng</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 font-medium">
+  `;
+
+  filteredAwards.forEach((a, idx) => {
+    let badge = '';
+    let rowBg = (idx % 2 === 0) ? 'bg-white' : 'bg-slate-50/50';
+
+    if (a.rankType === 'gold') {
+      badge = `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-100 text-amber-950 border border-amber-300 font-black text-xs shadow-xs">🥇 ${escHtml(a.rank)}</span>`;
+      rowBg = 'bg-amber-50/20 hover:bg-amber-50/50';
+    } else if (a.rankType === 'silver') {
+      badge = `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-200 text-slate-800 border border-slate-300 font-black text-xs shadow-xs">🥈 ${escHtml(a.rank)}</span>`;
+      rowBg = 'bg-slate-50/40 hover:bg-slate-100/60';
+    } else if (a.rankType === 'bronze') {
+      badge = `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-orange-100 text-orange-950 border border-orange-300 font-black text-xs shadow-xs">🥉 ${escHtml(a.rank)}</span>`;
+      rowBg = 'bg-orange-50/20 hover:bg-orange-50/50';
+    } else {
+      badge = `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-800 border border-indigo-200 font-bold text-xs shadow-xs">🎖️ ${escHtml(a.rank)}</span>`;
+      rowBg = 'hover:bg-indigo-50/30';
+    }
+
+    let groupBadge = '';
+    if (a.group === 'Thể thao') groupBadge = '<span class="px-2 py-0.5 rounded-full bg-sky-100 text-sky-800 font-bold text-[11px]">⚽ Thể thao</span>';
+    else if (a.group === 'Fun Run') groupBadge = '<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[11px]">🏃 Fun Run</span>';
+    else if (a.group === 'Nghiệp vụ') groupBadge = '<span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-bold text-[11px]">🛎️ Nghiệp vụ</span>';
+    else if (a.group === 'Văn nghệ') groupBadge = '<span class="px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 font-bold text-[11px]">🎭 Văn nghệ</span>';
+    else if (a.group === 'Miss MT') groupBadge = '<span class="px-2 py-0.5 rounded-full bg-pink-100 text-pink-800 font-bold text-[11px]">👑 Miss MT</span>';
+    else if (a.group === 'Golf') groupBadge = '<span class="px-2 py-0.5 rounded-full bg-teal-100 text-teal-800 font-bold text-[11px]">⛳ Golf</span>';
+
+    html += `
+      <tr class="${rowBg} transition">
+        <td class="py-3 px-3 text-center font-bold text-slate-400 text-xs">${idx + 1}</td>
+        <td class="py-3 px-3">${badge}</td>
+        <td class="py-3 px-3">${groupBadge}</td>
+        <td class="py-3 px-3 font-extrabold text-slate-800">${escHtml(a.event)}</td>
+        <td class="py-3 px-3 font-bold text-slate-900">${escHtml(a.athlete || 'Tập thể')}</td>
+        <td class="py-3 px-3 text-slate-700">${escHtml(a.unit)}</td>
+        <td class="py-3 px-3 sm:px-4 text-right font-mono font-black text-emerald-700">
+          ${(a.prizeMoney || 0).toLocaleString('vi-VN')}đ
+        </td>
+      </tr>
+    `;
+  });
+
+  html += `
+          </tbody>
+          <tfoot>
+            <tr class="bg-slate-900 text-white font-black text-xs sm:text-sm border-t-2 border-slate-800">
+              <td colspan="6" class="py-3 px-3 sm:px-4 text-right uppercase tracking-wider">TỔNG CỘNG:</td>
+              <td class="py-3 px-3 sm:px-4 text-right text-emerald-400 font-mono font-black text-sm">${totalMoney.toLocaleString('vi-VN')}đ</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  `;
+
+  container.innerHTML = html;
+}
+
+function exportMedalsExcel() {
+  if (typeof XLSX === 'undefined') {
+    alert('Thư viện XLSX chưa tải xong, vui lòng kiểm tra kết nối mạng!');
+    return;
+  }
+  if (!DATA.awards || DATA.awards.length === 0) {
+    alert('Không có dữ liệu khen thưởng để xuất!');
+    return;
+  }
+
+  const wb = XLSX.utils.book_new();
+
+  // -------------------------------------------------------------
+  // SHEET 1: BẢNG TỔNG SẮP HUY CHƯƠNG THEO ĐOÀN / ĐƠN VỊ
+  // -------------------------------------------------------------
+  const unitMap = {};
+  DATA.awards.forEach(a => {
+    const u = a.unit || 'Chưa xác định';
+    if (!unitMap[u]) {
+      unitMap[u] = { unit: u, gold: 0, silver: 0, bronze: 0, other: 0, total: 0, money: 0 };
+    }
+    if (a.rankType === 'gold') unitMap[u].gold++;
+    else if (a.rankType === 'silver') unitMap[u].silver++;
+    else if (a.rankType === 'bronze') unitMap[u].bronze++;
+    else unitMap[u].other++;
+    unitMap[u].total++;
+    unitMap[u].money += (a.prizeMoney || 0);
+  });
+
+  const standingsList = Object.values(unitMap);
+  standingsList.sort((a, b) => {
+    if (b.gold !== a.gold) return b.gold - a.gold;
+    if (b.silver !== a.silver) return b.silver - a.silver;
+    if (b.bronze !== a.bronze) return b.bronze - a.bronze;
+    if (b.total !== a.total) return b.total - a.total;
+    if (b.money !== a.money) return b.money - a.money;
+    return a.unit.localeCompare(b.unit, 'vi');
+  });
+
+  const sheet1Data = [
+    ["ĐẠI HỘI MƯỜNG THANH 2026 - BẢNG TỔNG SẮP HUY CHƯƠNG TOÀN ĐOÀN"],
+    ["Ban hành kèm theo Quyết định khen thưởng số 424/2026/QĐ-ĐHMT-TC ngày 29/10/2026"],
+    ["Thời gian xuất báo cáo: " + new Date().toLocaleString('vi-VN')],
+    [],
+    [
+      "STT",
+      "Hạng Olympic",
+      "Đoàn / Đơn vị / Liên quân",
+      "Huy chương Vàng (HCV)",
+      "Huy chương Bạc (HCB)",
+      "Huy chương Đồng (HCĐ)",
+      "Giải Phụ / Khuyến khích",
+      "Tổng số giải",
+      "Tổng tiền thưởng (VNĐ)"
+    ]
+  ];
+
+  let sumGold = 0, sumSilver = 0, sumBronze = 0, sumOther = 0, sumTotal = 0, sumMoney = 0;
+
+  standingsList.forEach((u, i) => {
+    sumGold += u.gold;
+    sumSilver += u.silver;
+    sumBronze += u.bronze;
+    sumOther += u.other;
+    sumTotal += u.total;
+    sumMoney += u.money;
+
+    sheet1Data.push([
+      i + 1,
+      i + 1,
+      u.unit,
+      u.gold,
+      u.silver,
+      u.bronze,
+      u.other,
+      u.total,
+      u.money
+    ]);
+  });
+
+  sheet1Data.push([
+    "TỔNG CỘNG",
+    "",
+    "Tất cả các đoàn tham dự",
+    sumGold,
+    sumSilver,
+    sumBronze,
+    sumOther,
+    sumTotal,
+    sumMoney
+  ]);
+
+  const ws1 = XLSX.utils.aoa_to_sheet(sheet1Data);
+  ws1['!cols'] = [
+    { wch: 6 },
+    { wch: 14 },
+    { wch: 48 },
+    { wch: 22 },
+    { wch: 22 },
+    { wch: 22 },
+    { wch: 24 },
+    { wch: 14 },
+    { wch: 24 }
+  ];
+  XLSX.utils.book_append_sheet(wb, ws1, "Bang_Tong_Sap_Don_Vi");
+
+  // -------------------------------------------------------------
+  // SHEET 2: DANH SÁCH CHI TIẾT TẬP THỂ & CÁ NHÂN ĐẠT GIẢI
+  // -------------------------------------------------------------
+  const sheet2Data = [
+    ["ĐẠI HỘI MƯỜNG THANH 2026 - DANH SÁCH VẬN ĐỘNG VIÊN / TẬP THỂ ĐẠT GIẢI"],
+    ["Ban hành kèm theo Quyết định khen thưởng số 424/2026/QĐ-ĐHMT-TC ngày 29/10/2026"],
+    ["Thời gian xuất báo cáo: " + new Date().toLocaleString('vi-VN')],
+    [],
+    [
+      "STT",
+      "Phân nhóm",
+      "Nội dung thi đấu / Khen thưởng",
+      "Giải thưởng / Thứ hạng",
+      "Phân loại Huy chương",
+      "Họ và tên VĐV / Tập thể",
+      "Đoàn / Đơn vị / Khách sạn",
+      "Tiền thưởng (VNĐ)"
+    ]
+  ];
+
+  let sumDetailMoney = 0;
+  DATA.awards.forEach((a, i) => {
+    sumDetailMoney += (a.prizeMoney || 0);
+    let rankTypeText = 'Giải phụ / Khuyến khích';
+    if (a.rankType === 'gold') rankTypeText = 'Huy chương Vàng (HCV)';
+    else if (a.rankType === 'silver') rankTypeText = 'Huy chương Bạc (HCB)';
+    else if (a.rankType === 'bronze') rankTypeText = 'Huy chương Đồng (HCĐ)';
+
+    sheet2Data.push([
+      i + 1,
+      a.group || a.category,
+      a.event,
+      a.rank,
+      rankTypeText,
+      a.athlete || 'Tập thể',
+      a.unit,
+      a.prizeMoney || 0
+    ]);
+  });
+
+  sheet2Data.push([
+    "TỔNG CỘNG",
+    "",
+    "Toàn bộ các nội dung thi đấu",
+    "",
+    "",
+    DATA.awards.length + " giải thưởng",
+    "",
+    sumDetailMoney
+  ]);
+
+  const ws2 = XLSX.utils.aoa_to_sheet(sheet2Data);
+  ws2['!cols'] = [
+    { wch: 6 },
+    { wch: 14 },
+    { wch: 34 },
+    { wch: 22 },
+    { wch: 26 },
+    { wch: 32 },
+    { wch: 48 },
+    { wch: 20 }
+  ];
+  XLSX.utils.book_append_sheet(wb, ws2, "Danh_Sach_Chi_Tiet_Giai");
+
+  // Trigger download
+  const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+  XLSX.writeFile(wb, `DHMT2026_Bang_Tong_Sap_Huy_Chuong_${dateStr}.xlsx`);
+}
+
+
+</script>
 <!-- SHEETJS SPREADSHEET PARSER & EXPORTER -->
 <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
 <!-- FIREBASE REALTIME DATABASE COMPAT SDK -->
@@ -408,6 +1093,9 @@
       </button>
       <button class="tab-btn px-2 sm:px-2.5 lg:px-3 py-1.5 text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg transition flex items-center gap-1" data-tab="contacts" onclick="switchTab('contacts',this)">
         <span>📞</span> <span>Danh bạ NBI</span>
+      </button>
+      <button class="tab-btn px-2 sm:px-2.5 lg:px-3 py-1.5 text-slate-200 hover:text-white whitespace-nowrap rounded-t-lg transition flex items-center gap-1" data-tab="medals" onclick="switchTab('medals',this)">
+        <span>🏅</span> <span>Bảng tổng sắp</span>
       </button>
     </nav>
   </div>
@@ -1627,6 +2315,138 @@
 </div>
 
 
+<!-- ================================================================ -->
+<!-- TAB 10: BẢNG TỔNG SẮP HUY CHƯƠNG & KHEN THƯỞNG TOÀN ĐOÀN -->
+<!-- ================================================================ -->
+<div id="tab-medals" class="tab-content hidden slide-in tab-layout-container space-y-4">
+  <!-- HERO BANNER -->
+  <div class="rounded-2xl p-5 sm:p-6 text-white shadow-lg relative overflow-hidden" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #1e293b 100%);">
+    <div class="relative z-10 flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <div class="flex flex-wrap items-center gap-2 mb-1.5">
+          <span class="px-2.5 py-0.5 rounded-full bg-amber-400 text-amber-950 font-black text-xs uppercase tracking-wider">Quyết định số 424/2026/QĐ-ĐHMT-TC</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-bold text-xs">Ban hành 29/10/2026</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/30 text-emerald-200 border border-emerald-400/30 font-bold text-xs">Khen thưởng Toàn đoàn</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black tracking-tight flex items-center gap-2">
+          <span>🏅 BẢNG TỔNG SẮP HUY CHƯƠNG & KHEN THƯỞNG</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-indigo-200 mt-1 max-w-3xl leading-relaxed">
+          🏆 Tổng hợp bảng vàng thành tích & tiền thưởng của <strong>Đại hội Mường Thanh 2026</strong> cho toàn bộ các nội dung: <strong>Thể thao, Fun Run, Nghiệp vụ khách sạn, Hội diễn Văn nghệ, Miss Mường Thanh và Golf</strong>.
+        </p>
+      </div>
+
+      <!-- KPI METRIC PILLS -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 w-full lg:w-auto">
+        <div class="bg-amber-500/20 border border-amber-400/40 p-2.5 rounded-xl backdrop-blur text-center">
+          <div class="text-[10px] text-amber-200 uppercase font-black">🥇 Huy chương Vàng</div>
+          <div class="font-black text-amber-300 text-lg sm:text-xl font-mono" id="kpi-gold-count">35</div>
+        </div>
+        <div class="bg-slate-300/20 border border-slate-300/40 p-2.5 rounded-xl backdrop-blur text-center">
+          <div class="text-[10px] text-slate-200 uppercase font-black">🥈 Huy chương Bạc</div>
+          <div class="font-black text-slate-100 text-lg sm:text-xl font-mono" id="kpi-silver-count">34</div>
+        </div>
+        <div class="bg-amber-800/30 border border-amber-600/40 p-2.5 rounded-xl backdrop-blur text-center">
+          <div class="text-[10px] text-amber-300 uppercase font-black">🥉 Huy chương Đồng</div>
+          <div class="font-black text-amber-400 text-lg sm:text-xl font-mono" id="kpi-bronze-count">34</div>
+        </div>
+        <div class="bg-indigo-500/20 border border-indigo-400/40 p-2.5 rounded-xl backdrop-blur text-center">
+          <div class="text-[10px] text-indigo-200 uppercase font-black">🎖️ Giải Phụ / KK</div>
+          <div class="font-black text-indigo-300 text-lg sm:text-xl font-mono" id="kpi-other-count">67</div>
+        </div>
+        <div class="bg-white/10 border border-white/20 p-2.5 rounded-xl backdrop-blur text-center">
+          <div class="text-[10px] text-white/80 uppercase font-black">🏆 Tổng số giải</div>
+          <div class="font-black text-white text-lg sm:text-xl font-mono" id="kpi-total-count">170</div>
+        </div>
+        <div class="bg-emerald-500/20 border border-emerald-400/40 p-2.5 rounded-xl backdrop-blur text-center col-span-2 sm:col-span-1">
+          <div class="text-[10px] text-emerald-200 uppercase font-black">💰 Tổng tiền thưởng</div>
+          <div class="font-black text-emerald-300 text-base sm:text-lg font-mono">704.000.000đ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY CONTROL & FILTER BAR -->
+  <div class="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 shadow-xs space-y-3 tab-subnav-panel">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <!-- VIEW MODE TOGGLE -->
+      <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl">
+        <button id="btn-view-standings" onclick="setMedalsView('standings')" class="px-3 py-1.5 rounded-lg text-xs font-black transition cursor-pointer flex items-center gap-1.5 bg-indigo-600 text-white shadow-xs">
+          <span>📊</span> <span>Bảng tổng sắp theo Đoàn</span>
+        </button>
+        <button id="btn-view-details" onclick="setMedalsView('details')" class="px-3 py-1.5 rounded-lg text-xs font-black transition cursor-pointer flex items-center gap-1.5 text-slate-600 hover:text-slate-900">
+          <span>📋</span> <span>Danh sách VĐV đạt giải</span>
+        </button>
+      </div>
+
+      <!-- ACTION BUTTONS: EXCEL & PRINT -->
+      <div class="flex items-center gap-2">
+        <button onclick="exportMedalsExcel()" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-xs cursor-pointer">
+          <span>📊</span> <span>Xuất Excel Bảng tổng sắp</span>
+        </button>
+        <button onclick="window.print()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-xs cursor-pointer">
+          <span>🖨️</span> <span>In kết quả</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- FILTER ROW 1: CATEGORY PILLS -->
+    <div class="flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-100" id="medals-category-pills">
+      <span class="text-xs font-extrabold text-slate-600 mr-1 flex items-center gap-1">📂 Phân loại:</span>
+      <button onclick="filterMedalsCategory('all', this)" class="medal-cat-btn tag-badge px-3 py-1 rounded-full text-xs font-bold transition cursor-pointer bg-slate-800 text-white shadow-xs">Tất cả (170)</button>
+      <button onclick="filterMedalsCategory('Thể thao', this)" class="medal-cat-btn tag-badge px-3 py-1 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200">⚽ Thể thao (78)</button>
+      <button onclick="filterMedalsCategory('Fun Run', this)" class="medal-cat-btn tag-badge px-3 py-1 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200">🏃 Fun Run (24)</button>
+      <button onclick="filterMedalsCategory('Nghiệp vụ', this)" class="medal-cat-btn tag-badge px-3 py-1 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200">🛎️ Nghiệp vụ (47)</button>
+      <button onclick="filterMedalsCategory('Văn nghệ', this)" class="medal-cat-btn tag-badge px-3 py-1 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200">🎭 Văn nghệ (6)</button>
+      <button onclick="filterMedalsCategory('Miss MT', this)" class="medal-cat-btn tag-badge px-3 py-1 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200">👑 Miss Mường Thanh (9)</button>
+      <button onclick="filterMedalsCategory('Golf', this)" class="medal-cat-btn tag-badge px-3 py-1 rounded-full text-xs font-bold transition cursor-pointer bg-slate-100 text-slate-700 hover:bg-slate-200">⛳ Golf (6)</button>
+    </div>
+
+    <!-- FILTER ROW 2: SEARCH + MEDAL TYPE + SORT -->
+    <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-100">
+      <!-- SEARCH BOX -->
+      <div class="flex-1 min-w-[240px] relative">
+        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">🔍</span>
+        <input type="text" id="medals-search-input" oninput="handleMedalsSearch(this.value)" placeholder="Tìm VĐV, đơn vị, khách sạn, môn thi, số BIB..." class="w-full pl-9 pr-8 py-1.5 text-xs sm:text-sm border border-slate-200 rounded-xl bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+        <button id="medals-search-clear" onclick="clearMedalsSearch()" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 hidden cursor-pointer font-bold">✕</button>
+      </div>
+
+      <!-- MEDAL TYPE PILLS -->
+      <div class="flex flex-wrap items-center gap-1" id="medals-rank-pills">
+        <span class="text-xs font-bold text-slate-500 mr-1">Huy chương:</span>
+        <button onclick="filterMedalsRank('all', this)" class="medal-rank-btn px-2.5 py-1 rounded-lg text-xs font-bold transition cursor-pointer bg-indigo-50 text-indigo-700 border border-indigo-200">Tất cả</button>
+        <button onclick="filterMedalsRank('gold', this)" class="medal-rank-btn px-2.5 py-1 rounded-lg text-xs font-bold transition cursor-pointer bg-slate-50 text-slate-600 border border-slate-200 hover:bg-amber-50 hover:text-amber-700">🥇 Vàng (35)</button>
+        <button onclick="filterMedalsRank('silver', this)" class="medal-rank-btn px-2.5 py-1 rounded-lg text-xs font-bold transition cursor-pointer bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100 hover:text-slate-800">🥈 Bạc (34)</button>
+        <button onclick="filterMedalsRank('bronze', this)" class="medal-rank-btn px-2.5 py-1 rounded-lg text-xs font-bold transition cursor-pointer bg-slate-50 text-slate-600 border border-slate-200 hover:bg-orange-50 hover:text-orange-800">🥉 Đồng (34)</button>
+        <button onclick="filterMedalsRank('other', this)" class="medal-rank-btn px-2.5 py-1 rounded-lg text-xs font-bold transition cursor-pointer bg-slate-50 text-slate-600 border border-slate-200 hover:bg-indigo-50 hover:text-indigo-800">🎖️ Phụ / KK (67)</button>
+      </div>
+
+      <!-- SORT SELECTOR (For Standings Mode) -->
+      <div id="standings-sort-container" class="flex items-center gap-1.5 text-xs font-bold text-slate-600">
+        <span>Sắp xếp:</span>
+        <select id="medals-sort-select" onchange="sortMedalsStandings(this.value)" class="border border-slate-200 rounded-lg px-2.5 py-1 bg-white text-xs font-bold focus:outline-none focus:ring-1 focus:ring-indigo-500">
+          <option value="olympic">🥇 Chuẩn Olympic (Vàng &gt; Bạc &gt; Đồng)</option>
+          <option value="total">🏅 Tổng số giải thưởng giảm dần</option>
+          <option value="money">💰 Tổng tiền thưởng giảm dần</option>
+          <option value="name">🔤 Tên đoàn / Đơn vị (A-Z)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTAINER 1: OLYMPIC STANDINGS VIEW -->
+  <div id="medals-standings-view" class="space-y-4">
+    <!-- Standings table rendered by JS -->
+  </div>
+
+  <!-- CONTAINER 2: DETAILED AWARDEES VIEW -->
+  <div id="medals-details-view" class="hidden space-y-4">
+    <!-- Detailed table rendered by JS -->
+  </div>
+</div>
+
+
+
 
 <!-- FLOATING LEFT TRIGGER (FOR FAST ACCESS TO DRAWER & CONTROLS) -->
 <button id="floating-left-trigger" onclick="toggleLeftQuickDrawer(true)" class="fixed bottom-5 left-5 z-40 w-11 h-11 rounded-2xl bg-slate-900/90 hover:bg-slate-900 text-white shadow-xl border border-indigo-400/30 flex items-center justify-center text-sm font-black transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 group" title="Mở Bảng điều khiển & Chuyển Tab nhanh">
@@ -1702,6 +2522,9 @@
         </button>
         <button onclick="switchTabFromDrawer('contacts')" class="w-full text-left px-3 py-2 rounded-xl bg-slate-100 hover:bg-amber-50 hover:text-amber-800 font-bold flex items-center justify-between transition">
           <span>📞 9. Danh bạ Luxury Ninh Bình</span> <span>➔</span>
+        </button>
+        <button onclick="switchTabFromDrawer('medals')" class="w-full text-left px-3 py-2 rounded-xl bg-slate-100 hover:bg-amber-50 hover:text-amber-800 font-bold flex items-center justify-between transition">
+          <span>🏅 10. Bảng tổng sắp Huy chương</span> <span>➔</span>
         </button>
       </div>
     </div>
@@ -3137,6 +3960,7 @@ function switchTab(name, btn) {
   else if (name === 'results') renderResults();
   else if (name === 'checkin') renderCheckinTab();
   else if (name === 'contacts') renderContactsTab();
+  else if (name === 'medals') renderMedalsTab();
 
   setTimeout(updateSubnavMetrics, 60);
 }

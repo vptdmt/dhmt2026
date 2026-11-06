@@ -1039,6 +1039,9 @@
             <span>🧹</span><span>Xóa hết</span>
           </button>
         </div>
+        <button onclick="exportTournamentsExcel()" title="Xuất file Excel kết quả các trận đấu (gồm Sheet Tổng hợp và 14 sheet nội dung thi đấu)" class="px-2.5 py-1.5 bg-emerald-600 text-white rounded-lg text-xs font-bold hover:bg-emerald-700 transition flex items-center gap-1 shadow-2xs cursor-pointer">
+          <span>📊</span><span class="hidden sm:inline">Xuất Excel</span>
+        </button>
         <button onclick="printTournamentBracket()" title="In sơ đồ thi đấu" class="px-2.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-300 rounded-lg text-xs font-bold hover:bg-slate-200 transition flex items-center gap-1 shadow-2xs">
           <span>🖨️</span><span class="hidden sm:inline">In sơ đồ</span>
         </button>
@@ -7477,6 +7480,11 @@ function renderTournamentView() {
         </div>
       </div>
       <div class="flex flex-wrap items-center gap-2">
+        <button type="button" onclick="exportTournamentsExcel()"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-800 hover:bg-emerald-100 border border-emerald-200 text-xs font-bold transition shadow-2xs cursor-pointer"
+          title="Xuất file Excel kết quả thi đấu (gồm Sheet Tổng hợp và từng sheet môn thi)">
+          <span>📊</span> <span>Xuất Excel</span>
+        </button>
         <button type="button" onclick="openTourAthletesModal('${tour.id}')"
           class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50 text-sky-700 hover:bg-sky-100 border border-sky-200 text-xs font-bold transition shadow-2xs cursor-pointer"
           title="Xem danh sách vận động viên đăng ký môn này">
@@ -10693,6 +10701,636 @@ function parseExcelRows(rows) {
         alert(`Nạp thành công ${loaded.length} VĐV vào hệ thống!`);
     }
 }
+
+
+// ================================================================
+// EXPORT TOURNAMENT RESULTS TO MULTI-SHEET EXCEL WORKBOOK
+// ================================================================
+function exportTournamentsExcel() {
+  if (typeof XLSX === 'undefined') {
+    alert('Thư viện XLSX chưa sẵn sàng, vui lòng kiểm tra kết nối mạng!');
+    return;
+  }
+
+  // Update live state first
+  if (typeof updateAllTournamentsLiveState === 'function') {
+    updateAllTournamentsLiveState();
+  }
+
+  const wb = XLSX.utils.book_new();
+
+  const getName = (item) => (item ? (item.name || item.hoVaTen || '') : '');
+  const getSub = (item) => (item ? (item.sub || item.donVi || '') : '');
+  const getCode = (item) => (item ? (item.code || '') : '');
+
+  const safeSheetName = (name) => {
+    return name.replace(/[\\/?*:[\]]/g, '_').substring(0, 31);
+  };
+
+  // -------------------------------------------------------------
+  // 1. SHEET TỔNG HỢP (SUMMARY SHEET)
+  // -------------------------------------------------------------
+  const summaryAoa = [
+    ["ĐẠI HỘI MƯỜNG THANH 2026 - TỔNG HỢP KẾT QUẢ THI ĐẤU TOÀN GIẢI"],
+    ["Thời gian xuất báo cáo: " + new Date().toLocaleString('vi-VN')],
+    [],
+    [
+      "STT", "Bộ môn", "Nội dung thi đấu", "Thể thức",
+      "Vô địch (HCV)", "Đơn vị HCV",
+      "Á quân (HCB)", "Đơn vị HCB",
+      "Hạng Ba (HCĐ)", "Đơn vị HCĐ",
+      "Hạng Tư", "Đơn vị Hạng Tư",
+      "Số trận đã đấu", "Tổng số trận", "Trạng thái"
+    ]
+  ];
+
+  let summaryStt = 1;
+
+  (DATA.tournaments || []).forEach(tour => {
+    const tScores = (tourScores && tourScores[tour.id]) || {};
+
+    if (tour.format === 'swimming') {
+      (tour.subEvents || []).forEach(se => {
+        const allHeats = DATA.swimHeats || [];
+        const ql1 = allHeats.find(h => h.vong === 'Vòng loại' && h.luot === se.qlHeats[0]);
+        const ql2 = allHeats.find(h => h.vong === 'Vòng loại' && h.luot === se.qlHeats[1]);
+        const fnHeat = allHeats.find(h => h.vong === 'Chung kết' && h.luot === se.fnHeat);
+
+        const savedTimes = tScores[se.id] || {};
+        const ql1Times = savedTimes[ql1 ? ql1.id : ''] || {};
+        const ql2Times = savedTimes[ql2 ? ql2.id : ''] || {};
+        const fnTimes = savedTimes[fnHeat ? fnHeat.id : ''] || {};
+
+        const qlSwimmers = [];
+        if (ql1) {
+          ql1.lanes.forEach(l => {
+            if (l.hoVaTen) {
+              const val = ql1Times[l.lan] || '';
+              qlSwimmers.push({ hoVaTen: l.hoVaTen, donVi: l.donVi, timeStr: val, timeSec: parseSwimTime(val) });
+            }
+          });
+        }
+        if (ql2) {
+          ql2.lanes.forEach(l => {
+            if (l.hoVaTen) {
+              const val = ql2Times[l.lan] || '';
+              qlSwimmers.push({ hoVaTen: l.hoVaTen, donVi: l.donVi, timeStr: val, timeSec: parseSwimTime(val) });
+            }
+          });
+        }
+        qlSwimmers.sort((a, b) => a.timeSec - b.timeSec);
+        const finalists = qlSwimmers.slice(0, 6);
+
+        const finalResults = finalists.map((f, idx) => {
+          const laneNum = idx + 1;
+          const finalTimeStr = fnTimes[laneNum] || '';
+          return {
+            hoVaTen: f.hoVaTen,
+            donVi: f.donVi,
+            timeStr: finalTimeStr,
+            timeSec: parseSwimTime(finalTimeStr)
+          };
+        });
+        const sortedFinalists = [...finalResults].sort((a, b) => a.timeSec - b.timeSec);
+        const gold = sortedFinalists[0] && sortedFinalists[0].timeSec < 999999 ? sortedFinalists[0] : null;
+        const silver = sortedFinalists[1] && sortedFinalists[1].timeSec < 999999 ? sortedFinalists[1] : null;
+        const bronze = sortedFinalists[2] && sortedFinalists[2].timeSec < 999999 ? sortedFinalists[2] : null;
+        const fourth = sortedFinalists[3] && sortedFinalists[3].timeSec < 999999 ? sortedFinalists[3] : null;
+
+        const hasFinals = !!(gold && silver);
+
+        summaryAoa.push([
+          summaryStt++,
+          "Bơi lội",
+          se.name,
+          "Vòng loại + Chung kết 6 làn",
+          gold ? gold.hoVaTen : "Chưa xác định",
+          gold ? (gold.donVi + (gold.timeStr ? ` (⏱️ ${gold.timeStr})` : '')) : "",
+          silver ? silver.hoVaTen : "Chưa xác định",
+          silver ? (silver.donVi + (silver.timeStr ? ` (⏱️ ${silver.timeStr})` : '')) : "",
+          bronze ? bronze.hoVaTen : "Chưa xác định",
+          bronze ? (bronze.donVi + (bronze.timeStr ? ` (⏱️ ${bronze.timeStr})` : '')) : "",
+          fourth ? fourth.hoVaTen : "",
+          fourth ? (fourth.donVi + (fourth.timeStr ? ` (⏱️ ${fourth.timeStr})` : '')) : "",
+          hasFinals ? "Đã thi CK" : "Chưa hoàn thành",
+          "6 làn CK",
+          hasFinals ? "ĐÃ HOÀN THÀNH" : "ĐANG DIỄN RA"
+        ]);
+      });
+      return;
+    }
+
+    let gold = null, silver = null, bronze = null, fourth = null;
+    let totalMatches = 0;
+    let playedMatches = 0;
+
+    if (tour.format === 'knockout8') {
+      const roundTK = tour.rounds.find(r => r.id === 'tk');
+      const roundBK = tour.rounds.find(r => r.id === 'bk');
+      const roundFN = tour.rounds.find(r => r.id === 'fn');
+      
+      const allM = [
+        ...(roundTK ? roundTK.matches : []),
+        ...(roundBK ? roundBK.matches : []),
+        ...(roundFN ? roundFN.matches : [])
+      ];
+      totalMatches = allM.length;
+      allM.forEach(m => {
+        const sc = tScores[m.id];
+        if (sc && sc.s1 !== '' && sc.s1 !== undefined && sc.s2 !== '' && sc.s2 !== undefined) playedMatches++;
+      });
+
+      if (roundFN) {
+        const mCK = roundFN.matches.find(m => m.isFinal || m.id.endsWith('CK'));
+        const m34 = roundFN.matches.find(m => m.isThirdPlace || m.id.includes('3-4') || m.id.includes('Ba-Tư'));
+        if (mCK) {
+          const res = getWinnerAndLoser(mCK, tScores[mCK.id] || {});
+          gold = res.winner;
+          silver = res.loser;
+        }
+        if (m34) {
+          const res = getWinnerAndLoser(m34, tScores[m34.id] || {});
+          bronze = res.winner;
+          fourth = res.loser;
+        }
+      }
+    } else if (tour.format === 'group2_cross') {
+      const grpMatches = [...(tour.groups[0].matches || []), ...(tour.groups[1].matches || [])];
+      const koMatches = tour.knockout ? [...(tour.knockout[0].matches || []), ...(tour.knockout[1].matches || [])] : [];
+      const allM = [...grpMatches, ...koMatches];
+      totalMatches = allM.length;
+      allM.forEach(m => {
+        const sc = tScores[m.id];
+        if (sc && sc.s1 !== '' && sc.s1 !== undefined && sc.s2 !== '' && sc.s2 !== undefined) playedMatches++;
+      });
+      if (tour.knockout) {
+        const roundFN = tour.knockout.find(r => r.id === 'fn');
+        if (roundFN) {
+          const mCK = roundFN.matches.find(m => m.isFinal || m.id.endsWith('CK'));
+          const m34 = roundFN.matches.find(m => m.isThirdPlace || m.id.includes('3-4'));
+          if (mCK) {
+            const res = getWinnerAndLoser(mCK, tScores[mCK.id] || {});
+            gold = res.winner;
+            silver = res.loser;
+          }
+          if (m34) {
+            const res = getWinnerAndLoser(m34, tScores[m34.id] || {});
+            bronze = res.winner;
+            fourth = res.loser;
+          }
+        }
+      }
+    } else if (tour.format === 'group2_final') {
+      const grpMatches = [...(tour.groups[0].matches || []), ...(tour.groups[1].matches || [])];
+      const fnMatches = tour.finals || [];
+      const allM = [...grpMatches, ...fnMatches];
+      totalMatches = allM.length;
+      allM.forEach(m => {
+        const sc = tScores[m.id];
+        if (sc && sc.s1 !== '' && sc.s1 !== undefined && sc.s2 !== '' && sc.s2 !== undefined) playedMatches++;
+      });
+      const mCK = fnMatches.find(m => m.isFinal || m.id.endsWith('CK'));
+      const m34 = fnMatches.find(m => m.isThirdPlace || m.id.includes('3-4'));
+      if (mCK) {
+        const res = getWinnerAndLoser(mCK, tScores[mCK.id] || {});
+        gold = res.winner;
+        silver = res.loser;
+      }
+      if (m34) {
+        const res = getWinnerAndLoser(m34, tScores[m34.id] || {});
+        bronze = res.winner;
+        fourth = res.loser;
+      }
+    } else if (tour.format === 'tabletennis_men') {
+      const poMatches = tour.playoffs || [];
+      const grpMatches = [...(tour.groups[0].matches || []), ...(tour.groups[1].matches || [])];
+      const koMatches = tour.knockout ? [...(tour.knockout[0].matches || []), ...(tour.knockout[1].matches || [])] : [];
+      const allM = [...poMatches, ...grpMatches, ...koMatches];
+      totalMatches = allM.length;
+      allM.forEach(m => {
+        const sc = tScores[m.id];
+        if (sc && sc.s1 !== '' && sc.s1 !== undefined && sc.s2 !== '' && sc.s2 !== undefined) playedMatches++;
+      });
+      if (tour.knockout) {
+        const roundFN = tour.knockout.find(r => r.id === 'fn');
+        if (roundFN) {
+          const mCK = roundFN.matches.find(m => m.isFinal || m.id.endsWith('CK'));
+          const m34 = roundFN.matches.find(m => m.isThirdPlace || m.id.includes('3-4'));
+          if (mCK) {
+            const res = getWinnerAndLoser(mCK, tScores[mCK.id] || {});
+            gold = res.winner;
+            silver = res.loser;
+          }
+          if (m34) {
+            const res = getWinnerAndLoser(m34, tScores[m34.id] || {});
+            bronze = res.winner;
+            fourth = res.loser;
+          }
+        }
+      }
+    } else if (tour.format === 'group3_roundrobin') {
+      const grpMatches = [...(tour.groups[0].matches || []), ...(tour.groups[1].matches || []), ...(tour.groups[2].matches || [])];
+      const fnMatches = (tour.finalRound && tour.finalRound.matches) ? tour.finalRound.matches : [];
+      const allM = [...grpMatches, ...fnMatches];
+      totalMatches = allM.length;
+      allM.forEach(m => {
+        const sc = tScores[m.id];
+        if (sc && sc.s1 !== '' && sc.s1 !== undefined && sc.s2 !== '' && sc.s2 !== undefined) playedMatches++;
+      });
+      if (fnMatches.length > 0) {
+        const finalGroupObj = {
+          teams: [
+            { id: '1A', name: fnMatches[0].team1.name },
+            { id: '1B', name: fnMatches[0].team2.name },
+            { id: '1C', name: fnMatches[1].team2.name }
+          ],
+          matches: [
+            { id: fnMatches[0].id, team1: '1A', team2: '1B' },
+            { id: fnMatches[1].id, team1: '1B', team2: '1C' },
+            { id: fnMatches[2].id, team1: '1C', team2: '1A' }
+          ]
+        };
+        const finalStds = computeGroupStandings(finalGroupObj, tour.id, false);
+        if (finalStds.some(s => s.played > 0)) {
+          gold = finalStds[0];
+          silver = finalStds[1];
+          bronze = finalStds[2];
+        }
+      }
+    }
+
+    const isFinished = totalMatches > 0 && playedMatches === totalMatches && gold && !gold.isPlaceholder;
+
+    summaryAoa.push([
+      summaryStt++,
+      tour.sport,
+      tour.name,
+      tour.format === 'knockout8' ? 'Loại trực tiếp 8 đội' : tour.format === 'group2_cross' ? '2 Bảng + Bán kết chéo' : tour.format === 'group2_final' ? '2 Bảng + Chung kết' : tour.format === 'tabletennis_men' ? 'Play-off + 2 Bảng' : '3 Bảng + Vòng tròn CK',
+      gold && !gold.isPlaceholder ? getName(gold) : "Chưa xác định",
+      gold && !gold.isPlaceholder ? getSub(gold) : "",
+      silver && !silver.isPlaceholder ? getName(silver) : "Chưa xác định",
+      silver && !silver.isPlaceholder ? getSub(silver) : "",
+      bronze && !bronze.isPlaceholder ? getName(bronze) : "Chưa xác định",
+      bronze && !bronze.isPlaceholder ? getSub(bronze) : "",
+      fourth && !fourth.isPlaceholder ? getName(fourth) : "",
+      fourth && !fourth.isPlaceholder ? getSub(fourth) : "",
+      playedMatches,
+      totalMatches,
+      isFinished ? "ĐÃ HOÀN THÀNH" : playedMatches > 0 ? "ĐANG DIỄN RA" : "CHƯA BẮT ĐẦU"
+    ]);
+  });
+
+  const wsSummary = XLSX.utils.aoa_to_sheet(summaryAoa);
+  wsSummary['!cols'] = [
+    { wch: 6 },  { wch: 14 }, { wch: 32 }, { wch: 25 },
+    { wch: 28 }, { wch: 25 }, { wch: 28 }, { wch: 25 },
+    { wch: 28 }, { wch: 25 }, { wch: 24 }, { wch: 22 },
+    { wch: 14 }, { wch: 14 }, { wch: 18 }
+  ];
+  XLSX.utils.book_append_sheet(wb, wsSummary, "Tong_Hop");
+
+  // -------------------------------------------------------------
+  // 2. TỪNG SHEET THEO NỘI DUNG THI ĐẤU (14 SHEETS)
+  // -------------------------------------------------------------
+  (DATA.tournaments || []).forEach(tour => {
+    const tScores = (tourScores && tourScores[tour.id]) || {};
+    let sheetName = safeSheetName(tour.name.replace(/\(.*?\)/g, '').trim());
+    if (tour.id === 'bd_m') sheetName = "Bóng đá Nam";
+    else if (tour.id === 'bd_f') sheetName = "Bóng đá Nữ";
+    else if (tour.id === 'cl_2m') sheetName = "Cầu lông Đôi Nam";
+    else if (tour.id === 'cl_2f') sheetName = "Cầu lông Đôi Nữ";
+    else if (tour.id === 'cl_m') sheetName = "Cầu lông Đơn Nam";
+    else if (tour.id === 'cl_f') sheetName = "Cầu lông Đơn Nữ";
+    else if (tour.id === 'cl_mf') sheetName = "Cầu lông Đôi Nam-Nữ";
+    else if (tour.id === 'pk_2m') sheetName = "Pickleball Đôi Nam";
+    else if (tour.id === 'pk_2f') sheetName = "Pickleball Đôi Nữ";
+    else if (tour.id === 'pk_mf') sheetName = "Pickleball Đôi Nam-Nữ";
+    else if (tour.id === 'kc') sheetName = "Kéo co Phối hợp";
+    else if (tour.id === 'bb_m') sheetName = "Bóng bàn Đơn Nam";
+    else if (tour.id === 'bb_f') sheetName = "Bóng bàn Đơn Nữ";
+    else if (tour.id === 'swimming') sheetName = "Bơi lội (6 nội dung)";
+
+    const sheetAoa = [];
+
+    // Header
+    sheetAoa.push([`KẾT QUẢ THI ĐẤU - ${tour.name.toUpperCase()}`]);
+    sheetAoa.push([`Thể lệ thi đấu: ${tour.rules || ''}`]);
+    sheetAoa.push([`Thời gian xuất: ${new Date().toLocaleString('vi-VN')}`]);
+    sheetAoa.push([]);
+
+    // Swimming Tournament handler
+    if (tour.format === 'swimming') {
+      (tour.subEvents || []).forEach(se => {
+        sheetAoa.push([`=== NỘI DUNG: ${se.name.toUpperCase()} ===`]);
+        const allHeats = DATA.swimHeats || [];
+        const ql1 = allHeats.find(h => h.vong === 'Vòng loại' && h.luot === se.qlHeats[0]);
+        const ql2 = allHeats.find(h => h.vong === 'Vòng loại' && h.luot === se.qlHeats[1]);
+        const fnHeat = allHeats.find(h => h.vong === 'Chung kết' && h.luot === se.fnHeat);
+
+        const savedTimes = tScores[se.id] || {};
+        const ql1Times = savedTimes[ql1 ? ql1.id : ''] || {};
+        const ql2Times = savedTimes[ql2 ? ql2.id : ''] || {};
+        const fnTimes = savedTimes[fnHeat ? fnHeat.id : ''] || {};
+
+        const qlSwimmers = [];
+        if (ql1) {
+          ql1.lanes.forEach(l => {
+            if (l.hoVaTen) {
+              const val = ql1Times[l.lan] || '';
+              qlSwimmers.push({ heatName: ql1.noiDung, lane: l.lan, hoVaTen: l.hoVaTen, donVi: l.donVi, timeStr: val, timeSec: parseSwimTime(val) });
+            }
+          });
+        }
+        if (ql2) {
+          ql2.lanes.forEach(l => {
+            if (l.hoVaTen) {
+              const val = ql2Times[l.lan] || '';
+              qlSwimmers.push({ heatName: ql2.noiDung, lane: l.lan, hoVaTen: l.hoVaTen, donVi: l.donVi, timeStr: val, timeSec: parseSwimTime(val) });
+            }
+          });
+        }
+        qlSwimmers.sort((a, b) => a.timeSec - b.timeSec);
+        const finalists = qlSwimmers.slice(0, 6);
+
+        // Vòng loại table
+        sheetAoa.push(["1. KẾT QUẢ VÒNG LOẠI:"]);
+        sheetAoa.push(["Lượt bơi", "Làn bơi", "Họ và tên VĐV", "Đơn vị", "Thời gian vòng loại", "Xếp hạng VL", "Vào Chung kết"]);
+        qlSwimmers.forEach((sw, idx) => {
+          const isTop6 = idx < 6 && sw.timeSec < 999999;
+          sheetAoa.push([
+            sw.heatName,
+            `Làn ${sw.lane}`,
+            sw.hoVaTen,
+            sw.donVi,
+            sw.timeStr || '--',
+            idx + 1,
+            isTop6 ? "VÀO CHUNG KẾT (TOP 6)" : ""
+          ]);
+        });
+        sheetAoa.push([]);
+
+        // Chung kết table
+        sheetAoa.push(["2. KẾT QUẢ VÒNG CHUNG KẾT & XẾP HẠNG HUY CHƯƠNG:"]);
+        sheetAoa.push(["Làn CK", "Họ và tên VĐV", "Đơn vị", "Thời gian Chung kết", "Thứ hạng / Huy chương"]);
+        const finalResults = finalists.map((f, idx) => {
+          const laneNum = idx + 1;
+          const finalTimeStr = fnTimes[laneNum] || '';
+          return {
+            lane: laneNum,
+            hoVaTen: f.hoVaTen,
+            donVi: f.donVi,
+            timeStr: finalTimeStr,
+            timeSec: parseSwimTime(finalTimeStr)
+          };
+        });
+        const sortedFinalists = [...finalResults].sort((a, b) => a.timeSec - b.timeSec);
+        finalResults.forEach(f => {
+          const rankIdx = sortedFinalists.findIndex(x => x.lane === f.lane && x.hoVaTen === f.hoVaTen);
+          let rankLabel = f.timeSec < 999999 ? `Hạng ${rankIdx + 1}` : 'Chưa có kết quả';
+          if (rankIdx === 0 && f.timeSec < 999999) rankLabel = "🥇 VÔ ĐỊCH (HCV)";
+          else if (rankIdx === 1 && f.timeSec < 999999) rankLabel = "🥈 Á QUÂN (HCB)";
+          else if (rankIdx === 2 && f.timeSec < 999999) rankLabel = "🥉 HẠNG BA (HCĐ)";
+          else if (rankIdx === 3 && f.timeSec < 999999) rankLabel = "4️⃣ HẠNG TƯ";
+
+          sheetAoa.push([
+            `Làn ${f.lane}`,
+            f.hoVaTen,
+            f.donVi,
+            f.timeStr || '--',
+            rankLabel
+          ]);
+        });
+        sheetAoa.push([]);
+      });
+
+      const ws = XLSX.utils.aoa_to_sheet(sheetAoa);
+      ws['!cols'] = [
+        { wch: 35 }, { wch: 12 }, { wch: 28 }, { wch: 28 },
+        { wch: 22 }, { wch: 15 }, { wch: 28 }
+      ];
+      XLSX.utils.book_append_sheet(wb, ws, sheetName);
+      return;
+    }
+
+    // Bracket / Group Tournaments
+    let gold = null, silver = null, bronze = null, fourth = null;
+
+    const addMatchRow = (roundTitle, m) => {
+      const sc = tScores[m.id] || {};
+      const s1 = sc.s1 !== undefined && sc.s1 !== null ? sc.s1 : '';
+      const s2 = sc.s2 !== undefined && sc.s2 !== null ? sc.s2 : '';
+      const res = getWinnerAndLoser(m, sc);
+      
+      let winnerText = 'Chưa đấu';
+      if (res.isDecided) {
+        if (res.winner) winnerText = `${getName(res.winner)} (${res.winner.code || ''})`;
+        else winnerText = 'Hòa';
+      }
+
+      sheetAoa.push([
+        roundTitle,
+        m.id,
+        m.time || '',
+        m.venue || '',
+        getCode(m.team1),
+        getName(m.team1),
+        getSub(m.team1),
+        s1,
+        s2,
+        getCode(m.team2),
+        getName(m.team2),
+        getSub(m.team2),
+        winnerText
+      ]);
+    };
+
+    // If has group stages, compute and output standings table
+    if (tour.groups && tour.groups.length > 0) {
+      sheetAoa.push(["BẢNG XẾP HẠNG VÒNG BẢNG:"]);
+      const isFb = tour.format === 'group2_final';
+      sheetAoa.push([
+        "Bảng", "Hạng", "Mã đội", "Tên Đội / VĐV", "Đơn vị",
+        "Trận", "Thắng", isFb ? "Hòa" : "", "Bại",
+        isFb ? "BT-BB" : "Séc T-B", "Hiệu số", "Điểm", "Xếp loại / Vào vòng trong"
+      ].filter(x => x !== ""));
+
+      tour.groups.forEach(grp => {
+        const std = computeGroupStandings(grp, tour.id, isFb);
+        std.forEach((t, idx) => {
+          const row = [
+            grp.name,
+            idx + 1,
+            t.code || '',
+            t.name,
+            t.sub || '',
+            t.played,
+            t.won
+          ];
+          if (isFb) row.push(t.drawn);
+          row.push(t.lost);
+          row.push(`${t.gf}-${t.ga}`);
+          row.push(t.gd);
+          row.push(t.points);
+          row.push(idx < 2 && t.played > 0 ? "VÀO VÒNG TRONG" : "");
+          sheetAoa.push(row);
+        });
+      });
+      sheetAoa.push([]);
+    }
+
+    // Matches Section
+    sheetAoa.push(["CHI TIẾT KẾT QUẢ CÁC TRẬN ĐẤU:"]);
+    sheetAoa.push([
+      "Vòng đấu", "Mã trận", "Thời gian", "Sân / Địa điểm",
+      "Mã Đ1", "Đội 1 (VĐV)", "Đơn vị Đ1",
+      "Tỉ số 1", "Tỉ số 2",
+      "Mã Đ2", "Đội 2 (VĐV)", "Đơn vị Đ2",
+      "Đội thắng cuộc"
+    ]);
+
+    if (tour.format === 'knockout8') {
+      const roundTK = tour.rounds.find(r => r.id === 'tk');
+      const roundBK = tour.rounds.find(r => r.id === 'bk');
+      const roundFN = tour.rounds.find(r => r.id === 'fn');
+      if (roundTK) roundTK.matches.forEach(m => addMatchRow("Tứ kết", m));
+      if (roundBK) roundBK.matches.forEach(m => addMatchRow("Bán kết", m));
+      if (roundFN) {
+        const mCK = roundFN.matches.find(m => m.isFinal || m.id.endsWith('CK'));
+        const m34 = roundFN.matches.find(m => m.isThirdPlace || m.id.includes('3-4') || m.id.includes('Ba-Tư'));
+        if (mCK) {
+          addMatchRow("Chung kết (Tranh 1-2)", mCK);
+          const res = getWinnerAndLoser(mCK, tScores[mCK.id] || {});
+          gold = res.winner;
+          silver = res.loser;
+        }
+        if (m34) {
+          addMatchRow("Tranh Hạng 3-4", m34);
+          const res = getWinnerAndLoser(m34, tScores[m34.id] || {});
+          bronze = res.winner;
+          fourth = res.loser;
+        }
+      }
+    } else if (tour.format === 'group2_cross') {
+      tour.groups.forEach(g => {
+        (g.matches || []).forEach(m => addMatchRow(`Vòng bảng (${g.name})`, m));
+      });
+      if (tour.knockout) {
+        const rBK = tour.knockout.find(r => r.id === 'bk');
+        const rFN = tour.knockout.find(r => r.id === 'fn');
+        if (rBK) rBK.matches.forEach(m => addMatchRow("Bán kết chéo", m));
+        if (rFN) {
+          const mCK = rFN.matches.find(m => m.isFinal || m.id.endsWith('CK'));
+          const m34 = rFN.matches.find(m => m.isThirdPlace || m.id.includes('3-4'));
+          if (mCK) {
+            addMatchRow("Chung kết (Tranh 1-2)", mCK);
+            const res = getWinnerAndLoser(mCK, tScores[mCK.id] || {});
+            gold = res.winner;
+            silver = res.loser;
+          }
+          if (m34) {
+            addMatchRow("Tranh Hạng 3-4", m34);
+            const res = getWinnerAndLoser(m34, tScores[m34.id] || {});
+            bronze = res.winner;
+            fourth = res.loser;
+          }
+        }
+      }
+    } else if (tour.format === 'group2_final') {
+      tour.groups.forEach(g => {
+        (g.matches || []).forEach(m => addMatchRow(`Vòng bảng (${g.name})`, m));
+      });
+      (tour.finals || []).forEach(m => {
+        const isCK = m.isFinal || m.id.endsWith('CK');
+        addMatchRow(isCK ? "Chung kết (Tranh 1-2)" : "Tranh Hạng 3-4", m);
+        const res = getWinnerAndLoser(m, tScores[m.id] || {});
+        if (isCK) { gold = res.winner; silver = res.loser; }
+        else { bronze = res.winner; fourth = res.loser; }
+      });
+    } else if (tour.format === 'tabletennis_men') {
+      (tour.playoffs || []).forEach(m => addMatchRow("Vòng Play-off", m));
+      tour.groups.forEach(g => {
+        (g.matches || []).forEach(m => addMatchRow(`Vòng bảng (${g.name})`, m));
+      });
+      if (tour.knockout) {
+        const rBK = tour.knockout.find(r => r.id === 'bk');
+        const rFN = tour.knockout.find(r => r.id === 'fn');
+        if (rBK) rBK.matches.forEach(m => addMatchRow("Bán kết", m));
+        if (rFN) {
+          const mCK = rFN.matches.find(m => m.isFinal || m.id.endsWith('CK'));
+          const m34 = rFN.matches.find(m => m.isThirdPlace || m.id.includes('3-4'));
+          if (mCK) {
+            addMatchRow("Chung kết (Tranh 1-2)", mCK);
+            const res = getWinnerAndLoser(mCK, tScores[mCK.id] || {});
+            gold = res.winner;
+            silver = res.loser;
+          }
+          if (m34) {
+            addMatchRow("Tranh Hạng 3-4", m34);
+            const res = getWinnerAndLoser(m34, tScores[m34.id] || {});
+            bronze = res.winner;
+            fourth = res.loser;
+          }
+        }
+      }
+    } else if (tour.format === 'group3_roundrobin') {
+      tour.groups.forEach(g => {
+        (g.matches || []).forEach(m => addMatchRow(`Vòng bảng (${g.name})`, m));
+      });
+      const fnMatches = (tour.finalRound && tour.finalRound.matches) ? tour.finalRound.matches : [];
+      if (fnMatches.length > 0) {
+        fnMatches.forEach(m => addMatchRow("Vòng tròn Chung kết", m));
+        const finalGroupObj = {
+          teams: [
+            { id: '1A', name: fnMatches[0].team1.name },
+            { id: '1B', name: fnMatches[0].team2.name },
+            { id: '1C', name: fnMatches[1].team2.name }
+          ],
+          matches: [
+            { id: fnMatches[0].id, team1: '1A', team2: '1B' },
+            { id: fnMatches[1].id, team1: '1B', team2: '1C' },
+            { id: fnMatches[2].id, team1: '1C', team2: '1A' }
+          ]
+        };
+        const finalStds = computeGroupStandings(finalGroupObj, tour.id, false);
+        if (finalStds.some(s => s.played > 0)) {
+          gold = finalStds[0];
+          silver = finalStds[1];
+          bronze = finalStds[2];
+        }
+      }
+    }
+
+    // Podium summary at bottom
+    sheetAoa.push([]);
+    sheetAoa.push(["BỤC VINH QUANG CHUNG CUỘC:"]);
+    sheetAoa.push(["Thứ hạng", "Đội thi / VĐV", "Đơn vị / Phụ chú"]);
+    sheetAoa.push(["🥇 VÔ ĐỊCH (HCV)", gold && !gold.isPlaceholder ? getName(gold) : "Chưa xác định", gold && !gold.isPlaceholder ? getSub(gold) : ""]);
+    sheetAoa.push(["🥈 Á QUÂN (HCB)", silver && !silver.isPlaceholder ? getName(silver) : "Chưa xác định", silver && !silver.isPlaceholder ? getSub(silver) : ""]);
+    sheetAoa.push(["🥉 HẠNG BA (HCĐ)", bronze && !bronze.isPlaceholder ? getName(bronze) : "Chưa xác định", bronze && !bronze.isPlaceholder ? getSub(bronze) : ""]);
+    if (fourth) {
+      sheetAoa.push(["4️⃣ HẠNG TƯ", fourth && !fourth.isPlaceholder ? getName(fourth) : "", fourth && !fourth.isPlaceholder ? getSub(fourth) : ""]);
+    }
+
+    const ws = XLSX.utils.aoa_to_sheet(sheetAoa);
+    ws['!cols'] = [
+      { wch: 22 }, { wch: 14 }, { wch: 16 }, { wch: 18 },
+      { wch: 12 }, { wch: 28 }, { wch: 24 },
+      { wch: 10 }, { wch: 10 },
+      { wch: 12 }, { wch: 28 }, { wch: 24 },
+      { wch: 30 }
+    ];
+    XLSX.utils.book_append_sheet(wb, ws, sheetName);
+  });
+
+  const timestamp = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+  const filename = `DHMT2026_Ket_Qua_Cac_Mon_${timestamp}.xlsx`;
+  XLSX.writeFile(wb, filename);
+  
+  if (typeof showRealtimeToast === 'function') {
+    showRealtimeToast(`📊 Đã xuất file Excel kết quả 15 sheet (${filename}) thành công!`);
+  }
+}
+
 
 // XUẤT BẢNG KẾT QUẢ EXCEL 9 SHEET
 function exportResultExcel() {

@@ -6709,10 +6709,13 @@ function renderMatchCard(tourId, match, options = {}) {
 
 // Podium component renderer
 function renderPodiumBox(gold, silver, bronze, fourth) {
-  const isGoldValid = gold && !gold.isPlaceholder;
-  const isSilverValid = silver && !silver.isPlaceholder;
-  const isBronzeValid = bronze && !bronze.isPlaceholder;
-  const isFourthValid = fourth && !fourth.isPlaceholder;
+  const getName = (item) => (item ? (item.name || item.hoVaTen || '') : '');
+  const getSub = (item) => (item ? (item.sub || item.donVi || '') : '');
+
+  const isGoldValid = gold && !gold.isPlaceholder && !!getName(gold);
+  const isSilverValid = silver && !silver.isPlaceholder && !!getName(silver);
+  const isBronzeValid = bronze && !bronze.isPlaceholder && !!getName(bronze);
+  const isFourthValid = fourth && !fourth.isPlaceholder && !!getName(fourth);
 
   return `
     <div class="podium-box">
@@ -6729,9 +6732,9 @@ function renderPodiumBox(gold, silver, bronze, fourth) {
           <div class="min-w-0 flex-1">
             <span class="text-[10px] font-black uppercase text-amber-600 block">VÔ ĐỊCH (HCV)</span>
             ${isGoldValid ? `
-              <strong class="text-slate-900 text-sm break-words block font-black leading-snug" title="${escHtml(gold.name)}">${escHtml(gold.name)}</strong>
-              ${gold.sub ? `<span class="text-[10px] text-slate-500 block break-words mt-0.5 leading-tight" title="${escHtml(gold.sub)}">${escHtml(gold.sub)}</span>` : ''}
-            ` : '<span class="text-slate-400 italic font-normal text-xs">Chờ chung kết</span>'}
+              <strong class="text-slate-900 text-sm break-words block font-black leading-snug" title="${escHtml(getName(gold))}">${escHtml(getName(gold))}</strong>
+              ${getSub(gold) ? `<span class="text-[10px] text-slate-500 block break-words mt-0.5 leading-tight" title="${escHtml(getSub(gold))}">${escHtml(getSub(gold))}</span>` : ''}
+            ` : '<span class="text-slate-400 italic font-normal text-xs">Chờ kết quả</span>'}
           </div>
         </div>
 
@@ -6741,9 +6744,9 @@ function renderPodiumBox(gold, silver, bronze, fourth) {
           <div class="min-w-0 flex-1">
             <span class="text-[10px] font-black uppercase text-slate-500 block">Á QUÂN (HCB)</span>
             ${isSilverValid ? `
-              <strong class="text-slate-800 text-xs break-words block font-bold leading-snug" title="${escHtml(silver.name)}">${escHtml(silver.name)}</strong>
-              ${silver.sub ? `<span class="text-[10px] text-slate-500 block break-words mt-0.5 leading-tight" title="${escHtml(silver.sub)}">${escHtml(silver.sub)}</span>` : ''}
-            ` : '<span class="text-slate-400 italic font-normal text-xs">Chờ chung kết</span>'}
+              <strong class="text-slate-800 text-xs break-words block font-bold leading-snug" title="${escHtml(getName(silver))}">${escHtml(getName(silver))}</strong>
+              ${getSub(silver) ? `<span class="text-[10px] text-slate-500 block break-words mt-0.5 leading-tight" title="${escHtml(getSub(silver))}">${escHtml(getSub(silver))}</span>` : ''}
+            ` : '<span class="text-slate-400 italic font-normal text-xs">Chờ kết quả</span>'}
           </div>
         </div>
 
@@ -6753,9 +6756,9 @@ function renderPodiumBox(gold, silver, bronze, fourth) {
           <div class="min-w-0 flex-1">
             <span class="text-[10px] font-black uppercase text-amber-700 block">HẠNG BA (HCĐ)</span>
             ${isBronzeValid ? `
-              <strong class="text-slate-800 text-xs break-words block font-bold leading-snug" title="${escHtml(bronze.name)}">${escHtml(bronze.name)}</strong>
-              ${bronze.sub ? `<span class="text-[10px] text-slate-500 block break-words mt-0.5 leading-tight" title="${escHtml(bronze.sub)}">${escHtml(bronze.sub)}</span>` : ''}
-            ` : '<span class="text-slate-400 italic font-normal text-xs">Chờ tranh 3-4</span>'}
+              <strong class="text-slate-800 text-xs break-words block font-bold leading-snug" title="${escHtml(getName(bronze))}">${escHtml(getName(bronze))}</strong>
+              ${getSub(bronze) ? `<span class="text-[10px] text-slate-500 block break-words mt-0.5 leading-tight" title="${escHtml(getSub(bronze))}">${escHtml(getSub(bronze))}</span>` : ''}
+            ` : '<span class="text-slate-400 italic font-normal text-xs">Chờ kết quả</span>'}
           </div>
         </div>
 
@@ -6763,7 +6766,7 @@ function renderPodiumBox(gold, silver, bronze, fourth) {
         ${fourth ? `
         <div class="bg-white/50 p-1.5 px-2.5 rounded-lg border border-slate-200/60 flex items-center gap-2 text-[11px]">
           <span class="font-bold text-slate-400">4️⃣</span>
-          <span class="text-slate-600 break-words flex-1 font-semibold" title="${escHtml(fourth.name)}">Hạng Tư: <strong>${escHtml(fourth.name)}</strong></span>
+          <span class="text-slate-600 break-words flex-1 font-semibold" title="${escHtml(getName(fourth))}">Hạng Tư: <strong>${escHtml(getName(fourth))}</strong>${getSub(fourth) ? ` <span class="text-slate-400 font-normal">(${escHtml(getSub(fourth))})</span>` : ''}</span>
         </div>` : ''}
       </div>
     </div>`;
@@ -7303,10 +7306,21 @@ function renderSwimmingTournament(tour) {
   });
   
   const sortedFinalists = [...finalResults].sort((a, b) => a.timeSec - b.timeSec);
-  const gold = sortedFinalists[0] && sortedFinalists[0].timeSec < 999999 ? sortedFinalists[0] : null;
-  const silver = sortedFinalists[1] && sortedFinalists[1].timeSec < 999999 ? sortedFinalists[1] : null;
-  const bronze = sortedFinalists[2] && sortedFinalists[2].timeSec < 999999 ? sortedFinalists[2] : null;
-  const fourth = sortedFinalists[3] && sortedFinalists[3].timeSec < 999999 ? sortedFinalists[3] : null;
+  const formatSwimmerForPodium = (sw) => {
+    if (!sw) return null;
+    return {
+      name: sw.hoVaTen,
+      sub: sw.donVi + (sw.timeStr ? ` · ⏱️ ${sw.timeStr}` : ''),
+      hoVaTen: sw.hoVaTen,
+      donVi: sw.donVi,
+      timeStr: sw.timeStr
+    };
+  };
+
+  const gold = sortedFinalists[0] && sortedFinalists[0].timeSec < 999999 ? formatSwimmerForPodium(sortedFinalists[0]) : null;
+  const silver = sortedFinalists[1] && sortedFinalists[1].timeSec < 999999 ? formatSwimmerForPodium(sortedFinalists[1]) : null;
+  const bronze = sortedFinalists[2] && sortedFinalists[2].timeSec < 999999 ? formatSwimmerForPodium(sortedFinalists[2]) : null;
+  const fourth = sortedFinalists[3] && sortedFinalists[3].timeSec < 999999 ? formatSwimmerForPodium(sortedFinalists[3]) : null;
 
   return `
     <div class="space-y-6">
@@ -7401,8 +7415,8 @@ function renderSwimmingTournament(tour) {
                     <div class="flex items-center justify-between text-xs p-1.5 bg-amber-50/40 rounded-lg border border-amber-100">
                       <div class="flex items-center gap-1.5 min-w-0 flex-1">
                         <span class="px-1.5 py-0.5 rounded text-[9px] font-black bg-amber-500 text-white">Làn ${laneNum}</span>
-                        <span class="font-bold text-slate-900 truncate">${fSw ? escHtml(fSw.hoVaTen) : '<em class="text-slate-400 font-normal">Chờ top 6</em>'}</span>
-                        ${fSw ? `<span class="text-slate-400 text-[10px] truncate">(${escHtml(fSw.donVi)})</span>` : ''}
+                        <span class="font-bold text-slate-900 break-words" title="${fSw ? escHtml(fSw.hoVaTen) : ''}">${fSw ? escHtml(fSw.hoVaTen) : '<em class="text-slate-400 font-normal">Chờ top 6</em>'}</span>
+                        ${fSw ? `<span class="text-slate-400 text-[10px] break-words" title="${escHtml(fSw.donVi)}">(${escHtml(fSw.donVi)})</span>` : ''}
                       </div>
                       ${canEditSwim ? `
                       <input type="text" placeholder="vd 31.8s" value="${escHtml(curVal)}"
